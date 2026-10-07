@@ -1,0 +1,30 @@
+2026-10-07 14:37:29,142 | INFO | ============================================================
+2026-10-07 14:37:29,142 | INFO | Training model: wavlm  dataset: ravdess
+2026-10-07 14:37:29,143 | INFO | audio_root: C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 14:37:29,146 | INFO | args: Namespace(model='wavlm', dataset='ravdess', epochs=1, batch_size=4, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=16, skip_audio_check=False)
+2026-10-07 14:37:29,147 | INFO | ============================================================
+2026-10-07 14:37:32,843 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 14:37:32,856 | INFO | Dataset validation passed.
+2026-10-07 14:37:32,857 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 14:37:32,857 | INFO | Loading checkpoint: microsoft/wavlm-base
+2026-10-07 14:38:37,192 | INFO | epoch=1 train_loss=1.7805 dev_loss=1.7938 acc=0.1667 macro_f1=0.0476
+2026-10-07 14:38:40,062 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wavlm
+2026-10-07 14:38:40,236 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wavlm_confusion_matrix.png
+2026-10-07 14:38:40,237 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wavlm_classification_report.csv
+2026-10-07 14:38:40,238 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wavlm_training_report.md
+2026-10-07 14:38:40,254 | INFO | DONE wavlm — test_accuracy=0.1667 macro_f1=0.0476
+2026-10-07 14:48:46,113 | INFO | ============================================================
+2026-10-07 14:48:46,113 | INFO | Training model: wavlm  dataset: ravdess
+2026-10-07 14:48:46,113 | INFO | audio_root: C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 14:48:46,113 | INFO | args: Namespace(model='wavlm', dataset='ravdess', epochs=1, batch_size=4, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=16, skip_audio_check=False)
+2026-10-07 14:48:46,113 | INFO | ============================================================
+2026-10-07 14:48:49,584 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 14:48:49,598 | INFO | Dataset validation passed.
+2026-10-07 14:48:49,600 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 14:48:49,600 | INFO | Loading checkpoint: microsoft/wavlm-base
+2026-10-07 14:48:57,289 | INFO | epoch=1 train_loss=1.7805 dev_loss=1.7938 acc=0.1667 macro_f1=0.0476
+2026-10-07 14:49:00,190 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wavlm
+2026-10-07 14:49:00,375 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wavlm_confusion_matrix.png
+2026-10-07 14:49:00,376 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wavlm_classification_report.csv
+2026-10-07 14:49:00,376 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wavlm_training_report.md
+2026-10-07 14:49:00,395 | INFO | DONE wavlm — test_accuracy=0.1667 macro_f1=0.0476
