@@ -8,49 +8,27 @@ __pycache__/
 venv/
 env/
 
-# Downloaded datasets and archives
-data/raw/*
-data/raw
-!data/raw/.gitkeep
+# Gigabyte-scale raw media and archive downloads (>100MB)
+data/raw/cmu_mosei/
+data/raw/ravdess/Actor_*/
 *.zip
 
-# Keep lightweight processed manifests and metadata, not regenerated binaries.
-data/processed/*
-!data/processed/
-!data/processed/**/
-!data/processed/**/*.csv
-!data/processed/**/*.json
-!data/processed/**/*.md
-data/processed/**/*.parquet
+# Optimizer states, training caches, and intermediate checkpoints (>500MB)
+models/**/optimizer.pt
+models/**/rng_state.pth
+models/**/scheduler.pt
+models/runs_*/checkpoint-2904/
+models/runs_*/checkpoint-5808/
+models/runs_*/checkpoint-8712/optimizer.pt
+models/runs_*/checkpoint-8712/model.safetensors
 
-# Vendored/downloaded external datasets and generated feature stores
-data/external/*
-data/external
-
-# Generated ML artifacts, checkpoints, logs, and reports
-models/*
-!models/__init__.py
-!models/comparison_grid.py
-!models/run_pipeline.py
-!models/training_plan.py
-!models/*.py
-!models/*.md
-models/audio/
-models/runs_*/
-models/**/checkpoint-*/
-models/**/*.safetensors
-models/**/*.bin
-models/**/*.pt
-models/**/*.pth
-models/**/*.png
-models/**/*.csv
-models/**/*.log
-models/**/audio_training_log.txt
-
-# OS / editor
+# OS / editor / agent cache
 .DS_Store
 *.swp
+.freebuff/
+.kilo/
+.kilocode/
 
 # Environment
 .env
-.venv/
+
