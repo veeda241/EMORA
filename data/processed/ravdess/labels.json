@@ -1,9 +1,10 @@
 {
   "dataset": "RAVDESS",
-  "source_metadata": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess\\ravdess_metadata.csv",
-  "audio_root": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess",
+  "source_metadata": "C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess\\ravdess_metadata.csv",
+  "audio_root": "C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess",
   "total_rows": 1152,
   "validated_audio_files": 1152,
+  "missing_audio_files": 0,
   "labels": [
     "angry",
     "disgust",
