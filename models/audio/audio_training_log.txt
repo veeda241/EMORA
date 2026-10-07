@@ -1,0 +1,489 @@
+2026-10-06 08:12:17,296 | INFO | audio root: models\audio\test_meld
+2026-10-06 08:12:17,296 | INFO | args: Namespace(epochs=1, batch_size=1, learning_rate=2e-05, seed=42, log_interval=20, audio_root='models/audio/test_meld', max_train_samples=1)
+2026-10-06 08:12:17,317 | INFO | Device: cuda
+2026-10-06 08:12:17,318 | INFO | CUDA available: True
+2026-10-06 08:12:17,383 | INFO | MELD rows: train=9989 dev=1109 test=2610
+2026-10-06 08:12:17,386 | INFO | num_labels=7 label_names=['anger', 'disgust', 'fear', 'joy', 'neutral', 'sadness', 'surprise']
+2026-10-06 08:12:17,393 | INFO | Dataset validation passed.
+2026-10-06 08:12:17,393 | INFO | Loading facebook/wav2vec2-base
+2026-10-06 08:12:21,489 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 758, in main
+    result = train(args, logger, audio_root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 393, in train
+    for batch_idx, batch in enumerate(train_loader, start=1):
+  File "C:\Users\Vyas S\AppData\Roaming\Python\Python311\site-packages\torch\utils\data\dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vyas S\AppData\Roaming\Python\Python311\site-packages\torch\utils\data\dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vyas S\AppData\Roaming\Python\Python311\site-packages\torch\utils\data\_utils\fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Vyas S\AppData\Roaming\Python\Python311\site-packages\torch\utils\data\_utils\fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 132, in __getitem__
+    waveform = load_and_resample(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 84, in load_and_resample
+    path = resolver(row, audio_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 69, in default_resolve_audio_path
+    raise FileNotFoundError(
+FileNotFoundError: Cannot locate audio for utterance Dialogue_ID='0' Utterance_ID='0' Season='8' Episode='21' under WindowsPath('models/audio/test_meld'). Tried: WindowsPath('models/audio/test_meld/Episode8_21/dial8_0_utt0.wav')
+2026-10-07 05:18:06,367 | INFO | audio root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\audio
+2026-10-07 05:18:06,370 | INFO | args: Namespace(epochs=3, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\audio', max_train_samples=None)
+2026-10-07 05:18:06,436 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 05:18:06,436 | INFO | CUDA version: 12.8
+2026-10-07 05:18:06,509 | INFO | MELD rows: train=9989 dev=1109 test=2610
+2026-10-07 05:18:06,511 | INFO | num_labels=7 label_names=['anger', 'disgust', 'fear', 'joy', 'neutral', 'sadness', 'surprise']
+2026-10-07 05:18:06,515 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 786, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 347, in train
+    report = validate_dataset(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 262, in validate_dataset
+    raise RuntimeError(
+    ...<13 lines>...
+    )
+RuntimeError: No MELD audio files were found under the configured audio root.
+Dataset inspection found complete MELD CSVs, but training cannot proceed until aligned audio is available.
+Configured audio root: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/audio')
+
+Before running this script, either:
+1. Place the MELD audio directory at the configured path, or
+2. Pass a different audio root with --audio-root.
+
+Also confirm:
+- Which audio file naming/alignment convention is used.
+- The audio sample rate and container format.
+- How to map (Season, Episode, StartTime, EndTime) to an audio segment.
+- Whether train/dev/test overlap by (Dialogue_ID, Utterance_ID) should be removed before training.
+
+2026-10-07 05:24:42,830 | INFO | audio root: WindowsPath('C:/Users/Vyas S/AppData/Local/Temp/does_not_exist_meld_audio_root_xyz')
+2026-10-07 05:24:42,831 | INFO | args: Namespace(epochs=3, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:/Users/Vyas S/AppData/Local/Temp/does_not_exist_meld_audio_root_xyz', max_train_samples=None)
+2026-10-07 05:24:42,831 | INFO | Running MELD audio pre-flight check for: WindowsPath('C:/Users/Vyas S/AppData/Local/Temp/does_not_exist_meld_audio_root_xyz')
+2026-10-07 05:26:15,033 | INFO | audio root: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/tmp_missing_audio_root_check')
+2026-10-07 05:26:15,033 | INFO | args: Namespace(epochs=3, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/tmp_missing_audio_root_check', max_train_samples=None)
+2026-10-07 05:26:15,033 | INFO | Running MELD audio pre-flight check for: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/tmp_missing_audio_root_check')
+2026-10-07 05:31:43,430 | INFO | audio root: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/audio')
+2026-10-07 05:31:43,431 | INFO | args: Namespace(epochs=3, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\audio', max_train_samples=None)
+2026-10-07 05:31:43,431 | INFO | Running MELD audio pre-flight check for: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/audio')
+2026-10-07 05:53:23,338 | INFO | audio root: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/audio')
+2026-10-07 05:53:23,339 | INFO | args: Namespace(epochs=3, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\audio', max_train_samples=None)
+2026-10-07 05:53:23,339 | INFO | Running MELD audio pre-flight check for: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/audio')
+2026-10-07 05:55:06,328 | INFO | audio root: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/audio')
+2026-10-07 05:55:06,328 | INFO | args: Namespace(epochs=3, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\audio', max_train_samples=None)
+2026-10-07 05:55:06,329 | INFO | Running MELD audio pre-flight check for: WindowsPath('C:/hackathon/Gemini_CLI/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/audio')
+2026-10-07 07:53:39,458 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 07:53:39,459 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 07:53:39,459 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 07:53:39,634 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 07:53:39,797 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 07:53:39,797 | INFO | CUDA version: 12.8
+2026-10-07 07:53:39,906 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 07:53:39,906 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 07:53:39,910 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1022, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 468, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 395, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-02-01.wav')
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 07:56:17,435 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 07:56:17,436 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 07:56:17,436 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 07:56:17,652 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 07:56:17,698 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 07:56:17,698 | INFO | CUDA version: 12.8
+2026-10-07 07:56:17,709 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 07:56:17,709 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 07:56:17,720 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1039, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 480, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 403, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-02-01.wav')
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 07:57:59,414 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 07:57:59,414 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 07:57:59,415 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 07:57:59,626 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 07:57:59,666 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 07:57:59,666 | INFO | CUDA version: 12.8
+2026-10-07 07:57:59,684 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 07:57:59,684 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 07:57:59,691 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1041, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 482, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 403, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-02-01.wav')
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 07:58:54,897 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 07:58:54,897 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 07:58:54,898 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 07:58:55,037 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 07:58:55,066 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 07:58:55,066 | INFO | CUDA version: 12.8
+2026-10-07 07:58:55,119 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 07:58:55,119 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 07:58:55,125 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1041, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 482, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 403, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-02-01.wav')
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 07:59:30,292 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 07:59:30,292 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 07:59:30,292 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 07:59:30,491 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 07:59:30,535 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 07:59:30,536 | INFO | CUDA version: 12.8
+2026-10-07 07:59:30,578 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 07:59:30,578 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 07:59:30,587 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1041, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 482, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 403, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-01-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-01-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-03-02-02-02-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-01-01.wav')
+train: missing WindowsPath('data/raw/ravdess/data/raw/ravdess/Actor_01/03-01-04-01-01-02-01.wav')
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 08:01:04,027 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:01:04,027 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:01:04,027 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:01:04,225 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:01:04,265 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:01:04,265 | INFO | CUDA version: 12.8
+2026-10-07 08:01:04,275 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:01:04,275 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:01:04,281 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1043, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 484, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 405, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-02-01.wav
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 08:06:41,202 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:06:41,205 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:06:41,205 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:06:41,342 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:06:41,429 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:06:41,429 | INFO | CUDA version: 12.8
+2026-10-07 08:06:41,442 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:06:41,442 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:06:41,446 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1046, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 487, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 405, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-02-01.wav
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 08:07:45,930 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:07:45,930 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:07:45,930 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:07:46,082 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:07:46,113 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:07:46,113 | INFO | CUDA version: 12.8
+2026-10-07 08:07:46,125 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:07:46,125 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:07:46,129 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1047, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 488, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 405, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-02-01.wav
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 08:10:32,833 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:10:32,835 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:10:32,835 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:10:32,993 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:10:33,086 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:10:33,087 | INFO | CUDA version: 12.8
+2026-10-07 08:10:33,097 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:10:33,097 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:10:33,102 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1051, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 492, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 405, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-02-01.wav
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 08:11:47,362 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:11:47,368 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:11:47,369 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:11:47,554 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:11:47,587 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:11:47,587 | INFO | CUDA version: 12.8
+2026-10-07 08:11:47,595 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:11:47,595 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:11:47,599 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1060, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 501, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 405, in validate_dataset_ravdess
+    raise FileNotFoundError(
+    ...<4 lines>...
+    )
+FileNotFoundError: RAVDESS audio validation failed. Some metadata rows have no matching audio file.
+The first missing files are:
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-01-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-01-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-03-02-02-02-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-01-01.wav
+train: missing data\raw\ravdess\data\raw\ravdess\Actor_01\03-01-04-01-01-02-01.wav
+Ensure every metadata row points to an extracted WAV under data/raw/ravdess/.
+
+2026-10-07 08:13:57,816 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:13:57,817 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:13:57,817 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:13:57,868 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:13:57,868 | INFO | Selected dataset: ravdess
+2026-10-07 08:13:57,868 | INFO | Audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:13:57,927 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:13:57,927 | INFO | CUDA version: 12.8
+2026-10-07 08:13:58,000 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:13:58,000 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:13:58,051 | INFO | RAVDESS dataset validation passed.
+2026-10-07 08:13:58,051 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 08:14:04,159 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1063, in main
+    result = train(args, logger, audio_root)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 599, in train
+    for batch_idx, batch in enumerate(train_loader, start=1):
+                            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\torch\utils\data\dataloader.py", line 741, in __next__
+    data = self._next_data()
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\torch\utils\data\dataloader.py", line 801, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\torch\utils\data\_utils\fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 156, in __getitem__
+    label = int(self.label2id[row["Emotion"]])
+                              ~~~^^^^^^^^^^^
+KeyError: 'Emotion'
+2026-10-07 08:15:24,050 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:15:24,052 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:15:24,052 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:15:24,256 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:15:24,256 | INFO | Selected dataset: ravdess
+2026-10-07 08:15:24,256 | INFO | Audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:15:24,385 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:15:24,386 | INFO | CUDA version: 12.8
+2026-10-07 08:15:24,400 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:15:24,400 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:15:24,570 | INFO | RAVDESS dataset validation passed.
+2026-10-07 08:15:24,570 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 08:15:38,313 | INFO | epoch=1 train_loss=1.7141 dev_loss=1.7979 accuracy=0.1667 macro_f1=0.0476 weighted_f1=0.0476
+2026-10-07 08:15:51,134 | INFO | Saved model to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 08:15:56,505 | INFO | Saved confusion matrix to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\ravdess_confusion_matrix.png
+2026-10-07 08:15:56,529 | INFO | Saved classification report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
+2026-10-07 08:15:56,532 | INFO | Saved report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
+2026-10-07 08:15:56,568 | INFO | Done. model_path=C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 08:20:02,322 | INFO | audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:20:02,323 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='data/raw/ravdess', max_train_samples=8)
+2026-10-07 08:20:02,323 | INFO | Running MELD audio pre-flight check for: WindowsPath('data/raw/ravdess')
+2026-10-07 08:20:02,439 | INFO | MELD audio pre-flight OK: 1152 audio file(s) found under WindowsPath('data/raw/ravdess')
+2026-10-07 08:20:02,439 | INFO | Selected dataset: ravdess
+2026-10-07 08:20:02,439 | INFO | Audio root: WindowsPath('data/raw/ravdess')
+2026-10-07 08:20:02,518 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 08:20:02,519 | INFO | CUDA version: 12.8
+2026-10-07 08:20:02,532 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 08:20:02,533 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 08:20:02,689 | INFO | RAVDESS dataset validation passed.
+2026-10-07 08:20:02,689 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 08:20:14,695 | INFO | epoch=1 train_loss=1.7141 dev_loss=1.7979 accuracy=0.1667 macro_f1=0.0476 weighted_f1=0.0476
+2026-10-07 08:20:22,091 | INFO | Saved model to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 08:20:22,588 | INFO | Saved confusion matrix to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\ravdess_confusion_matrix.png
+2026-10-07 08:20:22,589 | INFO | Saved classification report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
+2026-10-07 08:20:22,590 | INFO | Saved report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
+2026-10-07 08:20:22,605 | INFO | Done. model_path=C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
