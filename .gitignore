@@ -22,6 +22,13 @@ models/runs_*/checkpoint-5808/
 models/runs_*/checkpoint-8712/optimizer.pt
 models/runs_*/checkpoint-8712/model.safetensors
 
+# Large trained model weights (>100 MB — exceeds GitHub file limit)
+# Load from HuggingFace Hub or retrain locally using train_all_audio_models.py
+models/audio/runs_wav2vec2/model.safetensors
+models/audio/runs_wavlm/model.safetensors
+models/audio/runs_emotion2vec/model.safetensors
+models/audio/runs_emotion2vec/model_state_dict.pt
+
 # OS / editor / agent cache
 .DS_Store
 *.swp
