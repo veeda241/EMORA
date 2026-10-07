@@ -57,10 +57,17 @@ def prepare(args: argparse.Namespace) -> None:
         if not (args.input_dir / Path(path)).is_file()
     ]
     if missing_files:
-        sample = "\n".join(missing_files[:10])
-        raise FileNotFoundError(
-            f"{len(missing_files)} metadata files are missing under {args.input_dir}.\n"
-            f"First missing paths:\n{sample}"
+        if not args.skip_audio_check:
+            sample = "\n".join(missing_files[:10])
+            raise FileNotFoundError(
+                f"{len(missing_files)} metadata files are missing under {args.input_dir}.\n"
+                f"First missing paths:\n{sample}\n\n"
+                f"Run with --skip-audio-check to generate processed outputs "
+                f"without validating audio files on disk."
+            )
+        print(
+            f"[warn] {len(missing_files)} audio files not found under {args.input_dir} "
+            f"(--skip-audio-check is set; continuing without file validation)."
         )
 
     allowed_splits = {"train", "validation", "test"}
@@ -114,7 +121,8 @@ def prepare(args: argparse.Namespace) -> None:
         "source_metadata": str(metadata_path),
         "audio_root": str(args.input_dir),
         "total_rows": int(len(frame)),
-        "validated_audio_files": int(len(frame)),
+        "validated_audio_files": int(len(frame) - len(missing_files)),
+        "missing_audio_files": int(len(missing_files)),
         "labels": labels,
         "label2id": label2id,
         "split_counts": frame["split"].value_counts().sort_index().to_dict(),
@@ -143,6 +151,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-dir", type=Path, default=DEFAULT_INPUT)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--skip-audio-check",
+        action="store_true",
+        default=False,
+        help="Skip validation that each audio file exists on disk. "
+             "Useful when only the metadata CSV is present.",
+    )
     prepare(parser.parse_args())
 
 
