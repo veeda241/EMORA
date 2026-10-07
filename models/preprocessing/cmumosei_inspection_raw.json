@@ -1,0 +1,343 @@
+{
+  "files": {
+    "COVAREP": {
+      "path": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\cmu_mosei\\CMU_MOSEI_COVAREP.csd"
+    },
+    "Labels": {
+      "path": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\cmu_mosei\\CMU_MOSEI_Labels.csd"
+    },
+    "Words": {
+      "path": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\cmu_mosei\\CMU_MOSEI_TimestampedWords.csd"
+    },
+    "OpenFace2": {
+      "path": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\cmu_mosei\\CMU_MOSEI_OpenFace2.csd"
+    },
+    "Facet42": {
+      "path": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\cmu_mosei\\CMU_MOSEI_VisualFacet42.csd"
+    }
+  },
+  "folds": {
+    "standard_train_fold": 2249,
+    "standard_valid_fold": 300,
+    "standard_test_fold": 678,
+    "train_valid_overlap": 0,
+    "train_test_overlap": 0,
+    "valid_test_overlap": 0,
+    "clips_in_official_folds": 3227
+  },
+  "csd_structure": {
+    "COVAREP": {
+      "clip": "--qXJuDtHPw",
+      "keys": [
+        "features",
+        "intervals"
+      ],
+      "features_shape": [
+        5721,
+        74
+      ],
+      "features_dtype": "float32",
+      "has_intervals": true,
+      "intervals_shape": [
+        5721,
+        2
+      ],
+      "intervals_dtype": "float64",
+      "interval_first": [
+        0.0,
+        0.01
+      ],
+      "dimension_names": [
+        "F0",
+        "VUV",
+        "NAQ",
+        "QOQ",
+        "H1H2",
+        "PSP",
+        "MDQ",
+        "peakSlope",
+        "Rd",
+        "Rd_conf",
+        "creak",
+        "MCEP_0",
+        "MCEP_1",
+        "MCEP_2",
+        "MCEP_3",
+        "MCEP_4",
+        "MCEP_5",
+        "MCEP_6",
+        "MCEP_7",
+        "MCEP_8",
+        "MCEP_9",
+        "MCEP_10",
+        "MCEP_11",
+        "MCEP_12",
+        "MCEP_13",
+        "MCEP_14",
+        "MCEP_15",
+        "MCEP_16",
+        "MCEP_17",
+        "MCEP_18",
+        "MCEP_19",
+        "MCEP_20",
+        "MCEP_21",
+        "MCEP_22",
+        "MCEP_23",
+        "MCEP_24",
+        "HMPDM_0",
+        "HMPDM_1",
+        "HMPDM_2",
+        "HMPDM_3",
+        "HMPDM_4",
+        "HMPDM_5",
+        "HMPDM_6",
+        "HMPDM_7",
+        "HMPDM_8",
+        "HMPDM_9",
+        "HMPDM_10",
+        "HMPDM_11",
+        "HMPDM_12",
+        "HMPDM_13",
+        "HMPDM_14",
+        "HMPDM_15",
+        "HMPDM_16",
+        "HMPDM_17",
+        "HMPDM_18",
+        "HMPDM_19",
+        "HMPDM_20",
+        "HMPDM_21",
+        "HMPDM_22",
+        "HMPDM_23",
+        "HMPDM_24",
+        "HMPDD_0",
+        "HMPDD_1",
+        "HMPDD_2",
+        "HMPDD_3",
+        "HMPDD_4",
+        "HMPDD_5",
+        "HMPDD_6",
+        "HMPDD_7",
+        "HMPDD_8",
+        "HMPDD_9",
+        "HMPDD_10",
+        "HMPDD_11",
+        "HMPDD_12"
+      ],
+      "clips_read_for_stats": 600,
+      "min_length": 1154,
+      "max_length": 116016,
+      "median_length": 8338.0,
+      "mean_length": 10875.918333333333,
+      "p95_length": 22931,
+      "nan_count_sampled": 0,
+      "inf_count_sampled": 1127,
+      "frames_seen_sampled": 482890774,
+      "clips": 3836
+    },
+    "Labels": {
+      "clip": "--qXJuDtHPw",
+      "keys": [
+        "features",
+        "intervals"
+      ],
+      "features_shape": [
+        1,
+        7
+      ],
+      "features_dtype": "float32",
+      "has_intervals": true,
+      "intervals_shape": [
+        1,
+        2
+      ],
+      "intervals_dtype": "float64",
+      "interval_first": [
+        23.199,
+        30.325
+      ],
+      "dimension_names": [
+        "sentiment",
+        "happy",
+        "sad",
+        "anger",
+        "surprise",
+        "disgust",
+        "fear"
+      ],
+      "clips_read_for_stats": 600,
+      "min_length": 1,
+      "max_length": 98,
+      "median_length": 10.0,
+      "mean_length": 11.533333333333333,
+      "p95_length": 27,
+      "nan_count_sampled": 0,
+      "inf_count_sampled": 0,
+      "frames_seen_sampled": 48440,
+      "clips": 3293
+    },
+    "Words": {
+      "clip": "--qXJuDtHPw",
+      "keys": [
+        "features",
+        "intervals"
+      ],
+      "features_shape": [
+        183,
+        1
+      ],
+      "features_dtype": "|S32",
+      "has_intervals": true,
+      "intervals_shape": [
+        183,
+        2
+      ],
+      "intervals_dtype": "float64",
+      "interval_first": [
+        0.0124716553288,
+        0.072335600907
+      ],
+      "dimension_names": [
+        "word"
+      ],
+      "clips_read_for_stats": 600,
+      "min_length": 37,
+      "max_length": 982,
+      "median_length": 270.5,
+      "mean_length": 292.59,
+      "p95_length": 500,
+      "nan_count_sampled": 0,
+      "inf_count_sampled": 0,
+      "frames_seen_sampled": 175554,
+      "clips": 3837
+    },
+    "OpenFace2": {
+      "error": "OSError: Unable to synchronously open file (truncated file: eof = 8891924480, sblock->base_addr = 0, stored_eof = 16718477556)"
+    },
+    "Facet42": {
+      "clip": "--qXJuDtHPw",
+      "keys": [
+        "features",
+        "intervals"
+      ],
+      "features_shape": [
+        1715,
+        35
+      ],
+      "features_dtype": "float32",
+      "has_intervals": true,
+      "intervals_shape": [
+        1715,
+        2
+      ],
+      "intervals_dtype": "float64",
+      "interval_first": [
+        0.0,
+        0.0333333
+      ],
+      "dimension_names": [
+        "Anger",
+        "Contempt",
+        "Disgust",
+        "Joy",
+        "Fear",
+        "Baseline",
+        "Sadness",
+        "Surprise",
+        "Confusion",
+        "Frustration",
+        "AU1",
+        "AU2",
+        "AU4",
+        "AU5",
+        "AU6",
+        "AU7",
+        "AU9",
+        "AU10",
+        "AU12",
+        "AU14",
+        "AU15",
+        "AU17",
+        "AU18",
+        "AU20",
+        "AU23",
+        "AU24",
+        "AU25",
+        "AU26",
+        "AU28",
+        "AU43",
+        "Has_Glasses",
+        "Is_Male",
+        "Pitch",
+        "Yaw",
+        "Roll"
+      ],
+      "clips_read_for_stats": 600,
+      "min_length": 344,
+      "max_length": 33550,
+      "median_length": 2490.5,
+      "mean_length": 3193.5583333333334,
+      "p95_length": 6422,
+      "nan_count_sampled": 0,
+      "inf_count_sampled": 0,
+      "frames_seen_sampled": 67064725,
+      "clips": 3837
+    }
+  },
+  "cross_clip_presence_vs_labels": {
+    "COVAREP": {
+      "clips": 3836,
+      "clips_not_in_labels": 544,
+      "clips_in_labels": 3292,
+      "labels_missing_this": 1,
+      "all_label_clips_have_this": false,
+      "all_this_clips_are_labels": false
+    },
+    "Words": {
+      "clips": 3837,
+      "clips_not_in_labels": 544,
+      "clips_in_labels": 3293,
+      "labels_missing_this": 0,
+      "all_label_clips_have_this": true,
+      "all_this_clips_are_labels": false
+    },
+    "OpenFace2": {
+      "clips": 0,
+      "clips_not_in_labels": 0,
+      "clips_in_labels": 0,
+      "labels_missing_this": 3293,
+      "all_label_clips_have_this": false,
+      "all_this_clips_are_labels": true
+    },
+    "Facet42": {
+      "clips": 3837,
+      "clips_not_in_labels": 544,
+      "clips_in_labels": 3293,
+      "labels_missing_this": 0,
+      "all_label_clips_have_this": true,
+      "all_this_clips_are_labels": false
+    }
+  },
+  "utterance_modality_presence_sample": {
+    "sample_limit": 22860,
+    "presence": {
+      "train": {
+        "COVAREP": 16327,
+        "Words": 16327,
+        "Facet42": 16322,
+        "utterances": 16327
+      },
+      "valid": {
+        "COVAREP": 1871,
+        "Words": 1871,
+        "Facet42": 1871,
+        "utterances": 1871
+      },
+      "test": {
+        "COVAREP": 4662,
+        "Words": 4662,
+        "Facet42": 4659,
+        "utterances": 4662
+      }
+    }
+  }
+}
