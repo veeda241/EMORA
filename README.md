@@ -1,171 +1,191 @@
-# GoEmotions
+# LLM-Based Multimodal Behaviour-Change Support
 
-**GoEmotions** is a corpus of 58k carefully curated comments extracted from Reddit,
-with human annotations to 27 emotion categories or Neutral.
+Research repository for comparing text, audio, and video/face encoders for
+emotion and behaviour-change support. The project currently prepares
+GoEmotions, MELD, RAVDESS, and CMU-MOSEI data and generates registry-driven
+multimodal training plans.
 
-* Number of examples: 58,009.
-* Number of labels: 27 + Neutral.
-* Maximum sequence length in training and evaluation datasets: 30.
+## Current model comparison
 
-On top of the raw data, we also include a version filtered based on reter-agreement, which contains a train/test/validation split:
+The active registry is `models/comparison_grid.py`.
 
-* Size of training dataset: 43,410.
-* Size of test dataset: 5,427.
-* Size of validation dataset: 5,426.
+| Modality | Primary | Comparison | Baseline |
+|---|---|---|---|
+| Text | DeBERTa-v3-Base | RoBERTa-Base | BERT-Base-Uncased |
+| Audio | emotion2vec | WavLM-Base | Wav2Vec2-Base |
+| Video/face | MAE-DFER | EST | Hybrid CNN + ViT |
 
-The emotion categories are: _admiration, amusement, anger, annoyance, approval,
-caring, confusion, curiosity, desire, disappointment, disapproval, disgust,
-embarrassment, excitement, fear, gratitude, grief, joy, love, nervousness,
-optimism, pride, realization, relief, remorse, sadness, surprise_.
+The text and audio registries include model metadata for future comparison.
+The implemented text trainer supports the three registered text encoders. The
+implemented audio trainer currently trains Wav2Vec2; emotion2vec and WavLM
+still require model-specific loader/training integration. The three video
+models are registered as planned architectures and do not yet have training
+implementations or checkpoints in this repository.
 
+All modality streams are planned to project to the shared `PROJECT_DIM = 512`
+embedding size before multimodal fusion.
 
-This directory includes the data and code for data analysis scripts. We also
-include code for our baseline model, which involves fine-tuning a pre-trained
-[BERT-base model](https://github.com/google-research/bert).
+## Repository layout
 
-For more details on the design and content of the dataset, please see our
-[paper](https://arxiv.org/abs/2005.00547).
-
-Refer to our [GoEmotions Model Card](data/archive/goemotions_source/goemotions_model_card.pdf) for recommended
-uses of models built with this data, as well as considerations and limitations
-relating to the GoEmotions data.
-
-## Requirements
-
-See `requirements.txt`
-
-## Setup
-
-Download the pre-trained BERT model from
-[here](https://github.com/google-research/bert) and unzip them inside the
-`bert` directory. In the paper, we use the cased base model.
-
-## Data
-
-We include our data in the `data` folder. \
-
-Our raw dataset can be retrieved by running:
-
-```
-wget -P data/archive/goemotions_source/ https://storage.googleapis.com/gresearch/goemotions/data/full_dataset/goemotions_1.csv
-wget -P data/archive/goemotions_source/ https://storage.googleapis.com/gresearch/goemotions/data/full_dataset/goemotions_2.csv
-wget -P data/archive/goemotions_source/ https://storage.googleapis.com/gresearch/goemotions/data/full_dataset/goemotions_3.csv
+```text
+data/
+  raw/                 # Downloaded datasets; ignored by Git
+  processed/           # Lightweight CSV/JSON manifests; Parquet is ignored
+models/
+  comparison_grid.py   # Source of truth for model and dataset metadata
+  training_plan.py     # Registry-derived training plan
+  run_pipeline.py      # Registry-derived embedding-shape plan
+  train_all_text_models.py
+  train_all_audio_models.py
+scripts/
+  prepare_goemotions.py
+  prepare_meld.py
+  prepare_ravdess.py
+  inspect_meld.py
 ```
 
-Our raw dataset, split into three csv files, includes all annotations as well as metadata on the comments. Each row represents a single rater's annotation for a single example. This file includes the following columns:
+Downloaded datasets, archives, checkpoints, logs, generated plots, and other
+large artifacts are intentionally excluded from Git. See `.gitignore`.
 
-* `text`: The text of the comment (with masked tokens, as described in the paper).
-* `id`: The unique id of the comment.
-* `author`: The Reddit username of the comment's author.
-* `subreddit`: The subreddit that the comment belongs to.
-* `link_id`: The link id of the comment.
-* `parent_id`: The parent id of the comment.
-* `created_utc`: The timestamp of the comment.
-* `rater_id`: The unique id of the annotator.
-* `example_very_unclear`: Whether the annotator marked the example as being very unclear or difficult to label (in this case they did not choose any emotion labels).
-* separate columns representing each of the emotion categories, with binary labels (0 or 1)
+## Environment setup
 
-The data we used for training the models includes examples where there is agreement between at least 2 raters. Our data includes 43,410 training examples (`train.tsv`), 5426 dev examples (`dev.tsv`) and 5427 test examples (`test.tsv`). These files have _no header row_ and have the following columns:
+Use a Python virtual environment with compatible versions of:
 
-1. text
-2. comma-separated list of emotion ids (the ids are indexed based on the order of emotions in `emotions.txt`)
-3. id of the comment
+- PyTorch with CUDA support
+- Transformers
+- Datasets
+- PyArrow
+- pandas and NumPy
+- scikit-learn
+- librosa and matplotlib
 
+The current development environment was validated with CUDA-enabled PyTorch
+and an NVIDIA RTX 3050. Verify the GPU before training:
 
-### Visualization
-
-[Here](https://nlp.stanford.edu/~ddemszky/goemotions/tsne.html) you can view a TSNE projection showing a random sample of the data. The plot is generated using PPCA (see scripts below). Each point in the plot represents a single example and the text and the labels are shown on mouse-hover. The color of each point is the weighted average of the RGB values of the those emotions.
-
-
-## Data Analysis
-
-See each script for more documentation and descriptive command line flags.
-
-*   `python3 -m analyze_data`: get high-level statistics of the
-    data and correlation among emotion ratings.
-*   `python3 -m extract_words`: get the words that are significantly
-    associated with each emotion, in contrast to the other emotions, based on
-    their log odds ratio.
-*   `python3 -m ppca`: run PPCA
-    [(Cowen et al., 2019)](https://www.nature.com/articles/s41562-019-0533-6) on
-    the data and generate plots.
-
-## Training and Evaluating Models
-
-Run `python -m bert_classifier` to perform fine-tuning on top of
-BERT, with added regularization. See the script and the paper for detailed
-description of the flags and parameters.
-
-## Citation
-
-If you use this code for your publication, please cite the original paper:
-
-```
-@inproceedings{demszky2020goemotions,
- author = {Demszky, Dorottya and Movshovitz-Attias, Dana and Ko, Jeongwoo and Cowen, Alan and Nemade, Gaurav and Ravi, Sujith},
- booktitle = {58th Annual Meeting of the Association for Computational Linguistics (ACL)},
- title = {{GoEmotions: A Dataset of Fine-Grained Emotions}},
- year = {2020}
-}
+```powershell
+python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'No CUDA GPU')"
 ```
 
-## Contact
+## Dataset preprocessing
 
-[Dora Demszky](https://nlp.stanford.edu/~ddemszky/index.html)
+### GoEmotions
 
-## Disclaimer
-- We are aware that the dataset contains biases and is not representative of global diversity.
-- We are aware that the dataset contains potentially problematic content.
-- Potential biases in the data include: Inherent biases in Reddit and user base biases, the offensive/vulgar word lists used for data filtering, inherent or unconscious bias in assessment of offensive identity labels, annotators were all native English speakers from India. All these likely affect labelling, precision, and recall for a trained model.
-- The emotion pilot model used for sentiment labeling, was trained on examples reviewed by the research team.
-- Anyone using this dataset should be aware of these limitations of the dataset.
+The active processed dataset is multi-label and is expected under
+`data\processed\goemotions`. Prepare it with:
 
-## Dataset Metadata
-The following table is necessary for this dataset to be indexed by search
-engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
+```powershell
+python scripts\prepare_goemotions.py
+```
 
-<div itemscope itemtype="http://schema.org/Dataset">
-  <table>
-    <tr>
-      <th>property</th>
-      <th>value</th>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td><code itemprop="name">GoEmotions</code></td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td><code itemprop="description">GoEmotions contains 58k carefully curated Reddit comments labeled for 27 emotion categories or Neutral. The emotion categories are _admiration, amusement, anger, annoyance, approval, caring, confusion, curiosity, desire, disappointment, disapproval, disgust, embarrassment, excitement, fear, gratitude, grief, joy, love, nervousness, optimism, pride, realization, relief, remorse, sadness, surprise_.</code></td>
-    </tr>
-    <tr>
-      <td>sameAs</td>
-      <td><code itemprop="sameAs">https://github.com/google-research/google-research/tree/master/goemotions</code></td>
-    </tr>
-    <tr>
-      <td>citation</td>
-      <td><code itemprop="citation">https://identifiers.org/arxiv:2005.00547</code></td>
-    </tr>
-    <tr>
-      <td>provider</td>
-      <td>
-        <div itemscope="" itemtype="http://schema.org/Organization" itemprop="provider">
-          <table>
-            <tbody><tr>
-              <th>property</th>
-              <th>value</th>
-            </tr>
-            <tr>
-              <td>name</td>
-              <td><code itemprop="name">Google</code></td>
-            </tr>
-            <tr>
-              <td>sameAs</td>
-              <td><code itemprop="sameAs">https://en.wikipedia.org/wiki/Google</code></td>
-            </tr>
-          </tbody></table>
-        </div>
-      </td>
-    </tr>
-  </table>
-</div>
+### MELD
+
+MELD annotation CSVs should be placed under `data\raw\meld`:
+
+```text
+data\raw\meld\
+  train_sent_emo.csv
+  dev_sent_emo.csv
+  test_sent_emo.csv
+```
+
+Normalize the annotations with:
+
+```powershell
+python scripts\prepare_meld.py
+python scripts\inspect_meld.py
+```
+
+The MELD audio trainer expects separately supplied aligned WAV files using:
+
+```text
+data\raw\audio\
+  Episode{season}_{episode}\
+    dial{season}_{dialogue}_utt{utterance}.wav
+```
+
+### RAVDESS
+
+RAVDESS speech data is extracted under `data\raw\ravdess` and normalized by:
+
+```powershell
+python scripts\prepare_ravdess.py
+```
+
+This creates manifests under `data\processed\ravdess`:
+
+- 768 train clips
+- 192 validation clips
+- 192 test clips
+- 1,152 validated WAV files
+- Six labels: angry, disgust, fearful, happy, sad, surprised
+- Actor-disjoint split: actors 1–16 train, 17–20 validation, 21–24 test
+
+The current `train_all_audio_models.py` loader is MELD-specific and does not
+consume the RAVDESS manifest directly. A RAVDESS-specific loader is required
+before training the selected audio comparison models on RAVDESS.
+
+## Text training
+
+Run the full text comparison from the repository root:
+
+```powershell
+python models\train_all_text_models.py
+```
+
+The trainer uses multi-label classification for GoEmotions and writes
+checkpoints and run artifacts under ignored `models\runs_*` directories.
+The comparison report is:
+
+```text
+models\text_model_analysis.md
+```
+
+The current validated run selected RoBERTa as the best valid result. DeBERTa
+requires additional numerical-stability work when retrained.
+
+## Audio training
+
+The current implemented audio branch is Wav2Vec2 on MELD:
+
+```powershell
+python models\train_all_audio_models.py `
+  --audio-root data\raw\audio `
+  --epochs 3 `
+  --batch-size 2
+```
+
+Run a small smoke test after aligned MELD audio is available:
+
+```powershell
+python models\train_all_audio_models.py `
+  --audio-root data\raw\audio `
+  --max-train-samples 8 `
+  --epochs 1
+```
+
+Audio outputs are written under ignored `models\audio`. The trainer requires a
+CUDA GPU and validates every referenced audio file before loading the model.
+
+## Registry-derived documents
+
+Regenerate the comparison and planning documents after changing the registry:
+
+```powershell
+python models\comparison_grid.py | Set-Content models\comparison_table.md
+python models\training_plan.py | Set-Content models\training_plan.md
+python models\run_pipeline.py | Set-Content models\embedding_shapes.md
+```
+
+These documents describe the selected emotion2vec/WavLM/Wav2Vec2 audio
+comparison and MAE-DFER/EST/Hybrid CNN + ViT video comparison.
+
+## Git and data policy
+
+Raw audio/video archives and model checkpoints are not suitable for ordinary
+GitHub pushes. GitHub rejects individual files larger than 100 MB, and the
+complete local dataset is many gigabytes. The repository therefore tracks
+source code and lightweight metadata/manifests while ignoring raw datasets,
+Parquet files, checkpoints, ZIP archives, logs, and generated media.
+
+Store large datasets in an appropriate artifact store or dataset host and keep
+the repository scripts/configuration reproducible.
