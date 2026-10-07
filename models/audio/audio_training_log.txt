@@ -487,3 +487,460 @@ KeyError: 'Emotion'
 2026-10-07 08:20:22,589 | INFO | Saved classification report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
 2026-10-07 08:20:22,590 | INFO | Saved report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
 2026-10-07 08:20:22,605 | INFO | Done. model_path=C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 12:50:03,493 | INFO | audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 12:50:03,494 | INFO | args: Namespace(epochs=1, batch_size=2, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=4)
+2026-10-07 12:50:03,494 | INFO | Selected dataset: ravdess
+2026-10-07 12:50:03,494 | INFO | Audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 12:50:07,149 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 12:50:07,149 | INFO | CUDA version: 12.8
+2026-10-07 12:50:07,153 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 12:50:07,153 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 12:50:07,154 | ERROR | Training failed
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 1083, in main
+    result = train(args, logger, audio_root)
+  File "C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 511, in train
+    report = validate_dataset_ravdess(
+        train_rows, dev_rows, test_rows, label2id, audio_root, logger
+    )
+  File "C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 394, in validate_dataset_ravdess
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: No RAVDESS audio files were found under the configured audio root.
+This is a dataset-readiness failure, not a CUDA or model error.
+Configured audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+
+Expected RAVDESS layout for this project:
+  data/raw/ravdess/
+    Actor_{actor_id}/
+      <RAVDESS_filename>.wav
+Example candidate filename:
+  Actor_01/03-01-05-01-01-01-01.wav
+
+2026-10-07 13:48:44,124 | INFO | audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 13:48:44,125 | INFO | args: Namespace(epochs=5, batch_size=4, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 13:48:44,125 | INFO | Selected dataset: ravdess
+2026-10-07 13:48:44,125 | INFO | Audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 13:48:47,853 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 13:48:47,853 | INFO | CUDA version: 12.8
+2026-10-07 13:48:47,857 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 13:48:47,857 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 13:48:47,870 | INFO | RAVDESS dataset validation passed.
+2026-10-07 13:48:47,871 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 13:49:36,022 | INFO | epoch=1 step=20/192 loss=1.8633 lr=2.00e-05
+2026-10-07 13:49:38,072 | INFO | epoch=1 step=40/192 loss=1.8264 lr=2.00e-05
+2026-10-07 13:49:39,928 | INFO | epoch=1 step=60/192 loss=1.7141 lr=2.00e-05
+2026-10-07 13:49:41,768 | INFO | epoch=1 step=80/192 loss=1.7551 lr=2.00e-05
+2026-10-07 13:49:43,640 | INFO | epoch=1 step=100/192 loss=1.5664 lr=2.00e-05
+2026-10-07 13:49:45,572 | INFO | epoch=1 step=120/192 loss=1.9275 lr=2.00e-05
+2026-10-07 13:49:47,462 | INFO | epoch=1 step=140/192 loss=1.6562 lr=2.00e-05
+2026-10-07 13:49:49,378 | INFO | epoch=1 step=160/192 loss=1.5520 lr=2.00e-05
+2026-10-07 13:49:51,275 | INFO | epoch=1 step=180/192 loss=1.3396 lr=2.00e-05
+2026-10-07 13:49:53,510 | INFO | epoch=1 train_loss=1.6580 dev_loss=1.4877 accuracy=0.4010 macro_f1=0.3558 weighted_f1=0.3558
+2026-10-07 13:49:55,330 | INFO | epoch=2 step=20/192 loss=1.2896 lr=2.00e-05
+2026-10-07 13:49:56,897 | INFO | epoch=2 step=40/192 loss=1.4036 lr=2.00e-05
+2026-10-07 13:49:58,698 | INFO | epoch=2 step=60/192 loss=0.8970 lr=2.00e-05
+2026-10-07 13:50:00,464 | INFO | epoch=2 step=80/192 loss=1.2118 lr=2.00e-05
+2026-10-07 13:50:02,226 | INFO | epoch=2 step=100/192 loss=0.7729 lr=2.00e-05
+2026-10-07 13:50:03,970 | INFO | epoch=2 step=120/192 loss=0.9932 lr=2.00e-05
+2026-10-07 13:50:05,854 | INFO | epoch=2 step=140/192 loss=0.8318 lr=2.00e-05
+2026-10-07 13:50:07,791 | INFO | epoch=2 step=160/192 loss=1.2998 lr=2.00e-05
+2026-10-07 13:50:09,668 | INFO | epoch=2 step=180/192 loss=0.5309 lr=2.00e-05
+2026-10-07 13:50:11,540 | INFO | epoch=2 train_loss=1.2292 dev_loss=1.1892 accuracy=0.5625 macro_f1=0.5514 weighted_f1=0.5514
+2026-10-07 13:50:13,605 | INFO | epoch=3 step=20/192 loss=0.6633 lr=2.00e-05
+2026-10-07 13:50:15,580 | INFO | epoch=3 step=40/192 loss=1.0487 lr=2.00e-05
+2026-10-07 13:50:17,481 | INFO | epoch=3 step=60/192 loss=0.4488 lr=2.00e-05
+2026-10-07 13:50:19,385 | INFO | epoch=3 step=80/192 loss=0.4855 lr=2.00e-05
+2026-10-07 13:50:21,256 | INFO | epoch=3 step=100/192 loss=0.4753 lr=2.00e-05
+2026-10-07 13:50:23,105 | INFO | epoch=3 step=120/192 loss=0.8253 lr=2.00e-05
+2026-10-07 13:50:24,976 | INFO | epoch=3 step=140/192 loss=0.5152 lr=2.00e-05
+2026-10-07 13:50:26,844 | INFO | epoch=3 step=160/192 loss=0.3090 lr=2.00e-05
+2026-10-07 13:50:28,793 | INFO | epoch=3 step=180/192 loss=0.2163 lr=2.00e-05
+2026-10-07 13:50:30,663 | INFO | epoch=3 train_loss=0.6900 dev_loss=0.8081 accuracy=0.7656 macro_f1=0.7688 weighted_f1=0.7688
+2026-10-07 13:50:32,740 | INFO | epoch=4 step=20/192 loss=0.2381 lr=2.00e-05
+2026-10-07 13:50:34,658 | INFO | epoch=4 step=40/192 loss=0.2133 lr=2.00e-05
+2026-10-07 13:50:36,584 | INFO | epoch=4 step=60/192 loss=0.2267 lr=2.00e-05
+2026-10-07 13:50:38,515 | INFO | epoch=4 step=80/192 loss=0.1203 lr=2.00e-05
+2026-10-07 13:50:40,272 | INFO | epoch=4 step=100/192 loss=0.1122 lr=2.00e-05
+2026-10-07 13:50:42,198 | INFO | epoch=4 step=120/192 loss=1.0771 lr=2.00e-05
+2026-10-07 13:50:44,145 | INFO | epoch=4 step=140/192 loss=0.1193 lr=2.00e-05
+2026-10-07 13:50:46,048 | INFO | epoch=4 step=160/192 loss=0.0564 lr=2.00e-05
+2026-10-07 13:50:47,928 | INFO | epoch=4 step=180/192 loss=1.2089 lr=2.00e-05
+2026-10-07 13:50:49,823 | INFO | epoch=4 train_loss=0.3429 dev_loss=1.3015 accuracy=0.6823 macro_f1=0.6835 weighted_f1=0.6835
+2026-10-07 13:50:51,759 | INFO | epoch=5 step=20/192 loss=0.7620 lr=2.00e-05
+2026-10-07 13:50:53,645 | INFO | epoch=5 step=40/192 loss=0.0572 lr=2.00e-05
+2026-10-07 13:50:55,519 | INFO | epoch=5 step=60/192 loss=0.0346 lr=2.00e-05
+2026-10-07 13:50:57,427 | INFO | epoch=5 step=80/192 loss=0.0328 lr=2.00e-05
+2026-10-07 13:50:59,343 | INFO | epoch=5 step=100/192 loss=0.0304 lr=2.00e-05
+2026-10-07 13:51:01,216 | INFO | epoch=5 step=120/192 loss=1.2018 lr=2.00e-05
+2026-10-07 13:51:03,088 | INFO | epoch=5 step=140/192 loss=0.0426 lr=2.00e-05
+2026-10-07 13:51:04,929 | INFO | epoch=5 step=160/192 loss=0.0248 lr=2.00e-05
+2026-10-07 13:51:06,957 | INFO | epoch=5 step=180/192 loss=0.0251 lr=2.00e-05
+2026-10-07 13:51:08,815 | INFO | epoch=5 train_loss=0.2399 dev_loss=1.1742 accuracy=0.7552 macro_f1=0.7566 weighted_f1=0.7566
+2026-10-07 13:51:11,488 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 13:51:13,207 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\ravdess_confusion_matrix.png
+2026-10-07 13:51:13,208 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
+2026-10-07 13:51:13,208 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
+2026-10-07 13:51:13,240 | INFO | Done. model_path=C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:09:14,065 | INFO | audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:09:14,066 | INFO | args: Namespace(epochs=10, batch_size=8, learning_rate=0.0001, seed=42, log_interval=20, dataset='ravdess', audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 14:09:14,066 | INFO | Selected dataset: ravdess
+2026-10-07 14:09:14,066 | INFO | Audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:09:17,670 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 14:09:17,670 | INFO | CUDA version: 12.8
+2026-10-07 14:09:17,674 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 14:09:17,674 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 14:09:17,687 | INFO | RAVDESS dataset validation passed.
+2026-10-07 14:09:17,687 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 14:09:27,621 | INFO | epoch=1 step=20/96 loss=1.8054 lr=2.00e-05
+2026-10-07 14:09:29,857 | INFO | epoch=1 step=40/96 loss=1.7092 lr=2.00e-05
+2026-10-07 14:09:31,998 | INFO | epoch=1 step=60/96 loss=1.7091 lr=2.00e-05
+2026-10-07 14:09:34,140 | INFO | epoch=1 step=80/96 loss=1.5671 lr=2.00e-05
+2026-10-07 14:09:36,845 | INFO | epoch=1 train_loss=1.6968 dev_loss=1.5764 accuracy=0.3802 macro_f1=0.3227 weighted_f1=0.3227
+2026-10-07 14:09:38,781 | INFO | epoch=2 step=20/96 loss=1.4835 lr=2.00e-05
+2026-10-07 14:09:40,603 | INFO | epoch=2 step=40/96 loss=1.1591 lr=2.00e-05
+2026-10-07 14:09:42,421 | INFO | epoch=2 step=60/96 loss=1.2138 lr=2.00e-05
+2026-10-07 14:09:44,256 | INFO | epoch=2 step=80/96 loss=1.2211 lr=2.00e-05
+2026-10-07 14:09:46,304 | INFO | epoch=2 train_loss=1.3533 dev_loss=1.4157 accuracy=0.4375 macro_f1=0.4179 weighted_f1=0.4179
+2026-10-07 14:09:48,275 | INFO | epoch=3 step=20/96 loss=0.9509 lr=2.00e-05
+2026-10-07 14:09:50,097 | INFO | epoch=3 step=40/96 loss=0.7660 lr=2.00e-05
+2026-10-07 14:09:51,931 | INFO | epoch=3 step=60/96 loss=0.9257 lr=2.00e-05
+2026-10-07 14:09:53,727 | INFO | epoch=3 step=80/96 loss=0.6971 lr=2.00e-05
+2026-10-07 14:09:55,779 | INFO | epoch=3 train_loss=0.9075 dev_loss=1.1026 accuracy=0.6406 macro_f1=0.6388 weighted_f1=0.6388
+2026-10-07 14:09:57,709 | INFO | epoch=4 step=20/96 loss=0.5784 lr=2.00e-05
+2026-10-07 14:09:59,483 | INFO | epoch=4 step=40/96 loss=0.4064 lr=2.00e-05
+2026-10-07 14:10:01,336 | INFO | epoch=4 step=60/96 loss=0.7116 lr=2.00e-05
+2026-10-07 14:10:03,245 | INFO | epoch=4 step=80/96 loss=0.2719 lr=2.00e-05
+2026-10-07 14:10:05,414 | INFO | epoch=4 train_loss=0.5804 dev_loss=1.0734 accuracy=0.6458 macro_f1=0.6428 weighted_f1=0.6428
+2026-10-07 14:10:07,471 | INFO | epoch=5 step=20/96 loss=0.4813 lr=2.00e-05
+2026-10-07 14:10:09,382 | INFO | epoch=5 step=40/96 loss=0.2207 lr=2.00e-05
+2026-10-07 14:10:11,287 | INFO | epoch=5 step=60/96 loss=0.2073 lr=2.00e-05
+2026-10-07 14:10:13,198 | INFO | epoch=5 step=80/96 loss=0.3360 lr=2.00e-05
+2026-10-07 14:10:15,374 | INFO | epoch=5 train_loss=0.3719 dev_loss=1.0195 accuracy=0.7188 macro_f1=0.7107 weighted_f1=0.7107
+2026-10-07 14:10:17,366 | INFO | epoch=6 step=20/96 loss=0.1056 lr=2.00e-05
+2026-10-07 14:10:19,248 | INFO | epoch=6 step=40/96 loss=0.6399 lr=2.00e-05
+2026-10-07 14:10:21,143 | INFO | epoch=6 step=60/96 loss=0.0709 lr=2.00e-05
+2026-10-07 14:10:23,076 | INFO | epoch=6 step=80/96 loss=0.4635 lr=2.00e-05
+2026-10-07 14:10:25,214 | INFO | epoch=6 train_loss=0.1964 dev_loss=1.0363 accuracy=0.7396 macro_f1=0.7375 weighted_f1=0.7375
+2026-10-07 14:10:27,122 | INFO | epoch=7 step=20/96 loss=0.0464 lr=2.00e-05
+2026-10-07 14:10:29,043 | INFO | epoch=7 step=40/96 loss=0.0522 lr=2.00e-05
+2026-10-07 14:10:30,957 | INFO | epoch=7 step=60/96 loss=0.3190 lr=2.00e-05
+2026-10-07 14:10:32,906 | INFO | epoch=7 step=80/96 loss=0.0379 lr=2.00e-05
+2026-10-07 14:10:35,105 | INFO | epoch=7 train_loss=0.1223 dev_loss=0.9670 accuracy=0.8021 macro_f1=0.8030 weighted_f1=0.8030
+2026-10-07 14:10:37,123 | INFO | epoch=8 step=20/96 loss=0.0283 lr=2.00e-05
+2026-10-07 14:10:39,038 | INFO | epoch=8 step=40/96 loss=0.0241 lr=2.00e-05
+2026-10-07 14:10:40,921 | INFO | epoch=8 step=60/96 loss=0.6590 lr=2.00e-05
+2026-10-07 14:10:42,850 | INFO | epoch=8 step=80/96 loss=0.0213 lr=2.00e-05
+2026-10-07 14:10:45,012 | INFO | epoch=8 train_loss=0.0627 dev_loss=1.1782 accuracy=0.7708 macro_f1=0.7787 weighted_f1=0.7787
+2026-10-07 14:10:46,895 | INFO | epoch=9 step=20/96 loss=0.0165 lr=2.00e-05
+2026-10-07 14:10:48,762 | INFO | epoch=9 step=40/96 loss=0.0161 lr=2.00e-05
+2026-10-07 14:10:50,635 | INFO | epoch=9 step=60/96 loss=0.0135 lr=2.00e-05
+2026-10-07 14:10:52,524 | INFO | epoch=9 step=80/96 loss=0.0147 lr=2.00e-05
+2026-10-07 14:10:54,672 | INFO | epoch=9 train_loss=0.0573 dev_loss=1.5480 accuracy=0.7188 macro_f1=0.7127 weighted_f1=0.7127
+2026-10-07 14:10:56,552 | INFO | epoch=10 step=20/96 loss=0.0119 lr=2.00e-05
+2026-10-07 14:10:58,444 | INFO | epoch=10 step=40/96 loss=0.0103 lr=2.00e-05
+2026-10-07 14:11:00,336 | INFO | epoch=10 step=60/96 loss=0.0114 lr=2.00e-05
+2026-10-07 14:11:02,189 | INFO | epoch=10 step=80/96 loss=0.0112 lr=2.00e-05
+2026-10-07 14:11:04,445 | INFO | epoch=10 train_loss=0.0956 dev_loss=1.7710 accuracy=0.6927 macro_f1=0.6924 weighted_f1=0.6924
+2026-10-07 14:11:07,186 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:11:07,457 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\ravdess_confusion_matrix.png
+2026-10-07 14:11:07,459 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
+2026-10-07 14:11:07,460 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
+2026-10-07 14:11:07,514 | INFO | Done. model_path=C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:11:12,542 | INFO | audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:11:12,543 | INFO | args: Namespace(epochs=20, batch_size=4, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 14:11:12,544 | INFO | Selected dataset: ravdess
+2026-10-07 14:11:12,544 | INFO | Audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:11:13,310 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 14:11:13,310 | INFO | CUDA version: 12.8
+2026-10-07 14:11:13,318 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 14:11:13,318 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 14:11:13,334 | INFO | RAVDESS dataset validation passed.
+2026-10-07 14:11:13,334 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 14:11:25,016 | INFO | epoch=1 step=20/192 loss=1.8633 lr=2.00e-05
+2026-10-07 14:11:26,969 | INFO | epoch=1 step=40/192 loss=1.8264 lr=2.00e-05
+2026-10-07 14:11:28,783 | INFO | epoch=1 step=60/192 loss=1.7141 lr=2.00e-05
+2026-10-07 14:11:30,547 | INFO | epoch=1 step=80/192 loss=1.7551 lr=2.00e-05
+2026-10-07 14:11:32,309 | INFO | epoch=1 step=100/192 loss=1.5664 lr=2.00e-05
+2026-10-07 14:11:34,015 | INFO | epoch=1 step=120/192 loss=1.9275 lr=2.00e-05
+2026-10-07 14:11:35,755 | INFO | epoch=1 step=140/192 loss=1.6562 lr=2.00e-05
+2026-10-07 14:11:37,476 | INFO | epoch=1 step=160/192 loss=1.5520 lr=2.00e-05
+2026-10-07 14:11:39,444 | INFO | epoch=1 step=180/192 loss=1.3396 lr=2.00e-05
+2026-10-07 14:11:41,740 | INFO | epoch=1 train_loss=1.6580 dev_loss=1.4877 accuracy=0.4010 macro_f1=0.3558 weighted_f1=0.3558
+2026-10-07 14:11:43,673 | INFO | epoch=2 step=20/192 loss=1.2896 lr=2.00e-05
+2026-10-07 14:11:45,356 | INFO | epoch=2 step=40/192 loss=1.4036 lr=2.00e-05
+2026-10-07 14:11:47,054 | INFO | epoch=2 step=60/192 loss=0.8970 lr=2.00e-05
+2026-10-07 14:11:48,789 | INFO | epoch=2 step=80/192 loss=1.2118 lr=2.00e-05
+2026-10-07 14:11:50,573 | INFO | epoch=2 step=100/192 loss=0.7729 lr=2.00e-05
+2026-10-07 14:11:52,213 | INFO | epoch=2 step=120/192 loss=0.9932 lr=2.00e-05
+2026-10-07 14:11:53,914 | INFO | epoch=2 step=140/192 loss=0.8318 lr=2.00e-05
+2026-10-07 14:11:55,694 | INFO | epoch=2 step=160/192 loss=1.2998 lr=2.00e-05
+2026-10-07 14:11:57,532 | INFO | epoch=2 step=180/192 loss=0.5309 lr=2.00e-05
+2026-10-07 14:11:59,281 | INFO | epoch=2 train_loss=1.2292 dev_loss=1.1892 accuracy=0.5625 macro_f1=0.5514 weighted_f1=0.5514
+2026-10-07 14:12:01,144 | INFO | epoch=3 step=20/192 loss=0.6633 lr=2.00e-05
+2026-10-07 14:12:02,850 | INFO | epoch=3 step=40/192 loss=1.0487 lr=2.00e-05
+2026-10-07 14:12:04,610 | INFO | epoch=3 step=60/192 loss=0.4488 lr=2.00e-05
+2026-10-07 14:12:06,313 | INFO | epoch=3 step=80/192 loss=0.4855 lr=2.00e-05
+2026-10-07 14:12:08,029 | INFO | epoch=3 step=100/192 loss=0.4753 lr=2.00e-05
+2026-10-07 14:12:09,658 | INFO | epoch=3 step=120/192 loss=0.8253 lr=2.00e-05
+2026-10-07 14:12:11,424 | INFO | epoch=3 step=140/192 loss=0.5152 lr=2.00e-05
+2026-10-07 14:12:13,196 | INFO | epoch=3 step=160/192 loss=0.3090 lr=2.00e-05
+2026-10-07 14:12:14,889 | INFO | epoch=3 step=180/192 loss=0.2163 lr=2.00e-05
+2026-10-07 14:12:16,661 | INFO | epoch=3 train_loss=0.6900 dev_loss=0.8081 accuracy=0.7656 macro_f1=0.7688 weighted_f1=0.7688
+2026-10-07 14:12:18,507 | INFO | epoch=4 step=20/192 loss=0.2381 lr=2.00e-05
+2026-10-07 14:12:20,232 | INFO | epoch=4 step=40/192 loss=0.2133 lr=2.00e-05
+2026-10-07 14:12:21,947 | INFO | epoch=4 step=60/192 loss=0.2267 lr=2.00e-05
+2026-10-07 14:12:23,716 | INFO | epoch=4 step=80/192 loss=0.1203 lr=2.00e-05
+2026-10-07 14:12:25,444 | INFO | epoch=4 step=100/192 loss=0.1122 lr=2.00e-05
+2026-10-07 14:12:27,172 | INFO | epoch=4 step=120/192 loss=1.0771 lr=2.00e-05
+2026-10-07 14:12:28,859 | INFO | epoch=4 step=140/192 loss=0.1193 lr=2.00e-05
+2026-10-07 14:12:30,600 | INFO | epoch=4 step=160/192 loss=0.0564 lr=2.00e-05
+2026-10-07 14:12:32,321 | INFO | epoch=4 step=180/192 loss=1.2089 lr=2.00e-05
+2026-10-07 14:12:34,133 | INFO | epoch=4 train_loss=0.3429 dev_loss=1.3015 accuracy=0.6823 macro_f1=0.6835 weighted_f1=0.6835
+2026-10-07 14:12:35,901 | INFO | epoch=5 step=20/192 loss=0.7620 lr=2.00e-05
+2026-10-07 14:12:37,630 | INFO | epoch=5 step=40/192 loss=0.0572 lr=2.00e-05
+2026-10-07 14:12:39,366 | INFO | epoch=5 step=60/192 loss=0.0346 lr=2.00e-05
+2026-10-07 14:12:41,152 | INFO | epoch=5 step=80/192 loss=0.0328 lr=2.00e-05
+2026-10-07 14:12:42,832 | INFO | epoch=5 step=100/192 loss=0.0304 lr=2.00e-05
+2026-10-07 14:12:44,490 | INFO | epoch=5 step=120/192 loss=1.2018 lr=2.00e-05
+2026-10-07 14:12:46,199 | INFO | epoch=5 step=140/192 loss=0.0426 lr=2.00e-05
+2026-10-07 14:12:47,936 | INFO | epoch=5 step=160/192 loss=0.0248 lr=2.00e-05
+2026-10-07 14:12:49,804 | INFO | epoch=5 step=180/192 loss=0.0251 lr=2.00e-05
+2026-10-07 14:12:51,517 | INFO | epoch=5 train_loss=0.2399 dev_loss=1.1742 accuracy=0.7552 macro_f1=0.7566 weighted_f1=0.7566
+2026-10-07 14:12:53,299 | INFO | epoch=6 step=20/192 loss=0.3180 lr=2.00e-05
+2026-10-07 14:12:55,044 | INFO | epoch=6 step=40/192 loss=0.0169 lr=2.00e-05
+2026-10-07 14:12:56,787 | INFO | epoch=6 step=60/192 loss=0.0181 lr=2.00e-05
+2026-10-07 14:12:58,460 | INFO | epoch=6 step=80/192 loss=0.0159 lr=2.00e-05
+2026-10-07 14:13:00,182 | INFO | epoch=6 step=100/192 loss=0.0159 lr=2.00e-05
+2026-10-07 14:13:01,911 | INFO | epoch=6 step=120/192 loss=0.0135 lr=2.00e-05
+2026-10-07 14:13:03,629 | INFO | epoch=6 step=140/192 loss=0.0171 lr=2.00e-05
+2026-10-07 14:13:05,341 | INFO | epoch=6 step=160/192 loss=0.5205 lr=2.00e-05
+2026-10-07 14:13:07,121 | INFO | epoch=6 step=180/192 loss=0.0131 lr=2.00e-05
+2026-10-07 14:13:09,079 | INFO | epoch=6 train_loss=0.1859 dev_loss=1.3913 accuracy=0.7500 macro_f1=0.7492 weighted_f1=0.7492
+2026-10-07 14:13:11,121 | INFO | epoch=7 step=20/192 loss=0.2638 lr=2.00e-05
+2026-10-07 14:13:13,048 | INFO | epoch=7 step=40/192 loss=0.0166 lr=2.00e-05
+2026-10-07 14:13:14,960 | INFO | epoch=7 step=60/192 loss=0.0335 lr=2.00e-05
+2026-10-07 14:13:16,983 | INFO | epoch=7 step=80/192 loss=0.0098 lr=2.00e-05
+2026-10-07 14:13:19,061 | INFO | epoch=7 step=100/192 loss=0.0095 lr=2.00e-05
+2026-10-07 14:13:21,087 | INFO | epoch=7 step=120/192 loss=0.0097 lr=2.00e-05
+2026-10-07 14:13:23,164 | INFO | epoch=7 step=140/192 loss=0.0094 lr=2.00e-05
+2026-10-07 14:13:25,123 | INFO | epoch=7 step=160/192 loss=0.0074 lr=2.00e-05
+2026-10-07 14:13:27,141 | INFO | epoch=7 step=180/192 loss=0.0930 lr=2.00e-05
+2026-10-07 14:13:29,095 | INFO | epoch=7 train_loss=0.1231 dev_loss=1.5170 accuracy=0.7396 macro_f1=0.7451 weighted_f1=0.7451
+2026-10-07 14:13:31,133 | INFO | epoch=8 step=20/192 loss=0.0073 lr=2.00e-05
+2026-10-07 14:13:33,183 | INFO | epoch=8 step=40/192 loss=0.0059 lr=2.00e-05
+2026-10-07 14:13:35,197 | INFO | epoch=8 step=60/192 loss=0.0059 lr=2.00e-05
+2026-10-07 14:13:37,206 | INFO | epoch=8 step=80/192 loss=0.0072 lr=2.00e-05
+2026-10-07 14:13:39,156 | INFO | epoch=8 step=100/192 loss=0.0056 lr=2.00e-05
+2026-10-07 14:13:41,186 | INFO | epoch=8 step=120/192 loss=0.0052 lr=2.00e-05
+2026-10-07 14:13:43,079 | INFO | epoch=8 step=140/192 loss=0.0049 lr=2.00e-05
+2026-10-07 14:13:45,155 | INFO | epoch=8 step=160/192 loss=0.0051 lr=2.00e-05
+2026-10-07 14:13:47,111 | INFO | epoch=8 step=180/192 loss=0.0062 lr=2.00e-05
+2026-10-07 14:13:49,048 | INFO | epoch=8 train_loss=0.0870 dev_loss=1.6794 accuracy=0.7344 macro_f1=0.7313 weighted_f1=0.7313
+2026-10-07 14:13:51,008 | INFO | epoch=9 step=20/192 loss=0.0046 lr=2.00e-05
+2026-10-07 14:13:53,036 | INFO | epoch=9 step=40/192 loss=0.0042 lr=2.00e-05
+2026-10-07 14:13:55,015 | INFO | epoch=9 step=60/192 loss=0.0043 lr=2.00e-05
+2026-10-07 14:13:57,076 | INFO | epoch=9 step=80/192 loss=0.0042 lr=2.00e-05
+2026-10-07 14:13:59,047 | INFO | epoch=9 step=100/192 loss=0.0040 lr=2.00e-05
+2026-10-07 14:14:01,073 | INFO | epoch=9 step=120/192 loss=0.0039 lr=2.00e-05
+2026-10-07 14:14:03,024 | INFO | epoch=9 step=140/192 loss=0.0039 lr=2.00e-05
+2026-10-07 14:14:05,023 | INFO | epoch=9 step=160/192 loss=0.0044 lr=2.00e-05
+2026-10-07 14:14:07,026 | INFO | epoch=9 step=180/192 loss=0.0037 lr=2.00e-05
+2026-10-07 14:14:08,956 | INFO | epoch=9 train_loss=0.0954 dev_loss=1.6713 accuracy=0.7292 macro_f1=0.7275 weighted_f1=0.7275
+2026-10-07 14:14:10,954 | INFO | epoch=10 step=20/192 loss=0.0042 lr=2.00e-05
+2026-10-07 14:14:12,983 | INFO | epoch=10 step=40/192 loss=0.0029 lr=2.00e-05
+2026-10-07 14:14:14,916 | INFO | epoch=10 step=60/192 loss=0.0032 lr=2.00e-05
+2026-10-07 14:14:16,884 | INFO | epoch=10 step=80/192 loss=0.0030 lr=2.00e-05
+2026-10-07 14:14:18,857 | INFO | epoch=10 step=100/192 loss=0.0030 lr=2.00e-05
+2026-10-07 14:14:20,759 | INFO | epoch=10 step=120/192 loss=0.0027 lr=2.00e-05
+2026-10-07 14:14:22,656 | INFO | epoch=10 step=140/192 loss=0.0028 lr=2.00e-05
+2026-10-07 14:14:25,011 | INFO | epoch=10 step=160/192 loss=0.0027 lr=2.00e-05
+2026-10-07 14:14:27,188 | INFO | epoch=10 step=180/192 loss=0.3023 lr=2.00e-05
+2026-10-07 14:14:29,201 | INFO | epoch=10 train_loss=0.0437 dev_loss=1.6915 accuracy=0.7500 macro_f1=0.7495 weighted_f1=0.7495
+2026-10-07 14:14:31,320 | INFO | epoch=11 step=20/192 loss=0.0025 lr=2.00e-05
+2026-10-07 14:14:33,378 | INFO | epoch=11 step=40/192 loss=0.2558 lr=2.00e-05
+2026-10-07 14:14:35,434 | INFO | epoch=11 step=60/192 loss=0.0025 lr=2.00e-05
+2026-10-07 14:14:37,554 | INFO | epoch=11 step=80/192 loss=0.0022 lr=2.00e-05
+2026-10-07 14:14:39,566 | INFO | epoch=11 step=100/192 loss=0.0022 lr=2.00e-05
+2026-10-07 14:14:41,634 | INFO | epoch=11 step=120/192 loss=0.0022 lr=2.00e-05
+2026-10-07 14:14:43,732 | INFO | epoch=11 step=140/192 loss=0.0024 lr=2.00e-05
+2026-10-07 14:14:45,809 | INFO | epoch=11 step=160/192 loss=0.0021 lr=2.00e-05
+2026-10-07 14:14:47,939 | INFO | epoch=11 step=180/192 loss=0.0019 lr=2.00e-05
+2026-10-07 14:14:49,924 | INFO | epoch=11 train_loss=0.0634 dev_loss=1.7030 accuracy=0.7500 macro_f1=0.7479 weighted_f1=0.7479
+2026-10-07 14:14:52,154 | INFO | epoch=12 step=20/192 loss=0.0019 lr=2.00e-05
+2026-10-07 14:14:54,220 | INFO | epoch=12 step=40/192 loss=0.0019 lr=2.00e-05
+2026-10-07 14:14:56,337 | INFO | epoch=12 step=60/192 loss=0.0017 lr=2.00e-05
+2026-10-07 14:14:58,365 | INFO | epoch=12 step=80/192 loss=0.0017 lr=2.00e-05
+2026-10-07 14:15:00,407 | INFO | epoch=12 step=100/192 loss=0.0017 lr=2.00e-05
+2026-10-07 14:15:02,501 | INFO | epoch=12 step=120/192 loss=0.0017 lr=2.00e-05
+2026-10-07 14:15:04,592 | INFO | epoch=12 step=140/192 loss=0.0019 lr=2.00e-05
+2026-10-07 14:15:06,665 | INFO | epoch=12 step=160/192 loss=0.0015 lr=2.00e-05
+2026-10-07 14:15:08,748 | INFO | epoch=12 step=180/192 loss=0.0022 lr=2.00e-05
+2026-10-07 14:15:10,784 | INFO | epoch=12 train_loss=0.0585 dev_loss=2.1140 accuracy=0.7031 macro_f1=0.7021 weighted_f1=0.7021
+2026-10-07 14:15:12,863 | INFO | epoch=13 step=20/192 loss=0.0016 lr=2.00e-05
+2026-10-07 14:15:14,923 | INFO | epoch=13 step=40/192 loss=0.0016 lr=2.00e-05
+2026-10-07 14:15:16,976 | INFO | epoch=13 step=60/192 loss=0.0014 lr=2.00e-05
+2026-10-07 14:15:19,036 | INFO | epoch=13 step=80/192 loss=0.0015 lr=2.00e-05
+2026-10-07 14:15:21,074 | INFO | epoch=13 step=100/192 loss=0.0016 lr=2.00e-05
+2026-10-07 14:15:23,129 | INFO | epoch=13 step=120/192 loss=0.0014 lr=2.00e-05
+2026-10-07 14:15:25,205 | INFO | epoch=13 step=140/192 loss=0.0027 lr=2.00e-05
+2026-10-07 14:15:27,290 | INFO | epoch=13 step=160/192 loss=0.0015 lr=2.00e-05
+2026-10-07 14:15:29,336 | INFO | epoch=13 step=180/192 loss=0.0023 lr=2.00e-05
+2026-10-07 14:15:31,427 | INFO | epoch=13 train_loss=0.1378 dev_loss=1.7451 accuracy=0.7552 macro_f1=0.7542 weighted_f1=0.7542
+2026-10-07 14:15:33,473 | INFO | epoch=14 step=20/192 loss=0.0019 lr=2.00e-05
+2026-10-07 14:15:35,647 | INFO | epoch=14 step=40/192 loss=0.0013 lr=2.00e-05
+2026-10-07 14:15:37,793 | INFO | epoch=14 step=60/192 loss=0.0013 lr=2.00e-05
+2026-10-07 14:15:39,906 | INFO | epoch=14 step=80/192 loss=0.0012 lr=2.00e-05
+2026-10-07 14:15:41,999 | INFO | epoch=14 step=100/192 loss=0.0012 lr=2.00e-05
+2026-10-07 14:15:44,109 | INFO | epoch=14 step=120/192 loss=0.0062 lr=2.00e-05
+2026-10-07 14:15:46,261 | INFO | epoch=14 step=140/192 loss=0.3293 lr=2.00e-05
+2026-10-07 14:15:48,412 | INFO | epoch=14 step=160/192 loss=0.0011 lr=2.00e-05
+2026-10-07 14:15:50,569 | INFO | epoch=14 step=180/192 loss=0.0017 lr=2.00e-05
+2026-10-07 14:15:52,549 | INFO | epoch=14 train_loss=0.0952 dev_loss=2.1474 accuracy=0.6979 macro_f1=0.6975 weighted_f1=0.6975
+2026-10-07 14:15:54,275 | INFO | epoch=15 step=20/192 loss=1.7118 lr=2.00e-05
+2026-10-07 14:15:55,940 | INFO | epoch=15 step=40/192 loss=0.0012 lr=2.00e-05
+2026-10-07 14:15:57,770 | INFO | epoch=15 step=60/192 loss=1.1785 lr=2.00e-05
+2026-10-07 14:15:59,567 | INFO | epoch=15 step=80/192 loss=0.0036 lr=2.00e-05
+2026-10-07 14:16:01,641 | INFO | epoch=15 step=100/192 loss=0.3634 lr=2.00e-05
+2026-10-07 14:16:03,988 | INFO | epoch=15 step=120/192 loss=0.0025 lr=2.00e-05
+2026-10-07 14:16:06,110 | INFO | epoch=15 step=140/192 loss=0.0014 lr=2.00e-05
+2026-10-07 14:16:08,249 | INFO | epoch=15 step=160/192 loss=0.0011 lr=2.00e-05
+2026-10-07 14:16:10,384 | INFO | epoch=15 step=180/192 loss=1.1272 lr=2.00e-05
+2026-10-07 14:16:12,444 | INFO | epoch=15 train_loss=0.1695 dev_loss=1.5479 accuracy=0.7760 macro_f1=0.7776 weighted_f1=0.7776
+2026-10-07 14:16:14,502 | INFO | epoch=16 step=20/192 loss=0.0014 lr=2.00e-05
+2026-10-07 14:16:16,501 | INFO | epoch=16 step=40/192 loss=0.0014 lr=2.00e-05
+2026-10-07 14:16:18,656 | INFO | epoch=16 step=60/192 loss=0.0019 lr=2.00e-05
+2026-10-07 14:16:20,786 | INFO | epoch=16 step=80/192 loss=0.0016 lr=2.00e-05
+2026-10-07 14:16:22,918 | INFO | epoch=16 step=100/192 loss=0.0017 lr=2.00e-05
+2026-10-07 14:16:25,128 | INFO | epoch=16 step=120/192 loss=0.0023 lr=2.00e-05
+2026-10-07 14:16:27,299 | INFO | epoch=16 step=140/192 loss=0.0016 lr=2.00e-05
+2026-10-07 14:16:29,442 | INFO | epoch=16 step=160/192 loss=0.0010 lr=2.00e-05
+2026-10-07 14:16:31,631 | INFO | epoch=16 step=180/192 loss=0.0009 lr=2.00e-05
+2026-10-07 14:16:33,673 | INFO | epoch=16 train_loss=0.1061 dev_loss=2.6489 accuracy=0.6510 macro_f1=0.6510 weighted_f1=0.6510
+2026-10-07 14:16:35,698 | INFO | epoch=17 step=20/192 loss=0.0008 lr=2.00e-05
+2026-10-07 14:16:37,693 | INFO | epoch=17 step=40/192 loss=0.0009 lr=2.00e-05
+2026-10-07 14:16:39,670 | INFO | epoch=17 step=60/192 loss=0.0009 lr=2.00e-05
+2026-10-07 14:16:41,672 | INFO | epoch=17 step=80/192 loss=0.0007 lr=2.00e-05
+2026-10-07 14:16:43,427 | INFO | epoch=17 step=100/192 loss=0.0009 lr=2.00e-05
+2026-10-07 14:16:45,191 | INFO | epoch=17 step=120/192 loss=0.0010 lr=2.00e-05
+2026-10-07 14:16:46,943 | INFO | epoch=17 step=140/192 loss=0.0128 lr=2.00e-05
+2026-10-07 14:16:48,677 | INFO | epoch=17 step=160/192 loss=0.0007 lr=2.00e-05
+2026-10-07 14:16:50,422 | INFO | epoch=17 step=180/192 loss=0.0043 lr=2.00e-05
+2026-10-07 14:16:52,191 | INFO | epoch=17 train_loss=0.0339 dev_loss=2.5022 accuracy=0.6979 macro_f1=0.7039 weighted_f1=0.7039
+2026-10-07 14:16:53,941 | INFO | epoch=18 step=20/192 loss=0.0010 lr=2.00e-05
+2026-10-07 14:16:56,063 | INFO | epoch=18 step=40/192 loss=0.0011 lr=2.00e-05
+2026-10-07 14:16:58,116 | INFO | epoch=18 step=60/192 loss=0.0007 lr=2.00e-05
+2026-10-07 14:17:00,144 | INFO | epoch=18 step=80/192 loss=0.0010 lr=2.00e-05
+2026-10-07 14:17:02,207 | INFO | epoch=18 step=100/192 loss=0.0026 lr=2.00e-05
+2026-10-07 14:17:04,235 | INFO | epoch=18 step=120/192 loss=0.0007 lr=2.00e-05
+2026-10-07 14:17:06,354 | INFO | epoch=18 step=140/192 loss=0.0012 lr=2.00e-05
+2026-10-07 14:17:08,589 | INFO | epoch=18 step=160/192 loss=0.0008 lr=2.00e-05
+2026-10-07 14:17:10,721 | INFO | epoch=18 step=180/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:12,468 | INFO | epoch=18 train_loss=0.0631 dev_loss=1.9758 accuracy=0.7708 macro_f1=0.7693 weighted_f1=0.7693
+2026-10-07 14:17:14,198 | INFO | epoch=19 step=20/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:15,919 | INFO | epoch=19 step=40/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:17,577 | INFO | epoch=19 step=60/192 loss=0.0007 lr=2.00e-05
+2026-10-07 14:17:19,315 | INFO | epoch=19 step=80/192 loss=0.0007 lr=2.00e-05
+2026-10-07 14:17:20,999 | INFO | epoch=19 step=100/192 loss=0.0023 lr=2.00e-05
+2026-10-07 14:17:22,789 | INFO | epoch=19 step=120/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:24,457 | INFO | epoch=19 step=140/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:26,163 | INFO | epoch=19 step=160/192 loss=0.0005 lr=2.00e-05
+2026-10-07 14:17:27,857 | INFO | epoch=19 step=180/192 loss=0.0009 lr=2.00e-05
+2026-10-07 14:17:29,638 | INFO | epoch=19 train_loss=0.0607 dev_loss=2.2261 accuracy=0.7240 macro_f1=0.7215 weighted_f1=0.7215
+2026-10-07 14:17:31,315 | INFO | epoch=20 step=20/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:32,995 | INFO | epoch=20 step=40/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:34,984 | INFO | epoch=20 step=60/192 loss=0.0006 lr=2.00e-05
+2026-10-07 14:17:37,286 | INFO | epoch=20 step=80/192 loss=0.5083 lr=2.00e-05
+2026-10-07 14:17:39,403 | INFO | epoch=20 step=100/192 loss=0.0095 lr=2.00e-05
+2026-10-07 14:17:41,499 | INFO | epoch=20 step=120/192 loss=0.0030 lr=2.00e-05
+2026-10-07 14:17:43,610 | INFO | epoch=20 step=140/192 loss=0.0005 lr=2.00e-05
+2026-10-07 14:17:45,760 | INFO | epoch=20 step=160/192 loss=0.0005 lr=2.00e-05
+2026-10-07 14:17:47,863 | INFO | epoch=20 step=180/192 loss=0.0005 lr=2.00e-05
+2026-10-07 14:17:49,882 | INFO | epoch=20 train_loss=0.1448 dev_loss=2.2865 accuracy=0.7135 macro_f1=0.7086 weighted_f1=0.7086
+2026-10-07 14:17:52,893 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:17:53,196 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\ravdess_confusion_matrix.png
+2026-10-07 14:17:53,197 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
+2026-10-07 14:17:53,199 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
+2026-10-07 14:17:53,251 | INFO | Done. model_path=C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:17:59,634 | INFO | audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:17:59,634 | INFO | args: Namespace(epochs=1, batch_size=4, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=32, skip_audio_check=False)
+2026-10-07 14:17:59,635 | INFO | Selected dataset: ravdess
+2026-10-07 14:17:59,635 | INFO | Audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:18:00,409 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 14:18:00,409 | INFO | CUDA version: 12.8
+2026-10-07 14:18:00,413 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 14:18:00,413 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 14:18:00,444 | INFO | RAVDESS dataset validation passed.
+2026-10-07 14:18:00,445 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 14:18:10,505 | INFO | epoch=1 train_loss=1.7715 dev_loss=1.7993 accuracy=0.1979 macro_f1=0.0991 weighted_f1=0.0991
+2026-10-07 14:18:13,244 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:18:13,512 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\ravdess_confusion_matrix.png
+2026-10-07 14:18:13,513 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
+2026-10-07 14:18:13,514 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
+2026-10-07 14:18:13,536 | INFO | Done. model_path=C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:24:54,487 | INFO | audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:24:54,487 | INFO | args: Namespace(epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, dataset='ravdess', audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 14:24:54,487 | INFO | Selected dataset: ravdess
+2026-10-07 14:24:54,487 | INFO | Audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
+2026-10-07 14:24:58,094 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-07 14:24:58,094 | INFO | CUDA version: 12.8
+2026-10-07 14:24:58,097 | INFO | RAVDESS rows from metadata CSV: train=768 dev=192 test=192
+2026-10-07 14:24:58,098 | INFO | num_labels=6 label_names=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 14:24:58,111 | INFO | RAVDESS dataset validation passed.
+2026-10-07 14:24:58,112 | INFO | Loading facebook/wav2vec2-base
+2026-10-07 14:25:09,173 | INFO | epoch=1 step=20/96 loss=1.8054 lr=2.00e-05
+2026-10-07 14:25:11,431 | INFO | epoch=1 step=40/96 loss=1.7092 lr=2.00e-05
+2026-10-07 14:25:13,562 | INFO | epoch=1 step=60/96 loss=1.7091 lr=2.00e-05
+2026-10-07 14:25:15,700 | INFO | epoch=1 step=80/96 loss=1.5671 lr=2.00e-05
+2026-10-07 14:25:18,393 | INFO | epoch=1 train_loss=1.6968 dev_loss=1.5764 accuracy=0.3802 macro_f1=0.3227 weighted_f1=0.3227
+2026-10-07 14:25:20,324 | INFO | epoch=2 step=20/96 loss=1.4835 lr=2.00e-05
+2026-10-07 14:25:22,194 | INFO | epoch=2 step=40/96 loss=1.1591 lr=2.00e-05
+2026-10-07 14:25:24,041 | INFO | epoch=2 step=60/96 loss=1.2138 lr=2.00e-05
+2026-10-07 14:25:25,888 | INFO | epoch=2 step=80/96 loss=1.2211 lr=2.00e-05
+2026-10-07 14:25:27,960 | INFO | epoch=2 train_loss=1.3533 dev_loss=1.4157 accuracy=0.4375 macro_f1=0.4179 weighted_f1=0.4179
+2026-10-07 14:25:29,912 | INFO | epoch=3 step=20/96 loss=0.9509 lr=2.00e-05
+2026-10-07 14:25:31,754 | INFO | epoch=3 step=40/96 loss=0.7660 lr=2.00e-05
+2026-10-07 14:25:33,606 | INFO | epoch=3 step=60/96 loss=0.9257 lr=2.00e-05
+2026-10-07 14:25:35,445 | INFO | epoch=3 step=80/96 loss=0.6971 lr=2.00e-05
+2026-10-07 14:25:37,528 | INFO | epoch=3 train_loss=0.9075 dev_loss=1.1026 accuracy=0.6406 macro_f1=0.6388 weighted_f1=0.6388
+2026-10-07 14:25:39,483 | INFO | epoch=4 step=20/96 loss=0.5784 lr=2.00e-05
+2026-10-07 14:25:41,558 | INFO | epoch=4 step=40/96 loss=0.4064 lr=2.00e-05
+2026-10-07 14:25:43,704 | INFO | epoch=4 step=60/96 loss=0.7116 lr=2.00e-05
+2026-10-07 14:25:45,853 | INFO | epoch=4 step=80/96 loss=0.2719 lr=2.00e-05
+2026-10-07 14:25:48,217 | INFO | epoch=4 train_loss=0.5804 dev_loss=1.0734 accuracy=0.6458 macro_f1=0.6428 weighted_f1=0.6428
+2026-10-07 14:25:50,528 | INFO | epoch=5 step=20/96 loss=0.4813 lr=2.00e-05
+2026-10-07 14:25:52,760 | INFO | epoch=5 step=40/96 loss=0.2207 lr=2.00e-05
+2026-10-07 14:25:54,878 | INFO | epoch=5 step=60/96 loss=0.2073 lr=2.00e-05
+2026-10-07 14:25:57,106 | INFO | epoch=5 step=80/96 loss=0.3360 lr=2.00e-05
+2026-10-07 14:25:59,491 | INFO | epoch=5 train_loss=0.3719 dev_loss=1.0195 accuracy=0.7188 macro_f1=0.7107 weighted_f1=0.7107
+2026-10-07 14:26:01,754 | INFO | epoch=6 step=20/96 loss=0.1056 lr=2.00e-05
+2026-10-07 14:26:03,793 | INFO | epoch=6 step=40/96 loss=0.6399 lr=2.00e-05
+2026-10-07 14:26:06,034 | INFO | epoch=6 step=60/96 loss=0.0709 lr=2.00e-05
+2026-10-07 14:26:08,174 | INFO | epoch=6 step=80/96 loss=0.4635 lr=2.00e-05
+2026-10-07 14:26:10,565 | INFO | epoch=6 train_loss=0.1964 dev_loss=1.0363 accuracy=0.7396 macro_f1=0.7375 weighted_f1=0.7375
+2026-10-07 14:26:12,818 | INFO | epoch=7 step=20/96 loss=0.0464 lr=2.00e-05
+2026-10-07 14:26:15,036 | INFO | epoch=7 step=40/96 loss=0.0522 lr=2.00e-05
+2026-10-07 14:26:17,260 | INFO | epoch=7 step=60/96 loss=0.3190 lr=2.00e-05
+2026-10-07 14:26:19,422 | INFO | epoch=7 step=80/96 loss=0.0379 lr=2.00e-05
+2026-10-07 14:26:21,809 | INFO | epoch=7 train_loss=0.1223 dev_loss=0.9670 accuracy=0.8021 macro_f1=0.8030 weighted_f1=0.8030
+2026-10-07 14:26:24,116 | INFO | epoch=8 step=20/96 loss=0.0283 lr=2.00e-05
+2026-10-07 14:26:26,259 | INFO | epoch=8 step=40/96 loss=0.0241 lr=2.00e-05
+2026-10-07 14:26:28,375 | INFO | epoch=8 step=60/96 loss=0.6590 lr=2.00e-05
+2026-10-07 14:26:30,603 | INFO | epoch=8 step=80/96 loss=0.0213 lr=2.00e-05
+2026-10-07 14:26:33,009 | INFO | epoch=8 train_loss=0.0627 dev_loss=1.1782 accuracy=0.7708 macro_f1=0.7787 weighted_f1=0.7787
+2026-10-07 14:26:35,166 | INFO | epoch=9 step=20/96 loss=0.0165 lr=2.00e-05
+2026-10-07 14:26:37,373 | INFO | epoch=9 step=40/96 loss=0.0161 lr=2.00e-05
+2026-10-07 14:26:39,534 | INFO | epoch=9 step=60/96 loss=0.0135 lr=2.00e-05
+2026-10-07 14:26:41,455 | INFO | epoch=9 step=80/96 loss=0.0147 lr=2.00e-05
+2026-10-07 14:26:43,613 | INFO | epoch=9 train_loss=0.0573 dev_loss=1.5480 accuracy=0.7188 macro_f1=0.7127 weighted_f1=0.7127
+2026-10-07 14:26:45,535 | INFO | epoch=10 step=20/96 loss=0.0119 lr=2.00e-05
+2026-10-07 14:26:47,451 | INFO | epoch=10 step=40/96 loss=0.0103 lr=2.00e-05
+2026-10-07 14:26:49,378 | INFO | epoch=10 step=60/96 loss=0.0114 lr=2.00e-05
+2026-10-07 14:26:51,273 | INFO | epoch=10 step=80/96 loss=0.0112 lr=2.00e-05
+2026-10-07 14:26:53,576 | INFO | epoch=10 train_loss=0.0956 dev_loss=1.7710 accuracy=0.6927 macro_f1=0.6924 weighted_f1=0.6924
+2026-10-07 14:26:56,227 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 14:26:56,419 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\ravdess_confusion_matrix.png
+2026-10-07 14:26:56,420 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\classification_report.csv
+2026-10-07 14:26:56,420 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\audio_training_report.md
+2026-10-07 14:26:56,476 | INFO | Done. model_path=C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2

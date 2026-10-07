@@ -26,7 +26,7 @@
 - Label mapping saved to: `models/audio/label_mapping.json`
 
 ## Audio source
-- Configured audio root: WindowsPath('data/raw/ravdess')
+- Configured audio root: WindowsPath('C:/Users/ADMIN/Downloads/spiderboy projects/LLM-based-conversational-agents-for-behaviour-change-support/data/raw/ravdess')
 - Audio found: yes
 - Preprocessing: load -> mono -> resample to 16 kHz -> Wav2Vec2 processor -> dynamic padding
 
@@ -39,40 +39,49 @@
 - Gradient checkpointing: enabled
 
 ## Training configuration
-- Epochs: 1
+- Epochs: 10
 - Learning rate: 2e-05
-- Batch size: 2
+- Batch size: 8
 - Optimizer: AdamW (weight_decay=0.01)
 - Gradient clipping: norm 1.0
 - Mixed precision: yes
 - Random seed: 42
 - Device: cuda
-- Train batch steps per epoch: 4
+- Train batch steps per epoch: 96
 
 ## Training metrics per epoch
 
 | Epoch | Train loss | Dev loss | LR | Accuracy | Macro F1 | Weighted F1 |
 |---|---|---|---|---|---|---|
-| 1 | 1.7141 | 1.7979 | 2.00e-05 | 0.1667 | 0.0476 | 0.0476 |
+| 1 | 1.6968 | 1.5764 | 2.00e-05 | 0.3802 | 0.3227 | 0.3227 |
+| 2 | 1.3533 | 1.4157 | 2.00e-05 | 0.4375 | 0.4179 | 0.4179 |
+| 3 | 0.9075 | 1.1026 | 2.00e-05 | 0.6406 | 0.6388 | 0.6388 |
+| 4 | 0.5804 | 1.0734 | 2.00e-05 | 0.6458 | 0.6428 | 0.6428 |
+| 5 | 0.3719 | 1.0195 | 2.00e-05 | 0.7188 | 0.7107 | 0.7107 |
+| 6 | 0.1964 | 1.0363 | 2.00e-05 | 0.7396 | 0.7375 | 0.7375 |
+| 7 | 0.1223 | 0.9670 | 2.00e-05 | 0.8021 | 0.8030 | 0.8030 |
+| 8 | 0.0627 | 1.1782 | 2.00e-05 | 0.7708 | 0.7787 | 0.7787 |
+| 9 | 0.0573 | 1.5480 | 2.00e-05 | 0.7188 | 0.7127 | 0.7127 |
+| 10 | 0.0956 | 1.7710 | 2.00e-05 | 0.6927 | 0.6924 | 0.6924 |
 
 ## Final results (test)
 
-- Accuracy: 0.1667
-- Macro F1: 0.0476
-- Weighted F1: 0.0476
-- Macro precision: 0.0278
-- Macro recall: 0.1667
+- Accuracy: 0.7240
+- Macro F1: 0.7182
+- Weighted F1: 0.7182
+- Macro precision: 0.7592
+- Macro recall: 0.7240
 
 ### Per-class results (test)
 
 | Class | Precision | Recall | F1 | Support |
 |---|---|---|---|---|
-| angry | 0.0000 | 0.0000 | 0.0000 | 32 |
-| disgust | 0.0000 | 0.0000 | 0.0000 | 32 |
-| fearful | 0.0000 | 0.0000 | 0.0000 | 32 |
-| happy | 0.1667 | 1.0000 | 0.2857 | 32 |
-| sad | 0.0000 | 0.0000 | 0.0000 | 32 |
-| surprised | 0.0000 | 0.0000 | 0.0000 | 32 |
+| angry | 0.6818 | 0.9375 | 0.7895 | 32 |
+| disgust | 0.8571 | 0.5625 | 0.6792 | 32 |
+| fearful | 0.9412 | 0.5000 | 0.6531 | 32 |
+| happy | 0.5500 | 0.6875 | 0.6111 | 32 |
+| sad | 0.7317 | 0.9375 | 0.8219 | 32 |
+| surprised | 0.7931 | 0.7188 | 0.7541 | 32 |
 
 ### Confusion matrix (test)
 
@@ -84,7 +93,7 @@ Saved to `models/audio/classification_report.csv`.
 
 ## Training time
 
-- Total wall-clock training time: 8.69 seconds
+- Total wall-clock training time: 107.11 seconds
 
 ## GPU memory considerations
 
