@@ -28,6 +28,7 @@ models/runs_*/checkpoint-8712/model.safetensors
 .freebuff/
 .kilo/
 .kilocode/
+install.cmd
 
 # Environment
 .env
