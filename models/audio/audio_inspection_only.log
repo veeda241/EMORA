@@ -1,0 +1,5 @@
+2026-10-06 08:27:40,152 | INFO | num_labels=7 classes=['anger', 'disgust', 'fear', 'joy', 'neutral', 'sadness', 'surprise']
+2026-10-06 08:27:40,160 | INFO | Dataset validation passed.
+2026-10-06 08:27:40,160 | INFO | audio_present=True
+2026-10-06 08:27:40,161 | INFO | counts={'train': {'neutral': 4710, 'surprise': 1205, 'fear': 268, 'sadness': 683, 'joy': 1743, 'disgust': 271, 'anger': 1109}, 'dev': {'sadness': 111, 'surprise': 150, 'neutral': 470, 'joy': 163, 'anger': 153, 'disgust': 22, 'fear': 40}, 'test': {'surprise': 281, 'anger': 345, 'neutral': 1256, 'joy': 402, 'sadness': 208, 'fear': 50, 'disgust': 68}}
+2026-10-06 08:27:42,390 | INFO | sample_idx0 exists=False
