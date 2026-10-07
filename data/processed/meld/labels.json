@@ -1,0 +1,48 @@
+{
+  "dataset": "MELD",
+  "labels": [
+    "anger",
+    "disgust",
+    "fear",
+    "joy",
+    "neutral",
+    "sadness",
+    "surprise"
+  ],
+  "label2id": {
+    "anger": 0,
+    "disgust": 1,
+    "fear": 2,
+    "joy": 3,
+    "neutral": 4,
+    "sadness": 5,
+    "surprise": 6
+  },
+  "split_counts": {
+    "test": 2610,
+    "train": 9989,
+    "validation": 1109
+  },
+  "total_rows": 13708,
+  "duplicate_utterance_keys": 39,
+  "duplicate_key_note": "Some source split files reuse episode/dialogue/utterance IDs for different rows. The processed key includes the source split; verify audio alignment before waveform training.",
+  "time_units": "milliseconds from episode start",
+  "audio_filename_pattern": "Episode{season}_{episode}/dial{season}_{dialogue_id}_utt{utterance_id}.wav",
+  "sources": [
+    {
+      "source_file": "data\\raw\\meld\\train_sent_emo.csv",
+      "source_rows": 9989,
+      "output_rows": 9989
+    },
+    {
+      "source_file": "data\\raw\\meld\\dev_sent_emo.csv",
+      "source_rows": 1109,
+      "output_rows": 1109
+    },
+    {
+      "source_file": "data\\raw\\meld\\test_sent_emo.csv",
+      "source_rows": 2610,
+      "output_rows": 2610
+    }
+  ]
+}

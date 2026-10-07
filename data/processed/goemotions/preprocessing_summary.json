@@ -1,0 +1,69 @@
+{
+  "dataset": "GoEmotions",
+  "label_count": 28,
+  "labels": [
+    "admiration",
+    "amusement",
+    "anger",
+    "annoyance",
+    "approval",
+    "caring",
+    "confusion",
+    "curiosity",
+    "desire",
+    "disappointment",
+    "disapproval",
+    "disgust",
+    "embarrassment",
+    "excitement",
+    "fear",
+    "gratitude",
+    "grief",
+    "joy",
+    "love",
+    "nervousness",
+    "neutral",
+    "optimism",
+    "pride",
+    "realization",
+    "relief",
+    "remorse",
+    "sadness",
+    "surprise"
+  ],
+  "multi_label": true,
+  "split_strategy": "deduplicate by comment ID, then deterministic 80/10/10 hash split",
+  "annotation_rows_before_deduplication": 207814,
+  "duplicate_annotation_rows": 149805,
+  "split_counts": {
+    "test": 5766,
+    "train": 46453,
+    "validation": 5790
+  },
+  "rows_removed": 149805,
+  "source_files": [
+    "data\\full_dataset\\goemotions_1.csv",
+    "data\\full_dataset\\goemotions_2.csv",
+    "data\\full_dataset\\goemotions_3.csv"
+  ],
+  "details": [
+    {
+      "source_file": "data\\full_dataset\\goemotions_1.csv",
+      "source_rows": 70000,
+      "output_rows": 68871,
+      "removed_unclear_or_empty": 1129
+    },
+    {
+      "source_file": "data\\full_dataset\\goemotions_2.csv",
+      "source_rows": 70000,
+      "output_rows": 68907,
+      "removed_unclear_or_empty": 1093
+    },
+    {
+      "source_file": "data\\full_dataset\\goemotions_3.csv",
+      "source_rows": 71225,
+      "output_rows": 70036,
+      "removed_unclear_or_empty": 1189
+    }
+  ]
+}

@@ -1,0 +1,1110 @@
+split,utterance_key,text,speaker,label,sentiment,dialogue_id,utterance_id,season,episode,start_time,end_time,start_ms,end_ms,label_id
+validation,validation:s4_e7_d0_u0,"Oh my God, he’s lost it. He’s totally lost it.",Phoebe,sadness,negative,0,0,4,7,"00:20:57,256","00:21:00,049",1257256,1260049,5
+validation,validation:s4_e7_d0_u1,What?,Monica,surprise,negative,0,1,4,7,"00:21:01,927","00:21:03,261",1261927,1263261,6
+validation,validation:s4_e4_d1_u0,"Or! Or, we could go to the bank, close our accounts and cut them off at the source.",Ross,neutral,neutral,1,0,4,4,"00:12:24,660","00:12:30,915",744660,750915,4
+validation,validation:s4_e4_d1_u1,You’re a genius!,Chandler,joy,positive,1,1,4,4,"00:12:32,334","00:12:33,960",752334,753960,3
+validation,validation:s4_e4_d1_u2,"Aww, man, now we won’t be bank buddies!",Joey,sadness,negative,1,2,4,4,"00:12:34,211","00:12:37,505",754211,757505,5
+validation,validation:s4_e4_d1_u3,"Now, there’s two reasons.",Chandler,neutral,neutral,1,3,4,4,"00:12:38,466","00:12:39,841",758466,759841,4
+validation,validation:s4_e4_d1_u4,Hey.,Phoebe,neutral,neutral,1,4,4,4,"0:12:43,012","0:12:44,074",763012,764074,4
+validation,validation:s4_e4_d1_u5,Hey!,All,joy,positive,1,5,4,4,"0:12:44,074","0:12:45,189",764074,765189,3
+validation,validation:s4_e4_d1_u6,"Ohh, you guys, remember that cute client I told you about? I bit him.",Phoebe,neutral,neutral,1,6,4,4,"00:12:45,347","00:12:50,852",765347,770852,4
+validation,validation:s4_e4_d1_u7,Where?!,Rachel,surprise,negative,1,7,4,4,"0:12:52,730","0:12:55,002",772730,775002,6
+validation,validation:s4_e4_d1_u8,On the touchy.,Phoebe,neutral,neutral,1,8,4,4,"0:12:55,002","0:12:55,824",775002,775824,4
+validation,validation:s4_e4_d1_u9,And,Ross,neutral,neutral,1,9,4,4,"00:12:56,025","00:12:58,193",776025,778193,4
+validation,validation:s4_e4_d1_u10,"No, I know!",Phoebe,surprise,negative,1,10,4,4,"00:12:59,195","00:13:01,863",779195,781863,6
+validation,validation:s4_e4_d1_u11,"I-I’m sorry, but the moment I touch him, I just wanna throw out my old oath and take a new, dirty one.",Phoebe,anger,negative,1,11,4,4,"00:12:59,195","00:13:10,163",779195,790163,0
+validation,validation:s4_e4_d1_u12,"Well, next time your massaging him, you should try and distract yourself.",Monica,neutral,neutral,1,12,4,4,"00:13:07,495","00:13:16,044",787495,796044,4
+validation,validation:s4_e4_d1_u13,Yeah! Yeah! Yeah! Like-like when I’m doing something exciting and I don’t wanna get,Joey,joy,positive,1,13,4,4,"00:13:10,372","00:13:17,712",790372,797712,3
+validation,validation:s4_e4_d1_u14,"Thank you, Joey.",Chandler,neutral,neutral,1,14,4,4,"0:13:29,391","0:13:30,483",809391,810483,4
+validation,validation:s4_e4_d1_u15,"No-no, thank you.",Joey,neutral,neutral,1,15,4,4,"0:13:30,483","0:13:31,611",810483,811611,4
+validation,validation:s6_e4_d2_u0,"Hey Estelle, listen",Joey,neutral,neutral,2,0,6,4,"00:08:53,241","00:08:57,224",533241,537224,4
+validation,validation:s6_e4_d2_u1,Well! Well! Well! Joey Tribbiani! So you came back huh? They,Estelle,surprise,positive,2,1,6,4,"00:08:53,241","00:09:01,206",533241,541206,6
+validation,validation:s6_e4_d2_u2,What are you talkin’ about? I never left you! You’ve always been my agent!,Joey,surprise,negative,2,2,6,4,"00:09:08,548","00:09:13,476",548548,553476,6
+validation,validation:s6_e4_d2_u3,Really?!,Estelle,surprise,positive,2,3,6,4,"0:09:13,594","0:09:14,476",553594,554476,6
+validation,validation:s6_e4_d2_u4,Yeah!,Joey,joy,positive,2,4,6,4,"0:09:14,476","0:09:15,728",554476,555728,3
+validation,validation:s6_e4_d2_u5,"Oh well, no harm, no foul.",Estelle,neutral,neutral,2,5,6,4,"00:09:16,138","00:09:19,224",556138,559224,4
+validation,validation:s5_e20_d3_u0,"Okay, you guys free tonight?",Gary,neutral,neutral,3,0,5,20,"0:01:00,894","0:01:02,271",60894,62271,4
+validation,validation:s5_e20_d3_u1,Yeah!!,Ross,joy,positive,3,1,5,20,"0:01:02,271","0:01:03,961",62271,63961,3
+validation,validation:s5_e20_d3_u2,Tonight? You-you didn't say it was going to be at nighttime.,Chandler,surprise,negative,3,2,5,20,"00:01:04,731","00:01:07,608",64731,67608,6
+validation,validation:s7_e7_d4_u0,Yes? Yes?! How can I help you?,Ross,neutral,neutral,4,0,7,7,"00:14:33,289","00:14:36,040",873289,876040,4
+validation,validation:s7_e7_d4_u1,"Yeah, we were…we were just looking around.",Guy,neutral,neutral,4,1,7,7,"00:14:36,208","00:14:38,001",876208,878001,4
+validation,validation:s7_e7_d4_u2,"Oh-oh, you’re-you’re fellow scholars.",Ross,surprise,negative,4,2,7,7,"00:14:38,210","00:14:40,587",878210,880587,6
+validation,validation:s7_e7_d4_u3,"What exactly were you looking for, hmm?",Ross,neutral,neutral,4,3,7,7,"00:14:40,754","00:14:43,256",880754,883256,4
+validation,validation:s7_e7_d4_u4,"Perhaps,  perhaps Dr. Chester Stock’s musings on the Smiledon Californicus?",Ross,neutral,neutral,4,4,7,7,"00:14:43,424","00:14:50,597",883424,890597,4
+validation,validation:s7_e7_d4_u5,Uhh….,Guy,neutral,neutral,4,5,7,7,"00:14:51,932","00:14:53,099",891932,893099,4
+validation,validation:s7_e7_d4_u6,"Ah… Ah…Get out of here!  Uh, meeting someone? Or-or are you just here to brush up on Marion’s views on evolution?",Ross,anger,negative,4,6,7,7,"00:14:51,932","00:15:11,743",891932,911743,0
+validation,validation:s7_e7_d4_u7,"Uh, actually I find Marion’s views far too progressionist.",Woman,neutral,neutral,4,7,7,7,"00:15:12,036","00:15:16,623",912036,916623,4
+validation,validation:s7_e7_d4_u8,I find Marion’s views far too progressionist.,Ross,neutral,neutral,4,8,7,7,"00:15:21,253","00:15:24,547",921253,924547,4
+validation,validation:s7_e7_d4_u9,"I’m sorry, who are you?",Woman,surprise,positive,4,9,7,7,"00:15:24,798","00:15:27,967",924798,927967,6
+validation,validation:s7_e7_d4_u10,"I’m a professor here uh, Ross…Geller.",Ross,neutral,neutral,4,10,7,7,"00:15:28,177","00:15:30,386",928177,930386,4
+validation,validation:s7_e7_d4_u11,"Ross Geller, why do I know that name? It’s uh—Wait!  Did you write this?",Woman,surprise,positive,4,11,7,7,"00:15:30,638","00:15:41,022",930638,941022,6
+validation,validation:s7_e7_d4_u12,Yes! You’re the person who checked out my book?!,Ross,surprise,positive,4,12,7,7,"00:15:41,899","00:15:50,490",941899,950490,6
+validation,validation:s7_e7_d4_u13,"Y’know, you look nothing like I would’ve thought. You’re…you’re so young.",Woman,surprise,positive,4,13,7,7,"00:15:56,830","00:15:58,311",956830,958311,6
+validation,validation:s7_e7_d4_u14,"Well I uh, I skipped forth grade.",Ross,neutral,neutral,4,14,7,7,"00:15:59,500","00:16:03,544",959500,963544,4
+validation,validation:s2_e7_d5_u0,You had no right to tell me you ever had feelings for me.,Ross,anger,negative,5,0,2,7,"00:18:28,565","00:18:31,234",1108565,1111234,0
+validation,validation:s2_e7_d5_u1,What?,Rachel,surprise,negative,5,1,2,7,"00:18:31,693","00:18:33,528",1111693,1113528,6
+validation,validation:s2_e7_d5_u2,I was doing great with Julie before I found out about you.,Ross,anger,negative,5,2,2,7,"00:18:31,693","00:18:35,196",1111693,1115196,0
+validation,validation:s2_e7_d5_u3,"Hey, I was doin' great before I found out about you. You think it's easy for me to see you with Julie?",Rachel,anger,negative,5,3,2,7,"00:18:35,364","00:18:39,951",1115364,1119951,0
+validation,validation:s2_e7_d5_u4,The point is I...,Ross,anger,negative,5,4,2,7,"0:19:12,818","0:19:14,030",1152818,1154030,0
+validation,validation:s2_e7_d5_u5,"I don't need this right now, OK.",Ross,anger,negative,5,5,2,7,"0:19:14,030","0:19:15,699",1154030,1155699,0
+validation,validation:s2_e7_d5_u6,"It, it's too late, I'm with somebody else, I'm happy.",Ross,anger,negative,5,6,2,7,"00:19:15,821","00:19:20,741",1155821,1160741,0
+validation,validation:s2_e7_d5_u7,This ship has sailed.,Ross,anger,negative,5,7,2,7,"00:19:17,781","00:19:20,741",1157781,1160741,0
+validation,validation:s2_e7_d5_u8,"Alright, fine, you go ahead and you do that, alright Ross.",Rachel,anger,negative,5,8,2,7,"0:19:27,166","0:19:29,588",1167166,1169588,0
+validation,validation:s2_e7_d5_u9,Fine.,Ross,anger,negative,5,9,2,7,"0:19:29,588","0:19:29,727",1169588,1169727,0
+validation,validation:s2_e7_d5_u10,Cause I don't need your stupid ship.,Rachel,anger,negative,5,10,2,7,"00:19:29,835","00:19:31,210",1169835,1171210,0
+validation,validation:s2_e7_d5_u11,Good.,Ross,anger,negative,5,11,2,7,"0:19:31,378","0:19:32,440",1171378,1172440,0
+validation,validation:s2_e7_d5_u12,Good.,Rachel,anger,negative,5,12,2,7,"0:19:32,440","0:19:33,256",1172440,1173256,0
+validation,validation:s8_e3_d6_u0,"Oh, it's so romantic to send people off on their honeymoon.",Phoebe,joy,positive,6,0,8,3,"00:03:10,273","00:03:14,610",190273,194610,3
+validation,validation:s8_e3_d6_u1,"Y’know, Monica and Chandler are married. Ross and Rachel are having a baby. Maybe you and I should do something.",Joey,neutral,neutral,6,1,8,3,"00:03:14,861","00:03:25,120",194861,205120,4
+validation,validation:s8_e3_d6_u2,All in good time my love.,Phoebe,neutral,neutral,6,2,8,3,"0:03:19,032","0:03:22,044",199032,202044,4
+validation,validation:s8_e3_d6_u3,All in good time.,Phoebe,neutral,neutral,6,3,8,3,"0:03:22,044","0:03:25,177",202044,205177,4
+validation,validation:s8_e3_d6_u4,Oh shoot!,Phoebe,surprise,negative,6,4,8,3,"0:03:26,247","0:03:27,415",206247,207415,6
+validation,validation:s8_e3_d6_u5,I left my guitar in their apartment.,Phoebe,sadness,negative,6,5,8,3,"0:03:27,415","0:03:29,417",207415,209417,5
+validation,validation:s8_e3_d6_u6,Well you can let me in later.,Phoebe,neutral,neutral,6,6,8,3,"0:03:29,417","0:03:31,086",209417,211086,4
+validation,validation:s8_e3_d6_u7,"I don’t have a key, they took mine to give to you.",Joey,neutral,neutral,6,7,8,3,"0:03:31,211","0:03:33,589",211211,213589,4
+validation,validation:s8_e3_d6_u8,What?! They took mine to give to you!,Phoebe,surprise,negative,6,8,8,3,"0:03:33,589","0:03:33,746",213589,213746,6
+validation,validation:s8_e3_d6_u9,Why would they take away our keys?,Joey,surprise,negative,6,9,8,3,"00:03:33,880","00:03:38,884",213880,218884,6
+validation,validation:s8_e20_d7_u0,Wow! It looks like we got a lot of good stuff.,Ross,joy,positive,7,0,8,20,"00:15:01,722","00:15:03,557",901722,903557,3
+validation,validation:s8_e20_d7_u1,"Oh we did, but my mom got us the greatest gift of all.",Rachel,joy,positive,7,1,8,20,"00:15:03,724","00:15:06,560",903724,906560,3
+validation,validation:s8_e20_d7_u2,A,Ross,neutral,neutral,7,2,8,20,"00:15:06,769","00:15:08,729",906769,908729,4
+validation,validation:s8_e20_d7_u3,No. She’s going to live with us for eight weeks.,Rachel,neutral,neutral,7,3,8,20,"00:15:09,897","00:15:14,026",909897,914026,4
+validation,validation:s8_e20_d7_u4,"Uh, what?",Ross,surprise,positive,7,4,8,20,"00:15:14,276","00:15:15,672",914276,915672,6
+validation,validation:s8_e20_d7_u5,Yes! She’s gonna help us take care of the baby! Woo-hoo.,Rachel,joy,positive,7,5,8,20,"00:15:15,861","00:15:19,656",915861,919656,3
+validation,validation:s8_e20_d7_u6,What—You’re not serious.,Ross,surprise,negative,7,6,8,20,"00:15:20,574","00:15:22,743",920574,922743,6
+validation,validation:s8_e20_d7_u7,"I mean she’s a very nice woman, but there is no way we can take eight weeks of her.",Ross,anger,negative,7,7,8,20,"00:15:22,910","00:15:27,247",922910,927247,0
+validation,validation:s8_e20_d7_u8,She’ll drive us totally crazy.,Ross,disgust,negative,7,8,8,20,"0:15:27,414","0:15:28,999",927414,928999,1
+validation,validation:s8_e20_d7_u9,Hi Ross!,Mrs. Green,joy,positive,7,9,8,20,"0:15:28,999","0:15:29,508",928999,929508,3
+validation,validation:s8_e20_d7_u10,Hi roomie!,Ross,joy,positive,7,10,8,20,"00:15:29,625","00:15:31,835",929625,931835,3
+validation,validation:s7_e19_d8_u0,Hey! What did you decide to do about the movie?,Monica,neutral,neutral,8,0,7,19,"00:03:17,697","00:03:20,199",197697,200199,4
+validation,validation:s7_e19_d8_u1,I don’t know!,Joey,neutral,neutral,8,1,7,19,"00:03:20,366","00:03:22,743",200366,202743,4
+validation,validation:s7_e19_d8_u2,It’s not like it’s porn!,Joey,neutral,neutral,8,2,7,19,"0:03:23,119","0:03:24,621",203119,204621,4
+validation,validation:s7_e19_d8_u3,"This is a serious, legitimate movie.",Joey,neutral,neutral,8,3,7,19,"0:03:24,621","0:03:27,226",204621,207226,4
+validation,validation:s7_e19_d8_u4,And the nudity is really important to the story.,Joey,neutral,neutral,8,4,7,19,"00:03:27,332","00:03:29,750",207332,209750,4
+validation,validation:s7_e19_d8_u5,That’s what you say about porn.,Monica,neutral,neutral,8,5,7,19,"00:03:29,918","00:03:32,085",209918,212085,4
+validation,validation:s7_e19_d8_u6,You’re right. Maybe I shouldn’t even go on the call back.,Joey,neutral,neutral,8,6,7,19,"00:03:33,004","00:03:35,339",213004,215339,4
+validation,validation:s7_e19_d8_u7,"No! No you should! A lot of major actors do nude scenes! I mean, the chance to star in a movie? Come on!",Monica,joy,positive,8,7,7,19,"00:03:35,506","00:03:42,304",215506,222304,3
+validation,validation:s7_e19_d8_u8,Well that’s true.,Joey,neutral,neutral,8,8,7,19,"0:03:42,972","0:03:44,015",222972,224015,4
+validation,validation:s7_e19_d8_u9,And I am only naked in one scene.,Joey,neutral,neutral,8,9,7,19,"0:03:44,015","0:03:46,777",224015,226777,4
+validation,validation:s7_e19_d8_u10,Plus it sounds really great.,Joey,neutral,neutral,8,10,7,19,"0:03:46,777","0:03:48,325",226777,228325,4
+validation,validation:s7_e19_d8_u11,My character’s catholic and he falls in love with this Jewish girl.,Joey,neutral,neutral,8,11,7,19,"00:03:48,394","00:03:51,480",228394,231480,4
+validation,validation:s7_e19_d8_u12,Who run away together and they get caught in this big rainstorm.,Joey,neutral,neutral,8,12,7,19,"00:03:51,648","00:03:54,316",231648,234316,4
+validation,validation:s7_e19_d8_u13,So we go into this barn and undress each other and hold each other.,Joey,neutral,neutral,8,13,7,19,"00:03:54,484","00:03:58,028",234484,238028,4
+validation,validation:s7_e19_d8_u14,It’s really sweet and-and tender.,Joey,joy,positive,8,14,7,19,"00:03:58,196","00:04:01,240",238196,241240,3
+validation,validation:s6_e3_d9_u0,"Hey, what’s up?",Joey,neutral,neutral,9,0,6,3,"00:05:22,280","00:05:23,905",322280,323905,4
+validation,validation:s6_e3_d9_u1,"Nothing, Monica and I had a stupid fight.",Chandler,sadness,negative,9,1,6,3,"00:05:24,073","00:05:26,199",324073,326199,5
+validation,validation:s6_e3_d9_u2,"But you’re still moving in together, right? Because my ad came out today.",Joey,neutral,neutral,9,2,6,3,"00:05:26,367","00:05:29,786",326367,329786,4
+validation,validation:s6_e3_d9_u3,"""Wanted. Female roommate, non-smoker, non-ugly."" Nice!",Chandler,joy,positive,9,3,6,3,"00:05:30,872","00:05:34,291",330872,334291,3
+validation,validation:s6_e3_d9_u4,Yeah?,Joey,neutral,neutral,9,4,6,3,"00:05:37,211","00:05:38,712",337211,338712,4
+validation,validation:s6_e3_d9_u5,"I just figured y’know, after living with you it’d be an interesting change of pace to have a female roommate, y’know?",Joey,neutral,neutral,9,5,6,3,"00:05:38,880","00:05:43,508",338880,343508,4
+validation,validation:s6_e3_d9_u6,"Someone I can learn from, someone-someone who’s different than me.",Joey,neutral,neutral,9,6,6,3,"00:05:43,676","00:05:47,304",343676,347304,4
+validation,validation:s6_e3_d9_u7,And what’s more different than me. A guy who’s,Joey,neutral,neutral,9,7,6,3,"00:05:47,472","00:05:51,141",347472,351141,4
+validation,validation:s5_e20_d10_u0,So where are we going next?,Ross,neutral,neutral,10,0,5,20,"00:06:52,412","00:06:53,412",412412,413412,4
+validation,validation:s5_e20_d10_u1,This witness won't return my calls so we're gonna see if we can surprise him coming home.,Gary,neutral,neutral,10,1,5,20,"00:06:53,579","00:06:56,915",413579,416915,4
+validation,validation:s5_e20_d10_u2,"Sur-surprise him? We're not, we're not gonna make anybody mad are we?",Chandler,fear,negative,10,2,5,20,"00:06:57,125","00:07:00,752",417125,420752,2
+validation,validation:s5_e20_d10_u3,"Come on man!  Listen so uh, are you gonna squeeze the perps shoes a little bit before he lawyers up?",Joey,joy,positive,10,3,5,20,"00:07:01,254","00:07:07,342",421254,427342,3
+validation,validation:s5_e20_d10_u4,It's a witness not a perp. And no one talks like that!,Gary,anger,negative,10,4,5,20,"0:07:07,593","0:07:10,096",427593,430096,0
+validation,validation:s5_e20_d10_u5,"Yeah, no one talks like that!",Ross,anger,negative,10,5,5,20,"0:07:10,096","0:07:10,240",430096,430240,0
+validation,validation:s5_e20_d10_u6,Oh what? Like your Mr. Cop!,Joey,anger,negative,10,6,5,20,"0:07:14,475","0:07:16,237",434475,436237,0
+validation,validation:s5_e20_d10_u7,"Hey, I'm more cop than you two!",Ross,anger,negative,10,7,5,20,"0:07:16,237","0:07:18,231",436237,438231,0
+validation,validation:s5_e20_d10_u8,How do you figure that?,Chandler,neutral,neutral,10,8,5,20,"00:07:18,438","00:07:20,063",438438,440063,4
+validation,validation:s5_e20_d10_u9,"Hello! I'm in the front seat, okay? I'm Gary's partner!",Ross,neutral,neutral,10,9,5,20,"00:07:20,273","00:07:25,610",440273,445610,4
+validation,validation:s5_e19_d11_u0,I guess so.,Phoebe,neutral,neutral,11,0,5,19,"00:05:29,287","00:05:30,412",329287,330412,4
+validation,validation:s5_e19_d11_u1,Here you go. Thank you!,Rachel,neutral,neutral,11,1,5,19,"0:05:34,459","0:05:36,879",334459,336879,4
+validation,validation:s5_e19_d11_u2,"Wait, Rach! Where's the other one?",Phoebe,neutral,neutral,11,2,5,19,"0:05:36,879","0:05:37,038",336879,337038,4
+validation,validation:s5_e19_d11_u3,"Oh what, you-you want both of them?",Rachel,surprise,positive,11,3,5,19,"00:05:37,503","00:05:40,172",337503,340172,6
+validation,validation:s5_e19_d11_u4,"Rachel Karen Green, where's the other earring?!",Phoebe,anger,negative,11,4,5,19,"00:05:40,590","00:05:43,050",340590,343050,0
+validation,validation:s5_e19_d11_u5,"Okay, okay, okay, look, just don't freak out, but I kinda lost it.",Rachel,fear,negative,11,5,5,19,"00:05:43,259","00:05:46,261",343259,346261,2
+validation,validation:s5_e19_d11_u6,"I know it's in the apartment, but I",Rachel,neutral,neutral,11,6,5,19,"00:05:46,429","00:05:49,973",346429,349973,4
+validation,validation:s5_e19_d11_u7,"Well, what am I going to tell Monica? She wants to wear them tonight!",Phoebe,fear,negative,11,7,5,19,"00:05:50,183","00:05:53,518",350183,353518,2
+validation,validation:s5_e19_d11_u8,Tell her to wear her own earrings.,Rachel,anger,negative,11,8,5,19,"0:05:53,728","0:05:57,065",353728,357065,0
+validation,validation:s5_e19_d11_u9,These,Phoebe,neutral,neutral,11,9,5,19,"0:05:57,065","0:05:57,211",357065,357211,4
+validation,validation:s5_e19_d11_u10,Nooo! Nooooo! You lent me Monica's earrings?! I'm not allowed to borrow her stuff!,Rachel,anger,negative,11,10,5,19,"00:05:57,315","00:06:03,570",357315,363570,0
+validation,validation:s5_e19_d11_u11,Why not?,Phoebe,neutral,neutral,11,11,5,19,"0:06:04,989","0:06:05,631",364989,365631,4
+validation,validation:s5_e19_d11_u12,Because I lose her stuff!,Rachel,anger,negative,11,12,5,19,"0:06:05,631","0:06:07,379",365631,367379,0
+validation,validation:s7_e24_d12_u0,"Uh Phoebe, can I see you for a second?",Ross,neutral,neutral,12,0,7,24,"0:11:56,507","0:11:58,179",716507,718179,4
+validation,validation:s7_e24_d12_u1,Yeah!,Phoebe,neutral,neutral,12,1,7,24,"0:11:58,179","0:12:00,071",718179,720071,4
+validation,validation:s7_e24_d12_u2,What’s going on?,Phoebe,neutral,neutral,12,2,7,24,"0:12:05,433","0:12:07,185",725433,727185,4
+validation,validation:s7_e24_d12_u3,Chandler’s gone again!,Ross,surprise,negative,12,3,7,24,"0:12:07,185","0:12:07,866",727185,727866,6
+validation,validation:s7_e24_d12_u4,Oh my God! Why would you play hide and seek with someone you know is a flight risk?!,Phoebe,sadness,negative,12,4,7,24,"00:12:08,060","00:12:13,481",728060,733481,5
+validation,validation:s5_e3_d13_u0,Okay. You ready to push again?,Dr. Harad,neutral,neutral,13,0,5,3,"00:16:02,544","00:16:04,504",962544,964504,4
+validation,validation:s5_e3_d13_u1,I already had a baby. Leave me alone.,Phoebe,anger,negative,13,1,5,3,"00:16:04,755","00:16:07,048",964755,967048,0
+validation,validation:s5_e3_d13_u2,"Okay, okay, come on, you can do it. You can do it!",Frank,joy,positive,13,2,5,3,"00:16:07,257","00:16:10,593",967257,970593,3
+validation,validation:s5_e3_d13_u3,Yeah!!,Frank,joy,positive,13,3,5,3,"00:16:18,352","00:16:19,769",978352,979769,3
+validation,validation:s5_e3_d13_u4,Little Leslie is here!,Frank,joy,positive,13,4,5,3,"0:16:20,479","0:16:22,451",980479,982451,3
+validation,validation:s5_e3_d13_u5,We got another one!,Frank,surprise,positive,13,5,5,3,"0:16:22,451","0:16:23,168",982451,983168,6
+validation,validation:s5_e3_d13_u6,"Oh my God, I can't believe I have two-two children.",Frank,surprise,positive,13,6,5,3,"00:16:23,983","00:16:27,485",983983,987485,6
+validation,validation:s5_e3_d13_u7,How scary is that?,Frank,surprise,positive,13,7,5,3,"00:16:28,529","00:16:30,405",988529,990405,6
+validation,validation:s5_e3_d13_u8,"Come on little Chandler, it's time to be born. Come on little Chandler! Come on!",Frank,joy,positive,13,8,5,3,"00:16:34,034","00:16:38,579",994034,998579,3
+validation,validation:s5_e3_d13_u9,"All right, he's coming. He's coming!",Dr. Harad,joy,positive,13,9,5,3,"00:16:39,456","00:16:41,541",999456,1001541,3
+validation,validation:s5_e3_d13_u10,"Hey, where's his thing?",Frank,surprise,negative,13,10,5,3,"00:16:46,005","00:16:47,922",1006005,1007922,6
+validation,validation:s5_e3_d13_u11,Chandler's a girl!,Frank,surprise,positive,13,11,5,3,"00:16:52,136","00:16:53,678",1012136,1013678,6
+validation,validation:s5_e3_d13_u12,"Oh God, kindergarten flashback.",Chandler,surprise,negative,13,12,5,3,"00:16:55,681","00:16:58,141",1015681,1018141,6
+validation,validation:s5_e3_d13_u13,They musta read the sonogram wrong.,Frank,surprise,negative,13,13,5,3,"00:16:59,476","00:17:03,146",1019476,1023146,6
+validation,validation:s5_e3_d13_u14,"Cause they, 'cause they thought it was a boy, but Chandler's a girl!",Frank,surprise,positive,13,14,5,3,"00:16:59,476","00:17:05,440",1019476,1025440,6
+validation,validation:s5_e3_d13_u15,Chandler's a girl!,Frank,surprise,positive,13,15,5,3,"00:17:03,397","00:17:05,440",1023397,1025440,6
+validation,validation:s5_e3_d13_u16,"Okay, keep saying it!",Chandler,joy,positive,13,16,5,3,"00:17:05,649","00:17:07,316",1025649,1027316,3
+validation,validation:s5_e3_d13_u17,Am I too late?!,Alice,neutral,neutral,13,17,5,3,"00:17:08,777","00:17:11,779",1028777,1031779,4
+validation,validation:s5_e3_d13_u18,"No-no ah, everything's okay. Everybody's healthy there's 30 fingers and 30 toes.",Frank,joy,positive,13,18,5,3,"00:17:11,989","00:17:14,407",1031989,1034407,3
+validation,validation:s5_e3_d13_u19,We have our babies?,Alice,surprise,positive,13,19,5,3,"00:17:14,908","00:17:16,075",1034908,1036075,6
+validation,validation:s5_e3_d13_u20,Yeah.,Frank,joy,positive,13,20,5,3,"00:17:16,410","00:17:17,452",1036410,1037452,3
+validation,validation:s5_e3_d13_u21,"Oh, we have our babies.",Alice,joy,positive,13,21,5,3,"00:17:18,412","00:17:19,579",1038412,1039579,3
+validation,validation:s8_e5_d14_u0,Hey Toby!,Bob,joy,positive,14,0,8,5,"0:16:07,675","0:16:08,267",967675,968267,3
+validation,validation:s8_e5_d14_u1,Hey Bobby.,Chandler,neutral,neutral,14,1,8,5,"0:16:08,267","0:16:09,490",968267,969490,4
+validation,validation:s8_e5_d14_u2,"It’s Bob actually. Hey, you work up here, can you tell me where this Chandler",Bob,neutral,neutral,14,2,8,5,"00:16:09,885","00:16:17,225",969885,977225,4
+validation,validation:s8_e5_d14_u3,"Uhh yeah. Yeah, it’s  right, right down there.  Right there, yeah. Can I ask you why?",Chandler,neutral,neutral,14,3,8,5,"00:16:17,393","00:16:25,942",977393,985942,4
+validation,validation:s8_e5_d14_u4,"I want to talk to that bastard, see what his problem is.",Bob,anger,negative,14,4,8,5,"00:16:26,110","00:16:28,945",986110,988945,0
+validation,validation:s8_e5_d14_u5,"Okay Bob listen uhh, I’m the reason you didn’t get the job up here.",Chandler,sadness,negative,14,5,8,5,"00:16:29,113","00:16:35,410",989113,995410,5
+validation,validation:s8_e5_d14_u6,Toby don’t.,Bob,sadness,negative,14,6,8,5,"0:16:35,577","0:16:36,849",995577,996849,5
+validation,validation:s8_e5_d14_u7,Bob!,Chandler,sadness,negative,14,7,8,5,"0:16:36,849","0:16:37,541",996849,997541,5
+validation,validation:s8_e5_d14_u8,Toby! I’m not gonna let you cover for him. Anything you say right now will just get me more upset with Chandler!,Bob,anger,negative,14,8,8,5,"00:16:37,663","00:16:45,920",997663,1005920,0
+validation,validation:s8_e7_d15_u0,Thank you.  Oh Joey and look at this crib! It’s so cute!,Rachel,joy,positive,15,0,8,7,"00:20:49,414","00:20:58,464",1249414,1258464,3
+validation,validation:s8_e7_d15_u1,I know! I found it on the street.,Joey,joy,positive,15,1,8,7,"00:20:58,632","00:21:00,675",1258632,1260675,3
+validation,validation:s8_e7_d15_u2,Are you serious—Really?! It’s in such good condition.,Rachel,surprise,positive,15,2,8,7,"00:21:00,842","00:21:04,887",1260842,1264887,6
+validation,validation:s8_e7_d15_u3,Yeah.,Joey,neutral,neutral,15,3,8,7,"00:21:02,511","00:21:04,887",1262511,1264887,4
+validation,validation:s8_e7_d15_u4,Wow! Whoa-whoa what’s under the covers?,Rachel,surprise,negative,15,4,8,7,"00:21:05,055","00:21:07,473",1265055,1267473,6
+validation,validation:s8_e7_d15_u5,I don’t know.,Joey,neutral,neutral,15,5,8,7,"0:21:07,641","0:21:09,060",1267641,1269060,4
+validation,validation:s8_e7_d15_u6,It’s moving.,Rachel,fear,negative,15,6,8,7,"0:21:09,060","0:21:09,217",1269060,1269217,2
+validation,validation:s8_e7_d15_u7,Ew.,Joey,disgust,negative,15,7,8,7,"00:21:09,309","00:21:10,685",1269309,1270685,1
+validation,validation:s8_e7_d15_u8,It’s still——It’s got a tail! Get it out of here! Get it out of here!!,Rachel,fear,negative,15,8,8,7,"0:21:10,852","0:21:12,479",1270852,1272479,2
+validation,validation:s8_e7_d15_u9,Ooh! Ah! Okay!,Joey,fear,negative,15,9,8,7,"0:21:12,479","0:21:13,247",1272479,1273247,2
+validation,validation:s7_e5_d16_u0,"Well, I went over to Kyle’s last night to pick up a few things and we got to reminiscing",Whitney,neutral,neutral,16,0,7,5,"00:19:36,842","00:19:44,056",1176842,1184056,4
+validation,validation:s7_e5_d16_u1,we talked through most of the night and we realized that the reason we were so angry at each other was because there are still feelings there. So,Kyle,sadness,negative,16,1,7,5,"00:19:44,224","00:19:52,732",1184224,1192732,5
+validation,validation:s7_e5_d16_u2,Oh just say it Kyle!,Ross,surprise,negative,16,2,7,5,"00:19:58,030","00:19:59,697",1198030,1199697,6
+validation,validation:s7_e5_d16_u3,We’re gonna give it another try.,Kyle,joy,positive,16,3,7,5,"00:20:02,910","00:20:04,785",1202910,1204785,3
+validation,validation:s7_e5_d16_u4,What about her whining and her constant need for attention?!,Phoebe,anger,negative,16,4,7,5,"00:20:04,953","00:20:08,581",1204953,1208581,0
+validation,validation:s7_e5_d16_u5,I’m gonna work on that.,Whitney,neutral,neutral,16,5,7,5,"00:20:08,749","00:20:09,957",1208749,1209957,4
+validation,validation:s7_e5_d16_u6,"Oh right, because you’re so capable of change.",Phoebe,anger,negative,16,6,7,5,"00:20:10,125","00:20:12,418",1210125,1212418,0
+validation,validation:s7_e5_d16_u7,"Y’know, he hums when he pees!",Ross,anger,negative,16,7,7,5,"00:20:13,921","00:20:16,088",1213921,1216088,0
+validation,validation:s7_e5_d16_u8,I do know.,Whitney,neutral,neutral,16,8,7,5,"0:20:18,050","0:20:19,232",1218050,1219232,4
+validation,validation:s7_e5_d16_u9,"It makes him miss the bowl, but whatever.",Ross,disgust,negative,16,9,7,5,"0:20:19,232","0:20:22,446",1219232,1222446,1
+validation,validation:s7_e5_d16_u10,We’re so sorry.,Whitney,sadness,negative,16,10,7,5,"00:20:23,388","00:20:25,348",1223388,1225348,5
+validation,validation:s7_e5_d16_u11,"That’s all right, we-we don’t need you. In fact, hey I’m over it already.",Ross,anger,negative,16,11,7,5,"00:20:26,183","00:20:30,019",1226183,1230019,0
+validation,validation:s7_e5_d16_u12,"Yeah, and y’know what? I don’t give a tiny rat’s ass.",Phoebe,anger,negative,16,12,7,5,"00:20:30,187","00:20:33,397",1230187,1233397,0
+validation,validation:s7_e5_d16_u13,"Yeah, we’re gonna go.",Kyle,neutral,neutral,16,13,7,5,"00:20:34,900","00:20:36,734",1234900,1236734,4
+validation,validation:s7_e5_d16_u14,"I’m sorry. Ugh, Pheebs, you were, you were right about her. Y’know, she",Ross,sadness,negative,16,14,7,5,"00:20:40,906","00:20:47,203",1240906,1247203,5
+validation,validation:s7_e5_d16_u15,"Oh. Y’know, he hums while he does other stuff to.",Phoebe,neutral,neutral,16,15,7,5,"00:20:55,879","00:20:58,965",1255879,1258965,4
+validation,validation:s7_e5_d16_u16,"Yeah, we're better off without them.",Ross,anger,negative,16,16,7,5,"00:21:01,093","00:21:04,470",1261093,1264470,0
+validation,validation:s7_e5_d16_u17,"And y’know, even if they break up again, you’d better not let him in your sad men’s club!",Phoebe,anger,negative,16,17,7,5,"00:21:04,846","00:21:09,141",1264846,1269141,0
+validation,validation:s7_e5_d16_u18,Divorced men’s club.,Ross,sadness,negative,16,18,7,5,"00:21:09,309","00:21:12,603",1269309,1272603,5
+validation,validation:s6_e5_d17_u0,Why isn’t that valet back with my Porsche?,Joey,anger,negative,17,0,6,5,"00:14:50,514","00:14:54,183",890514,894183,0
+validation,validation:s6_e5_d17_u1,Maybe because you’ve got the keys?,Passerby,anger,negative,17,1,6,5,"00:14:55,603","00:14:57,520",895603,897520,0
+validation,validation:s6_e5_d17_u2,This is totally your fault!,Rachel,anger,negative,17,2,6,5,"0:15:03,110","0:15:04,582",903110,904582,0
+validation,validation:s6_e5_d17_u3,My fault?! You threatened the judge!,Ross,anger,negative,17,3,6,5,"0:15:04,582","0:15:07,079",904582,907079,0
+validation,validation:s6_e5_d17_u4,"Well, you ripped the paper out of the court reporter’s machine!!",Rachel,anger,negative,17,4,6,5,"00:15:07,197","00:15:10,116",907197,910116,0
+validation,validation:s6_e22_d18_u0,Phoebe!,Monica,neutral,neutral,18,0,6,22,"0:16:17,351","0:16:18,102",977351,978102,4
+validation,validation:s6_e22_d18_u1,Yeah?,Phoebe,neutral,neutral,18,1,6,22,"0:16:18,102","0:16:18,406",978102,978406,4
+validation,validation:s6_e22_d18_u2,Have you seen Chandler?!,Monica,neutral,neutral,18,2,6,22,"0:16:18,519","0:16:19,401",978519,979401,4
+validation,validation:s6_e22_d18_u3,No! Why?,Phoebe,neutral,neutral,18,3,6,22,"0:16:19,401","0:16:20,205",979401,980205,4
+validation,validation:s6_e22_d18_u4,The woman from the museum called and said that there was a cancellation and that we could move up our wedding and Chandler heard!,Monica,fear,negative,18,4,6,22,"00:16:20,312","00:16:25,566",980312,985566,2
+validation,validation:s6_e22_d18_u5,I know!,Monica,fear,negative,18,5,6,22,"0:16:26,944","0:16:27,320",986944,987320,2
+validation,validation:s6_e22_d18_u6,How bad is this?,Monica,fear,negative,18,6,6,22,"0:16:27,320","0:16:28,826",987320,988826,2
+validation,validation:s6_e22_d18_u7,"Well for the regular guy, it’s bad, but Chandler, Oh dear God!",Phoebe,fear,negative,18,7,6,22,"00:16:28,946","00:16:33,074",988946,993074,2
+validation,validation:s6_e22_d18_u8,I know! I know! And he totally freaked out and I can’t find him anywhere!,Monica,fear,negative,18,8,6,22,"00:16:34,660","00:16:37,662",994660,997662,2
+validation,validation:s6_e22_d18_u9,What are you gonna do?,Phoebe,neutral,neutral,18,9,6,22,"0:16:37,830","0:16:38,831",997830,998831,4
+validation,validation:s6_e22_d18_u10,"Well, I’m never gonna listen to you again, that’s for sure!",Monica,anger,negative,18,10,6,22,"0:16:38,831","0:16:41,285",998831,1001285,0
+validation,validation:s6_e22_d18_u11,"""Y’know, harm can it do if you go and put your name down?""",Monica,neutral,neutral,18,11,6,22,"00:16:41,375","00:16:44,669",1001375,1004669,4
+validation,validation:s6_e22_d18_u12,Rachel said that!,Phoebe,surprise,negative,18,12,6,22,"0:16:45,546","0:16:46,728",1005546,1006728,6
+validation,validation:s6_e22_d18_u13,Well Rachel’s not here!,Monica,anger,negative,18,13,6,22,"0:16:46,728","0:16:47,766",1006728,1007766,0
+validation,validation:s1_e23_d19_u0,"Come on, come on.",Ross,neutral,neutral,19,0,1,23,"00:14:15,980","00:14:17,730",855980,857730,4
+validation,validation:s1_e23_d19_u1,"Damnit, damnit, damnit, damnit.",Ross,anger,negative,19,1,1,23,"0:14:20,234","0:14:23,156",860234,863156,0
+validation,validation:s1_e23_d19_u2,This is all your fault.,Ross,anger,negative,19,2,1,23,"0:14:23,156","0:14:24,118",863156,864118,0
+validation,validation:s1_e23_d19_u3,"This is supposed to be, like, the greatest day of my life, y'know?",Ross,anger,negative,19,3,1,23,"00:14:24,280","00:14:26,948",864280,866948,0
+validation,validation:s1_e23_d19_u4,"My son is being born, and I should be in there, you know, instead of stuck in a closet with you.",Ross,anger,negative,19,4,1,23,"00:14:27,116","00:14:32,161",867116,872161,0
+validation,validation:s1_e23_d19_u5,The woman I love is having a baby today. I've been waiting for this just as much as you have.,Susan,anger,negative,19,5,1,23,"00:14:32,329","00:14:35,665",872329,875665,0
+validation,validation:s1_e23_d19_u6,"No no no, believe me.",Ross,anger,negative,19,6,1,23,"0:14:35,833","0:14:37,095",875833,877095,0
+validation,validation:s1_e23_d19_u7,"No one has been waiting for this as much as I have, ok?",Ross,anger,negative,19,7,1,23,"0:14:37,095","0:14:39,055",877095,879055,0
+validation,validation:s1_e23_d19_u8,And you know what the funny thing is?,Ross,neutral,neutral,19,8,1,23,"00:14:39,169","00:14:40,879",879169,880879,4
+validation,validation:s1_e23_d19_u9,"When this day is over, you get to go home with the baby, ok?",Ross,anger,negative,19,9,1,23,"00:14:41,046","00:14:43,631",881046,883631,0
+validation,validation:s1_e23_d19_u10,Where does that leave me?,Ross,sadness,negative,19,10,1,23,"0:14:43,799","0:14:44,551",883799,884551,5
+validation,validation:s1_e23_d19_u11,You get to be the baby's father.,Susan,neutral,neutral,19,11,1,23,"0:14:44,551","0:14:46,275",884551,886275,4
+validation,validation:s1_e23_d19_u12,Everyone knows who you are.,Susan,neutral,neutral,19,12,1,23,"0:14:46,385","0:14:47,517",886385,887517,4
+validation,validation:s1_e23_d19_u13,Who am I?,Susan,anger,negative,19,13,1,23,"0:14:47,517","0:14:50,183",887517,890183,0
+validation,validation:s1_e23_d19_u14,"There's Mother's Day, there's Father's Day, there's no... Lesbian Lover Day.",Susan,sadness,negative,19,14,1,23,"00:14:50,306","00:14:52,599",890306,892599,5
+validation,validation:s1_e23_d19_u15,Every day is Lesbian Lover Day.,Ross,neutral,neutral,19,15,1,23,"00:14:52,766","00:14:55,226",892766,895226,4
+validation,validation:s1_e23_d19_u16,This is so great.,Phoebe,joy,positive,19,16,1,23,"00:14:58,063","00:14:59,814",898063,899814,3
+validation,validation:s1_e23_d19_u17,You wanna explain that?,Ross,neutral,neutral,19,17,1,23,"00:15:03,986","00:15:05,570",903986,905570,4
+validation,validation:s1_e23_d19_u18,"I mean, well, 'cause when I was growing up, you know my dad left, and my mother died, and my stepfather went to jail, so I barely had enough pieces of parents to make one whole one.",Phoebe,sadness,negative,19,18,1,23,"00:15:06,280","00:15:16,664",906280,916664,5
+validation,validation:s1_e23_d19_u19,And here's this little baby who has like three whole parents who care about it so much that they're fighting over who gets to love it the most.,Phoebe,joy,positive,19,19,1,23,"00:15:17,791","00:15:27,842",917791,927842,3
+validation,validation:s1_e23_d19_u20,And it's not even born yet.,Phoebe,sadness,negative,19,20,1,23,"00:15:25,424","00:15:27,842",925424,927842,5
+validation,validation:s1_e23_d19_u21,"It's just, it's just the luckiest baby in the whole world.",Phoebe,joy,positive,19,21,1,23,"00:15:28,010","00:15:30,553",928010,930553,3
+validation,validation:s1_e23_d19_u22,"I'm sorry, you were fighting.",Phoebe,sadness,negative,19,22,1,23,"00:15:33,349","00:15:35,433",933349,935433,5
+validation,validation:s5_e10_d20_u0,"Okay, it's a typical New York City apartment. Two girls are just hanging out.",Joey,neutral,neutral,20,0,5,10,"00:21:31,498","00:21:37,128",1291498,1297128,4
+validation,validation:s5_e10_d20_u1,"Hi, how are you doing Kelly?",Monica,neutral,neutral,20,1,5,10,"00:21:37,879","00:21:41,465",1297879,1301465,4
+validation,validation:s5_e10_d20_u2,"I'm doing just fine! God, Tiffany, you smell so great!",Rachel,joy,positive,20,2,5,10,"00:21:41,633","00:21:44,385",1301633,1304385,3
+validation,validation:s5_e10_d20_u3,It's my new perfume. Why don't you come closer where you can,Monica,neutral,neutral,20,3,5,10,"00:21:46,555","00:21:52,643",1306555,1312643,4
+validation,validation:s5_e10_d20_u4,"Oh, y'know Joey, you are sick!",Rachel,disgust,negative,20,4,5,10,"0:21:55,230","0:21:57,662",1315230,1317662,1
+validation,validation:s5_e10_d20_u5,This is disgusting!,Monica,disgust,negative,20,5,5,10,"0:21:57,662","0:21:58,196",1317662,1318196,1
+validation,validation:s5_e10_d20_u6,I'm not reading this!,Rachel,disgust,negative,20,6,5,10,"00:21:58,317","00:22:00,109",1318317,1320109,1
+validation,validation:s5_e10_d20_u7,What?! Wait-wait-wait! The handsome man was about to enter!!,Joey,surprise,negative,20,7,5,10,"00:22:00,277","00:22:04,488",1320277,1324488,6
+validation,validation:s1_e20_d21_u0,"All right, I'll give you this, Mr. Peanut is a better dresser.",Joey,neutral,neutral,21,0,1,20,"00:21:27,119","00:21:30,621",1287119,1290621,4
+validation,validation:s1_e20_d21_u1,"I mean he's got the monocle, he's got the top hat...",Joey,neutral,neutral,21,1,1,20,"00:21:30,789","00:21:33,833",1290789,1293833,4
+validation,validation:s1_e20_d21_u2,You know he's gay?,Phoebe,neutral,neutral,21,2,1,20,"00:21:34,001","00:21:35,876",1294001,1295876,4
+validation,validation:s1_e20_d21_u3,I just wanna clarify this: are you outing Mr. Peanut?,Ross,neutral,neutral,21,3,1,20,"00:21:38,964","00:21:43,092",1298964,1303092,4
+validation,validation:s1_e20_d21_u4,"Danielle! Hi! Uh- everybody, this is Danielle, Danielle, everybody.",Chandler,neutral,neutral,21,4,1,20,"00:21:44,303","00:21:49,765",1304303,1309765,4
+validation,validation:s1_e20_d21_u5,Hi. Hi.,All,neutral,neutral,21,5,1,20,"00:21:49,933","00:21:51,142",1309933,1311142,4
+validation,validation:s1_e20_d21_u6,What are you doing here?,Chandler,surprise,positive,21,6,1,20,"00:21:51,310","00:21:53,728",1311310,1313728,6
+validation,validation:s1_e4_d22_u0,"Well, what?",Chandler,neutral,neutral,22,0,1,4,"0:17:41,977","0:17:42,689",1061977,1062689,4
+validation,validation:s1_e4_d22_u1,What?,Chandler,neutral,neutral,22,1,1,4,"0:17:42,689","0:17:43,041",1062689,1063041,4
+validation,validation:s1_e4_d22_u2,What is it?,Chandler,neutral,neutral,22,2,1,4,"0:17:43,041","0:17:43,563",1063041,1063563,4
+validation,validation:s1_e4_d22_u3,That she left you?,Chandler,surprise,negative,22,3,1,4,"0:17:43,563","0:17:44,365",1063563,1064365,6
+validation,validation:s1_e4_d22_u4,That she likes women?,Chandler,neutral,neutral,22,4,1,4,"0:17:44,365","0:17:44,908",1064365,1064908,4
+validation,validation:s1_e4_d22_u5,That she left you for another woman that likes women?,Chandler,neutral,neutral,22,5,1,4,"00:17:44,938","00:17:47,106",1064938,1067106,4
+validation,validation:s1_e4_d22_u6,"Little louder, okay, I think there's a man on the twelfth floor in a coma that didn't quite hear you...",Ross,anger,negative,22,6,1,4,"00:17:47,274","00:17:51,652",1067274,1071652,0
+validation,validation:s1_e4_d22_u7,Then what?,Chandler,neutral,neutral,22,7,1,4,"00:17:55,282","00:17:56,365",1075282,1076365,4
+validation,validation:s1_e4_d22_u8,My first time with Carol was...,Ross,neutral,neutral,22,8,1,4,"00:17:57,493","00:18:00,161",1077493,1080161,4
+validation,validation:s1_e4_d22_u9,What?,Joey,neutral,neutral,22,9,1,4,"00:18:03,624","00:18:05,041",1083624,1085041,4
+validation,validation:s1_e4_d22_u10,It was my,Ross,neutral,neutral,22,10,1,4,"00:18:07,586","00:18:10,379",1087586,1090379,4
+validation,validation:s1_e4_d22_u11,With Carol?  Oh.,Joey,surprise,negative,22,11,1,4,"00:18:13,008","00:18:14,842",1093008,1094842,6
+validation,validation:s1_e4_d22_u12,"So in your whole life, you've only been with one——oh.",Chandler,surprise,negative,22,12,1,4,"00:18:21,683","00:18:24,519",1101683,1104519,6
+validation,validation:s1_e4_d22_u13,"Whoah, boy, hockey was a big mistake! There was a whole bunch of stuff we could've done tonight!",Joey,surprise,negative,22,13,1,4,"00:18:26,814","00:18:34,445",1106814,1114445,6
+validation,validation:s3_e6_d23_u0,Hi. Where is everybody?,Ross,neutral,neutral,23,0,3,6,"00:17:21,123","00:17:22,790",1041123,1042790,4
+validation,validation:s3_e6_d23_u1,"Oh, it’s already closed, Chris gave me the keys to lock up-what is wrong?",Phoebe,sadness,negative,23,1,3,6,"00:17:22,958","00:17:27,128",1042958,1047128,5
+validation,validation:s3_e6_d23_u2,"My marriage, I think my marriage is um, is kinda over.",Ross,sadness,negative,23,2,3,6,"00:17:27,337","00:17:34,135",1047337,1054135,5
+validation,validation:s3_e6_d23_u3,Oh no! Why?,Phoebe,surprise,negative,23,3,3,6,"00:17:32,301","00:17:34,135",1052301,1054135,6
+validation,validation:s3_e6_d23_u4,"‘Cause Carol’s a lesbian.  And, and I’m not one. And apparently it’s not a mix and match situation.",Ross,sadness,negative,23,4,3,6,"00:17:34,303","00:17:49,484",1054303,1069484,5
+validation,validation:s3_e6_d23_u5,"Oh my God! I don’t believe it! Oh, you poor bunny.",Phoebe,surprise,negative,23,5,3,6,"00:17:50,152","00:17:57,658",1070152,1077658,6
+validation,validation:s3_e6_d23_u6,I’m an idiot.,Ross,disgust,negative,23,6,3,6,"00:17:59,369","00:18:00,661",1079369,1080661,1
+validation,validation:s3_e6_d23_u7,"I mean shoulda seen it, I mean Carol and I’d be out and she’d, she’d see some beautiful woman, and, and she’d be Ross y'know look at her, and I’d think, God, my wife is cool!",Ross,sadness,negative,23,7,3,6,"00:18:03,499","00:18:13,674",1083499,1093674,5
+validation,validation:s3_e6_d23_u8,"Aw! Hey, do you think that Susan person is her lover?",Phoebe,neutral,neutral,23,8,3,6,"00:18:21,850","00:18:26,854",1101850,1106854,4
+validation,validation:s3_e6_d23_u9,"Well, now I do!!",Ross,surprise,negative,23,9,3,6,"00:18:29,858","00:18:31,651",1109858,1111651,6
+validation,validation:s3_e6_d23_u10,I’m sorry.,Phoebe,sadness,negative,23,10,3,6,"00:18:33,529","00:18:34,570",1113529,1114570,5
+validation,validation:s3_e6_d23_u11,Seven years.,Ross,sadness,negative,23,11,3,6,"00:18:37,199","00:18:38,866",1117199,1118866,5
+validation,validation:s3_e6_d23_u12,"I mean we’ve been together seven years, she’s the only woman who’s ever loved me, and the only woman I’ve-I’ve ever....",Ross,sadness,negative,23,12,3,6,"00:18:39,576","00:18:48,876",1119576,1128876,5
+validation,validation:s3_e6_d23_u13,"Aw, God Ross. Oh.",Phoebe,sadness,negative,23,13,3,6,"00:18:50,712","00:18:52,046",1130712,1132046,5
+validation,validation:s3_e11_d24_u0,I’ll do it.,Cookie,neutral,neutral,24,0,3,11,"0:19:49,938","0:19:51,690",1189938,1191690,4
+validation,validation:s3_e11_d24_u1,No you won’t.,Joey,neutral,neutral,24,1,3,11,"0:19:51,690","0:19:51,869",1191690,1191869,4
+validation,validation:s3_e11_d24_u2,"Look he knows he did a terrible thing and I believe him, he’s sorry.",Joey,sadness,negative,24,2,3,11,"00:19:52,357","00:19:57,904",1192357,1197904,5
+validation,validation:s3_e11_d24_u3,"But,  you’ve got one more apology to make, all right, you’ve got to apologize to Mary-Angela.",Joey,neutral,neutral,24,3,3,11,"00:19:55,194","00:20:00,740",1195194,1200740,4
+validation,validation:s3_e11_d24_u4,"Okay, absolutely!",Chandler,joy,positive,24,4,3,11,"0:20:00,908","0:20:02,180",1200908,1202180,3
+validation,validation:s3_e11_d24_u5,All right.,Joey,neutral,neutral,24,5,3,11,"0:20:02,180","0:20:02,931",1202180,1202931,4
+validation,validation:s3_e11_d24_u6,You’ve got it.,Chandler,neutral,neutral,24,6,3,11,"0:20:02,931","0:20:03,875",1202931,1203875,4
+validation,validation:s3_e11_d24_u7,"Cookie, now you can punch him!",Joey,anger,negative,24,7,3,11,"0:20:13,545","0:20:15,089",1213545,1215089,0
+validation,validation:s3_e11_d24_u8,What?!,Chandler,surprise,negative,24,8,3,11,"0:20:15,089","0:20:15,511",1215089,1215511,6
+validation,validation:s2_e1_d25_u0,"All right, that's it, I quit.",Phoebe,anger,negative,25,0,2,1,"0:13:25,095","0:13:26,555",805095,806555,0
+validation,validation:s2_e1_d25_u1,What? I didn't say anything.,Monica,surprise,negative,25,1,2,1,"0:13:26,555","0:13:28,453",806555,808453,6
+validation,validation:s2_e1_d25_u2,"Yeah, but this  isn't the face of a person who trusts a person.",Phoebe,anger,negative,25,2,2,1,"00:13:28,557","00:13:32,310",808557,812310,0
+validation,validation:s2_e1_d25_u3,"Ok, this  is the face of a person who, you know, doesn't trust a person.",Phoebe,anger,negative,25,3,2,1,"00:13:32,478","00:13:37,690",812478,817690,0
+validation,validation:s2_e1_d25_u4,"I'm sorry. I'm sorry, Phoebe. It's just a little shorter than what we had discussed.",Monica,sadness,negative,25,4,2,1,"00:13:38,818","00:13:44,405",818818,824405,5
+validation,validation:s2_e1_d25_u5,Would you relax? I know what I am doing. This is how he wears it.,Phoebe,anger,negative,25,5,2,1,"00:13:44,573","00:13:50,870",824573,830870,0
+validation,validation:s2_e2_d26_u0,Julie.,Monica,neutral,neutral,26,0,2,2,"0:10:42,642","0:10:43,185",642642,643185,4
+validation,validation:s2_e2_d26_u1,What?!,Rachel,surprise,negative,26,1,2,2,"0:10:43,185","0:10:43,747",643185,643747,6
+validation,validation:s2_e2_d26_u2,Jody!,Monica,surprise,negative,26,2,2,2,"0:10:43,747","0:10:45,255",643747,645255,6
+validation,validation:s2_e2_d26_u3,You were with Julie?,Rachel,neutral,neutral,26,3,2,2,"00:10:46,812","00:10:50,523",646812,650523,4
+validation,validation:s2_e2_d26_u4,"Look, when it started I was just trying to be nice to her because she was my brother's girlfriend.",Monica,neutral,neutral,26,4,2,2,"00:10:50,691","00:10:56,363",650691,656363,4
+validation,validation:s2_e2_d26_u5,"And then, one thing led to another and, before I knew it, we were...shopping.",Monica,neutral,neutral,26,5,2,2,"00:10:56,530","00:11:02,786",656530,662786,4
+validation,validation:s2_e2_d26_u6,Oh. Oh my God.,Rachel,surprise,negative,26,6,2,2,"00:11:09,669","00:11:11,336",669669,671336,6
+validation,validation:s2_e2_d26_u7,"Honey, wait. We only did it once. It didn't mean anything to me.",Monica,sadness,negative,26,7,2,2,"00:11:12,755","00:11:18,510",672755,678510,5
+validation,validation:s2_e2_d26_u8,"Yeah, right.  Sure!",Rachel,anger,negative,26,8,2,2,"00:11:20,012","00:11:21,805",680012,681805,0
+validation,validation:s2_e2_d26_u9,"Really, Rachel, I was thinking of you the whole time.",Monica,sadness,negative,26,9,2,2,"00:11:21,972","00:11:24,849",681972,684849,5
+validation,validation:s2_e2_d26_u10,"Look, I'm sorry, all right.",Monica,sadness,negative,26,10,2,2,"0:11:27,853","0:11:30,865",687853,690865,5
+validation,validation:s2_e2_d26_u11,I never meant for you to find out!,Monica,sadness,negative,26,11,2,2,"0:11:30,865","0:11:32,163",690865,692163,5
+validation,validation:s2_e2_d26_u12,"Oh, please, you wanted to get caught.",Rachel,anger,negative,26,12,2,2,"00:11:32,274","00:11:35,985",692274,695985,0
+validation,validation:s2_e2_d26_u13,That is not true!,Monica,anger,negative,26,13,2,2,"00:11:36,445","00:11:37,696",696445,697696,0
+validation,validation:s2_e2_d26_u14,"Oh, so you just sort of happened to leave it in here?",Rachel,anger,negative,26,14,2,2,"00:11:37,905","00:11:40,323",697905,700323,0
+validation,validation:s2_e2_d26_u15,Did it ever occur to you that I might just be that stupid?,Monica,anger,negative,26,15,2,2,"00:11:41,409","00:11:45,120",701409,705120,0
+validation,validation:s2_e2_d26_u16,"Ok, Monica. I just have to know one thing. Did you go with her to",Rachel,sadness,negative,26,16,2,2,"00:11:47,039","00:11:55,171",707039,715171,5
+validation,validation:s8_e1_d27_u0,Yeah!,Monica,surprise,negative,27,0,8,1,"00:01:28,088","00:01:29,505",88088,89505,6
+validation,validation:s8_e1_d27_u1,I can’t say.,Phoebe,neutral,neutral,27,1,8,1,"00:01:30,173","00:01:31,548",90173,91548,4
+validation,validation:s8_e1_d27_u2,Why?!,Monica,surprise,negative,27,2,8,1,"0:01:32,133","0:01:32,968",92133,92968,6
+validation,validation:s8_e1_d27_u3,Why not?,Chandler,sadness,negative,27,3,8,1,"0:01:32,968","0:01:33,738",92968,93738,5
+validation,validation:s8_e1_d27_u4,I can’t say because he’s famous.,Phoebe,neutral,neutral,27,4,8,1,"00:01:34,344","00:01:37,596",94344,97596,4
+validation,validation:s8_e1_d27_u5,"Oh my God, who is it?!",Rachel,surprise,negative,27,5,8,1,"00:01:38,515","00:01:40,182",98515,100182,6
+validation,validation:s8_e1_d27_u6,"Phoebe, come on, you have to tell us.",Monica,anger,negative,27,6,8,1,"00:01:41,976","00:01:44,103",101976,104103,0
+validation,validation:s8_e1_d27_u7,"Okay, okay. It’s James Brolin. James Brolin is the father of my baby.",Phoebe,neutral,neutral,27,7,8,1,"00:01:44,270","00:01:51,819",104270,111819,4
+validation,validation:s8_e1_d27_u8,As in Barbara Streisand’s husband James Brolin?,Chandler,surprise,negative,27,8,8,1,"00:01:52,195","00:01:55,072",112195,115072,6
+validation,validation:s8_e1_d27_u9,What?! Well he never said that to me!,Phoebe,surprise,negative,27,9,8,1,"00:01:55,782","00:01:59,701",115782,119701,6
+validation,validation:s5_e8_d28_u0,In,Ross,neutral,neutral,28,0,5,8,"00:04:00,865","00:04:02,991",240865,242991,4
+validation,validation:s5_e8_d28_u1,"Oh, this life! Oh okay no, Chandler's is worse.",Phoebe,sadness,negative,28,1,5,8,"00:04:04,118","00:04:06,995",244118,246995,5
+validation,validation:s5_e8_d28_u2,"Man, it must be so cool remembering stuff like that! I don't have any past life memories.",Joey,joy,positive,28,2,5,8,"00:04:08,831","00:04:14,044",248831,254044,3
+validation,validation:s5_e8_d28_u3,Of course you don't sweetie. You're brand new.,Phoebe,neutral,neutral,28,3,5,8,"00:04:14,963","00:04:17,798",254963,257798,4
+validation,validation:s5_e8_d28_u4,I know Monica's worst Thanksgiving.,Rachel,neutral,neutral,28,4,5,8,"00:04:19,968","00:04:22,010",259968,262010,4
+validation,validation:s5_e8_d28_u5,"Oh, let's not tell this story.",Monica,sadness,negative,28,5,5,8,"0:04:22,178","0:04:23,780",262178,263780,5
+validation,validation:s5_e8_d28_u6,"Oh, come on!",All,sadness,negative,28,6,5,8,"0:04:23,780","0:04:24,782",263780,264782,5
+validation,validation:s5_e8_d28_u7,"Oh no, I know! I know! It's the one where Joey got Monica's turkey stuck on his head!",Phoebe,joy,positive,28,7,5,8,"00:04:24,889","00:04:30,394",264889,270394,3
+validation,validation:s5_e8_d28_u8,What?! Joey got a turkey stuck on his head?!,Rachel,surprise,positive,28,8,5,8,"00:04:31,229","00:04:35,524",271229,275524,6
+validation,validation:s5_e8_d28_u9,"Hey, it's not like it sounds.",Joey,neutral,neutral,28,9,5,8,"0:04:35,692","0:04:36,485",275692,276485,4
+validation,validation:s5_e8_d28_u10,It's,Chandler,neutral,neutral,28,10,5,8,"0:04:36,485","0:04:37,176",276485,277176,4
+validation,validation:s1_e15_d29_u0,"Wendy, we had a deal!  Yeah, you promised! Wendy! Wendy! Wendy!",Monica,anger,negative,29,0,1,15,"00:15:52,368","00:15:56,496",952368,956496,0
+validation,validation:s1_e15_d29_u1,Who was that?,Rachel,neutral,neutral,29,1,1,15,"00:16:03,587","00:16:05,213",963587,965213,4
+validation,validation:s1_e15_d29_u2,Wendy bailed. I have no waitress.,Monica,sadness,negative,29,2,1,15,"00:16:07,049","00:16:10,218",967049,970218,5
+validation,validation:s1_e15_d29_u3,Oh... that's too bad. Bye bye.,Rachel,sadness,negative,29,3,1,15,"00:16:11,971","00:16:15,974",971971,975974,5
+validation,validation:s1_e15_d29_u4,Ten dollars an hour.,Monica,neutral,neutral,29,4,1,15,"0:16:16,976","0:16:18,068",976976,978068,4
+validation,validation:s1_e15_d29_u5,No.,Rachel,neutral,neutral,29,5,1,15,"0:16:18,068","0:16:18,620",978068,978620,4
+validation,validation:s1_e15_d29_u6,Twelve dollars an hour.,Monica,neutral,neutral,29,6,1,15,"00:16:18,936","00:16:20,061",978936,980061,4
+validation,validation:s1_e15_d29_u7,"Mon. I wish I could, but I've made plans to walk around.",Rachel,neutral,neutral,29,7,1,15,"00:16:20,521","00:16:23,856",980521,983856,4
+validation,validation:s1_e15_d29_u8,"You know, Rachel, when you ran out of your wedding, I was there for you.",Monica,anger,negative,29,8,1,15,"00:16:25,792","00:16:28,319",985792,988319,0
+validation,validation:s1_e15_d29_u9,"I put a roof over your head, and if that means nothing to you...  twenty dollars an hour.",Monica,anger,negative,29,9,1,15,"00:16:28,487","00:16:35,034",988487,995034,0
+validation,validation:s1_e15_d29_u10,Done.,Rachel,joy,positive,29,10,1,15,"00:16:36,370","00:16:37,662",996370,997662,3
+validation,validation:s6_e20_d30_u0,"The reactor’s gonna blow in three seconds, we’re never gonna make it!",Joey,fear,negative,30,0,6,20,"00:00:05,005","00:00:08,549",5005,8549,2
+validation,validation:s6_e20_d30_u1,You’ve got to get out of here! Save yourself!,Phoebe,fear,negative,30,1,6,20,"00:00:08,717","00:00:11,802",8717,11802,2
+validation,validation:s6_e20_d30_u2,No! I won’t leave you!,Joey,fear,negative,30,2,6,20,"00:00:13,555","00:00:15,014",13555,15014,2
+validation,validation:s6_e20_d30_u3,"Don’t worry about me, I’m a robot! I’m just a machine!!",Phoebe,sadness,negative,30,3,6,20,"00:00:15,181","00:00:20,060",15181,20060,5
+validation,validation:s6_e20_d30_u4,No you’re not! Not to me!,Joey,anger,negative,30,4,6,20,"0:00:21,521","0:00:23,523",21521,23523,0
+validation,validation:s6_e20_d30_u5,Oh my God.,Phoebe,surprise,positive,30,5,6,20,"0:00:23,523","0:00:25,329",23523,25329,6
+validation,validation:s6_e20_d30_u6,What?,Joey,neutral,neutral,30,6,6,20,"0:00:25,442","0:00:26,124",25442,26124,4
+validation,validation:s6_e20_d30_u7,I am,Phoebe,neutral,neutral,30,7,6,20,"0:00:26,124","0:00:28,664",26124,28664,4
+validation,validation:s6_e20_d30_u8,"Yeah, you’re great! Okay, let’s take it from",Joey,joy,positive,30,8,6,20,"00:00:29,446","00:00:35,159",29446,35159,3
+validation,validation:s6_e20_d30_u9,"No, I mean I was really acting my ass off.",Phoebe,joy,positive,30,9,6,20,"00:00:31,031","00:00:35,159",31031,35159,3
+validation,validation:s6_e20_d30_u10,"Yeah, I thought I was pretty good too.",Joey,joy,positive,30,10,6,20,"00:00:36,327","00:00:38,078",36327,38078,3
+validation,validation:s6_e20_d30_u11,"Oh yeah, you’re solid. Yeah, you’re just no me.",Phoebe,neutral,neutral,30,11,6,20,"00:00:38,246","00:00:40,789",38246,40789,4
+validation,validation:s6_e20_d30_u12,Y’know what? I think that’s enough for now. Yeah. I don’t want to be over rehearsed.,Joey,neutral,neutral,30,12,6,20,"00:00:42,500","00:00:46,962",42500,46962,4
+validation,validation:s6_e20_d30_u13,Fine!,Phoebe,anger,negative,30,13,6,20,"0:00:47,547","0:00:48,219",47547,48219,0
+validation,validation:s6_e20_d30_u14,I’ll do it without you!,Phoebe,anger,negative,30,14,6,20,"0:00:48,219","0:00:50,279",48219,50279,0
+validation,validation:s6_e20_d30_u15,I don’t need you or anybody else!,Phoebe,anger,negative,30,15,6,20,"00:00:50,800","00:00:53,552",50800,53552,0
+validation,validation:s6_e20_d30_u16,I’m gonna make it on my own!,Phoebe,anger,negative,30,16,6,20,"00:00:53,803","00:00:56,346",53803,56346,0
+validation,validation:s6_e20_d30_u17,You’ll see!!,Phoebe,anger,negative,30,17,6,20,"0:00:57,682","0:01:00,435",57682,60435,0
+validation,validation:s6_e20_d30_u18,You’ll,Phoebe,neutral,neutral,30,18,6,20,"0:01:00,435","0:01:00,574",60435,60574,4
+validation,validation:s9_e17_d31_u0,I can't believe that Ross is gone. It is just so sad.,Kori,sadness,negative,31,0,9,17,"00:22:08,315","00:22:11,902",1328315,1331902,5
+validation,validation:s9_e17_d31_u1,I didn't know Ross and you were so close.,Chandler,surprise,negative,31,1,9,17,"00:22:12,110","00:22:14,154",1332110,1334154,6
+validation,validation:s9_e17_d31_u2,We weren't but we had one class together. He was such a great    guy and he talked so passionately about science. I always remembered him.,Kori,sadness,negative,31,2,9,17,"00:22:14,362","00:22:25,749",1334362,1345749,5
+validation,validation:s9_e17_d31_u3,I'm sure that would mean a lot to him.,Chandler,neutral,neutral,31,3,9,17,"00:22:22,120","00:22:25,749",1342120,1345749,4
+validation,validation:s9_e17_d31_u4,"And if heaven has a    door, I'm sure he's pressing his ear up against it and listening intently.",Chandler,neutral,neutral,31,4,9,17,"00:22:25,916","00:22:31,671",1345916,1351671,4
+validation,validation:s9_e17_d31_u5,I thought so many times about calling him and asking him out.    I guess I really missed my chance.,Kori,sadness,negative,31,5,9,17,"00:22:33,507","00:22:39,554",1353507,1359554,5
+validation,validation:s9_e17_d31_u6,But you didn't!,Ross,joy,positive,31,6,9,17,"00:22:39,971","00:22:42,265",1359971,1362265,3
+validation,validation:s9_e17_d31_u7,I'm still alive!!,Ross,joy,positive,31,7,9,17,"00:22:44,059","00:22:45,852",1364059,1365852,3
+validation,validation:s9_e17_d31_u8,"Kori, I know this is a big surprise for you.",Ross,joy,positive,31,8,9,17,"00:22:47,103","00:22:49,606",1367103,1369606,3
+validation,validation:s9_e17_d31_u9,It's a long story but the things    you just said really made my day!,Ross,joy,positive,31,9,9,17,"00:22:49,815","00:22:53,944",1369815,1373944,3
+validation,validation:s9_e17_d31_u10,"I mean, the fact that you are here means more    to me than if this room were filled with people!",Ross,joy,positive,31,10,9,17,"00:22:54,110","00:22:59,517",1374110,1379517,3
+validation,validation:s9_e17_d31_u11,"You sick freak, who does that? I can't believe I had a crush on    you!",Kori,anger,negative,31,11,9,17,"00:22:59,825","00:23:04,120",1379825,1384120,0
+validation,validation:s9_e17_d31_u12,Did you hear that? Kori Weston had a crush on me!!,Ross,joy,positive,31,12,9,17,"00:23:09,584","00:23:15,257",1389584,1395257,3
+validation,validation:s8_e22_d32_u0,We’ll do a quick check.,Dr. Long,neutral,neutral,32,0,8,22,"0:11:13,702","0:11:15,214",673702,675214,4
+validation,validation:s8_e22_d32_u1,Okay.,Rachel,neutral,neutral,32,1,8,22,"0:11:15,214","0:11:16,092",675214,676092,4
+validation,validation:s8_e22_d32_u2,"So, eight days late huh?",Dr. Long,surprise,positive,32,2,8,22,"0:11:16,247","0:11:18,208",676247,678208,6
+validation,validation:s8_e22_d32_u3,Yeah.,Rachel,neutral,neutral,32,3,8,22,"0:11:18,208","0:11:18,433",678208,678433,4
+validation,validation:s8_e22_d32_u4,You must be a little uncomfortable.,Dr. Long,neutral,neutral,32,4,8,22,"00:11:18,541","00:11:20,042",678541,680042,4
+validation,validation:s8_e22_d32_u5,"Eh, just a tad.",Rachel,neutral,neutral,32,5,8,22,"00:11:20,209","00:11:22,837",680209,682837,4
+validation,validation:s8_e22_d32_u6,"You’re about 80 percent effaced, so you’re on your way.",Dr. Long,neutral,neutral,32,6,8,22,"0:11:23,712","0:11:26,524",683712,686524,4
+validation,validation:s8_e22_d32_u7,It still could last a little while longer.,Dr. Long,neutral,neutral,32,7,8,22,"0:11:26,524","0:11:28,769",686524,688769,4
+validation,validation:s8_e22_d32_u8,If you’re anxious there are a few ways to help things along.,Dr. Long,neutral,neutral,32,8,8,22,"00:11:23,712","00:11:34,056",683712,694056,4
+validation,validation:s8_e22_d32_u9,Do them!!,Ross,anger,negative,32,9,8,22,"00:11:28,968","00:11:34,056",688968,694056,0
+validation,validation:s8_e22_d32_u10,"Actually, they’re things you can do. Just some home remedies, but in my experience I’ve found that some of them are quite effective.",Dr. Long,neutral,neutral,32,10,8,22,"00:11:35,015","00:11:42,857",695015,702857,4
+validation,validation:s8_e22_d32_u11,"Well, we are ready to try anything.",Rachel,neutral,neutral,32,11,8,22,"0:11:43,023","0:11:45,155",703023,705155,4
+validation,validation:s8_e22_d32_u12,"Okay, there’s an herbal tea you can drink.",Dr. Long,neutral,neutral,32,12,8,22,"0:11:45,155","0:11:48,123",705155,708123,4
+validation,validation:s8_e22_d32_u13,Okay.,Rachel,neutral,neutral,32,13,8,22,"00:11:48,237","00:11:49,280",708237,709280,4
+validation,validation:s9_e2_d33_u0,What is wrong with Emma?,Chandler,sadness,negative,33,0,9,2,"00:13:18,339","00:13:20,507",798339,800507,5
+validation,validation:s9_e2_d33_u1,"Oh she misunderstood, she thought she was moving to Tulsa.",Monica,neutral,neutral,33,1,9,2,"00:13:18,339","00:13:22,634",798339,802634,4
+validation,validation:s1_e9_d34_u0,Anytime you're ready.,Carol,neutral,neutral,34,0,1,9,"00:14:17,565","00:14:18,940",857565,858940,4
+validation,validation:s1_e9_d34_u1,"Ok, ok, here we go.",Ross,neutral,neutral,34,1,1,9,"00:14:19,942","00:14:23,987",859942,863987,4
+validation,validation:s1_e9_d34_u2,"Ok, where am I talking to, here?",Ross,neutral,neutral,34,2,1,9,"00:14:28,409","00:14:32,453",868409,872453,4
+validation,validation:s1_e9_d34_u3,"I mean, uh, well, there is one way that seems to offer a certain acoustical advantage, but...",Ross,neutral,neutral,34,3,1,9,"00:14:32,621","00:14:37,417",872621,877417,4
+validation,validation:s1_e9_d34_u4,Just aim for the bump.,Carol,neutral,neutral,34,4,1,9,"00:14:38,335","00:14:39,961",878335,879961,4
+validation,validation:s1_e9_d34_u5,"Ok, ok, ok, ok, here goes.",Ross,neutral,neutral,34,5,1,9,"00:14:41,130","00:14:47,093",881130,887093,4
+validation,validation:s1_e9_d34_u6,"You know, I, you know, can't do this.",Ross,fear,negative,34,6,1,9,"00:14:54,101","00:14:56,853",894101,896853,2
+validation,validation:s1_e9_d34_u7,"Uh, this is too weird.",Ross,disgust,negative,34,7,1,9,"0:14:57,021","0:14:59,023",897021,899023,1
+validation,validation:s1_e9_d34_u8,I feel stupid.,Ross,sadness,negative,34,8,1,9,"0:14:59,023","0:15:00,168",899023,900168,5
+validation,validation:s1_e9_d34_u9,"So don't do it, it's fine. You don't have to do it just because Susan does it.",Carol,neutral,neutral,34,9,1,9,"00:15:01,108","00:15:05,904",901108,905904,4
+validation,validation:s1_e9_d34_u10,"Hello, baby. Hello, hello.",Ross,joy,positive,34,10,1,9,"00:15:06,071","00:15:10,742",906071,910742,3
+validation,validation:s3_e12_d35_u0,"Oh, hi. It’s Mark.",Mark,neutral,neutral,35,0,3,12,"00:04:18,258","00:04:20,384",258258,260384,4
+validation,validation:s3_e21_d36_u0,Easy. Easy. You have to go to the hospital. Okay?,Ross,fear,negative,36,0,3,21,"00:15:26,342","00:15:30,345",926342,930345,2
+validation,validation:s3_e21_d36_u1,"Okay, I do.",Rachel,neutral,neutral,36,1,3,21,"0:15:30,512","0:15:31,324",930512,931324,4
+validation,validation:s3_e21_d36_u2,Okay.,Ross,neutral,neutral,36,2,3,21,"0:15:31,324","0:15:31,706",931324,931706,4
+validation,validation:s3_e21_d36_u3,I really do.,Rachel,neutral,neutral,36,3,3,21,"0:15:31,706","0:15:32,541",931706,932541,4
+validation,validation:s3_e21_d36_u4,"Okay, I’m gonna get your coat and then I’ll-I’ll put you in a cab.",Ross,neutral,neutral,36,4,3,21,"00:15:32,681","00:15:35,141",932681,935141,4
+validation,validation:s3_e21_d36_u5,"Okay. Oh wait, wait-wait, you’re not gonna come with me?",Rachel,sadness,negative,36,5,3,21,"00:15:35,309","00:15:37,135",935309,937135,5
+validation,validation:s3_e21_d36_u6,Of course I am. I just have to make a call.,Ross,surprise,positive,36,6,3,21,"00:15:40,856","00:15:45,109",940856,945109,6
+validation,validation:s3_e21_d36_u7,Okay.,Rachel,neutral,neutral,36,7,3,21,"0:15:45,319","0:15:46,154",945319,946154,4
+validation,validation:s3_e21_d36_u8,Okay?,Ross,neutral,neutral,36,8,3,21,"0:15:46,154","0:15:46,454",946154,946454,4
+validation,validation:s3_e21_d36_u9,Thank you.  Oww!!!! God!,Rachel,surprise,negative,36,9,3,21,"00:15:46,570","00:15:53,368",946570,953368,6
+validation,validation:s3_e21_d36_u10,"What?! I wh-, what’s wrong?",Ross,fear,negative,36,10,3,21,"00:15:53,535","00:15:54,661",953535,954661,2
+validation,validation:s3_e21_d36_u11,"I’m sorry, I just can’t go to the hospital lookin’ like this.",Rachel,disgust,negative,36,11,3,21,"00:15:54,828","00:15:58,498",954828,958498,1
+validation,validation:s3_e24_d37_u0,"Pete Becker is circling the ring now. It looks like, he’s just trying to feel him out. Oh, Bruiser is just...",TV Announcer,neutral,neutral,37,0,3,24,"00:21:57,065","00:22:03,237",1317065,1323237,4
+validation,validation:s3_e24_d37_u1,"Run! Run you crazy, rich freak!",Chandler,fear,negative,37,1,3,24,"00:22:03,488","00:22:06,157",1323488,1326157,2
+validation,validation:s3_e24_d37_u2,"Oh, I can’t watch this.",Rachel,fear,negative,37,2,3,24,"00:22:07,826","00:22:09,076",1327826,1329076,2
+validation,validation:s3_e24_d37_u3,"Check it out, he’s winning!  Pete’s winning!",Joey,surprise,positive,37,3,3,24,"00:22:09,369","00:22:10,995",1329369,1330995,6
+validation,validation:s3_e24_d37_u4,Really?!,Monica,surprise,positive,37,4,3,24,"0:22:11,246","0:22:12,838",1331246,1332838,6
+validation,validation:s3_e24_d37_u5,No-o-o!!,Joey,fear,negative,37,5,3,24,"0:22:12,838","0:22:13,295",1332838,1333295,2
+validation,validation:s3_e24_d37_u6,"Uh-oh, Bruiser has Becker on the canvas and is going for his favourite area.",TV Announcer,fear,negative,37,6,3,24,"00:22:15,751","00:22:20,171",1335751,1340171,2
+validation,validation:s3_e24_d37_u7,Oh! Oh!,All,disgust,negative,37,7,3,24,"00:22:20,422","00:22:21,672",1340422,1341672,1
+validation,validation:s3_e24_d37_u8,"Wait, if that’s his favourite area, why is he being so mean to it?",Phoebe,surprise,negative,37,8,3,24,"00:22:21,961","00:22:25,926",1341961,1345926,6
+validation,validation:s3_e24_d37_u9,"Well, this is ironic.",Ross,surprise,negative,37,9,3,24,"00:22:26,595","00:22:27,845",1346595,1347845,6
+validation,validation:s3_e24_d37_u10,"Of your last two boyfriends, Richard didn’t want to have kids, and from the looks of it, now Pete can’t.",Ross,neutral,neutral,37,10,3,24,"00:22:28,096","00:22:33,601",1348096,1353601,4
+validation,validation:s4_e2_d38_u0,"Dude, you don’t have to brag! We got nothing here!!",Joey,anger,negative,38,0,4,2,"00:21:29,705","00:21:33,165",1289705,1293165,0
+validation,validation:s8_e24_d39_u0,Should we tell Rachel there’s an empty private room right next door to hers?,Chandler,neutral,neutral,39,0,8,24,"00:01:07,013","00:01:10,808",67013,70808,4
+validation,validation:s8_e24_d39_u1,"We could, or we can have sex in it.",Monica,joy,positive,39,1,8,24,"00:01:11,851","00:01:15,104",71851,75104,3
+validation,validation:s8_e24_d39_u2,"Well let me think about that, while I remove my pants!",Chandler,joy,positive,39,2,8,24,"00:01:16,439","00:01:19,484",76439,79484,3
+validation,validation:s8_e5_d40_u0,I thought I was a complete idiot.,Rachel,surprise,positive,40,0,8,5,"00:06:37,605","00:06:40,857",397605,400857,6
+validation,validation:s8_e5_d40_u1,"Hey, I’m with you. He even asked me if I thought you’d go out with him.",Joey,neutral,neutral,40,1,8,5,"00:06:37,605","00:06:45,570",397605,405570,4
+validation,validation:s8_e5_d40_u2,"Oh! Oh, I think I’m gonna throw up a little bit. What did you say?",Rachel,disgust,negative,40,2,8,5,"00:06:45,822","00:06:50,575",405822,410575,1
+validation,validation:s8_e5_d40_u3,I said no.,Joey,neutral,neutral,40,3,8,5,"0:06:48,366","0:06:50,008",408366,410008,4
+validation,validation:s8_e5_d40_u4,What?!,Rachel,surprise,positive,40,4,8,5,"0:06:50,008","0:06:50,628",410008,410628,6
+validation,validation:s8_e5_d40_u5,What? I…I just figured since you’re pregnant you’re not gonna be seeing people.,Joey,surprise,negative,40,5,8,5,"00:06:50,743","00:06:56,706",410743,416706,6
+validation,validation:s8_e5_d40_u6,"Okay Joey, first of all Kash Ford is not people. Second of all, what did he say when you told him I was pregnant?",Rachel,anger,negative,40,6,8,5,"00:06:56,874","00:06:58,750",416874,418750,0
+validation,validation:s8_e5_d40_u7,I didn’t tell him. I didn’t know if you were telling people. This is back when I thought Kash was still people.,Joey,neutral,neutral,40,7,8,5,"00:07:06,551","00:07:12,431",426551,432431,4
+validation,validation:s8_e5_d40_u8,"Good-good, don’t tell him. Don’t tell him. Just have him call me okay?",Rachel,fear,negative,40,8,8,5,"0:07:12,598","0:07:14,851",432598,434851,2
+validation,validation:s8_e5_d40_u9,"Rach look, I really don’t think that’s such a great",Joey,sadness,negative,40,9,8,5,"0:07:14,851","0:07:16,450",434851,436450,5
+validation,validation:s8_e5_d40_u10,"Okay, you go do it! I’ll come back to that set! I’ll meet more actors! I’ll meet ‘em all!",Rachel,joy,positive,40,10,8,5,"00:07:16,561","00:07:21,273",436561,441273,3
+validation,validation:s4_e16_d41_u0,"Ohh, here you are. I was looking for you before. Joshua’s gone so you and Emily are free to go.",Rachel,neutral,neutral,41,0,4,16,"00:18:06,543","00:18:12,548",1086543,1092548,4
+validation,validation:s4_e16_d41_u1,That’s okay.,Ross,neutral,neutral,41,1,4,16,"00:18:12,966","00:18:14,467",1092966,1094467,4
+validation,validation:s4_e16_d41_u2,"She’s still in there enjoying her fake party and uh, it’s too late to do any of the things I had planned, so",Ross,neutral,neutral,41,2,4,16,"00:18:14,927","00:18:21,808",1094927,1101808,4
+validation,validation:s5_e1_d42_u0,Ah! Ah! I forgot my jacket!,Ross,anger,negative,42,0,5,1,"00:21:09,768","00:21:11,769",1269768,1271769,0
+validation,validation:s5_e1_d42_u1,You tell them to wait!,Ross,anger,negative,42,1,5,1,"00:21:11,937","00:21:14,230",1271937,1274230,0
+validation,validation:s5_e1_d42_u2,Okay. Wait! Wait!,Rachel,neutral,neutral,42,2,5,1,"00:21:13,230","00:21:16,482",1273230,1276482,4
+validation,validation:s5_e1_d42_u3,Emily.,Ross,neutral,neutral,42,3,5,1,"00:21:21,154","00:21:23,155",1281154,1283155,4
+validation,validation:s5_e1_d42_u4,Oh no-no-no! Oh-no!  No! No! Emily!,Ross,anger,negative,42,4,5,1,"00:21:28,036","00:21:34,709",1288036,1294709,0
+validation,validation:s6_e6_d43_u0,Hey. Call me when you get there. Okay?,Monica,neutral,neutral,43,0,6,6,"00:19:41,346","00:19:43,431",1181346,1183431,4
+validation,validation:s6_e6_d43_u1,Okay.,Rachel,neutral,neutral,43,1,6,6,"00:19:42,431","00:19:43,431",1182431,1183431,4
+validation,validation:s5_e17_d44_u0,I know. You're the guy who wouldn't chip in for the handyman.,The Hot Girl,sadness,negative,44,0,5,17,"00:13:12,416","00:13:15,835",792416,795835,5
+validation,validation:s5_e17_d44_u1,Nevermind!,Ross,anger,negative,44,1,5,17,"00:13:17,630","00:13:18,922",797630,798922,0
+validation,validation:s5_e17_d44_u2,"No, I-I actually thought it was unfair the way everyone reacted. I mean you had just moved in.",The Hot Girl,neutral,neutral,44,2,5,17,"00:13:19,757","00:13:25,637",799757,805637,4
+validation,validation:s5_e17_d44_u3,Jen.,The Hot Girl,neutral,neutral,44,3,5,17,"00:13:33,229","00:13:34,854",813229,814854,4
+validation,validation:s5_e17_d44_u4,"Jen, I know this may sound a little… But uh, would you maybe wanna grab a cup of coffee sometime, or",Ross,neutral,neutral,44,4,5,17,"00:13:33,229","00:13:44,239",813229,824239,4
+validation,validation:s5_e17_d44_u5,Sure! That would be nice.,Jen,joy,positive,44,5,5,17,"00:13:45,366","00:13:47,116",825366,827116,3
+validation,validation:s5_e17_d44_u6,Umm?,Ross,neutral,neutral,44,6,5,17,"00:13:47,827","00:13:48,868",827827,828868,4
+validation,validation:s5_e17_d44_u7,Oh! My number is on there.  Give me a call.,Jen,joy,positive,44,7,5,17,"00:13:49,537","00:13:52,622",829537,832622,3
+validation,validation:s5_e17_d44_u8,I will give you a call.,Ross,neutral,neutral,44,8,5,17,"00:13:52,832","00:13:54,916",832832,834916,4
+validation,validation:s5_e17_d44_u9,I'll see you later.,Jen,neutral,neutral,44,9,5,17,"0:13:55,084","0:13:56,046",835084,836046,4
+validation,validation:s5_e17_d44_u10,Okay!,Ross,joy,positive,44,10,5,17,"0:13:56,046","0:13:57,005",836046,837005,3
+validation,validation:s5_e17_d44_u11,I forgot my paper.,Jen,neutral,neutral,44,11,5,17,"00:14:02,132","00:14:04,259",842132,844259,4
+validation,validation:s3_e17_d45_u0,"Here we go. Okay, brace yourselves.",Chandler,neutral,neutral,45,0,3,17,"00:08:52,198","00:08:55,283",532198,535283,4
+validation,validation:s3_e17_d45_u1,What?,Monica,neutral,neutral,45,1,3,17,"00:08:53,658","00:08:55,283",533658,535283,4
+validation,validation:s3_e17_d45_u2,Okay.,Rachel,neutral,neutral,45,2,3,17,"0:08:56,827","0:08:57,389",536827,537389,4
+validation,validation:s3_e17_d45_u3,Ow!,Monica,surprise,positive,45,3,3,17,"0:08:57,389","0:08:58,641",537389,538641,6
+validation,validation:s3_e17_d45_u4,Aren’t you gonna go?,Phoebe,neutral,neutral,45,4,3,17,"0:09:04,961","0:09:05,733",544961,545733,4
+validation,validation:s3_e17_d45_u5,No. Thank you.,Rachel,neutral,neutral,45,5,3,17,"0:09:05,733","0:09:06,967",545733,546967,4
+validation,validation:s3_e17_d45_u6,"No, Rachel never pees in public restrooms.",Monica,neutral,neutral,45,6,3,17,"00:09:07,129","00:09:09,839",547129,549839,4
+validation,validation:s3_e17_d45_u7,"Well, they never have any paper in there y'know. So my rule is ‘no tissue, no tuschy.’  Well, if everybody’s going.",Rachel,neutral,neutral,45,7,3,17,"00:09:10,591","00:09:24,479",550591,564479,4
+validation,validation:s3_e17_d45_u8,"No, y'know what don’t close it  ‘cause the... keys...are in there.",Phoebe,neutral,neutral,45,8,3,17,"00:09:25,606","00:09:27,983",565606,567983,4
+validation,validation:s3_e17_d45_u9,"Oh, no-no-no-no-no-no!!",Chandler,fear,negative,45,9,3,17,"00:09:28,192","00:09:29,568",568192,569568,2
+validation,validation:s3_e17_d45_u10,What’s going on?,Joey,neutral,neutral,45,10,3,17,"0:09:30,152","0:09:30,820",570152,570820,4
+validation,validation:s3_e17_d45_u11,My lighter’s in there!,Chandler,fear,negative,45,11,3,17,"0:09:30,820","0:09:32,729",570820,572729,2
+validation,validation:s3_e8_d46_u0,I promise.,Rachel,neutral,neutral,46,0,3,8,"00:02:31,442","00:02:32,484",151442,152484,4
+validation,validation:s3_e8_d46_u1,"Although, don’t feel like you can’t visit.",Phoebe,neutral,neutral,46,1,3,8,"00:02:32,652","00:02:34,570",152652,154570,4
+validation,validation:s3_e8_d46_u2,"Hey, is, is, is Chandler here?",Joey,neutral,neutral,46,2,3,8,"00:02:37,240","00:02:39,700",157240,159700,4
+validation,validation:s3_e8_d46_u3,"No, no he’s not.",Ross,neutral,neutral,46,3,3,8,"00:02:41,119","00:02:42,452",161119,162452,4
+validation,validation:s3_e8_d46_u4,"You guys, Joey just saw Janice kissing her ex-husband.",Monica,surprise,negative,46,4,3,8,"00:02:43,955","00:02:48,584",163955,168584,6
+validation,validation:s3_e8_d46_u5,"What?  So what are you going to do? I mean how, how are you going to tell Chandler?",Ross,surprise,negative,46,5,3,8,"00:02:48,793","00:02:53,213",168793,173213,6
+validation,validation:s3_e8_d46_u6,"Well, I was thinking about that and I, I think the best way would be, to not.",Joey,neutral,neutral,46,6,3,8,"00:02:53,381","00:02:57,843",173381,177843,4
+validation,validation:s3_e8_d46_u7,"Joey, you can’t keep this to yourself, if you know about this, you have to tell him.",Rachel,neutral,neutral,46,7,3,8,"00:02:58,761","00:03:02,214",178761,182214,4
+validation,validation:s3_e8_d46_u8,"It’ll kill him. I mean it’ll, it’ll just kill him.",Joey,fear,negative,46,8,3,8,"00:03:02,182","00:03:04,474",182182,184474,2
+validation,validation:s3_e8_d46_u9,"Well, you could wait ‘til I go to the dentist, maybe",Phoebe,neutral,neutral,46,9,3,8,"00:03:04,642","00:03:07,519",184642,187519,4
+validation,validation:s3_e17_d47_u0,"Hey, what are you doing here?",Carol,neutral,neutral,47,0,3,17,"00:12:05,599","00:12:07,642",725599,727642,4
+validation,validation:s3_e17_d47_u1,"Well, oh just ah, I was just wondering, when you and I split up, did you get the tape that was half the last episode of",Ross,neutral,neutral,47,1,3,17,"00:12:07,893","00:12:14,524",727893,734524,4
+validation,validation:s3_e17_d47_u2,"Ah yeah, but now it’s Susan and me in Mexico and the hostages coming home.",Carol,neutral,neutral,47,2,3,17,"00:12:18,362","00:12:22,031",738362,742031,4
+validation,validation:s3_e17_d47_u3,Where’s Ben?,Ross,neutral,neutral,47,3,3,17,"00:12:22,491","00:12:23,533",742491,743533,4
+validation,validation:s3_e17_d47_u4,He’s sleeping.,Carol,neutral,neutral,47,4,3,17,"00:12:23,743","00:12:24,993",743743,744993,4
+validation,validation:s3_e17_d47_u5,"Ahh.  Ooh, is this a ah, is this a bad time?",Ross,surprise,positive,47,5,3,17,"00:12:24,000","00:12:29,122",744000,749122,6
+validation,validation:s3_e17_d47_u6,"Umm, yeah, actually, Susan’s gonna be home any minute, it’s kinda an anniversary.",Carol,joy,positive,47,6,3,17,"00:12:29,373","00:12:34,544",749373,754544,3
+validation,validation:s3_e17_d47_u7,"Oh! I thought you guys got married in uh, January?",Ross,surprise,negative,47,7,3,17,"00:12:34,712","00:12:37,172",754712,757172,6
+validation,validation:s3_e17_d47_u8,It’s not that kind of anniversary.,Carol,neutral,neutral,47,8,3,17,"00:12:37,381","00:12:39,090",757381,759090,4
+validation,validation:s3_e17_d47_u9,Ah!  Oh.,Ross,surprise,negative,47,9,3,17,"00:12:39,300","00:12:42,242",759300,762242,6
+validation,validation:s3_e17_d47_u10,Sooo!! Anyway...,Carol,neutral,neutral,47,10,3,17,"00:12:42,939","00:12:45,638",762939,765638,4
+validation,validation:s3_e8_d48_u0,Where are we gonna find a tiny little hat?,Monica,neutral,neutral,48,0,3,8,"00:06:08,284","00:06:13,121",368284,373121,4
+validation,validation:s3_e8_d48_u1,"Oh, oh, oh, I’ll get ‘Rainy Day Bear’!!",Rachel,joy,positive,48,1,3,8,"00:06:13,289","00:06:14,956",373289,374956,3
+validation,validation:s3_e8_d48_u2,"Because he’ll know what to do?  Oh my God, you’re a genius!",Monica,joy,positive,48,2,3,8,"00:06:15,124","00:06:19,378",375124,379378,3
+validation,validation:s3_e8_d48_u3,"Oh God, oh God, it’s sowed on though.",Rachel,fear,negative,48,3,3,8,"00:06:19,545","00:06:21,463",379545,381463,2
+validation,validation:s3_e8_d48_u4,Give it. Give it.,Monica,neutral,neutral,48,4,3,8,"00:06:21,631","00:06:23,090",381631,383090,4
+validation,validation:s3_e8_d48_u5,Okay.,Rachel,neutral,neutral,48,5,3,8,"00:06:22,090","00:06:23,090",382090,383090,4
+validation,validation:s3_e8_d48_u6,Oh!!,Monica and Rachel,surprise,negative,48,6,3,8,"00:06:23,466","00:06:24,674",383466,384674,6
+validation,validation:s3_e8_d48_u7,"Oh, it’s just like a bloodbath in here today.",Rachel,sadness,negative,48,7,3,8,"00:06:27,303","00:06:30,806",387303,390806,5
+validation,validation:s1_e23_d49_u0,Please. This is so your fault.,Ross,anger,negative,49,0,1,23,"0:09:14,804","0:09:18,446",554804,558446,0
+validation,validation:s1_e23_d49_u1,"How, how is this my fault?",Susan,surprise,negative,49,1,1,23,"0:09:18,446","0:09:18,602",558446,558602,6
+validation,validation:s1_e23_d49_u2,"Look, Carol never threw me out of a room before you came along.",Ross,anger,negative,49,2,1,23,"00:09:18,724","00:09:21,685",558724,561685,0
+validation,validation:s1_e23_d49_u3,"Yeah? Well, there's a lot of things Carol never did before I came along.",Susan,anger,negative,49,3,1,23,"00:09:21,894","00:09:25,480",561894,565480,0
+validation,validation:s1_e23_d49_u6,"Hey, hey, ok, all right, that's it!",Phoebe,anger,negative,49,6,1,23,"00:09:29,735","00:09:33,947",569735,573947,0
+validation,validation:s1_e23_d49_u7,Get in here.,Phoebe,anger,negative,49,7,1,23,"00:09:32,947","00:09:34,447",572947,574447,0
+validation,validation:s1_e23_d49_u8,Come on.,Phoebe,neutral,neutral,49,8,1,23,"00:09:33,447","00:09:34,447",573447,574447,4
+validation,validation:s1_e23_d49_u9,"My god, you guys, I don't believe you.",Phoebe,anger,negative,49,9,1,23,"00:09:34,615","00:09:38,410",574615,578410,0
+validation,validation:s1_e23_d49_u10,There are children coming into the world in this very building and your negative fighting noises are not the first thing they should be hearing.,Phoebe,anger,negative,49,10,1,23,"00:09:38,578","00:09:45,458",578578,585458,0
+validation,validation:s1_e23_d49_u11,"So just stop all the yelling, just stop it!",Phoebe,anger,negative,49,11,1,23,"00:09:45,626","00:09:48,086",585626,588086,0
+validation,validation:s1_e23_d49_u12,"Yeah, Susan.",Ross,neutral,neutral,49,12,1,23,"00:09:48,296","00:09:50,714",588296,590714,4
+validation,validation:s1_e23_d49_u13,"Don't make me do this again, I don't like my voice like this.",Phoebe,anger,negative,49,13,1,23,"00:09:50,881","00:09:54,593",590881,594593,0
+validation,validation:s1_e23_d49_u14,"Ok, who wants to hear something ironic?",Phoebe,neutral,neutral,49,14,1,23,"00:09:59,807","00:10:02,225",599807,602225,4
+validation,validation:s6_e22_d50_u0,"Oh! Here it is!  Ooh, Joey! Why did you sign it, ""Son of a bitch?""",Phoebe,surprise,negative,50,0,6,22,"00:16:55,597","00:17:00,101",1015597,1020101,6
+validation,validation:s6_e22_d50_u1,I didn’t do that! Who would’ve done that?!,Joey,surprise,negative,50,1,6,22,"0:17:03,439","0:17:05,671",1023439,1025671,6
+validation,validation:s6_e22_d50_u2,Son of a bitch!,The Dry Cleaner,anger,negative,50,2,6,22,"0:17:05,671","0:17:06,747",1025671,1026747,0
+validation,validation:s6_e22_d50_u3,"Okay, maybe ask this guy.",Phoebe,neutral,neutral,50,3,6,22,"00:17:07,317","00:17:09,527",1027317,1029527,4
+validation,validation:s6_e17_d51_u0,"Oh, did I not mention? Carl is a guy I hired to be my identical twin for a medical research project.",Joey,neutral,neutral,51,0,6,17,"00:14:57,062","00:15:05,153",897062,905153,4
+validation,validation:s6_e17_d51_u1,"Y’know sometimes the good ideas are just right in front of you, aren’t they?",Chandler,joy,positive,51,1,6,17,"00:15:07,907","00:15:11,618",907907,911618,3
+validation,validation:s6_e17_d51_u2,"Okay, I know it sounds crazy, but I think it might work. Y’know? The only problem is, Carl’s acting is",Joey,neutral,neutral,51,2,6,17,"00:15:11,785","00:15:16,998",911785,916998,4
+validation,validation:s6_e17_d51_u3,The,Monica,neutral,neutral,51,3,6,17,"00:15:17,166","00:15:19,417",917166,919417,4
+validation,validation:s6_e17_d51_u4,"Yeah, he’s the reason I didn’t get that big",Joey,neutral,neutral,51,4,6,17,"00:15:20,169","00:15:23,963",920169,923963,4
+validation,validation:s6_e17_d51_u5,"Hey, uh can I get a little piece of that cake?",Carl,neutral,neutral,51,5,6,17,"00:15:27,217","00:15:29,844",927217,929844,4
+validation,validation:s6_e17_d51_u6,Pizza!! We like Pizza!! Get out!!!,Joey,anger,negative,51,6,6,17,"00:15:30,054","00:15:33,014",930054,933014,0
+validation,validation:s6_e24_d52_u0,"Hey Monica, there’s a customer who wants to complement the chef, should I let him in?",Waitress,neutral,neutral,52,0,6,24,"00:20:36,109","00:20:39,528",1236109,1239528,4
+validation,validation:s6_e24_d52_u1,"Sure, I love this part!",Monica,joy,positive,52,1,6,24,"00:20:39,696","00:20:42,073",1239696,1242073,3
+validation,validation:s6_e24_d52_u2,Come on in.,Waitress,neutral,neutral,52,2,6,24,"00:20:42,741","00:20:45,159",1242741,1245159,4
+validation,validation:s6_e10_d53_u0,"Really? In the moment, I really wanted to kiss you too. In the moment.",Joey,joy,positive,53,0,6,10,"00:19:45,559","00:19:52,440",1185559,1192440,3
+validation,validation:s6_e10_d53_u1,"In the moment, yeah.",Janine,neutral,neutral,53,1,6,10,"00:19:52,983","00:19:54,000",1192983,1194000,4
+validation,validation:s6_e10_d53_u2,But only in the moment. So do ya wanna kiss again?,Joey,joy,positive,53,2,6,10,"00:19:53,983","00:20:01,616",1193983,1201616,3
+validation,validation:s6_e10_d53_u3,"Sure, New Year’s Eve is only two weeks away. Can you wait?",Janine,neutral,neutral,53,3,6,10,"00:20:02,451","00:20:06,996",1202451,1206996,4
+validation,validation:s6_e10_d53_u4,No.,Joey,neutral,neutral,53,4,6,10,"00:20:07,456","00:20:08,873",1207456,1208873,4
+validation,validation:s6_e10_d53_u5,Me neither.,Janine,neutral,neutral,53,5,6,10,"00:20:10,751","00:20:11,959",1210751,1211959,4
+validation,validation:s6_e10_d53_u6,"3, 2,",Joey,neutral,neutral,53,6,6,10,"00:20:15,088","00:20:17,024",1215088,1217024,4
+validation,validation:s6_e10_d53_u7,"Joey, you don’t have to count down every time we kiss.",Janine,joy,positive,53,7,6,10,"00:20:18,175","00:20:20,468",1218175,1220468,3
+validation,validation:s6_e10_d53_u8,"Uh, yeah, okay. Except I sorta felt like I needed a couple of seconds to get ready.",Joey,joy,positive,53,8,6,10,"00:20:20,719","00:20:28,684",1220719,1228684,3
+validation,validation:s1_e4_d54_u0,Alright. Phoebe?,Monica,neutral,neutral,54,0,1,4,"0:00:03,420","0:00:04,382",3420,4382,4
+validation,validation:s1_e4_d54_u1,"Okay, okay.",Phoebe,neutral,neutral,54,1,1,4,"0:00:04,382","0:00:05,298",4382,5298,4
+validation,validation:s1_e4_d54_u2,"If I were omnipotent for a day, I would want, um, world peace, no more hunger, good things for the rain-forest...And bigger boobs!",Phoebe,joy,positive,54,2,1,4,"00:00:05,422","00:00:15,556",5422,15556,3
+validation,validation:s1_e4_d54_u3,"Yeah, see.. you took mine. Chandler, what about you?",Ross,neutral,neutral,54,3,1,4,"00:00:17,100","00:00:22,438",17100,22438,4
+validation,validation:s1_e4_d54_u4,"Uh, if I were omnipotent for a day, I'd.. make myself omnipotent forever.",Chandler,neutral,neutral,54,4,1,4,"00:00:22,605","00:00:26,025",22605,26025,4
+validation,validation:s1_e4_d54_u5,"See, there's always one guy.  ""If I had a wish, I'd wish for three more wishes.""",Rachel,disgust,negative,54,5,1,4,"00:00:26,234","00:00:31,405",26234,31405,1
+validation,validation:s1_e4_d54_u6,"Hey Joey. Hi. Hey, buddy.",All,neutral,neutral,54,6,1,4,"00:00:34,075","00:00:35,534",34075,35534,4
+validation,validation:s1_e4_d54_u7,"Hey, Joey, what would you do if you were omnipotent?",Monica,neutral,neutral,54,7,1,4,"00:00:35,702","00:00:37,828",35702,37828,4
+validation,validation:s1_e4_d54_u8,Probably kill myself!,Joey,sadness,negative,54,8,1,4,"00:00:38,538","00:00:40,831",38538,40831,5
+validation,validation:s1_e4_d54_u9,..Excuse me?,Monica,surprise,positive,54,9,1,4,"00:00:41,791","00:00:43,250",41791,43250,6
+validation,validation:s1_e4_d54_u10,"Hey, if Little Joey's dead, then I got no reason to live!",Joey,sadness,negative,54,10,1,4,"00:00:43,418","00:00:47,087",43418,47087,5
+validation,validation:s1_e4_d54_u11,"Joey, uh-",Ross,surprise,positive,54,11,1,4,"00:00:49,090","00:00:51,383",49090,51383,6
+validation,validation:s1_e4_d54_u12,You,Joey,neutral,neutral,54,12,1,4,"00:00:53,094","00:00:55,054",53094,55054,4
+validation,validation:s6_e1_d55_u0,I’m sorry.,Kate,sadness,negative,55,0,6,1,"00:03:46,100","00:03:48,769",226100,228769,5
+validation,validation:s3_e22_d56_u0,"Joey, onstage!",Stage Manager,anger,negative,56,0,3,22,"00:19:48,103","00:19:50,354",1188103,1190354,0
+validation,validation:s3_e22_d56_u1,Well can you at least stay to the end of the play?,Joey,sadness,negative,56,1,3,22,"00:19:51,106","00:19:53,274",1191106,1193274,5
+validation,validation:s3_e22_d56_u2,"I mean, I’ll go to the airport with ya, I-I wanna say good bye.",Joey,sadness,negative,56,2,3,22,"00:19:53,442","00:19:56,227",1193442,1196227,5
+validation,validation:s3_e22_d56_u3,Where are you Vic?,Lauren,neutral,neutral,56,3,3,22,"00:19:56,445","00:19:58,362",1196445,1198362,4
+validation,validation:s3_e22_d56_u4,Flight’s in an hour. I-I gotta go.,Kate,sadness,negative,56,4,3,22,"00:19:58,530","00:20:00,698",1198530,1200698,5
+validation,validation:s3_e22_d56_u5,Vic! Vic!,Lauren,anger,negative,56,5,3,22,"00:20:00,866","00:20:02,325",1200866,1202325,0
+validation,validation:s3_e22_d56_u6,In a minute!!,Joey,anger,negative,56,6,3,22,"00:20:05,454","00:20:07,455",1205454,1207455,0
+validation,validation:s3_e22_d56_u7,So this is it? Victor?,Lauren,sadness,negative,56,7,3,22,"00:20:09,583","00:20:11,959",1209583,1211959,5
+validation,validation:s3_e22_d56_u8,"Yeah, I guess it is.",Joey,sadness,negative,56,8,3,22,"00:20:12,794","00:20:15,755",1212794,1215755,5
+validation,validation:s3_e22_d56_u9,"Listen, I ah, I gotta say good bye, and-and I gotta say it quick ‘cause this is killing me.",Joey,sadness,negative,56,9,3,22,"00:20:21,970","00:20:28,643",1221970,1228643,5
+validation,validation:s3_e22_d56_u10,"One thing you gotta know, is that I will never forget you.",Joey,sadness,negative,56,10,3,22,"00:20:29,311","00:20:33,898",1229311,1233898,5
+validation,validation:s3_e22_d56_u11,"But, you’ve got things you have to do now, and so do I.",Joey,sadness,negative,56,11,3,22,"00:20:34,149","00:20:39,320",1234149,1239320,5
+validation,validation:s3_e22_d56_u12,"And so… I’m gonna get on this spaceship,  and I’m gonna go to Blargon 7 in search of alternative fuels.",Joey,sadness,negative,56,12,3,22,"00:20:40,989","00:20:57,797",1240989,1257797,5
+validation,validation:s3_e22_d56_u13,"But when I return, 200 years from now, you’ll be long gone.",Joey,sadness,negative,56,13,3,22,"00:20:59,508","00:21:05,471",1259508,1265471,5
+validation,validation:s3_e22_d56_u14,But I won’t have aged at all.,Joey,neutral,neutral,56,14,3,22,"00:21:06,098","00:21:08,557",1266098,1268557,4
+validation,validation:s3_e22_d56_u15,"So you tell your great-great-granddaughter to look me up, because Adrienne, baby, I’m gonna want to meet her.",Joey,neutral,neutral,56,15,3,22,"00:21:11,823","00:21:26,534",1271823,1286534,4
+validation,validation:s3_e22_d56_u16,"So long, Vic!",Lauren,sadness,negative,56,16,3,22,"00:21:34,293","00:21:36,585",1294293,1296585,5
+validation,validation:s3_e1_d57_u0,Nooo Way! The most romantic song ever is,Rachel,neutral,neutral,57,0,3,1,"00:01:14,616","00:01:18,994",74616,78994,4
+validation,validation:s3_e1_d57_u1,"See, I-I think that one that Elton John wrote for, um, that guy on",Phoebe,neutral,neutral,57,1,3,1,"00:01:19,162","00:01:24,333",79162,84333,4
+validation,validation:s3_e1_d57_u2,"What song was that, Pheebs?",Rachel,neutral,neutral,57,2,3,1,"00:01:26,336","00:01:28,295",86336,88295,4
+validation,validation:s3_e1_d57_u3,Hi Monica!,Phoebe,joy,positive,57,3,3,1,"00:01:36,513","00:01:37,846",96513,97846,3
+validation,validation:s3_e1_d57_u4,Hey Mon!,Ross,joy,positive,57,4,3,1,"0:01:38,014","0:01:38,807",98014,98807,3
+validation,validation:s3_e1_d57_u5,Hey Mon!,Rachel,joy,positive,57,5,3,1,"0:01:38,807","0:01:39,754",98807,99754,3
+validation,validation:s3_e1_d57_u6,"Oh my God, has she slept at all?",Phoebe,surprise,negative,57,6,3,1,"00:01:41,559","00:01:44,978",101559,104978,6
+validation,validation:s3_e1_d57_u7,Nope.,Ross,neutral,neutral,57,7,3,1,"00:01:43,144","00:01:44,978",103144,104978,4
+validation,validation:s3_e1_d57_u8,"No, it's been three nights in a row.",Rachel,neutral,neutral,57,8,3,1,"00:01:45,146","00:01:47,064",105146,107064,4
+validation,validation:s3_e1_d57_u9,"Yeah, she finally stopped crying yesterday, but then she found one of Richard's cigar butts out on the terrace, so.",Ross,neutral,neutral,57,9,3,1,"00:01:47,232","00:01:52,361",107232,112361,4
+validation,validation:s3_e1_d57_u10,"Oh, okay that explains it.",Phoebe,neutral,neutral,57,10,3,1,"00:01:52,529","00:01:56,949",112529,116949,4
+validation,validation:s3_e1_d57_u11,"I got a call at two in the morning, but all I could hear was, like, this high squeaky sound, so I thought okay its like a mouse or a opossum.",Phoebe,neutral,neutral,57,11,3,1,"00:01:52,529","00:02:02,204",112529,122204,4
+validation,validation:s3_e1_d57_u12,But then I realized where would a mouse or a opossum get the money to make the phone call.,Phoebe,joy,positive,57,12,3,1,"00:02:03,873","00:02:11,421",123873,131421,3
+validation,validation:s4_e13_d58_u0,"So uh, man, are you gonna go to the play with me tonight?",Chandler,neutral,neutral,58,0,4,13,"00:05:01,050","00:05:03,552",301050,303552,4
+validation,validation:s4_e13_d58_u1,"Y’know what, I don’t know how comfortable I am going to see how hot the sex is between some guy and your girlfriend.",Ross,disgust,negative,58,1,4,13,"00:05:03,720","00:05:09,558",303720,309558,1
+validation,validation:s4_e13_d58_u2,"Yeah, I know but",Chandler,neutral,neutral,58,2,4,13,"0:05:10,143","0:05:11,575",310143,311575,4
+validation,validation:s4_e13_d58_u3,"Oh no-no-no, I’m there.",Ross,neutral,neutral,58,3,4,13,"0:05:11,575","0:05:12,320",311575,312320,4
+validation,validation:s4_e13_d58_u4,Hey!,Monica,surprise,positive,58,4,4,13,"00:05:14,731","00:05:15,814",314731,315814,6
+validation,validation:s4_e13_d58_u5,Hey Mon! Want some pancakes?,Joey,joy,positive,58,5,4,13,"00:05:14,731","00:05:18,150",314731,318150,3
+validation,validation:s4_e13_d58_u6,You made pancakes?,Monica,surprise,positive,58,6,4,13,"00:05:15,982","00:05:18,150",315982,318150,6
+validation,validation:s4_e13_d58_u7,Yep! Grab a plate.,Joey,joy,positive,58,7,4,13,"00:05:18,318","00:05:20,110",318318,320110,3
+validation,validation:s4_e13_d58_u8,"No-no, stay right there.  Gettin’ closer.",Joey,neutral,neutral,58,8,4,13,"00:05:21,988","00:05:27,784",321988,327784,4
+validation,validation:s4_e13_d58_u9,"Okay, okay, but don’t worry, because we also have cereals, muffins, waffles,",Chandler,neutral,neutral,58,9,4,13,"00:05:29,537","00:05:33,749",329537,333749,4
+validation,validation:s4_e13_d58_u10,"Listen also we’re uh, we’re watching the game here Saturday night, if people want to come over.",Joey,neutral,neutral,58,10,4,13,"00:05:39,589","00:05:42,674",339589,342674,4
+validation,validation:s4_e13_d58_u11,Oh yeah!,Ross,joy,positive,58,11,4,13,"00:05:42,842","00:05:43,925",342842,343925,3
+validation,validation:s5_e20_d59_u0,"Yes, if the foxhole was lined with sandwiches.",Chandler,neutral,neutral,59,0,5,20,"00:21:42,592","00:21:45,344",1302592,1305344,4
+validation,validation:s5_e20_d59_u1,"Yeah, hero sandwiches.",Joey,neutral,neutral,59,1,5,20,"00:21:46,638","00:21:48,848",1306638,1308848,4
+validation,validation:s5_e20_d59_u2,Well you all know that I'm a pacifist so I'm not interested in war in any way.,Phoebe,neutral,neutral,59,2,5,20,"00:21:51,310","00:21:55,813",1311310,1315813,4
+validation,validation:s5_e20_d59_u3,"When the revolution comes, I will have to destroy you all.",Phoebe,neutral,neutral,59,3,5,20,"00:21:56,064","00:21:59,358",1316064,1319358,4
+validation,validation:s5_e20_d59_u4,Not you Joey.,Phoebe,neutral,neutral,59,4,5,20,"00:22:00,569","00:22:01,861",1320569,1321861,4
+validation,validation:s6_e17_d60_u0,Oh my good God.,Chandler,surprise,positive,60,0,6,17,"00:17:15,534","00:17:18,036",1035534,1038036,6
+validation,validation:s6_e17_d60_u1,"Hey! Continuing the countdown of your favorite meals. Tonight, No. 3, macaroni and cheese with cut up hot dogs.",Monica,neutral,neutral,60,1,6,17,"00:17:18,871","00:17:30,798",1038871,1050798,4
+validation,validation:s6_e17_d60_u2,"Look, you have done enough! Okay? You have to stop this now.",Chandler,anger,negative,60,2,6,17,"00:17:32,551","00:17:36,012",1052551,1056012,0
+validation,validation:s6_e17_d60_u3,"I will! But not tonight. For dinner music, I thought we could listen to that tape you made me.",Monica,joy,positive,60,3,6,17,"00:17:36,180","00:17:42,560",1056180,1062560,3
+validation,validation:s6_e17_d60_u4,"Oh, the mixed tape.",Chandler,neutral,neutral,60,4,6,17,"00:17:42,728","00:17:44,520",1062728,1064520,4
+validation,validation:s6_e17_d60_u5,The Way You Look Tonight,Monica,joy,positive,60,5,6,17,"00:17:45,731","00:17:48,107",1065731,1068107,3
+validation,validation:s6_e17_d60_u6,You are just the sweetest.,Monica,joy,positive,60,6,6,17,"00:18:16,136","00:18:19,055",1096136,1099055,3
+validation,validation:s3_e21_d61_u0,Hey!,Monica,joy,positive,61,0,3,21,"0:12:46,891","0:12:47,225",766891,767225,3
+validation,validation:s3_e21_d61_u1,Hey!,Phoebe,joy,positive,61,1,3,21,"0:12:47,225","0:12:48,632",767225,768632,3
+validation,validation:s3_e21_d61_u2,"Hey, guess what I’m doing tonight.",Monica,neutral,neutral,61,2,3,21,"00:12:48,726","00:12:50,393",768726,770393,4
+validation,validation:s3_e21_d61_u3,What?,Phoebe,neutral,neutral,61,3,3,21,"00:12:49,393","00:12:50,393",769393,770393,4
+validation,validation:s3_e21_d61_u4,I’m checking out the restaurant with Pete.,Monica,neutral,neutral,61,4,3,21,"00:12:50,603","00:12:52,562",770603,772562,4
+validation,validation:s3_e21_d61_u5,"Ohh, Monica, I am so excited for you.",Phoebe,joy,positive,61,5,3,21,"00:12:52,730","00:12:56,232",772730,776232,3
+validation,validation:s6_e16_d62_u0,"So honey this uh, this threesome thing umm, I mean how-how are you gonna start to find",Ross,neutral,neutral,62,0,6,16,"00:00:50,924","00:00:59,058",50924,59058,4
+validation,validation:s6_e16_d62_u1,"Ooh, actually I’ve been making a list of all the women I know who might be into doing this!",Carol,joy,positive,62,1,6,16,"00:00:59,309","00:01:03,020",59309,63020,3
+validation,validation:s6_e16_d62_u2,"Oh.  Wow!  Huh.  Boy!  Well, someone’s been doing their homework.",Ross,surprise,positive,62,2,6,16,"00:01:05,090","00:01:18,285",65090,78285,6
+validation,validation:s6_e16_d62_u3,"Yeah. Ooh, and I know Gail Rosten is in there twice, but she is so",Carol,neutral,neutral,62,3,6,16,"00:01:18,661","00:01:22,926",78661,82926,4
+validation,validation:s6_e16_d62_u4,"Oh, I know.  Y’know, just-just talking about it is getting me kinda",Ross,neutral,neutral,62,4,6,16,"00:01:23,124","00:01:30,964",83124,90964,4
+validation,validation:s6_e16_d62_u5,"Oh, me too.",Carol,neutral,neutral,62,5,6,16,"00:01:31,132","00:01:33,258",91132,93258,4
+validation,validation:s8_e18_d63_u0,"and then, we could’ve gone from the ceremony to the reception with you in the sidecar!",Ross,joy,positive,63,0,8,18,"00:19:36,622","00:19:42,794",1176622,1182794,3
+validation,validation:s8_e18_d63_u1,"Ross, it just wouldn’t have been feasible.",Rachel,neutral,neutral,63,1,8,18,"00:19:43,003","00:19:44,838",1183003,1184838,4
+validation,validation:s8_e18_d63_u2,But having a dove place the ring on your finger would’ve been no problem?,Ross,anger,negative,63,2,8,18,"00:19:45,088","00:19:49,593",1185088,1189593,0
+validation,validation:s8_e18_d63_u3,It was really fun being married to you tonight.,Rachel,joy,positive,63,3,8,18,"00:19:52,137","00:19:54,056",1192137,1194056,3
+validation,validation:s8_e18_d63_u4,"Yeah! And! And, it was the easiest 400 bucks I’ve ever made.",Ross,joy,positive,63,4,8,18,"00:19:54,222","00:19:57,351",1194222,1197351,3
+validation,validation:s8_e18_d63_u5,"Okay Ross, can I uh, can I ask you something?",Rachel,sadness,negative,63,5,8,18,"0:19:58,935","0:20:01,747",1198935,1201747,5
+validation,validation:s8_e18_d63_u6,Yeah.,Ross,neutral,neutral,63,6,8,18,"0:20:01,747","0:20:02,499",1201747,1202499,4
+validation,validation:s8_e18_d63_u7,"That proposal, at the planetarium",Rachel,neutral,neutral,63,7,8,18,"0:20:02,689","0:20:04,951",1202689,1204951,4
+validation,validation:s8_e18_d63_u8,"I know, I know it was stupid.",Ross,sadness,negative,63,8,8,18,"0:20:04,951","0:20:07,383",1204951,1207383,5
+validation,validation:s8_e18_d63_u9,Are you kidding?!,Rachel,surprise,positive,63,9,8,18,"0:20:07,527","0:20:08,278",1207527,1208278,6
+validation,validation:s8_e18_d63_u10,"With the, with the lilies, and-and the song, and the stars!",Rachel,joy,positive,63,10,8,18,"0:20:08,278","0:20:13,534",1208278,1213534,3
+validation,validation:s8_e18_d63_u11,It was…really wonderful!,Rachel,joy,positive,63,11,8,18,"0:20:13,617","0:20:16,959",1213617,1216959,3
+validation,validation:s8_e18_d63_u12,Did you just make that up?,Rachel,surprise,positive,63,12,8,18,"0:20:16,959","0:20:18,759",1216959,1218759,6
+validation,validation:s8_e18_d63_u13,"No, actually I thought about it when, when we were going out.",Ross,neutral,neutral,63,13,8,18,"00:20:19,039","00:20:22,167",1219039,1222167,4
+validation,validation:s8_e18_d63_u14,"It’s how I imagined I uh, I would ask you to marry me.",Ross,neutral,neutral,63,14,8,18,"00:20:22,376","00:20:27,130",1222376,1227130,4
+validation,validation:s8_e18_d63_u15,"Well, that would’ve been very hard to say no too.",Rachel,neutral,neutral,63,15,8,18,"00:20:30,550","00:20:35,055",1230550,1235055,4
+validation,validation:s8_e18_d63_u16,"It’s a good thing I didn’t do it, because it sounds like it would’ve been a very expensive wedding.  Okay, good night",Ross,neutral,neutral,63,16,8,18,"00:20:38,016","00:20:53,407",1238016,1253407,4
+validation,validation:s8_e18_d63_u17,Goodnight,Rachel,neutral,neutral,63,17,8,18,"00:20:52,407","00:20:53,407",1252407,1253407,4
+validation,validation:s8_e18_d63_u18,Even if the sidecar had a windscreen so your hair wouldn’t get messed up?,Ross,neutral,neutral,63,18,8,18,"00:20:55,909","00:21:00,664",1255909,1260664,4
+validation,validation:s8_e18_d63_u19,I will think about it.,Rachel,neutral,neutral,63,19,8,18,"0:21:00,872","0:21:01,754",1260872,1261754,4
+validation,validation:s8_e18_d63_u20,That’s all I’m askin’,Ross,neutral,neutral,63,20,8,18,"0:21:01,754","0:21:04,265",1261754,1264265,4
+validation,validation:s6_e9_d64_u0,"You guys! It was bananas, cream, and beef! I-I just cannot believe that you ate that so that I wouldn’t feel bad!",Rachel,surprise,positive,64,0,6,9,"00:22:05,365","00:22:14,623",1325365,1334623,6
+validation,validation:s6_e9_d64_u1,"Well actually, I-I didn’t eat mine. It’s still in the bathroom.",Monica,joy,positive,64,1,6,9,"00:22:14,833","00:22:18,085",1334833,1338085,3
+validation,validation:s6_e9_d64_u2,"No it isn’t, I ate that.",Joey,neutral,neutral,64,2,6,9,"00:22:18,295","00:22:19,295",1338295,1339295,4
+validation,validation:s6_e9_d64_u3,Well we left ours in Monica’s bedroom.,Mrs. Geller,neutral,neutral,64,3,6,9,"00:22:22,049","00:22:24,133",1342049,1344133,4
+validation,validation:s6_e9_d64_u4,"Nope, got it and I got yours  too.",Joey,neutral,neutral,64,4,6,9,"00:22:24,343","00:22:26,635",1344343,1346635,4
+validation,validation:s4_e9_d65_u0,And that’s I’m so glad… there’s no problem.,Rachel,joy,positive,65,0,4,9,"00:04:17,006","00:04:19,216",257006,259216,3
+validation,validation:s4_e9_d65_u1,"That’s fine, actually I’m on the hiring committee, so there’ll be at least one friendly face.",Joanna,neutral,neutral,65,1,4,9,"00:04:19,842","00:04:23,845",259842,263845,4
+validation,validation:s4_e9_d65_u2,Ohh! That’s great!,Rachel,joy,positive,65,2,4,9,"00:04:24,013","00:04:25,430",264013,265430,3
+validation,validation:s4_e9_d65_u3,"You know, Junior Miss is where I started. Oh, I had to sleep with the",Joanna,neutral,neutral,65,3,4,9,"00:04:25,598","00:04:31,603",265598,271603,4
+validation,validation:s4_e9_d65_u4,Really?!,Rachel,surprise,positive,65,4,4,9,"0:04:32,689","0:04:33,541",272689,273541,6
+validation,validation:s4_e9_d65_u5,No-ho-ho!,Joanna,joy,positive,65,5,4,9,"0:04:33,541","0:04:36,295",273541,276295,3
+validation,validation:s4_e9_d65_u6,Yeah.,Joanna,neutral,neutral,65,6,4,9,"00:04:36,401","00:04:37,985",276401,277985,4
+validation,validation:s4_e9_d65_u7,"I mean, no-no-no-no-no, don’t you worry, I’m sure with your qualifications you won’t need to sleep with some guy to get that job.",Joanna,neutral,neutral,65,7,4,9,"00:04:38,987","00:04:45,200",278987,285200,4
+validation,validation:s4_e9_d65_u8,"Although, I might need some convincing.",Joanna,neutral,neutral,65,8,4,9,"00:04:46,577","00:04:48,704",286577,288704,4
+validation,validation:s4_e9_d65_u9,"Well, I, umm",Rachel,fear,negative,65,9,4,9,"00:04:50,873","00:04:51,873",290873,291873,2
+validation,validation:s4_e9_d65_u10,"Kidding! God, I feel wild today!",Joanna,joy,positive,65,10,4,9,"00:04:51,873","00:04:57,254",291873,297254,3
+validation,validation:s7_e23_d66_u0,Oh my God! Chandler just left though!,Phoebe,surprise,negative,66,0,7,23,"00:14:35,291","00:14:38,334",875291,878334,6
+validation,validation:s7_e23_d66_u1,"Yeah but, maybe it’s not what we think. Maybe it’s tell Monica I’m sorry I…drank the last of the milk.",Rachel,neutral,neutral,66,1,7,23,"00:14:38,586","00:14:45,216",878586,885216,4
+validation,validation:s7_e23_d66_u2,"Or maybe he-he was writing to tell her that-that he’s changed his name, y’know? Tell Monica I’m sorry.",Phoebe,neutral,neutral,66,2,7,23,"00:14:45,676","00:14:54,048",885676,894048,4
+validation,validation:s7_e23_d66_u3,I think it means he freaked out and left!,Ross,surprise,negative,66,3,7,23,"00:14:56,020","00:15:01,065",896020,901065,6
+validation,validation:s7_e23_d66_u4,Don’t be so negative! Good God! Isn’t it possible that Sorry is sitting in there  right now?!,Phoebe,anger,negative,66,4,7,23,"00:15:01,525","00:15:06,905",901525,906905,0
+validation,validation:s7_e23_d66_u5,"Okay. Phoebe, I-I think Ross is right. What are we gonna do?",Rachel,sadness,negative,66,5,7,23,"00:15:08,032","00:15:12,035",908032,912035,5
+validation,validation:s7_e23_d66_u6,"Look—Okay, I’m just gonna—I’m gonna have to go find him and bring him back!",Ross,neutral,neutral,66,6,7,23,"00:15:12,369","00:15:15,872",912369,915872,4
+validation,validation:s7_e23_d66_u7,Okay?,Ross,neutral,neutral,66,7,7,23,"0:15:16,081","0:15:16,503",916081,916503,4
+validation,validation:s7_e23_d66_u8,"You-you make sure Monica does not find out, okay?",Ross,neutral,neutral,66,8,7,23,"0:15:16,503","0:15:19,673",916503,919673,4
+validation,validation:s7_e23_d66_u11,"I will, I will find him.",Ross,neutral,neutral,66,11,7,23,"00:15:29,345","00:15:31,179",929345,931179,4
+validation,validation:s6_e19_d67_u0,Hey!,Rachel,joy,positive,67,0,6,19,"0:01:59,953","0:02:01,205",119953,121205,3
+validation,validation:s6_e19_d67_u1,Hi! Hey!,All,joy,positive,67,1,6,19,"0:02:01,205","0:02:01,361",121205,121361,3
+validation,validation:s6_e19_d67_u2,Do you guys know any cute guys?,Rachel,neutral,neutral,67,2,6,19,"00:02:01,454","00:02:04,289",121454,124289,4
+validation,validation:s6_e19_d67_u3,"Well, of course I do! My good friend Joey over here.",Chandler,joy,positive,67,3,6,19,"00:02:04,457","00:02:07,417",124457,127417,3
+validation,validation:s6_e19_d67_u4,"Oh, I’m sorry. Thank you Chandler.",Joey,joy,positive,67,4,6,19,"00:02:10,839","00:02:14,299",130839,134299,3
+validation,validation:s6_e19_d67_u5,"Anyway, there’s this big charity ball this weekend and Ralph Lauren bought a table, so I kinda have to go",Rachel,neutral,neutral,67,5,6,19,"00:02:15,635","00:02:21,056",135635,141056,4
+validation,validation:s6_e19_d67_u6,What’s the charity?,Monica,neutral,neutral,67,6,6,19,"00:02:21,224","00:02:22,350",141224,142350,4
+validation,validation:s6_e19_d67_u7,"I don’t know, something either trees or disease—Ralph mumbles a lot.",Rachel,neutral,neutral,67,7,6,19,"00:02:22,000","00:02:30,899",142000,150899,4
+validation,validation:s6_e19_d67_u8,Does Ralph mumble when you’re not paying attention?,Monica,neutral,neutral,67,8,6,19,"00:02:27,772","00:02:34,528",147772,154528,4
+validation,validation:s6_e19_d67_u9,Yeah! It’s weird. But the thing is need to find a date.,Rachel,surprise,positive,67,9,6,19,"00:02:31,067","00:02:37,573",151067,157573,6
+validation,validation:s6_e19_d67_u10,"Well, what kind of guy are you looking for?",Phoebe,neutral,neutral,67,10,6,19,"00:02:37,740","00:02:39,408",157740,159408,4
+validation,validation:s6_e21_d68_u0,Hey!,Rachel,joy,positive,68,0,6,21,"00:02:18,012","00:02:19,054",138012,139054,3
+validation,validation:s6_e21_d68_u1,What are you guys doing later?,Ross,neutral,neutral,68,1,6,21,"00:02:19,222","00:02:20,973",139222,140973,4
+validation,validation:s6_e21_d68_u2,"Oh, Rachel and I have appointments to get our hair cut.",Phoebe,neutral,neutral,68,2,6,21,"00:02:21,141","00:02:23,475",141141,143475,4
+validation,validation:s6_e21_d68_u3,We do?,Rachel,surprise,negative,68,3,6,21,"0:02:24,102","0:02:24,404",144102,144404,6
+validation,validation:s6_e21_d68_u4,I want to see what he wants first.,Phoebe,neutral,neutral,68,4,6,21,"0:02:24,404","0:02:26,706",144404,146706,4
+validation,validation:s6_e21_d68_u5,I just found out that Elizabeth’s dad wants to meet me.,Ross,sadness,negative,68,5,6,21,"00:02:28,064","00:02:30,774",148064,150774,5
+validation,validation:s6_e21_d68_u6,"Wait a minute, hold the phone! You’re not Elizabeth’s dad?!",Chandler,surprise,positive,68,6,6,21,"00:02:30,942","00:02:35,070",150942,155070,6
+validation,validation:s6_e21_d68_u7,"Come on guys, I-I really want this guy to like me.",Ross,fear,negative,68,7,6,21,"00:02:38,449","00:02:40,742",158449,160742,2
+validation,validation:s6_e21_d68_u8,It-it would really help me out if you guys were here to make me look good.,Ross,sadness,negative,68,8,6,21,"00:02:40,910","00:02:45,831",160910,165831,5
+validation,validation:s6_e21_d68_u9,Of course we’ll help! Yeah! We’ll be here!,All,joy,positive,68,9,6,21,"00:02:43,663","00:02:47,541",163663,167541,3
+validation,validation:s6_e21_d68_u10,Thanks!,Ross,joy,positive,68,10,6,21,"00:02:45,999","00:02:47,541",165999,167541,3
+validation,validation:s6_e21_d68_u11,We know how tough those parent/teacher conferences can be.,Monica,neutral,neutral,68,11,6,21,"00:02:47,709","00:02:50,544",167709,170544,4
+validation,validation:s7_e8_d69_u0,"Oh, hi! How are you doing?",Rachel,joy,positive,69,0,7,8,"00:19:38,969","00:19:41,000",1178969,1181000,3
+validation,validation:s7_e8_d69_u1,I'm okay. I gotta go down to the police station and look at mug shots.,Tag,sadness,negative,69,1,7,8,"00:19:40,888","00:19:45,099",1180888,1185099,5
+validation,validation:s7_e8_d69_u2,"Thanks for having me over, you guys.",Tag,neutral,neutral,69,2,7,8,"0:19:45,309","0:19:46,728",1185309,1186728,4
+validation,validation:s7_e8_d69_u3,Tag?,Ross,neutral,neutral,69,3,7,8,"0:19:46,728","0:19:49,508",1186728,1189508,4
+validation,validation:s7_e8_d69_u4,Y-You're going?,Ross,joy,positive,69,4,7,8,"00:19:45,309","00:19:49,437",1185309,1189437,3
+validation,validation:s7_e8_d69_u5,"Uh we didn't, uh we didn't get the chance to talk.",Ross,neutral,neutral,69,5,7,8,"00:19:49,605","00:19:52,023",1189605,1192023,4
+validation,validation:s7_e8_d69_u6,"Uh, so, where did you say you're from again?",Ross,neutral,neutral,69,6,7,8,"00:19:52,274","00:19:54,650",1192274,1194650,4
+validation,validation:s7_e8_d69_u7,Colorado.,Tag,neutral,neutral,69,7,7,8,"0:19:54,860","0:19:55,672",1194860,1195672,4
+validation,validation:s7_e8_d69_u8,"Ah, what good are you.",Ross,neutral,neutral,69,8,7,8,"0:19:55,672","0:19:57,378",1195672,1197378,4
+validation,validation:s7_e8_d69_u9,"Look, um, I think we should talk about what happened on the terrace.",Rachel,neutral,neutral,69,9,7,8,"00:20:03,619","00:20:07,496",1203619,1207496,4
+validation,validation:s7_e8_d69_u10,Okay.,Tag,neutral,neutral,69,10,7,8,"00:20:07,706","00:20:09,081",1207706,1209081,4
+validation,validation:s7_e8_d69_u11,"Ah, I-I never should have said what I said.",Rachel,sadness,negative,69,11,7,8,"00:20:09,249","00:20:11,000",1209249,1211000,5
+validation,validation:s7_e8_d69_u12,It—y’know what?,Rachel,neutral,neutral,69,12,7,8,"0:20:11,168","0:20:11,920",1211168,1211920,4
+validation,validation:s7_e8_d69_u13,It just doesn't matter how I feel.,Rachel,sadness,negative,69,13,7,8,"0:20:11,920","0:20:13,260",1211920,1213260,5
+validation,validation:s7_e8_d69_u14,"I mean we work together, so nothing could really ever happen between us, and what I would love is just to go to work on Monday, and-and never talk about this again, okay?",Rachel,sadness,negative,69,14,7,8,"00:20:13,378","00:20:28,309",1213378,1228309,5
+validation,validation:s7_e8_d69_u15,"Um, I'm not.",Tag,neutral,neutral,69,15,7,8,"00:20:28,518","00:20:30,686",1228518,1230686,4
+validation,validation:s7_e8_d69_u16,"Oh, god, I knew it, that I freaked you out.",Rachel,sadness,negative,69,16,7,8,"00:20:30,896","00:20:34,232",1230896,1234232,5
+validation,validation:s7_e8_d69_u17,"No, you didn't. The only thing that freaked me out was you saying that nothing could ever happen between us.",Tag,sadness,negative,69,17,7,8,"00:20:32,232","00:20:38,694",1232232,1238694,5
+validation,validation:s7_e8_d69_u18,Really?,Rachel,surprise,positive,69,18,7,8,"00:20:39,738","00:20:41,000",1239738,1241000,6
+validation,validation:s7_e8_d69_u19,"Yeah, so, please don't fire me for doing this.",Tag,sadness,negative,69,19,7,8,"00:20:41,000","00:20:45,409",1241000,1245409,5
+validation,validation:s1_e4_d70_u0,"Get him! GET HIM! Get him! Get- YESSS! Not laughing now, are ya pal!",Ross,anger,negative,70,0,1,4,"00:12:16,944","00:12:23,575",736944,743575,0
+validation,validation:s1_e4_d70_u1,"See buddy, that's all you need, a bunch of toothless guys hitting each other with sticks.",Chandler,neutral,neutral,70,1,1,4,"00:12:23,743","00:12:27,370",743743,747370,4
+validation,validation:s1_e4_d70_u2,Pass it! Pass it!,Ross,joy,positive,70,2,1,4,"00:12:27,538","00:12:29,831",747538,749831,3
+validation,validation:s1_e4_d70_u3,He's open!,Chandler,joy,positive,70,3,1,4,"0:12:29,999","0:12:30,511",749999,750511,3
+validation,validation:s1_e4_d70_u4,Shoot! Shoot! Shoot!,All,joy,positive,70,4,1,4,"0:12:30,511","0:12:33,925",750511,753925,3
+validation,validation:s1_e4_d70_u5,"Hey, look, we're on that TV thing!",Chandler,surprise,positive,70,5,1,4,"00:12:39,842","00:12:43,178",759842,763178,6
+validation,validation:s7_e13_d71_u0,I am so psyched I kept this chair for myself!,Rachel,joy,positive,71,0,7,13,"00:13:07,620","00:13:11,331",787620,791331,3
+validation,validation:s7_e13_d71_u1,"Yeah, me too.",Joey,neutral,neutral,71,1,7,13,"00:13:15,169","00:13:17,253",795169,797253,4
+validation,validation:s7_e13_d71_u2,"Yeah? Wow! Y’know, that this thing has speakers in the headrest!",Rachel,surprise,positive,71,2,7,13,"00:13:19,715","00:13:23,218",799715,803218,6
+validation,validation:s7_e13_d71_u3,No. Really?,Joey,surprise,negative,71,3,7,13,"00:13:24,929","00:13:26,346",804929,806346,6
+validation,validation:s7_e13_d71_u4,Yeah! You can hook it up to your TV,Rachel,joy,positive,71,4,7,13,"00:13:26,514","00:13:29,015",806514,809015,3
+validation,validation:s7_e13_d71_u5,My chair heals itself.,Joey,neutral,neutral,71,5,7,13,"00:13:34,563","00:13:36,731",814563,816731,4
+validation,validation:s5_e11_d72_u0,"Tiger!  Dragon! Iceberg!!  Joseph, did you even study at all last night?",Phoebe,anger,negative,72,0,5,11,"00:10:55,738","00:11:03,578",655738,663578,0
+validation,validation:s5_e11_d72_u1,"Yes! Yes, I did.",Joey,sadness,negative,72,1,5,11,"0:11:03,746","0:11:05,373",663746,665373,5
+validation,validation:s5_e11_d72_u2,Then do Iceberg!,Phoebe,anger,negative,72,2,5,11,"0:11:05,373","0:11:06,557",665373,666557,0
+validation,validation:s5_e11_d72_u3,G-sharp.,Joey,neutral,neutral,72,3,5,11,"0:11:07,875","0:11:08,627",667875,668627,4
+validation,validation:s5_e11_d72_u4,G,Phoebe,neutral,neutral,72,4,5,11,"0:11:08,627","0:11:10,799",668627,670799,4
+validation,validation:s5_e11_d72_u5,What?! I didn't touch a guitar!,Joey,surprise,negative,72,5,5,11,"00:11:20,471","00:11:22,555",680471,682555,6
+validation,validation:s5_e11_d72_u6,"No, but you're questioning my method!",Phoebe,anger,negative,72,6,5,11,"00:11:22,273","00:11:24,432",682273,684432,0
+validation,validation:s5_e11_d72_u7,"No, I'm not questioning it, I'm saying it's stupid!  What?!",Joey,anger,negative,72,7,5,11,"00:11:24,600","00:11:30,021",684600,690021,0
+validation,validation:s5_e11_d72_u8,Thank you.,Monica,neutral,neutral,72,8,5,11,"00:11:32,066","00:11:33,525",692066,693525,4
+validation,validation:s5_e11_d72_u9,Y'know none of my other student thought I was stupid.,Phoebe,anger,negative,72,9,5,11,"00:11:34,110","00:11:39,155",694110,699155,0
+validation,validation:s5_e11_d72_u10,"Your other student, was you!",Joey,anger,negative,72,10,5,11,"00:11:39,657","00:11:42,617",699657,702617,0
+validation,validation:s5_e11_d72_u11,"Yeah, well, y'know maybe you just need to try a little harder!",Phoebe,anger,negative,72,11,5,11,"00:11:43,911","00:11:47,914",703911,707914,0
+validation,validation:s5_e11_d72_u12,"Look, maybe I need to try a real teacher!",Joey,anger,negative,72,12,5,11,"00:11:48,082","00:11:49,833",708082,709833,0
+validation,validation:s5_e11_d72_u13,Right here!,Joey,anger,negative,72,13,5,11,"0:11:49,833","0:11:50,751",709833,710751,0
+validation,validation:s5_e11_d72_u14,Here!,Joey,anger,negative,72,14,5,11,"0:11:50,751","0:11:52,943",710751,712943,0
+validation,validation:s5_e11_d72_u15,"Andy Cooper, he teaches guitar and look ooh, there's a nice picture of him with a little kid and",Joey,neutral,neutral,72,15,5,11,"00:11:50,000","00:11:55,338",710000,715338,4
+validation,validation:s5_e11_d72_u16,Fine! You go learn from your qualified instructor! But don't come crying to me when everyone's sick and tired of hearing you play,Phoebe,anger,negative,72,16,5,11,"00:12:00,177","00:12:09,811",720177,729811,0
+validation,validation:s5_e11_d72_u17,"""Baddest man in the whole damn town.""",Rachel,neutral,neutral,72,17,5,11,"00:12:11,230","00:12:13,606",731230,733606,4
+validation,validation:s5_e11_d72_u18,"Oh, fine! Take his side!",Phoebe,anger,negative,72,18,5,11,"00:12:13,774","00:12:16,234",733774,736234,0
+validation,validation:s5_e10_d73_u0,"And shame on you! You should know better, Joey needs to work.  Now come on!",Ross,anger,negative,73,0,5,10,"00:10:28,461","00:10:34,257",628461,634257,0
+validation,validation:s5_e10_d73_u1,Hey!,Joey,anger,negative,73,1,5,10,"00:10:33,257","00:10:34,257",633257,634257,0
+validation,validation:s5_e10_d73_u2,No! Ah-ah-ah-ah-ah! You can have this back when the five pages are done!  Ahh!,Ross,anger,negative,73,2,5,10,"00:10:34,425","00:10:38,762",634425,638762,0
+validation,validation:s8_e3_d74_u0,Hi!,Rachel,joy,positive,74,0,8,3,"0:09:12,969","0:09:13,637",552969,553637,3
+validation,validation:s8_e3_d74_u1,Hi.,Ross,neutral,neutral,74,1,8,3,"0:09:13,637","0:09:14,448",553637,554448,4
+validation,validation:s8_e3_d74_u2,"Hi.  Umm, I think there’s something that we really need to talk about.",Rachel,joy,positive,74,2,8,3,"00:09:14,679","00:09:20,141",554679,560141,3
+validation,validation:s8_e3_d74_u3,"I think we do. Why don’t we go inside?  Look uh, I know why you’re here.",Ross,sadness,negative,74,3,8,3,"00:09:20,768","00:09:35,323",560768,575323,5
+validation,validation:s8_e3_d74_u4,You do?,Rachel,surprise,positive,74,4,8,3,"00:09:34,323","00:09:35,323",574323,575323,6
+validation,validation:s8_e3_d74_u5,"Yeah, and to save you from any embarrassment umm, I think maybe I should talk first.",Ross,neutral,neutral,74,5,8,3,"00:09:35,575","00:09:41,621",575575,581621,4
+validation,validation:s8_e3_d74_u6,Okay.,Rachel,neutral,neutral,74,6,8,3,"00:09:41,872","00:09:43,707",581872,583707,4
+validation,validation:s8_e3_d74_u7,"Okay.  Uh, Ross and Rachel. Rachel and Ross. That’s been one heck of a see-saw hasn’t it?",Ross,neutral,neutral,74,7,8,3,"00:09:42,872","00:10:03,852",582872,603852,4
+validation,validation:s8_e3_d74_u8,What?,Rachel,surprise,negative,74,8,8,3,"00:10:04,645","00:10:05,895",604645,605895,6
+validation,validation:s8_e3_d74_u9,"I mean look, that-that one night we had was fun and…and certainly passionate, but don’t you think it’s better if we just stayed friends?",Ross,sadness,negative,74,9,8,3,"00:10:06,606","00:10:16,781",606606,616781,5
+validation,validation:s8_e3_d74_u10,Seriously. What?!,Rachel,surprise,negative,74,10,8,3,"00:10:18,909","00:10:20,827",618909,620827,6
+validation,validation:s8_e3_d74_u11,Okay.,Ross,neutral,neutral,74,11,8,3,"0:10:22,204","0:10:23,086",622204,623086,4
+validation,validation:s8_e3_d74_u12,Okay.,Ross,neutral,neutral,74,12,8,3,"0:10:23,086","0:10:24,058",623086,624058,4
+validation,validation:s8_e3_d74_u13,Y’know what?,Ross,neutral,neutral,74,13,8,3,"0:10:24,058","0:10:25,668",624058,625668,4
+validation,validation:s8_e3_d74_u14,"If you want to, we can do it one more time.",Ross,neutral,neutral,74,14,8,3,"00:10:25,791","00:10:29,711",625791,629711,4
+validation,validation:s8_e3_d74_u15,I mean I’d-I’d be okay with that.,Ross,neutral,neutral,74,15,8,3,"0:10:32,465","0:10:34,397",632465,634397,4
+validation,validation:s8_e3_d74_u16,"In fact, I have some time right now.",Ross,neutral,neutral,74,16,8,3,"0:10:34,397","0:10:38,140",634397,638140,4
+validation,validation:s8_e3_d74_u17,"Okay, y’know what? Can I, can I talk now?",Rachel,joy,positive,74,17,8,3,"0:10:38,604","0:10:40,648",638604,640648,3
+validation,validation:s8_e3_d74_u18,Oh sure.,Ross,neutral,neutral,74,18,8,3,"0:10:40,648","0:10:42,713",640648,642713,4
+validation,validation:s8_e3_d74_u19,"I’m pregnant.  Ross?  Ross?  Okay, whenever you’re ready.  And you’re the father by the way—but you got that",Rachel,anger,negative,74,19,8,3,"00:10:48,731","00:11:17,258",648731,677258,0
+validation,validation:s3_e9_d75_u0,We should defiantly play football more often. Maybe there’s a like league we could join or something.,Rachel,neutral,neutral,75,0,3,9,"00:21:44,886","00:21:52,935",1304886,1312935,4
+validation,validation:s3_e1_d76_u0,I know!,Chandler,joy,positive,76,0,3,1,"00:16:22,982","00:16:24,524",982982,984524,3
+validation,validation:s3_e1_d76_u1,"Yes! Wow, well, that-that was easy. Okay, you-you go.",Ross,surprise,positive,76,1,3,1,"00:16:25,693","00:16:30,655",985693,990655,6
+validation,validation:s3_e1_d76_u2,Okay.,Chandler,neutral,neutral,76,2,3,1,"0:16:30,823","0:16:31,575",990823,991575,4
+validation,validation:s3_e1_d76_u3,Okay.,Ross,neutral,neutral,76,3,3,1,"0:16:31,575","0:16:31,955",991575,991955,4
+validation,validation:s3_e1_d76_u4,"Okay, you know, you know when your in bed, with a woman.",Chandler,joy,positive,76,4,3,1,"00:16:32,491","00:16:35,451",992491,995451,3
+validation,validation:s3_e1_d76_u5,Hmph.,Ross,neutral,neutral,76,5,3,1,"00:16:35,619","00:16:36,703",995619,996703,4
+validation,validation:s3_e1_d76_u6,"And, ah, you know, your fooling around with her.",Chandler,joy,positive,76,6,3,1,"00:16:36,912","00:16:40,248",996912,1000248,3
+validation,validation:s3_e1_d76_u7,"And you get all these like, mental images in your brain, you know, like Elle MacPherson, or that girl at the Xerox place....",Chandler,joy,positive,76,7,3,1,"00:16:40,416","00:16:46,671",1000416,1006671,3
+validation,validation:s3_e1_d76_u8,"With the belly-button ring? Oh, muhawa!",Ross,joy,positive,76,8,3,1,"00:16:46,839","00:16:49,549",1006839,1009549,3
+validation,validation:s3_e1_d76_u9,"I know, And then all of the sudden your Mom pops into your head.",Chandler,anger,negative,76,9,3,1,"00:16:49,717","00:16:52,301",1009717,1012301,0
+validation,validation:s3_e1_d76_u10,"And your like 'Mom, get outta here!'",Chandler,anger,negative,76,10,3,1,"00:16:54,054","00:16:57,724",1014054,1017724,0
+validation,validation:s3_e1_d76_u11,"You know, but of course, like, after that you can't possibly think of anything else, and you can't, you know, stop what your doing.",Chandler,anger,negative,76,11,3,1,"00:16:57,975","00:17:06,065",1017975,1026065,0
+validation,validation:s3_e1_d76_u12,"So it's kinda like, you're, you know.",Chandler,neutral,neutral,76,12,3,1,"00:17:00,769","00:17:08,860",1020769,1028860,4
+validation,validation:s3_e1_d76_u13,You know.... You don't know!,Chandler,surprise,negative,76,13,3,1,"00:17:06,442","00:17:11,029",1026442,1031029,6
+validation,validation:s3_e1_d76_u14,"Your Mom, your telling me, your telling me, about your Mom, what is the matter with you?",Ross,disgust,negative,76,14,3,1,"00:17:12,573","00:17:18,202",1032573,1038202,1
+validation,validation:s3_e1_d76_u15,You said...,Chandler,neutral,neutral,76,15,3,1,"0:17:19,079","0:17:20,831",1039079,1040831,4
+validation,validation:s3_e1_d76_u16,I said ',Ross,neutral,neutral,76,16,3,1,"0:17:20,831","0:17:22,173",1040831,1042173,4
+validation,validation:s8_e24_d77_u0,Oh!,Phoebe,surprise,positive,77,0,8,24,"00:17:17,065","00:17:18,066",1037065,1038066,6
+validation,validation:s8_e24_d77_u1,Look at Emma!,Ross,surprise,positive,77,1,8,24,"00:17:18,233","00:17:21,737",1038233,1041737,6
+validation,validation:s8_e24_d77_u2,"I just can’t decide who she looks more alike, you or Rachel?",Phoebe,neutral,neutral,77,2,8,24,"00:17:18,233","00:17:23,155",1038233,1043155,4
+validation,validation:s8_e24_d77_u3,"Oh what are you kidding? She’s gorgeous, it’s all Rachel.",Ross,joy,positive,77,3,8,24,"00:17:23,322","00:17:27,075",1043322,1047075,3
+validation,validation:s8_e24_d77_u4,"I’m sorry, for the last time, why aren’t you two together again?",Phoebe,neutral,neutral,77,4,8,24,"00:17:31,497","00:17:36,084",1051497,1056084,4
+validation,validation:s8_e24_d77_u5,"No, I know.",Phoebe,neutral,neutral,77,5,8,24,"0:17:37,544","0:17:38,170",1057544,1058170,4
+validation,validation:s8_e24_d77_u6,"I know, because you’re not in that place.",Phoebe,neutral,neutral,77,6,8,24,"0:17:38,170","0:17:40,780",1058170,1060780,4
+validation,validation:s8_e24_d77_u7,"Which would be fine, except you totally are.",Phoebe,neutral,neutral,77,7,8,24,"00:17:40,881","00:17:44,009",1060881,1064009,4
+validation,validation:s8_e24_d77_u8,It’s…it’s complicated okay?,Ross,sadness,negative,77,8,8,24,"00:17:44,176","00:17:47,513",1064176,1067513,5
+validation,validation:s8_e24_d77_u9,"Yeah that’s true. Yeah, you love her. You always have. You have a child together. There is no right answer.",Phoebe,neutral,neutral,77,9,8,24,"00:17:48,639","00:17:55,437",1068639,1075437,4
+validation,validation:s8_e24_d77_u10,"Look, we’ve been together.",Ross,sadness,negative,77,10,8,24,"0:17:57,272","0:17:58,454",1077272,1078454,5
+validation,validation:s8_e24_d77_u11,Okay?,Ross,neutral,neutral,77,11,8,24,"0:17:58,454","0:18:00,088",1078454,1080088,4
+validation,validation:s8_e24_d77_u12,"And then apart, and then together, and then apart, and now we have a baby.",Ross,sadness,negative,77,12,8,24,"00:18:00,192","00:18:04,738",1080192,1084738,5
+validation,validation:s8_e24_d77_u13,It’s just if-if we got together again and it didn’t work out…I could never do that to Emma.,Ross,sadness,negative,77,13,8,24,"00:18:07,658","00:18:16,624",1087658,1096624,5
+validation,validation:s8_e24_d77_u14,I mean she-she thinking everything— Oh that’s…now me.,Ross,sadness,negative,77,14,8,24,"00:18:18,043","00:18:23,507",1098043,1103507,5
+validation,validation:s8_e24_d77_u15,What do they put something in the water in this place?,Ross,neutral,neutral,77,15,8,24,"00:18:23,674","00:18:27,302",1103674,1107302,4
+validation,validation:s8_e24_d77_u16,"Since Rachel and I we’re doing really, we’re doing really well right now.",Ross,sadness,negative,77,16,8,24,"00:18:28,220","00:18:31,807",1108220,1111807,5
+validation,validation:s8_e24_d77_u17,"I know. I know. I know. I know, and if you try to make it more you might wreck it.",Phoebe,neutral,neutral,77,17,8,24,"00:18:31,974","00:18:36,019",1111974,1116019,4
+validation,validation:s8_e24_d77_u18,"Yeah, exactly.",Ross,neutral,neutral,77,18,8,24,"00:18:36,186","00:18:38,397",1116186,1118397,4
+validation,validation:s8_e24_d77_u19,Right.  Or you might get everything you’ve wanted since you were fifteen.,Phoebe,neutral,neutral,77,19,8,24,"00:18:40,899","00:18:44,778",1120899,1124778,4
+validation,validation:s7_e22_d78_u0,God. I forgot how much I love driving. I have,Rachel,joy,positive,78,0,7,22,"00:09:32,530","00:09:35,490",572530,575490,3
+validation,validation:s7_e22_d78_u1,You don’t have a,Ross,neutral,neutral,78,1,7,22,"00:09:41,414","00:09:45,375",581414,585375,4
+validation,validation:s7_e22_d78_u2,"Oh Ross you’re so tense! You just gotta relax, okay? Just need to relax all right? Just need to relax",Rachel,neutral,neutral,78,2,7,22,"00:09:45,585","00:09:53,925",585585,593925,4
+validation,validation:s7_e22_d78_u3,What-what are you doing?! Are you—Okay that’s not funny! Just stop horsing around!,Ross,anger,negative,78,3,7,22,"00:09:54,093","00:09:57,917",594093,597917,0
+validation,validation:s7_e22_d78_u4,"I am not horsing around, okay? I am Porsching around.",Rachel,joy,positive,78,4,7,22,"00:09:58,139","00:10:00,390",598139,600390,3
+validation,validation:s7_e22_d78_u5,Uh-oh.,Rachel,fear,negative,78,5,7,22,"00:10:08,733","00:10:10,775",608733,610775,2
+validation,validation:s7_e22_d78_u6,"Okay, stay calm. Nothing is going to happen to you, you are not in that much trouble.",Ross,neutral,neutral,78,6,7,22,"00:10:10,943","00:10:16,072",610943,616072,4
+validation,validation:s7_e22_d78_u7,Really? You think so?,Rachel,fear,negative,78,7,7,22,"00:10:16,240","00:10:17,657",616240,617657,2
+validation,validation:s7_e22_d78_u8,I was talking to myself! You’re going down!,Ross,anger,negative,78,8,7,22,"00:10:17,825","00:10:20,619",617825,620619,0
+validation,validation:s9_e21_d79_u0,Hey honey! I missed you today!,Monica,joy,positive,79,0,9,21,"00:05:26,159","00:05:28,535",326159,328535,3
+validation,validation:s9_e21_d79_u1,"Oh, yeah?",Chandler,surprise,positive,79,1,9,21,"00:05:28,703","00:05:31,204",328703,331204,6
+validation,validation:s9_e21_d79_u2,Yeah.  What d'you wanna do tonight?,Monica,neutral,neutral,79,2,9,21,"0:05:31,956","0:05:33,168",331956,333168,4
+validation,validation:s9_e21_d79_u3,"Oh, well... Maybe we could...",Chandler,neutral,neutral,79,3,9,21,"0:05:33,168","0:05:36,842",333168,336842,4
+validation,validation:s9_e21_d79_u4,"Ok, trying to turn me on by making a mess?",Monica,joy,positive,79,4,9,21,"00:05:46,429","00:05:49,931",346429,349931,3
+validation,validation:s9_e21_d79_u5,Know your audience!,Monica,joy,positive,79,5,9,21,"00:05:50,099","00:05:51,683",350099,351683,3
+validation,validation:s9_e21_d79_u6,"Besides, tomorrow we're doing those fertility tests and until then you need    to keep your tadpoles in the tank.",Monica,neutral,neutral,79,6,9,21,"00:05:53,353","00:05:59,816",353353,359816,4
+validation,validation:s9_e21_d79_u7,We really need to take those tests?,Chandler,sadness,negative,79,7,9,21,"00:06:01,277","00:06:03,403",361277,363403,5
+validation,validation:s9_e21_d79_u8,"Honey, we've been trying to have a baby for over a year.",Monica,neutral,neutral,79,8,9,21,"00:06:03,571","00:06:05,655",363571,365655,4
+validation,validation:s9_e21_d79_u9,I think    it's a good idea to find out if everything's ok. Just a few routine tests.,Monica,neutral,neutral,79,9,9,21,"00:06:05,823","00:06:12,954",365823,372954,4
+validation,validation:s9_e21_d79_u10,But I don't wanna do it in a cup!,Chandler,sadness,negative,79,10,9,21,"00:06:08,910","00:06:12,954",368910,372954,5
+validation,validation:s1_e10_d80_u0,"Oh, hi Max! Hey, do you know everybody?",Phoebe,neutral,neutral,80,0,1,10,"00:12:02,471","00:12:04,639",722471,724639,4
+validation,validation:s1_e10_d80_u1,No. Have you seen David?,Max,neutral,neutral,80,1,1,10,"00:12:04,807","00:12:06,683",724807,726683,4
+validation,validation:s1_e10_d80_u2,"No, no, he hasn't been around.",Phoebe,neutral,neutral,80,2,1,10,"00:12:08,227","00:12:09,519",728227,729519,4
+validation,validation:s1_e10_d80_u3,"Well, if you see him, tell him to pack his bags. We are going to Minsk.",Max,neutral,neutral,80,3,1,10,"00:12:09,687","00:12:13,273",729687,733273,4
+validation,validation:s1_e10_d80_u4,Minsk?,Phoebe,surprise,negative,80,4,1,10,"0:12:13,941","0:12:14,533",733941,734533,6
+validation,validation:s1_e10_d80_u5,Minsk. It's in Russia.,Max,neutral,neutral,80,5,1,10,"0:12:14,533","0:12:16,673",734533,736673,4
+validation,validation:s1_e10_d80_u6,I know where Minsk is.,Phoebe,neutral,neutral,80,6,1,10,"00:12:17,737","00:12:19,696",737737,739696,4
+validation,validation:s1_e10_d80_u7,"We got the grant. Three years, all expenses paid.",Max,joy,positive,80,7,1,10,"00:12:20,406","00:12:25,535",740406,745535,3
+validation,validation:s1_e10_d80_u8,"So when, when do you leave?",Phoebe,neutral,neutral,80,8,1,10,"00:12:26,078","00:12:27,328",746078,747328,4
+validation,validation:s1_e10_d80_u9,January first,Max,neutral,neutral,80,9,1,10,"00:12:27,538","00:12:29,205",747538,749205,4
+validation,validation:s6_e19_d81_u0,You wanted to see me Professor Geller?,Elizabeth,joy,positive,81,0,6,19,"0:09:51,882","0:09:53,444",591882,593444,3
+validation,validation:s6_e19_d81_u1,"Yes. Yes! Please, come in.",Ross,neutral,neutral,81,1,6,19,"0:09:53,444","0:09:56,235",593444,596235,4
+validation,validation:s6_e19_d81_u2,Oo-oo!,Ross,joy,positive,81,2,6,19,"00:09:59,807","00:10:01,016",599807,601016,3
+validation,validation:s6_e21_d82_u0,Pretty great! Except I did get a little attitude from the robot.,Joey,joy,positive,82,0,6,21,"00:09:50,006","00:09:53,633",590006,593633,3
+validation,validation:s6_e21_d82_u1,"Damn those robots, they’re supposed to be our",Chandler,anger,negative,82,1,6,21,"00:09:53,801","00:09:57,137",593801,597137,0
+validation,validation:s6_e21_d82_u2,"Anyway, it wasn’t the robot, it was the guy who controls him.",Joey,neutral,neutral,82,2,6,21,"00:09:58,222","00:10:00,724",598222,600724,4
+validation,validation:s6_e21_d82_u3,"Yeah, he doesn’t like me.",Joey,anger,negative,82,3,6,21,"0:10:00,891","0:10:04,063",600891,604063,0
+validation,validation:s6_e21_d82_u4,He had C.H.E.E.S.E.,Joey,neutral,neutral,82,4,6,21,"0:10:04,063","0:10:04,284",604063,604284,4
+validation,validation:s6_e21_d82_u5,knock over the sandwich right when I was reaching for one!,Joey,anger,negative,82,5,6,21,"00:10:02,227","00:10:06,771",602227,606771,0
+validation,validation:s6_e21_d82_u6,Ohh!,Joey,surprise,positive,82,6,6,21,"00:10:05,771","00:10:06,771",605771,606771,6
+validation,validation:s6_e21_d82_u7,"Well, why don’t you just get him fired?",Phoebe,neutral,neutral,82,7,6,21,"00:10:06,939","00:10:08,607",606939,608607,4
+validation,validation:s6_e21_d82_u8,"I may have to, I hate to do it, but I’m the star!",Joey,anger,negative,82,8,6,21,"0:10:08,774","0:10:11,706",608774,611706,0
+validation,validation:s6_e21_d82_u9,Y’know?,Joey,neutral,neutral,82,9,6,21,"0:10:11,706","0:10:12,508",611706,612508,4
+validation,validation:s6_e21_d82_u10,There’s a limit to how many sandwiches I can eat off the floor.,Joey,neutral,neutral,82,10,6,21,"00:10:12,612","00:10:15,905",612612,615905,4
+validation,validation:s6_e21_d82_u11,Excuse me.,Joey,neutral,neutral,82,11,6,21,"00:10:17,825","00:10:20,118",617825,620118,4
+validation,validation:s6_e21_d82_u12,Joey Tribbiani.,Joey,neutral,neutral,82,12,6,21,"00:10:20,286","00:10:22,579",620286,622579,4
+validation,validation:s6_e21_d82_u13,"Joe! I’m glad I found ya, I got an audition for ya!",Estelle,joy,positive,82,13,6,21,"00:10:22,747","00:10:26,458",622747,626458,3
+validation,validation:s6_e21_d82_u14,Wow!,Joey,surprise,positive,82,14,6,21,"0:10:26,626","0:10:27,338",626626,627338,6
+validation,validation:s6_e21_d82_u15,The thing is it’s kinda on the Q.T.,Estelle,neutral,neutral,82,15,6,21,"0:10:27,338","0:10:29,678",627338,629678,4
+validation,validation:s6_e21_d82_u16,The actor who has the part doesn’t know he might be fired.,Estelle,neutral,neutral,82,16,6,21,"00:10:29,795","00:10:33,715",629795,633715,4
+validation,validation:s6_e21_d82_u17,"It’s the lead in a series, Mac and C.H.E.E.S.E.",Estelle,neutral,neutral,82,17,6,21,"00:10:33,833","00:10:37,761",633833,637761,4
+validation,validation:s6_e21_d82_u18,I’m the lead in Mac and C.H.E.E.S.E.!!,Joey,anger,negative,82,18,6,21,"00:10:39,597","00:10:41,348",639597,641348,0
+validation,validation:s8_e23_d83_u0,Oh good God! If you want a baby so bad just go steal it!,Monica,anger,negative,83,0,8,23,"00:10:26,614","00:10:30,117",626614,630117,0
+validation,validation:s8_e23_d83_u1,What is going on with you? Since when are you so crazy about babies?,Monica,surprise,positive,83,1,8,23,"00:10:33,287","00:10:36,582",633287,636582,6
+validation,validation:s8_e23_d83_u2,I’m not crazy about babies. I’m crazy about us.,Chandler,joy,positive,83,2,8,23,"00:10:36,791","00:10:41,128",636791,641128,3
+validation,validation:s8_e23_d83_u3,What?,Monica,surprise,positive,83,3,8,23,"00:10:42,838","00:10:43,881",642838,643881,6
+validation,validation:s8_e23_d83_u4,"Look, we’ve always talked about having babies someday.",Chandler,neutral,neutral,83,4,8,23,"00:10:44,131","00:10:47,885",644131,647885,4
+validation,validation:s8_e23_d83_u5,"I’m not saying it has to be right now, but I’m starting to think that we can handle it.",Chandler,neutral,neutral,83,5,8,23,"00:10:48,094","00:10:53,307",648094,653307,4
+validation,validation:s8_e23_d83_u6,We’re good.,Chandler,neutral,neutral,83,6,8,23,"00:10:52,307","00:10:53,307",652307,653307,4
+validation,validation:s8_e23_d83_u7,We’re really good.,Chandler,joy,positive,83,7,8,23,"00:10:53,474","00:10:56,143",653474,656143,3
+validation,validation:s5_e13_d84_u0,"Oh, did you catch him?!",Monica,surprise,negative,84,0,5,13,"00:09:39,036","00:09:41,288",579036,581288,6
+validation,validation:s5_e13_d84_u1,Wh-what did he say?!,Ross,surprise,negative,84,1,5,13,"00:09:39,036","00:09:41,288",579036,581288,6
+validation,validation:s5_e13_d84_u2,"He said, ""Nice to meet you Glenda.""  Well, obviously I couldn't give him my real name?",Phoebe,neutral,neutral,84,2,5,13,"00:09:41,539","00:09:48,128",581539,588128,4
+validation,validation:s5_e13_d84_u3,Why?! Why not?!,Rachel,surprise,negative,84,3,5,13,"00:09:48,379","00:09:49,462",588379,589462,6
+validation,validation:s5_e13_d84_u4,"Come on, you saw the way he ran out of here!",Phoebe,sadness,negative,84,4,5,13,"00:09:49,714","00:09:51,172",589714,591172,5
+validation,validation:s5_e13_d84_u5,He's gonna stick around and talk to the daughter he abandoned!,Phoebe,sadness,negative,84,5,5,13,"00:09:51,382","00:09:54,175",591382,594175,5
+validation,validation:s5_e13_d84_u6,What did you say to him?,Joey,neutral,neutral,84,6,5,13,"00:09:54,427","00:09:56,136",594427,596136,4
+validation,validation:s5_e13_d84_u7,"Well, I said, I told him y'know, that I was the executor person of Francis' will and that I needed to talk to him so I'm gonna meet him at the coffee house later.",Phoebe,neutral,neutral,84,7,5,13,"00:09:56,387","00:10:03,685",596387,603685,4
+validation,validation:s8_e4_d85_u0,"Oh yeah, sure.",Rachel,neutral,neutral,85,0,8,4,"00:18:12,424","00:18:14,258",1092424,1094258,4
+validation,validation:s8_e4_d85_u1,"Okay, in about ten seconds you’re gonna see him kiss me.",Rachel,joy,positive,85,1,8,4,"00:18:14,468","00:18:17,053",1094468,1097053,3
+validation,validation:s8_e4_d85_u2,And in about five seconds you’re gonna see why.,Ross,neutral,neutral,85,2,8,4,"00:18:17,221","00:18:21,349",1097221,1101349,4
+validation,validation:s8_e4_d85_u3,Ross did I ever tell you about the time that I went backpacking through Western Europe?,Rachel,neutral,neutral,85,3,8,4,"00:18:24,561","00:18:30,525",1104561,1110525,4
+validation,validation:s8_e4_d85_u4,"Okay, get ready to see some beggin’!",Rachel,joy,positive,85,4,8,4,"00:18:37,407","00:18:40,409",1117407,1120409,3
+validation,validation:s8_e4_d85_u5,"Oh, you came on to Ross!",Phoebe,surprise,positive,85,5,8,4,"00:18:41,078","00:18:43,579",1121078,1123579,6
+validation,validation:s8_e4_d85_u6,What?!,Rachel,surprise,negative,85,6,8,4,"0:18:44,456","0:18:46,542",1124456,1126542,6
+validation,validation:s8_e4_d85_u7,Now I’m so happy.,Ross,joy,positive,85,7,8,4,"0:18:46,542","0:18:47,724",1126542,1127724,3
+validation,validation:s8_e4_d85_u8,What are you talking about?!,Rachel,surprise,negative,85,8,8,4,"0:18:48,585","0:18:50,227",1128585,1130227,6
+validation,validation:s8_e4_d85_u9,You used the Europe story!,Monica,joy,positive,85,9,8,4,"0:18:50,227","0:18:52,106",1130227,1132106,3
+validation,validation:s8_e4_d85_u10,That’s the magic story you use when you wanna have sex!,Chandler,anger,negative,85,10,8,4,"00:18:52,214","00:18:55,675",1132214,1135675,0
+validation,validation:s8_e4_d85_u11,How do you know about that story?!,Rachel,surprise,negative,85,11,8,4,"0:18:57,803","0:19:02,115",1137803,1142115,6
+validation,validation:s8_e4_d85_u12,How do,Joey,neutral,neutral,85,12,8,4,"0:19:02,115","0:19:03,245",1142115,1143245,4
+validation,validation:s8_e4_d85_u13,I heard it from my friend Irene who heard it from some guy!,Rachel,neutral,neutral,85,13,8,4,"00:19:03,433","00:19:06,811",1143433,1146811,4
+validation,validation:s8_e4_d85_u14,Some guy!!,Joey,surprise,positive,85,14,8,4,"00:19:07,437","00:19:09,689",1147437,1149689,6
+validation,validation:s8_e4_d85_u15,"No. No, she told me his name was Ken Adams.",Rachel,neutral,neutral,85,15,8,4,"00:19:12,484","00:19:15,153",1152484,1155153,4
+validation,validation:s8_e4_d85_u16,Ken Adams!!,Joey,surprise,positive,85,16,8,4,"00:19:18,115","00:19:19,532",1158115,1159532,6
+validation,validation:s1_e8_d86_u0,"How we doing, you guys ready?",Ross,neutral,neutral,86,0,1,8,"00:13:16,003","00:13:17,545",796003,797545,4
+validation,validation:s1_e8_d86_u1,Mom already called this morning to remind me not to wear my hair up. Did you know my ears are not my best feature?,Monica,neutral,neutral,86,1,1,8,"00:13:17,797","00:13:23,134",797797,803134,4
+validation,validation:s1_e8_d86_u2,Some days it's all I can think about.,Ross,neutral,neutral,86,2,1,8,"00:13:23,385","00:13:25,637",803385,805637,4
+validation,validation:s1_e8_d86_u3,"Hi, sorry I'm late, I couldn't find my bearings.",Phoebe,neutral,neutral,86,3,1,8,"00:13:26,514","00:13:29,516",806514,809516,4
+validation,validation:s9_e20_d87_u0,"Oh... ok, fine.",Ross,neutral,neutral,87,0,9,20,"0:08:48,975","0:08:49,643",528975,529643,4
+validation,validation:s9_e20_d87_u1,But... ehm...,Ross,neutral,neutral,87,1,9,20,"0:08:49,643","0:08:50,985",529643,530985,4
+validation,validation:s9_e20_d87_u2,"I just have one question for you,    ehm...",Ross,neutral,neutral,87,2,9,20,"0:08:50,985","0:08:52,844",530985,532844,4
+validation,validation:s9_e20_d87_u3,"When we exit should we walk, or run, or prance,    or stroll...",Ross,neutral,neutral,87,3,9,20,"00:08:52,937","00:08:58,567",532937,538567,4
+validation,validation:s9_e20_d87_u4,"Stop it, stop it! He talks slow but he might pee fast! Ok,    let's go!!",Charlie,joy,positive,87,4,9,20,"00:08:58,734","00:09:03,572",538734,543572,3
+validation,validation:s8_e14_d88_u0,I can’t believe this! How long as this been going on?,Phoebe,surprise,negative,88,0,8,14,"00:01:10,560","00:01:12,960",70560,72960,6
+validation,validation:s8_e14_d88_u1,"Well umm, Alexandra has been",Monica,neutral,neutral,88,1,8,14,"0:01:13,360","0:01:15,920",73360,75920,4
+validation,validation:s8_e14_d88_u2,"Oh, it has a name?",Phoebe,surprise,negative,88,2,8,14,"0:01:15,920","0:01:16,825",75920,76825,6
+validation,validation:s8_e14_d88_u3,"Phoebe, don’t get upset!",Monica,sadness,negative,88,3,8,14,"00:01:18,320","00:01:19,960",78320,79960,5
+validation,validation:s8_e14_d88_u4,Okay—Oop! Too late! I’m leaving! Come on Chandler let’s go!,Phoebe,anger,negative,88,4,8,14,"00:01:20,200","00:01:25,240",80200,85240,0
+validation,validation:s8_e14_d88_u5,"Well, Phoebe I thought I’d——Yeah, what the hell.",Chandler,neutral,neutral,88,5,8,14,"00:01:26,360","00:01:30,160",86360,90160,4
+validation,validation:s2_e6_d89_u0,Ben!,Joey,fear,negative,89,0,2,6,"00:12:04,348","00:12:05,348",724348,725348,2
+validation,validation:s2_e6_d89_u1,"Oh, that's good. Maybe he'll hear you and pull the cord.",Chandler,anger,negative,89,1,2,6,"00:12:06,767","00:12:10,562",726767,730562,0
+validation,validation:s2_e6_d89_u2,Stop the bus! Wait! Wait! Wait!,Joey,fear,negative,89,2,2,6,"00:12:10,730","00:12:15,525",730730,735525,2
+validation,validation:s2_e6_d89_u3,Are you sure he didn't break it because it really hurts?,Monica,neutral,neutral,89,3,2,6,"00:12:20,990","00:12:23,408",740990,743408,4
+validation,validation:s2_e6_d89_u4,"No, it's just a good bone bruise. And, right here  is the puncture wound from your ring.",Doctor,neutral,neutral,89,4,2,6,"00:12:23,576","00:12:30,749",743576,750749,4
+validation,validation:s2_e6_d89_u5,"Oh, I'm sorry, I'm really sorry.",Ross,sadness,negative,89,5,2,6,"0:12:32,293","0:12:34,685",752293,754685,5
+validation,validation:s2_e6_d89_u6,Sorry.,Ross,sadness,negative,89,6,2,6,"0:12:34,685","0:12:35,144",754685,755144,5
+validation,validation:s2_e6_d89_u7,Sorry!,Ross,sadness,negative,89,7,2,6,"0:12:35,144","0:12:35,290",755144,755290,5
+validation,validation:s2_e6_d89_u8,I got my s's back!,Ross,joy,positive,89,8,2,6,"00:12:36,839","00:12:40,467",756839,760467,3
+validation,validation:s2_e6_d89_u9,Which we can celebrate later.,Ross,neutral,neutral,89,9,2,6,"00:12:41,177","00:12:43,803",761177,763803,4
+validation,validation:s2_e6_d89_u10,Celebrate.,Ross,neutral,neutral,89,10,2,6,"00:12:44,430","00:12:46,514",764430,766514,4
+validation,validation:s2_e1_d90_u0,"Ok, Paulo, why don't you just go get dressed, and then you be on your way, ok, bye-bye.",Rachel,joy,positive,90,0,2,1,"00:11:02,536","00:11:08,208",662536,668208,3
+validation,validation:s2_e1_d90_u1,"Rachel, how did this happen?",Monica,neutral,neutral,90,1,2,1,"00:11:09,418","00:11:11,044",669418,671044,4
+validation,validation:s2_e1_d90_u2,"I don't know, I just kinda ran into him last night.",Rachel,fear,negative,90,2,2,1,"00:11:11,212","00:11:13,546",671212,673546,2
+validation,validation:s2_e1_d90_u3,Where?,Phoebe,neutral,neutral,90,3,2,1,"00:11:13,714","00:11:15,090",673714,675090,4
+validation,validation:s2_e1_d90_u4,At his apartment. Is this juice?,Rachel,neutral,neutral,90,4,2,1,"00:11:13,714","00:11:16,800",673714,676800,4
+validation,validation:s2_e1_d90_u5,"Whoa, whoa. And the fact that you dumped him because he hit on Phoebe?",Joey,anger,negative,90,5,2,1,"00:11:17,426","00:11:21,179",677426,681179,0
+validation,validation:s2_e1_d90_u6,"Oh God, I know I'm a pathetic loser.",Rachel,sadness,negative,90,6,2,1,"00:11:21,347","00:11:24,474",681347,684474,5
+validation,validation:s2_e2_d91_u0,"I licked my arm, what?",Phoebe,surprise,positive,91,0,2,2,"00:09:10,633","00:09:12,425",550633,552425,6
+validation,validation:s2_e2_d91_u1,It's breast milk.,Ross,neutral,neutral,91,1,2,2,"00:09:12,593","00:09:14,928",552593,554928,4
+validation,validation:s2_e2_d91_u2,So?,Phoebe,neutral,neutral,91,2,2,2,"00:09:15,096","00:09:16,346",555096,556346,4
+validation,validation:s2_e2_d91_u3,"Phoebe, that is juice, squeezed from a person.",Rachel,neutral,neutral,91,3,2,2,"00:09:16,514","00:09:20,600",556514,560600,4
+validation,validation:s2_e2_d91_u4,What is the big deal?,Joey,anger,negative,91,4,2,2,"00:09:21,435","00:09:24,229",561435,564229,0
+validation,validation:s2_e2_d91_u5,What did you just do?,Chandler,surprise,negative,91,5,2,2,"00:09:25,815","00:09:27,440",565815,567440,6
+validation,validation:s2_e2_d91_u6,"Ok, would people stop drinking the breast milk?",Ross,disgust,negative,91,6,2,2,"00:09:29,485","00:09:32,904",569485,572904,1
+validation,validation:s2_e2_d91_u7,You won't even taste it?,Phoebe,neutral,neutral,91,7,2,2,"0:09:34,407","0:09:36,329",574407,576329,4
+validation,validation:s2_e2_d91_u8,No!,Ross,disgust,negative,91,8,2,2,"0:09:36,329","0:09:37,373",576329,577373,1
+validation,validation:s2_e2_d91_u9,Not even if you just pretend that it's milk?,Phoebe,neutral,neutral,91,9,2,2,"00:09:37,493","00:09:39,703",577493,579703,4
+validation,validation:s2_e2_d91_u10,Not even if Carol's breast had a picture of a missing child on it.,Ross,disgust,negative,91,10,2,2,"00:09:39,870","00:09:43,206",579870,583206,1
+validation,validation:s6_e11_d92_u0,Aww!,All,surprise,positive,92,0,6,11,"00:12:03,764","00:12:05,181",723764,725181,6
+validation,validation:s6_e11_d92_u1,"Hey Pheebs, could you please not put your feet up on my new……old sheet?",Ross,disgust,negative,92,1,6,11,"00:12:11,564","00:12:16,735",731564,736735,1
+validation,validation:s6_e11_d92_u2,Oh sure!  Noo!,Phoebe,joy,positive,92,2,6,11,"00:12:17,278","00:12:18,778",737278,738778,3
+validation,validation:s6_e11_d92_u3,Ohh!!,Rachel,surprise,negative,92,3,6,11,"00:12:18,946","00:12:19,988",738946,739988,6
+validation,validation:s6_e11_d92_u4,My apothecary table!!!,Ross,surprise,negative,92,4,6,11,"00:12:20,156","00:12:21,958",740156,741958,6
+validation,validation:s6_e11_d92_u5,What?!,Phoebe,surprise,negative,92,5,6,11,"0:12:22,658","0:12:23,326",742658,743326,6
+validation,validation:s6_e11_d92_u6,Noooooo!!,Rachel,fear,negative,92,6,6,11,"0:12:23,326","0:12:24,798",743326,744798,2
+validation,validation:s6_e11_d92_u7,"Ross, where did you get this?!",Phoebe,surprise,negative,92,7,6,11,"00:12:25,619","00:12:28,747",745619,748747,6
+validation,validation:s6_e11_d92_u8,"Oh my God, Phoebe,",Rachel,anger,negative,92,8,6,11,"00:12:31,375","00:12:33,251",751375,753251,0
+validation,validation:s6_e11_d92_u9,"Wow! Oh my God, well if they’ve ripped off our table ours must be much more than one and fifty dollars!",Phoebe,anger,negative,92,9,6,11,"00:12:39,175","00:12:45,513",759175,765513,0
+validation,validation:s6_e11_d92_u10,Well this doesn’t even smell like opium.,Phoebe,disgust,negative,92,10,6,11,"00:12:47,641","00:12:50,018",767641,770018,1
+validation,validation:s6_e11_d92_u11,"Of course not, it smells like wine, which you spilled! And thanks for wrecking my sheet by the way.",Ross,anger,negative,92,11,6,11,"00:12:50,186","00:12:55,356",770186,775356,0
+validation,validation:s2_e1_d93_u0,How is she?,Rachel,sadness,negative,93,0,2,1,"00:15:03,402","00:15:05,028",903402,905028,5
+validation,validation:s2_e1_d93_u1,"It's too soon to tell. She's resting, which is a good sign.",Phoebe,neutral,neutral,93,1,2,1,"00:15:05,696","00:15:11,367",905696,911367,4
+validation,validation:s2_e1_d93_u2,How's the hair?,Ross,neutral,neutral,93,2,2,1,"00:15:12,703","00:15:15,288",912703,915288,4
+validation,validation:s2_e1_d93_u3,"I'm not gonna lie to you, Ross, it doesn't look good.",Phoebe,sadness,negative,93,3,2,1,"00:15:12,703","00:15:17,206",912703,917206,5
+validation,validation:s2_e1_d93_u4,"I put a clip on one side, which seems to have stopped the curling.",Phoebe,neutral,neutral,93,4,2,1,"00:15:19,084","00:15:22,295",919084,922295,4
+validation,validation:s2_e1_d93_u5,Can we see her?,Joey,neutral,neutral,93,5,2,1,"00:15:24,173","00:15:25,298",924173,925298,4
+validation,validation:s2_e1_d93_u6,"Your hair looks too good, I think it would upset her. Ross, why don't you come on in.",Phoebe,sadness,negative,93,6,2,1,"00:15:25,883","00:15:31,387",925883,931387,5
+validation,validation:s2_e1_d93_u7,How're you doing?,Joey,sadness,negative,93,7,2,1,"00:15:38,479","00:15:40,980",938479,940980,5
+validation,validation:s2_e2_d94_u0,Of course the packaging does appeal to grown-ups and kids alike.,Chandler,neutral,neutral,94,0,2,2,"00:13:10,331","00:13:13,708",790331,793708,4
+validation,validation:s2_e2_d94_u1,"Ross, you're being silly. I've tried it, it's no big deal. Just taste it.",Carol,joy,positive,94,1,2,2,"00:13:15,920","00:13:21,549",795920,801549,3
+validation,validation:s2_e2_d94_u2,That would be no.,Ross,disgust,negative,94,2,2,2,"00:13:21,717","00:13:23,551",801717,803551,1
+validation,validation:s2_e2_d94_u3,Come on. It doesn't taste bad.,Phoebe,neutral,neutral,94,3,2,2,"00:13:24,345","00:13:28,306",804345,808306,4
+validation,validation:s2_e2_d94_u4,"Yeah, it's kinda sweet, sorta like, uh...",Joey,neutral,neutral,94,4,2,2,"00:13:28,474","00:13:31,392",808474,811392,4
+validation,validation:s2_e2_d94_u5,Cantaloupe juice.,Susan,joy,positive,94,5,2,2,"00:13:31,560","00:13:33,686",811560,813686,3
+validation,validation:s2_e2_d94_u6,Exactly.,Joey,neutral,neutral,94,6,2,2,"00:13:33,854","00:13:35,396",813854,815396,4
+validation,validation:s2_e2_d94_u7,You've tasted it? You've tasted it.,Ross,surprise,positive,94,7,2,2,"00:13:42,404","00:13:46,199",822404,826199,6
+validation,validation:s2_e2_d94_u8,Uh huh.,Susan,neutral,neutral,94,8,2,2,"00:13:46,367","00:13:47,659",826367,827659,4
+validation,validation:s2_e2_d94_u9,"Oh, you've tasted it.",Ross,anger,negative,94,9,2,2,"00:13:48,410","00:13:50,245",828410,830245,0
+validation,validation:s2_e2_d94_u10,"You can keep saying it, but it won't stop being true.",Susan,neutral,neutral,94,10,2,2,"00:13:52,414","00:13:55,375",832414,835375,4
+validation,validation:s2_e2_d94_u11,Gimme the bottle.  Gimme the towel.,Ross,anger,negative,94,11,2,2,"00:14:03,217","00:14:04,634",843217,844634,0
+validation,validation:s8_e4_d95_u0,I still don't get why Greg and Jenny would give us a fake number.,Monica,anger,negative,95,0,8,4,"00:12:36,922","00:12:39,966",756922,759966,0
+validation,validation:s8_e4_d95_u1,"Y’know, if they knew what they were doing they probably didn’t give you real names either.",Joey,neutral,neutral,95,1,8,4,"00:12:40,134","00:12:46,181",760134,766181,4
+validation,validation:s8_e4_d95_u2,"Okay, maybe people give out fake numbers, but they don’t give out fake names.",Monica,anger,negative,95,2,8,4,"00:12:46,390","00:12:50,226",766390,770226,0
+validation,validation:s8_e4_d95_u3,"Oh yeah?  Hi, Ken Adams, nice to meet you.",Joey,neutral,neutral,95,3,8,4,"00:12:50,394","00:12:54,147",770394,774147,4
+validation,validation:s8_e4_d95_u4,Regina Philange.,Phoebe,neutral,neutral,95,4,8,4,"00:12:56,400","00:12:59,068",776400,779068,4
+validation,validation:s8_e4_d95_u5,"I still don’t get it, we didn’t do anything wrong.",Chandler,surprise,negative,95,5,8,4,"00:12:59,862","00:13:02,530",779862,782530,6
+validation,validation:s8_e4_d95_u6,"I know! Although, you did tell an awful lot of jokes.",Monica,anger,negative,95,6,8,4,"00:13:04,492","00:13:08,036",784492,788036,0
+validation,validation:s8_e4_d95_u7,I thought you said those jokes were funny. Joke! Joke! Joke!,Chandler,surprise,positive,95,7,8,4,"00:13:08,871","00:13:12,707",788871,792707,6
+validation,validation:s8_e4_d95_u8,Joke. Joke. Blah! Blah!,Monica,anger,negative,95,8,8,4,"00:13:12,875","00:13:15,627",792875,795627,0
+validation,validation:s8_e4_d95_u9,Well maybe it was all of your questions.,Chandler,neutral,neutral,95,9,8,4,"0:13:20,508","0:13:22,490",800508,802490,4
+validation,validation:s8_e4_d95_u10,What about my questions?,Monica,neutral,neutral,95,10,8,4,"0:13:22,490","0:13:23,602",802490,803602,4
+validation,validation:s8_e24_d96_u0,"No, I’m sorry. It’s just my foot itches like crazy.",Cliff,neutral,neutral,96,0,8,24,"00:04:00,603","00:04:03,523",240603,243523,4
+validation,validation:s8_e24_d96_u1,"Oh, I’ll get it.",Phoebe,neutral,neutral,96,1,8,24,"00:04:03,690","00:04:06,150",243690,246150,4
+validation,validation:s8_e24_d96_u2,Wow! I usually get to know a girl a little better before I let her spoon me.,Cliff,surprise,negative,96,2,8,24,"00:04:07,735","00:04:11,572",247735,251572,6
+validation,validation:s8_e24_d96_u3,"Relax, it’s not like we’re forking.",Phoebe,joy,positive,96,3,8,24,"00:04:12,907","00:04:15,493",252907,255493,3
+validation,validation:s3_e20_d97_u0,"Look at it! Ohhh! Wallpaper’s a little faded, that’s okay. Carpet’s a little loose. Hardwood floors!!",Monica,joy,positive,97,0,3,20,"00:03:55,109","00:04:03,992",235109,243992,3
+validation,validation:s3_e20_d97_u1,Hey!,Phoebe,joy,positive,97,1,3,20,"0:04:06,204","0:04:06,706",246204,246706,3
+validation,validation:s3_e20_d97_u2,Hello.,Chandler,neutral,neutral,97,2,3,20,"0:04:06,706","0:04:08,722",246706,248722,4
+validation,validation:s3_e20_d97_u3,Oh! Ooh! Oh Monica! It’s so beautiful.,Phoebe,joy,positive,97,3,3,20,"00:04:08,831","00:04:13,835",248831,253835,3
+validation,validation:s3_e20_d97_u4,I know!!!,Monica,joy,positive,97,4,3,20,"00:04:11,835","00:04:13,835",251835,253835,3
+validation,validation:s3_e20_d97_u5,"So, I’m here, ready to play.",Phoebe,joy,positive,97,5,3,20,"0:04:14,963","0:04:16,675",254963,256675,3
+validation,validation:s3_e20_d97_u6,Okay.,Monica,neutral,neutral,97,6,3,20,"0:04:16,675","0:04:17,695",256675,257695,4
+validation,validation:s3_e20_d97_u7,"I brought a bunch of stuff for the house, so check it out. Ha-ha.",Phoebe,joy,positive,97,7,3,20,"00:04:17,799","00:04:22,261",257799,262261,3
+validation,validation:s3_e20_d97_u8,What’s this?,Monica,surprise,positive,97,8,3,20,"00:04:25,974","00:04:27,057",265974,267057,6
+validation,validation:s3_e20_d97_u9,"That’s a dog, every house should have a dog.",Phoebe,joy,positive,97,9,3,20,"00:04:27,225","00:04:29,559",267225,269559,3
+validation,validation:s3_e20_d97_u10,Not one that can pee on the roof.,Monica,surprise,negative,97,10,3,20,"00:04:30,144","00:04:32,020",270144,272020,6
+validation,validation:s3_e20_d97_u11,"Well, maybe it’s so big because the house was built on radioactive waste.",Phoebe,joy,positive,97,11,3,20,"00:04:33,481","00:04:39,403",273481,279403,3
+validation,validation:s3_e20_d97_u12,And is this in case the house sneezes?,Chandler,surprise,negative,97,12,3,20,"00:04:41,447","00:04:45,033",281447,285033,6
+validation,validation:s3_e20_d97_u13,"No, no, that’s the ghost for the attic.",Phoebe,neutral,neutral,97,13,3,20,"00:04:46,619","00:04:50,122",286619,290122,4
+validation,validation:s3_e20_d97_u14,I don’t want a ghost.,Monica,fear,negative,97,14,3,20,"00:04:51,249","00:04:55,043",291249,295043,2
+validation,validation:s3_e20_d97_u15,"Well, nobody wants a ghost. But you’ve got one, because the house is sitting on an ancient Indian burial ground.",Phoebe,neutral,neutral,97,15,3,20,"00:04:56,462","00:05:02,342",296462,302342,4
+validation,validation:s3_e20_d97_u16,"Wait a minute, the house was built on radioactive waste, and an ancient Indian burial ground? That would never happen.",Ross,surprise,positive,97,16,3,20,"00:05:04,053","00:05:12,394",304053,312394,6
+validation,validation:s3_e20_d97_u17,"Okay, obviously you don’t know much about the U.S. government.",Phoebe,neutral,neutral,97,17,3,20,"00:05:14,063","00:05:17,899",314063,317899,4
+validation,validation:s3_e20_d97_u18,Hey!,Rachel,surprise,positive,97,18,3,20,"0:05:19,068","0:05:20,960",319068,320960,6
+validation,validation:s3_e20_d97_u19,Hello.,All,neutral,neutral,97,19,3,20,"0:05:20,960","0:05:21,458",320960,321458,4
+validation,validation:s3_e20_d97_u20,I need to talk to you!,Rachel,joy,positive,97,20,3,20,"0:05:21,571","0:05:23,115",321571,323115,3
+validation,validation:s3_e20_d97_u21,"Sure, what’s up?",Ross,neutral,neutral,97,21,3,20,"0:05:23,115","0:05:24,625",323115,324625,4
+validation,validation:s3_e12_d98_u0,"All right, I just got changed in thirty seconds so you can be alone with him. You'd better go for it.",Jeannine,anger,negative,98,0,3,12,"00:05:20,528","00:05:28,076",320528,328076,0
+validation,validation:s3_e12_d98_u1,"Please, I'm not going for anything.",Monica,disgust,negative,98,1,3,12,"00:05:24,449","00:05:28,076",324449,328076,1
+validation,validation:s3_e12_d98_u2,"Well, if you don't, I will.",Jeannine,anger,negative,98,2,3,12,"0:05:28,244","0:05:29,955",328244,329955,0
+validation,validation:s3_e12_d98_u3,Would you please go?,Monica,joy,positive,98,3,3,12,"0:05:29,955","0:05:31,517",329955,331517,3
+validation,validation:s3_e12_d98_u4,I would!,Ross,anger,negative,98,4,3,12,"0:05:31,517","0:05:31,727",331517,331727,0
+validation,validation:s3_e20_d99_u0,"Hey, guys, guys, did you see my new, china cabinet?!",Monica,joy,positive,99,0,3,20,"00:09:00,831","00:09:04,876",540831,544876,3
+validation,validation:s3_e20_d99_u1,Uh-huh.,Ross and Rachel,neutral,neutral,99,1,3,20,"00:09:05,294","00:09:06,336",545294,546336,4
+validation,validation:s3_e20_d99_u2,"Watch, watch.",Phoebe,joy,positive,99,2,3,20,"00:09:08,256","00:09:09,297",548256,549297,3
+validation,validation:s3_e20_d99_u3,Ooohhhh!!,Ross and Rachel,surprise,positive,99,3,3,20,"0:09:10,633","0:09:10,717",550633,550717,6
+validation,validation:s3_e20_d99_u4,"And, and!",Phoebe,joy,positive,99,4,3,20,"0:09:10,717","0:09:12,855",550717,552855,3
+validation,validation:s3_e20_d99_u5,Ahhhh!!,Ross and Rachel,surprise,positive,99,5,3,20,"00:09:12,969","00:09:15,345",552969,555345,6
+validation,validation:s3_e20_d99_u6,"Hey, my Father’s house does that!",Chandler,surprise,positive,99,6,3,20,"00:09:17,223","00:09:19,933",557223,559933,6
+validation,validation:s3_e20_d99_u7,"O-o-o-okay, how did it go? Tell me everything.",Rachel,neutral,neutral,99,7,3,20,"00:09:21,143","00:09:23,937",561143,563937,4
+validation,validation:s3_e20_d99_u8,"Well, the movie was great, dinner was great, and there’s nothing like a cool, crisp New York evening.",Chandler,neutral,neutral,99,8,3,20,"00:09:24,105","00:09:30,277",564105,570277,4
+validation,validation:s1_e1_d100_u0,Okay. It’s Emma.,Monica,neutral,neutral,100,0,1,1,"00:13:23,916","00:13:26,460",803916,806460,4
+validation,validation:s8_e4_d101_u0,Emma!  See? I don’t want it.,Rachel,sadness,negative,101,0,8,4,"00:13:27,795","00:13:35,928",807795,815928,5
+validation,validation:s1_e2_d102_u0,Take it.,Monica,neutral,neutral,102,0,1,2,"0:13:40,766","0:13:42,477",820766,822477,4
+validation,validation:s1_e2_d102_u1,What?,Rachel,neutral,neutral,102,1,1,2,"0:13:42,477","0:13:43,955",822477,823955,4
+validation,validation:s8_e24_d103_u0,It’s clearly an Emma.,Monica,neutral,neutral,103,0,8,24,"00:13:44,395","00:13:46,438",824395,826438,4
+validation,validation:s8_e24_d103_u1,"Oh honey, but you love that name.",Rachel,sadness,negative,103,1,8,24,"00:13:46,605","00:13:48,816",826605,828816,5
+validation,validation:s8_e24_d103_u2,"Yeah, but I love you more.",Monica,joy,positive,103,2,8,24,"00:13:49,817","00:13:51,986",829817,831986,3
+validation,validation:s8_e24_d103_u3,"Besides y’know, nothing goes with Bing.",Monica,neutral,neutral,103,3,8,24,"0:13:55,072","0:13:57,909",835072,837909,4
+validation,validation:s8_e24_d103_u4,So I’m screwed.,Monica,joy,positive,103,4,8,24,"0:13:57,909","0:13:59,473",837909,839473,3
+validation,validation:s5_e8_d104_u0,"Oh-oh, I'm a duck! I go, ""Quack, quack!"" I’m happy all the time!",Chandler,joy,positive,104,0,5,8,"00:20:15,464","00:20:18,925",1215464,1218925,3
+validation,validation:s5_e8_d104_u1,Nice try.,Chandler,sadness,negative,104,1,5,8,"00:20:30,395","00:20:31,520",1230395,1231520,5
+validation,validation:s5_e8_d104_u2,"Wait, wait, wait!",Monica,joy,positive,104,2,5,8,"00:20:31,688","00:20:33,522",1231688,1233522,3
+validation,validation:s5_e8_d104_u3,"Look, Monica",Chandler,neutral,neutral,104,3,5,8,"0:20:36,526","0:20:37,361",1236526,1237361,4
+validation,validation:s5_e8_d104_u4,Look!,Monica,surprise,negative,104,4,5,8,"0:20:37,361","0:20:37,799",1237361,1237799,6
+validation,validation:s5_e8_d104_u5,This is not going to work.,Chandler,anger,negative,104,5,5,8,"00:20:42,366","00:20:43,699",1242366,1243699,0
+validation,validation:s5_e8_d104_u6,I bet this will work!,Monica,joy,positive,104,6,5,8,"00:20:43,867","00:20:45,660",1243867,1245660,3
+validation,validation:s5_e8_d104_u7,You are so great! I love you!,Chandler,joy,positive,104,7,5,8,"00:20:54,086","00:20:56,754",1254086,1256754,3
+validation,validation:s5_e8_d104_u8,What?,Monica,surprise,positive,104,8,5,8,"00:21:06,431","00:21:07,765",1266431,1267765,6
+validation,validation:s5_e8_d104_u9,"Nothing! I said, I said ""You're so great"" and then I just, I just stopped talking!",Chandler,fear,negative,104,9,5,8,"00:21:07,933","00:21:11,852",1267933,1271852,2
+validation,validation:s5_e8_d104_u10,You said you loved me! I can't believe this!,Monica,surprise,positive,104,10,5,8,"00:21:13,563","00:21:15,815",1273563,1275815,6
+validation,validation:s5_e8_d104_u11,No I didn't!,Chandler,fear,negative,104,11,5,8,"00:21:15,983","00:21:17,108",1275983,1277108,2
+validation,validation:s5_e8_d104_u12,"Yes, you did!",Monica,surprise,positive,104,12,5,8,"0:21:18,944","0:21:21,072",1278944,1281072,6
+validation,validation:s5_e8_d104_u13,No I didn't!,Chandler,fear,negative,104,13,5,8,"0:21:21,072","0:21:21,468",1281072,1281468,2
+validation,validation:s5_e8_d104_u14,You love me!,Monica,joy,positive,104,14,5,8,"00:21:22,281","00:21:23,823",1282281,1283823,3
+validation,validation:s5_e8_d104_u15,No I don't! Stop it! Stop it! Stop it! Stop it!,Chandler,anger,negative,104,15,5,8,"00:21:24,032","00:21:26,993",1284032,1286993,0
+validation,validation:s8_e4_d105_u0,Hello Greg?,Monica,neutral,neutral,105,0,8,4,"0:21:37,296","0:21:40,258",1297296,1300258,4
+validation,validation:s8_e4_d105_u1,"Hi, this is Monica from the plane?",Monica,neutral,neutral,105,1,8,4,"0:21:40,258","0:21:40,443",1300258,1300443,4
+validation,validation:s8_e4_d105_u2,"Listen, the number that you gave me 853-5…   That is their old number!",Monica,anger,negative,105,2,8,4,"00:21:40,590","00:21:47,722",1300590,1307722,0
+validation,validation:s8_e4_d105_u3,Jenny’s been giving it out since they moved!,Monica,anger,negative,105,3,8,4,"00:21:44,678","00:21:47,722",1304678,1307722,0
+validation,validation:s8_e4_d105_u4,Jenny! That is so Jenny!,Chandler,joy,positive,105,4,8,4,"00:21:47,889","00:21:51,851",1307889,1311851,3
+validation,validation:s8_e4_d105_u5,"Hey listen umm, how would you like to get together?",Monica,neutral,neutral,105,5,8,4,"00:21:52,019","00:21:55,938",1312019,1315938,4
+validation,validation:s8_e4_d105_u6,Say next Saturday?,Monica,neutral,neutral,105,6,8,4,"00:21:54,000","00:21:55,938",1314000,1315938,4
+validation,validation:s8_e4_d105_u7,"Okay, how about Sunday?",Monica,neutral,neutral,105,7,8,4,"00:21:56,106","00:21:58,316",1316106,1318316,4
+validation,validation:s8_e4_d105_u8,"Okay umm, the week after that?",Monica,joy,positive,105,8,8,4,"0:21:58,483","0:21:59,568",1318483,1319568,3
+validation,validation:s8_e4_d105_u9,The week after that?,Monica,joy,positive,105,9,8,4,"0:21:59,568","0:22:01,261",1319568,1321261,3
+validation,validation:s8_e4_d105_u10,Y’know what Greg?,Monica,anger,negative,105,10,8,4,"00:22:03,488","00:22:04,947",1323488,1324947,0
+validation,validation:s8_e4_d105_u11,"We are good, interesting, funny people with",Monica,anger,negative,105,11,8,4,"00:22:05,115","00:22:09,410",1325115,1329410,0
+validation,validation:s6_e18_d106_u0,Hey Chandler! Y’know that girl you went to college with who-who became a movie director?,Joey,neutral,neutral,106,0,6,18,"00:01:59,994","00:02:03,997",119994,123997,4
+validation,validation:s6_e18_d106_u1,"Oh yeah, Dana Keystone. She was in my Movement class.",Chandler,neutral,neutral,106,1,6,18,"00:02:04,165","00:02:07,543",124165,127543,4
+validation,validation:s6_e18_d106_u2,What’s a Movement class?,Phoebe,neutral,neutral,106,2,6,18,"00:02:08,169","00:02:09,795",128169,129795,4
+validation,validation:s6_e18_d106_u3,It’s Chandler’s way of pretending he didn’t take mime.,Monica,neutral,neutral,106,3,6,18,"00:02:09,963","00:02:13,340",129963,133340,4
+validation,validation:s6_e18_d106_u4,"Oh well listen, anyway she’s directing the new Al Pacino movie. You gotta get me an audition!",Joey,joy,positive,106,4,6,18,"00:02:13,883","00:02:21,306",133883,141306,3
+validation,validation:s6_e18_d106_u5,"Oh, I don’t know man. I haven’t talked to her in like ten years.",Chandler,neutral,neutral,106,5,6,18,"00:02:17,846","00:02:21,306",137846,141306,4
+validation,validation:s6_e20_d107_u0,I am.,Phoebe,neutral,neutral,107,0,6,20,"00:02:38,000","00:02:39,575",158000,159575,4
+validation,validation:s6_e20_d107_u1,"Joey, what are you talking about? You’re a terrific actor.",Rachel,neutral,neutral,107,1,6,20,"00:02:41,578","00:02:44,454",161578,164454,4
+validation,validation:s6_e20_d107_u2,You really think so?,Joey,surprise,positive,107,2,6,20,"0:02:44,789","0:02:45,501",164789,165501,6
+validation,validation:s6_e20_d107_u3,"Ugh, how can you even ask that question?!",Rachel,surprise,positive,107,3,6,20,"0:02:45,501","0:02:48,182",165501,168182,6
+validation,validation:s5_e3_d108_u0,Ross! Get a shot of this. (He's carrying an issue of the,Joey,surprise,positive,108,0,5,3,"00:05:14,564","00:05:18,025",314564,318025,6
+validation,validation:s5_e3_d108_u1,"Oh, okay, I'm having another one!",Phoebe,fear,negative,108,1,5,3,"00:05:35,126","00:05:37,669",335126,337669,2
+validation,validation:s5_e3_d108_u2,"This one doesn't hurt either—Ooh, yes it does!",Phoebe,surprise,negative,108,2,5,3,"00:05:37,879","00:05:40,756",337879,340756,6
+validation,validation:s5_e3_d108_u3,Ow!,Phoebe,anger,negative,108,3,5,3,"00:05:39,756","00:05:40,756",339756,340756,0
+validation,validation:s5_e3_d108_u4,Ow!,Phoebe,anger,negative,108,4,5,3,"0:05:41,132","0:05:41,466",341132,341466,0
+validation,validation:s5_e3_d108_u5,Ow!,Phoebe,anger,negative,108,5,5,3,"0:05:41,466","0:05:41,550",341466,341550,0
+validation,validation:s5_e3_d108_u6,Ow!,Phoebe,anger,negative,108,6,5,3,"0:05:41,550","0:05:43,135",341550,343135,0
+validation,validation:s5_e3_d108_u7,Ooh!,Phoebe,surprise,negative,108,7,5,3,"00:05:43,676","00:05:45,385",343676,345385,6
+validation,validation:s5_e3_d108_u8,"Oh, I was kinda hoping that was it.",Phoebe,sadness,negative,108,8,5,3,"00:05:46,554","00:05:48,555",346554,348555,5
+validation,validation:s5_e3_d108_u9,"Hey, where are Monica and Rachel anyway?",Ross,neutral,neutral,108,9,5,3,"00:05:51,267","00:05:53,518",351267,353518,4
+validation,validation:s5_e3_d108_u10,"Yeah, I love you. Okay, bye!  Hi!",Frank,joy,positive,108,10,5,3,"00:14:10,766","00:14:13,810",850766,853810,3
+validation,validation:s5_e3_d108_u11,Hi!,Rachel,joy,positive,108,11,5,3,"00:14:14,812","00:14:15,895",854812,855895,3
+validation,validation:s5_e3_d108_u12,"That was Alice's mom, she said she left five hours ago. She should be here by now!",Frank,fear,negative,108,12,5,3,"00:14:16,105","00:14:20,567",856105,860567,2
+validation,validation:s5_e3_d108_u13,"Oh, honey, don’t worry. She's gonna make it on time.",Rachel,neutral,neutral,108,13,5,3,"00:14:20,776","00:14:22,485",860776,862485,4
+validation,validation:s5_e3_d108_u14,Yeah.,Frank,neutral,neutral,108,14,5,3,"00:14:23,028","00:14:24,445",863028,864445,4
+validation,validation:s5_e9_d109_u0,I guess I set up the video camera to try and entice Joey.,Monica,neutral,neutral,109,0,5,9,"00:20:41,823","00:20:46,077",1241823,1246077,4
+validation,validation:s5_e9_d109_u1,But sadly I could not be enticed.,Joey,joy,positive,109,1,5,9,"00:20:47,371","00:20:50,331",1247371,1250331,3
+validation,validation:s5_e9_d109_u2,Unbelievable! I mean you really kept Joey's underwear?! Why? Why would you do that?!,Ross,disgust,negative,109,2,5,9,"00:20:51,875","00:20:58,714",1251875,1258714,1
+validation,validation:s5_e9_d109_u3,I'm Monica. I'm disgusting. I stalk guys and keep their underpants.,Monica,sadness,negative,109,3,5,9,"00:21:02,594","00:21:11,185",1262594,1271185,5
+validation,validation:s5_e9_d109_u4,"Well, I think we've all learned something about who's disgusting and who's not.",Joey,anger,negative,109,4,5,9,"00:21:15,148","00:21:20,403",1275148,1280403,0
+validation,validation:s5_e9_d109_u5,Eh?,Joey,neutral,neutral,109,5,5,9,"00:21:20,570","00:21:21,988",1280570,1281988,4
+validation,validation:s5_e9_d109_u6,"All right, now, I'm going to get back to my bucket.",Joey,neutral,neutral,109,6,5,9,"00:21:22,155","00:21:26,242",1282155,1286242,4
+validation,validation:s5_e9_d109_u7,"I'm only eating the skin, so the chicken's up for grabs.",Joey,neutral,neutral,109,7,5,9,"00:21:27,703","00:21:30,913",1287703,1290913,4
+validation,validation:s6_e11_d110_u0,"Ohh, okay, they gave you the old time pricing.",Phoebe,neutral,neutral,110,0,6,11,"0:06:52,412","0:06:54,874",412412,414874,4
+validation,validation:s6_e11_d110_u1,Yeah.,Rachel,neutral,neutral,110,1,6,11,"0:06:54,874","0:06:56,125",414874,416125,4
+validation,validation:s6_e11_d110_u2,"Well, what period is it from?",Phoebe,neutral,neutral,110,2,6,11,"00:06:57,417","00:06:59,167",417417,419167,4
+validation,validation:s6_e11_d110_u3,"Uh, it’s from yore. Like the days of yore. Y’know?",Rachel,neutral,neutral,110,3,6,11,"00:06:59,335","00:07:03,380",419335,423380,4
+validation,validation:s6_e11_d110_u4,"Yes, yes I do.",Phoebe,neutral,neutral,110,4,6,11,"00:07:03,589","00:07:05,757",423589,425757,4
+validation,validation:s6_e11_d110_u5,"God, oh it’s just perfect!",Phoebe,joy,positive,110,5,6,11,"00:07:05,925","00:07:09,219",425925,429219,3
+validation,validation:s6_e11_d110_u6,I bet it has a great story behind it too.,Phoebe,joy,positive,110,6,6,11,"00:07:09,387","00:07:11,596",429387,431596,3
+validation,validation:s6_e11_d110_u7,Did they tell you anything?,Phoebe,neutral,neutral,110,7,6,11,"00:07:11,764","00:07:13,890",431764,433890,4
+validation,validation:s6_e11_d110_u8,"Yes! That I know, this is from White Plains.",Rachel,joy,positive,110,8,6,11,"00:07:14,058","00:07:16,935",434058,436935,3
+validation,validation:s6_e11_d110_u9,"White Plains. Oh, it sounds like such a magical place.",Phoebe,joy,positive,110,9,6,11,"00:07:19,188","00:07:23,608",439188,443608,3
+validation,validation:s3_e25_d111_u0,"So, you still don’t think I’m boyfriend material?",Chandler,anger,negative,111,0,3,25,"00:11:50,876","00:11:55,588",710876,715588,0
+validation,validation:s3_e25_d111_u1,Huh?,Monica,neutral,neutral,111,1,3,25,"00:11:56,298","00:11:57,340",716298,717340,4
+validation,validation:s3_e25_d111_u2,I saw you checking me out during the game last night.,Chandler,neutral,neutral,111,2,3,25,"00:11:57,508","00:12:00,844",717508,720844,4
+validation,validation:s4_e1_d112_u0,"I, umm, shut up!",Phoebe,anger,negative,112,0,4,1,"00:13:29,892","00:13:32,101",809892,812101,0
+validation,validation:s4_e1_d112_u1,“Good-bye Phoebe and Ursula. I’ll miss you. P.S. Your Mom lives in Montauk.” You just wrote this!,Phoebe,sadness,negative,112,1,4,1,"00:13:36,732","00:13:44,781",816732,824781,5
+validation,validation:s4_e1_d112_u2,"Well, it’s pretty much the gist. Well, except for the poem. You read the poem, right?",Ursula,neutral,neutral,112,2,4,1,"00:13:45,991","00:13:53,331",825991,833331,4
+validation,validation:s4_e1_d112_u3,Noooo!!,Phoebe,sadness,negative,112,3,4,1,"00:13:53,499","00:13:55,166",833499,835166,5
+validation,validation:s4_e1_d112_u4,"All right, hang on!",Ursula,neutral,neutral,112,4,4,1,"00:13:55,918","00:13:57,752",835918,837752,4
+validation,validation:s6_e2_d113_u0,"Rachel, it’s going to happen. Chandler is gonna move in here.",Monica,neutral,neutral,113,0,6,2,"00:18:52,923","00:18:59,303",1132923,1139303,4
+validation,validation:s6_e2_d113_u1,But I,Rachel,sadness,negative,113,1,6,2,"0:18:59,513","0:19:00,015",1139513,1140015,5
+validation,validation:s6_e2_d113_u2,"No-no, wait!",Monica,neutral,neutral,113,2,6,2,"0:19:00,015","0:19:02,147",1140015,1142147,4
+validation,validation:s6_e2_d113_u3,"Just let me finish, okay?",Monica,sadness,negative,113,3,6,2,"0:19:02,147","0:19:02,469",1142147,1142469,5
+validation,validation:s6_e2_d113_u4,"This isn’t something that we just, we just impulsively decided in-in Vegas, this is something we both really want.",Monica,neutral,neutral,113,4,6,2,"00:19:03,308","00:19:09,856",1143308,1149856,4
+validation,validation:s6_e2_d113_u5,And it,Monica,neutral,neutral,113,5,6,2,"00:19:11,525","00:19:14,068",1151525,1154068,4
+validation,validation:s6_e2_d113_u6,It is? Really?,Rachel,surprise,negative,113,6,6,2,"00:19:14,862","00:19:19,699",1154862,1159699,6
+validation,validation:s6_e2_d113_u7,"Yeah, sweetie.",Monica,neutral,neutral,113,7,6,2,"00:19:20,159","00:19:21,826",1160159,1161826,4
+validation,validation:s6_e2_d113_u8,"I mean we’re not, we’re not gonna live together anymore?",Rachel,sadness,negative,113,8,6,2,"00:19:23,620","00:19:27,540",1163620,1167540,5
+validation,validation:s6_e2_d113_u9,No.,Monica,sadness,negative,113,9,6,2,"00:19:28,792","00:19:29,876",1168792,1169876,5
+validation,validation:s6_e2_d113_u10,What? Oh my God! I’m gonna miss you so much!,Rachel,sadness,negative,113,10,6,2,"00:19:33,213","00:19:35,965",1173213,1175965,5
+validation,validation:s6_e2_d113_u11,I’m gonna miss you!,Monica,sadness,negative,113,11,6,2,"00:19:36,175","00:19:37,967",1176175,1177967,5
+validation,validation:s6_e2_d113_u12,I mean it’s the end of an era!,Rachel,sadness,negative,113,12,6,2,"00:19:39,094","00:19:40,928",1179094,1180928,5
+validation,validation:s6_e2_d113_u13,I know!,Monica,sadness,negative,113,13,6,2,"00:19:41,138","00:19:42,638",1181138,1182638,5

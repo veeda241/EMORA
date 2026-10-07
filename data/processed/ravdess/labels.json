@@ -1,0 +1,72 @@
+{
+  "dataset": "RAVDESS",
+  "source_metadata": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess\\ravdess_metadata.csv",
+  "audio_root": "C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess",
+  "total_rows": 1152,
+  "validated_audio_files": 1152,
+  "labels": [
+    "angry",
+    "disgust",
+    "fearful",
+    "happy",
+    "sad",
+    "surprised"
+  ],
+  "label2id": {
+    "angry": 0,
+    "disgust": 1,
+    "fearful": 2,
+    "happy": 3,
+    "sad": 4,
+    "surprised": 5
+  },
+  "split_counts": {
+    "test": 192,
+    "train": 768,
+    "validation": 192
+  },
+  "class_counts": {
+    "angry": 192,
+    "disgust": 192,
+    "fearful": 192,
+    "happy": 192,
+    "sad": 192,
+    "surprised": 192
+  },
+  "actors_by_split": {
+    "train": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "validation": [
+      17,
+      18,
+      19,
+      20
+    ],
+    "test": [
+      21,
+      22,
+      23,
+      24
+    ]
+  },
+  "audio_format": "WAV",
+  "relative_path_column": "file_path",
+  "label_column": "label_id",
+  "split_policy": "Actor-disjoint splits supplied by the RAVDESS metadata."
+}
