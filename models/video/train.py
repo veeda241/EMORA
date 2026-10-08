@@ -55,9 +55,9 @@ for p in [str(PROJECT_ROOT), str(MODELS_DIR)]:
 try:
     from compare import MODEL_REGISTRY
 except ImportError:
-    from models.compare import MODEL_REGISTRY
+    from models.common.compare import MODEL_REGISTRY
 
-PROCESSED_VIDEO_DIR = PROJECT_ROOT / "data" / "processed" / "video_fer"
+PROCESSED_VIDEO_DIR = PROJECT_ROOT / "data" / "processed" / "video" / "video_fer"
 VIDEO_OUT_DIR = PROJECT_ROOT / "models" / "video"
 VIDEO_OUT_DIR.mkdir(parents=True, exist_ok=True)
 

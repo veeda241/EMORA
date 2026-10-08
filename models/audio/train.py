@@ -39,7 +39,7 @@ from matplotlib import pyplot as plt
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[2]
 RAW_MELD     = PROJECT_ROOT / "data" / "raw" / "meld"
 RAW_RAVDESS  = PROJECT_ROOT / "data" / "raw" / "ravdess"
 AUDIO_OUT    = PROJECT_ROOT / "models" / "audio"

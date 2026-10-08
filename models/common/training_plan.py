@@ -7,7 +7,7 @@ Cross-Modal Attention Transformer can fuse them on equal terms.
 
 from __future__ import annotations
 
-from models.compare import MODEL_REGISTRY, MODALITY_ORDER
+from models.common.compare import MODEL_REGISTRY, MODALITY_ORDER
 
 PROJECT_DIM = 512  # shared embedding dimension fed into the Cross-Modal Transformer
 

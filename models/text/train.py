@@ -20,13 +20,13 @@ from transformers import (
     TrainingArguments,
 )
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from models.compare import MODEL_REGISTRY
+from models.common.compare import MODEL_REGISTRY
 
-DATA_DIR = PROJECT_ROOT / "data" / "processed" / "goemotions"
+DATA_DIR = PROJECT_ROOT / "data" / "processed" / "text" / "goemotions"
 OUTPUT_MD = PROJECT_ROOT / "models" / "text_model_analysis.md"
 NUM_EPOCHS = 3
 PER_DEVICE_TRAIN_BATCH = 8
