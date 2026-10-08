@@ -11,7 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from train_all_text_models import main  # noqa: E402
+from models.text.train_all_text_models import main  # noqa: E402
 
 if __name__ == "__main__":
     main(dry_run=True)

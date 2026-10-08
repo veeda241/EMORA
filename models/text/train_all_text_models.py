@@ -24,7 +24,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from comparison_grid import MODEL_REGISTRY
+from models.compare import MODEL_REGISTRY
 
 DATA_DIR = PROJECT_ROOT / "data" / "processed" / "goemotions"
 OUTPUT_MD = PROJECT_ROOT / "models" / "text_model_analysis.md"
