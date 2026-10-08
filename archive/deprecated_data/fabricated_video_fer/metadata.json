@@ -1,0 +1,30 @@
+{
+  "num_samples": 22860,
+  "num_classes": 6,
+  "class_names": [
+    "angry",
+    "disgust",
+    "fearful",
+    "happy",
+    "sad",
+    "surprised"
+  ],
+  "class_counts": [
+    6839,
+    1851,
+    832,
+    10109,
+    2875,
+    354
+  ],
+  "class_weights": [
+    0.5570989847183228,
+    2.058346748352051,
+    4.57932710647583,
+    0.3768918812274933,
+    1.325217366218567,
+    10.762711524963379
+  ],
+  "sequence_length": 16,
+  "feature_dim": 35
+}
