@@ -1,75 +1,85 @@
-# Emotion Label Mapping Across Datasets
+"""Canonical emotion label mappings shared by all modality pipelines.
 
-Consistent emotion label space for the multimodal stress/burnout tracker.
+The project's shared emotion space is the 6-class Ekman set used by the
+CMU-MOSEI based trackers:
 
-## Current dataset label spaces
+    angry, disgust, fearful, happy, sad, surprised
 
-### MELD (text/audio/video)
-7 emotions from `data/raw/meld/{train,dev,test}_sent_emo.csv`:
-- anger, disgust, fear, joy, neutral, sadness, surprise
+Every pipeline converts its native label space into this one so that the
+decision-level fusion (src/fusion/emotion_fusion.py) can average probability
+vectors directly.
+"""
 
-### IEMOCAP (audio-first baseline)
-Standard IEMOCAP 4-class scheme (most common for emotion-recognition benchmarks):
-- angry, happy, neutral, sad
+from __future__ import annotations
 
-Some IEMOCAP papers also use a 6-class scheme:
-- angry, happy, neutral, sad, excited, frustrated
+SHARED_EMOTION_CLASSES = ["angry", "disgust", "fearful", "happy", "sad", "surprised"]
+SHARED_LABEL_TO_IDX = {name: i for i, name in enumerate(SHARED_EMOTION_CLASSES)}
 
-### GoEmotions (text)
-~1.4M comments with 27 fine-grained labels + neutral.
-For fusion, these are usually collapsed to a smaller shared space.
-
-## Recommended shared label space
-
-For a first multimodal fusion pass, collapse to the **4-class IEMOCAP core**:
-- `neutral`
-- `happy` (maps to MELD `joy`)
-- `sad` (maps to MELD `sadness`)
-- `angry` (maps to MELD `anger`)
-
-MELD-only emotions that do not map cleanly should be either:
-- dropped from the fusion training set, or
-- grouped under a broader parent class depending on the target use case.
-
-### Mapping table (MELD -> shared 4-class)
-
-| MELD | Shared space | Notes |
-|---|---|---|
-| joy | happy | direct equivalent |
-| sadness | sad | direct equivalent |
-| anger | angry | direct equivalent |
-| neutral | neutral | direct equivalent |
-| disgust | (drop / review) | not in IEMOCAP 4-class |
-| fear | (drop / review) | not in IEMOCAP 4-class |
-| surprise | (drop / review) | not in IEMOCAP 4-class |
-
-## Label mapping file
-
-A canonical Python dict lives in `models/label_mapping.py` so both the text and audio pipelines import the same mapping.
-
-```python
-# models/label_mapping.py
-SHARED_EMOTION_CLASSES = ["neutral", "happy", "sad", "angry"]
-
-MELD_TO_SHARED = {
-    "joy": "happy",
-    "sadness": "sad",
+# CMU-MOSEI index vocabulary (cmumosei_index.json / audio+video npz labels)
+MOSEI_TO_SHARED = {
     "anger": "angry",
-    "neutral": "neutral",
-    # disgust, fear, surprise intentionally omitted for the 4-class fusion space
-}
-
-IEMOCAP_TO_SHARED = {
-    "angry": "angry",
+    "disgust": "disgust",
+    "fear": "fearful",
     "happy": "happy",
-    "neutral": "neutral",
     "sad": "sad",
-    # excited, frustrated omitted unless we expand the shared space
+    "surprise": "surprised",
 }
-```
 
-## Future expansion
+# Audio checkpoints (models/audio/runs_*) were trained with the shared
+# vocabulary directly: {0: angry, 1: disgust, 2: fearful, 3: happy, 4: sad, 5: surprised}
 
-If later we add the full 7-class MELD space or the 6-class IEMOCAP space,
-extend `SHARED_EMOTION_CLASSES` and the two mapping dicts above. The training
-scripts should always import from this file rather than hard-coding label names.
+# Text checkpoint (GoEmotions 28-class deberta-v3-base) collapsed to the
+# 6-class space using the official GoEmotions "Ekman" taxonomy.
+# Neutral mass is dropped and the remaining probabilities renormalized.
+GOEMOTIONS_TO_SHARED = {
+    "anger": "angry",
+    "annoyance": "angry",
+    "disapproval": "angry",
+    "disgust": "disgust",
+    "fear": "fearful",
+    "nervousness": "fearful",
+    "joy": "happy",
+    "amusement": "happy",
+    "approval": "happy",
+    "excitement": "happy",
+    "gratitude": "happy",
+    "love": "happy",
+    "optimism": "happy",
+    "relief": "happy",
+    "pride": "happy",
+    "admiration": "happy",
+    "desire": "happy",
+    "caring": "happy",
+    "sadness": "sad",
+    "disappointment": "sad",
+    "embarrassment": "sad",
+    "grief": "sad",
+    "remorse": "sad",
+    "surprise": "surprised",
+    "realization": "surprised",
+    "confusion": "surprised",
+    "curiosity": "surprised",
+    # "neutral" and "desire" (if unmapped) fall through; "neutral" is dropped.
+    "neutral": None,
+}
+
+
+def collapse_goemotions_probs(label_names: list[str], probs) -> list[float]:
+    """Collapse a GoEmotions probability vector (any order) onto the 6-class space."""
+    import numpy as np
+
+    probs = np.asarray(probs, dtype=np.float64)
+    out = np.zeros(len(SHARED_EMOTION_CLASSES), dtype=np.float64)
+    for i, name in enumerate(label_names):
+        target = GOEMOTIONS_TO_SHARED.get(name)
+        if target is None:
+            continue
+        out[SHARED_LABEL_TO_IDX[target]] += probs[i]
+    total = out.sum()
+    if total > 0:
+        out /= total
+    else:
+        # all probability mass fell on unmapped labels (e.g. pure neutral):
+        # fall back to a uniform distribution over the shared space.
+        out[:] = 1.0 / len(SHARED_EMOTION_CLASSES)
+    return out.tolist()
