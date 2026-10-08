@@ -55,7 +55,7 @@ AUDIO_EXTS = (".wav", ".flac", ".mp3", ".ogg", ".m4a", ".aac", ".wma")
 MODEL_REGISTRY: dict[str, tuple[str, str]] = {
     "wav2vec2":   ("facebook/wav2vec2-base",         "runs_wav2vec2"),
     "wavlm":      ("microsoft/wavlm-base",           "runs_wavlm"),
-    "emotion2vec": ("emotion2vec_base_finetuned",    "runs_emotion2vec"),
+    "emotion2vec": ("iic/emotion2vec_base_finetuned", "runs_emotion2vec"),
 }
 
 # ---------------------------------------------------------------------------
@@ -373,27 +373,29 @@ def _load_wavlm(checkpoint: str, num_labels: int, label2id: dict, id2label: dict
 
 
 def _load_emotion2vec(checkpoint: str, num_labels: int, label2id: dict, id2label: dict):
-    """emotion2vec via modelscope / funasr, with a classification head on top.
+    """emotion2vec via funasr AutoModel, with a classification head on top.
 
-    Falls back to Wav2Vec2 if modelscope/funasr is not installed, with a clear
-    installation message.
+    Uses funasr.AutoModel (the recommended interface) to extract utterance-level
+    embeddings from iic/emotion2vec_base_finetuned, then trains a linear
+    classification head on top for our target label set.
     """
     try:
-        from modelscope.models import Model
-        from modelscope.pipelines import pipeline
-        from modelscope.utils.constant import Tasks
+        from funasr import AutoModel
     except ImportError:
         raise ImportError(
-            "emotion2vec requires the modelscope package.\n"
-            "Install it with:  pip install modelscope funasr\n"
+            "emotion2vec requires the funasr package.\n"
+            "Install it with:  pip install modelscope funasr addict\n"
             "Then re-run with --model emotion2vec."
         )
 
+    # Load backbone once — funasr downloads + caches the model on first call
+    backbone = AutoModel(model=checkpoint)
+
     # emotion2vec exposes embeddings; we wrap it with a classification head.
     class Emotion2VecClassifier(torch.nn.Module):
-        def __init__(self, backbone_pipeline, hidden_size: int, n_labels: int):
+        def __init__(self, backbone_model, hidden_size: int, n_labels: int):
             super().__init__()
-            self.backbone = backbone_pipeline
+            self.backbone = backbone_model
             self.classifier = torch.nn.Sequential(
                 torch.nn.Linear(hidden_size, 256),
                 torch.nn.LayerNorm(256),
@@ -404,20 +406,23 @@ def _load_emotion2vec(checkpoint: str, num_labels: int, label2id: dict, id2label
             self.loss_fn = torch.nn.CrossEntropyLoss()
 
         def forward(self, input_values: torch.Tensor, labels: torch.Tensor | None = None):
-            # Run backbone on CPU numpy, collect embeddings
+            # Run backbone on CPU numpy, collect utterance-level embeddings
             batch_embs = []
             for wav in input_values:
-                wav_np = wav.cpu().numpy()
-                result = self.backbone(
-                    audio_in=wav_np,
+                wav_np = wav.cpu().numpy().astype("float32")
+                result = self.backbone.generate(
+                    wav_np,
                     output_dir=None,
                     granularity="utterance",
                     extract_embedding=True,
                 )
-                emb = result[0]["feats"]             # (T, D) or (D,)
+                # result is a list of dicts; grab the embedding from first entry
+                # use explicit None-check to avoid ambiguous truth-value on arrays
+                r0   = result[0]
+                emb  = r0.get("feats") if r0.get("feats") is not None else r0.get("embedding")
                 emb_t = torch.tensor(emb, dtype=torch.float32)
                 if emb_t.dim() == 2:
-                    emb_t = emb_t.mean(0)            # mean-pool over time
+                    emb_t = emb_t.mean(0)   # mean-pool over time frames
                 batch_embs.append(emb_t)
             embeddings = torch.stack(batch_embs).to(input_values.device)
             logits = self.classifier(embeddings)
@@ -432,12 +437,16 @@ def _load_emotion2vec(checkpoint: str, num_labels: int, label2id: dict, id2label
             out.logits = logits
             return out
 
-    pipe = pipeline(
-        task=Tasks.emotion_recognition,
-        model=checkpoint,
-    )
-    # emotion2vec-base embeds to 768 dimensions
-    model = Emotion2VecClassifier(pipe, hidden_size=768, n_labels=num_labels)
+    # Probe embedding dimension with a short dummy waveform so we never hard-code the wrong size
+    import numpy as _np
+    _dummy = _np.zeros(16000, dtype="float32")
+    _probe = backbone.generate(_dummy, output_dir=None, granularity="utterance", extract_embedding=True)
+    _r0    = _probe[0]
+    _emb   = _r0.get("feats") if _r0.get("feats") is not None else _r0.get("embedding")
+    _emb_arr = _np.array(_emb)
+    hidden_size = int(_emb_arr.shape[-1])   # last dim is embedding size (768 for base)
+
+    model = Emotion2VecClassifier(backbone, hidden_size=hidden_size, n_labels=num_labels)
 
     # Use a plain Wav2Vec2FeatureExtractor as the processor (16 kHz mono)
     from transformers import Wav2Vec2FeatureExtractor

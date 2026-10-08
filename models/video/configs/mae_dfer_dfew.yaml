@@ -1,0 +1,55 @@
+# MAE-DFER fine-tuning config — DFEW 6-class, RTX 3050 6 GB
+# ──────────────────────────────────────────────────────────
+# Reference: scripts/video/train_mae_dfer.py
+
+model:
+  name: vit_base_dim512_no_depth_patch16_160
+  depth: 16
+  num_classes: 6                  # angry, disgust, fearful, happy, sad, surprised
+  attn_type: local_global
+  lg_region_size: [2, 5, 10]
+  lg_classify_token_type: region
+  head_drop_rate: 0.5
+  drop_path_rate: 0.1
+
+data:
+  dataset: DFEW
+  num_classes: 6
+  label_mapping:
+    0: angry
+    1: disgust
+    2: fearful
+    3: happy
+    4: sad
+    5: surprised
+  # neutral (DFEW original label 3) is excluded
+  fold: 1
+  num_frames: 16
+  sampling_rate: 4
+  input_size: 160
+  short_side_size: 160
+
+training:
+  epochs: 50
+  batch_size: 4
+  gradient_accumulation: 4          # effective batch = 16
+  lr_head: 1.0e-4
+  lr_backbone: 5.0e-6               # 20x lower than head
+  weight_decay: 0.05
+  warmup_epochs: 5
+  optimizer: adamw
+  scheduler: cosine_with_warmup
+  mixed_precision: bf16             # Ampere (compute capability 8.6)
+  gradient_clip_norm: 1.0
+  label_smoothing: 0.1
+  random_erasing_prob: 0.25
+  seed: 42
+  early_stopping_patience: 10
+  primary_metric: macro_f1          # not accuracy — DFEW is imbalanced
+  num_workers: 2
+
+pretrained_checkpoint: models/video/checkpoints/mae_dfer_pretrained/checkpoint-99.pth
+
+output:
+  checkpoint_dir: models/video/checkpoints/mae_dfer_dfew/
+  results_dir: models/video/results/dfew_fold1/

@@ -13,3 +13,67 @@
 2026-10-07 14:37:20,431 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_classification_report.csv
 2026-10-07 14:37:20,432 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_training_report.md
 2026-10-07 14:37:20,456 | INFO | DONE wav2vec2 — test_accuracy=0.1719 macro_f1=0.0579
+2026-10-07 22:46:59,568 | INFO | ============================================================
+2026-10-07 22:46:59,570 | INFO | Training model: wav2vec2  dataset: ravdess
+2026-10-07 22:46:59,570 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 22:46:59,570 | INFO | args: Namespace(model='all', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 22:46:59,571 | INFO | ============================================================
+2026-10-07 22:46:59,836 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 22:47:00,488 | INFO | Dataset validation passed.
+2026-10-07 22:47:00,502 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 22:47:00,504 | INFO | Loading checkpoint: facebook/wav2vec2-base
+2026-10-07 22:47:55,523 | INFO | epoch=1 step=20/96 loss=1.8022 lr=2.00e-05
+2026-10-07 22:48:02,490 | INFO | epoch=1 step=40/96 loss=1.7078 lr=2.00e-05
+2026-10-07 22:48:09,455 | INFO | epoch=1 step=60/96 loss=1.7906 lr=2.00e-05
+2026-10-07 22:48:16,460 | INFO | epoch=1 step=80/96 loss=1.5901 lr=2.00e-05
+2026-10-07 22:48:25,950 | INFO | epoch=1 train_loss=1.6972 dev_loss=1.5667 acc=0.4010 macro_f1=0.3593
+2026-10-07 22:48:31,092 | INFO | epoch=2 step=20/96 loss=1.3804 lr=2.00e-05
+2026-10-07 22:48:35,998 | INFO | epoch=2 step=40/96 loss=1.2244 lr=2.00e-05
+2026-10-07 22:48:40,948 | INFO | epoch=2 step=60/96 loss=1.2817 lr=2.00e-05
+2026-10-07 22:48:45,889 | INFO | epoch=2 step=80/96 loss=1.0792 lr=2.00e-05
+2026-10-07 22:48:51,449 | INFO | epoch=2 train_loss=1.3752 dev_loss=1.4217 acc=0.4583 macro_f1=0.4445
+2026-10-07 22:48:56,605 | INFO | epoch=3 step=20/96 loss=1.1549 lr=2.00e-05
+2026-10-07 22:49:01,494 | INFO | epoch=3 step=40/96 loss=0.8682 lr=2.00e-05
+2026-10-07 22:49:06,526 | INFO | epoch=3 step=60/96 loss=0.8592 lr=2.00e-05
+2026-10-07 22:49:11,400 | INFO | epoch=3 step=80/96 loss=0.9639 lr=2.00e-05
+2026-10-07 22:49:16,913 | INFO | epoch=3 train_loss=1.0227 dev_loss=1.2252 acc=0.5833 macro_f1=0.5667
+2026-10-07 22:49:21,983 | INFO | epoch=4 step=20/96 loss=0.7279 lr=2.00e-05
+2026-10-07 22:49:26,858 | INFO | epoch=4 step=40/96 loss=0.5056 lr=2.00e-05
+2026-10-07 22:49:31,845 | INFO | epoch=4 step=60/96 loss=0.7516 lr=2.00e-05
+2026-10-07 22:49:36,816 | INFO | epoch=4 step=80/96 loss=0.2757 lr=2.00e-05
+2026-10-07 22:49:42,419 | INFO | epoch=4 train_loss=0.6715 dev_loss=1.0689 acc=0.6354 macro_f1=0.6340
+2026-10-07 22:49:47,467 | INFO | epoch=5 step=20/96 loss=0.6729 lr=2.00e-05
+2026-10-07 22:49:52,428 | INFO | epoch=5 step=40/96 loss=0.2525 lr=2.00e-05
+2026-10-07 22:49:57,738 | INFO | epoch=5 step=60/96 loss=0.5890 lr=2.00e-05
+2026-10-07 22:50:02,932 | INFO | epoch=5 step=80/96 loss=0.1918 lr=2.00e-05
+2026-10-07 22:50:08,977 | INFO | epoch=5 train_loss=0.3848 dev_loss=1.0128 acc=0.6927 macro_f1=0.7014
+2026-10-07 22:50:14,002 | INFO | epoch=6 step=20/96 loss=0.6076 lr=2.00e-05
+2026-10-07 22:50:18,920 | INFO | epoch=6 step=40/96 loss=0.1155 lr=2.00e-05
+2026-10-07 22:50:23,834 | INFO | epoch=6 step=60/96 loss=0.0881 lr=2.00e-05
+2026-10-07 22:50:28,795 | INFO | epoch=6 step=80/96 loss=0.0756 lr=2.00e-05
+2026-10-07 22:50:34,670 | INFO | epoch=6 train_loss=0.2383 dev_loss=1.2508 acc=0.6667 macro_f1=0.6710
+2026-10-07 22:50:40,226 | INFO | epoch=7 step=20/96 loss=0.0502 lr=2.00e-05
+2026-10-07 22:50:45,836 | INFO | epoch=7 step=40/96 loss=0.0486 lr=2.00e-05
+2026-10-07 22:50:51,160 | INFO | epoch=7 step=60/96 loss=0.0435 lr=2.00e-05
+2026-10-07 22:50:56,615 | INFO | epoch=7 step=80/96 loss=0.4967 lr=2.00e-05
+2026-10-07 22:51:02,669 | INFO | epoch=7 train_loss=0.1346 dev_loss=1.3014 acc=0.6927 macro_f1=0.6832
+2026-10-07 22:51:07,924 | INFO | epoch=8 step=20/96 loss=0.0304 lr=2.00e-05
+2026-10-07 22:51:13,124 | INFO | epoch=8 step=40/96 loss=0.0248 lr=2.00e-05
+2026-10-07 22:51:18,171 | INFO | epoch=8 step=60/96 loss=0.0257 lr=2.00e-05
+2026-10-07 22:51:23,112 | INFO | epoch=8 step=80/96 loss=0.4405 lr=2.00e-05
+2026-10-07 22:51:28,866 | INFO | epoch=8 train_loss=0.1084 dev_loss=1.1705 acc=0.7448 macro_f1=0.7494
+2026-10-07 22:51:33,957 | INFO | epoch=9 step=20/96 loss=0.0228 lr=2.00e-05
+2026-10-07 22:51:38,987 | INFO | epoch=9 step=40/96 loss=0.0179 lr=2.00e-05
+2026-10-07 22:51:43,965 | INFO | epoch=9 step=60/96 loss=0.0152 lr=2.00e-05
+2026-10-07 22:51:49,067 | INFO | epoch=9 step=80/96 loss=0.2651 lr=2.00e-05
+2026-10-07 22:51:54,695 | INFO | epoch=9 train_loss=0.0947 dev_loss=1.1557 acc=0.7656 macro_f1=0.7672
+2026-10-07 22:51:59,620 | INFO | epoch=10 step=20/96 loss=0.0125 lr=2.00e-05
+2026-10-07 22:52:04,625 | INFO | epoch=10 step=40/96 loss=0.0117 lr=2.00e-05
+2026-10-07 22:52:09,591 | INFO | epoch=10 step=60/96 loss=0.0113 lr=2.00e-05
+2026-10-07 22:52:14,380 | INFO | epoch=10 step=80/96 loss=0.0098 lr=2.00e-05
+2026-10-07 22:52:19,903 | INFO | epoch=10 train_loss=0.0757 dev_loss=1.1006 acc=0.7812 macro_f1=0.7830
+2026-10-07 22:52:28,631 | INFO | Saved model to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-07 22:52:30,160 | INFO | Saved confusion matrix to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_confusion_matrix.png
+2026-10-07 22:52:30,161 | INFO | Saved classification report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_classification_report.csv
+2026-10-07 22:52:30,161 | INFO | Saved report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_training_report.md
+2026-10-07 22:52:30,199 | INFO | DONE wav2vec2 — test_accuracy=0.6823 macro_f1=0.6688

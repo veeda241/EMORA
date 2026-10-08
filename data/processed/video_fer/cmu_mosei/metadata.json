@@ -1,0 +1,20 @@
+{
+  "label_to_name": {
+    "0": "angry",
+    "1": "disgust",
+    "2": "fearful",
+    "3": "happy",
+    "4": "sad",
+    "5": "surprised"
+  },
+  "num_samples": 3293,
+  "feature_dim": 35,
+  "class_distribution": {
+    "angry": 350,
+    "disgust": 133,
+    "fearful": 75,
+    "happy": 2111,
+    "sad": 594,
+    "surprised": 30
+  }
+}

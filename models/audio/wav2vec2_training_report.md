@@ -23,36 +23,36 @@
 
 | Epoch | Train Loss | Dev Loss | Accuracy | Macro F1 |
 |---|---|---|---|---|
-| 1 | 1.6968 | 1.5764 | 0.3802 | 0.3227 |
-| 2 | 1.3533 | 1.4157 | 0.4375 | 0.4179 |
-| 3 | 0.9075 | 1.1026 | 0.6406 | 0.6388 |
-| 4 | 0.5804 | 1.0734 | 0.6458 | 0.6428 |
-| 5 | 0.3719 | 1.0195 | 0.7188 | 0.7107 |
-| 6 | 0.1964 | 1.0363 | 0.7396 | 0.7375 |
-| 7 | 0.1223 | 0.9670 | 0.8021 | 0.8030 |
-| 8 | 0.0627 | 1.1782 | 0.7708 | 0.7787 |
-| 9 | 0.0573 | 1.5480 | 0.7188 | 0.7127 |
-| 10 | 0.0956 | 1.7710 | 0.6927 | 0.6924 |
+| 1 | 1.6972 | 1.5667 | 0.4010 | 0.3593 |
+| 2 | 1.3752 | 1.4217 | 0.4583 | 0.4445 |
+| 3 | 1.0227 | 1.2252 | 0.5833 | 0.5667 |
+| 4 | 0.6715 | 1.0689 | 0.6354 | 0.6340 |
+| 5 | 0.3848 | 1.0128 | 0.6927 | 0.7014 |
+| 6 | 0.2383 | 1.2508 | 0.6667 | 0.6710 |
+| 7 | 0.1346 | 1.3014 | 0.6927 | 0.6832 |
+| 8 | 0.1084 | 1.1705 | 0.7448 | 0.7494 |
+| 9 | 0.0947 | 1.1557 | 0.7656 | 0.7672 |
+| 10 | 0.0757 | 1.1006 | 0.7812 | 0.7830 |
 
 ## Test results
-- Accuracy:   0.7240
-- Macro F1:   0.7182
-- Weighted F1:0.7182
+- Accuracy:   0.6823
+- Macro F1:   0.6688
+- Weighted F1:0.6688
 
 ### Per-class (test)
 
 | Class | Precision | Recall | F1 | Support |
 |---|---|---|---|---|
-| angry | 0.6818 | 0.9375 | 0.7895 | 32 |
-| disgust | 0.8571 | 0.5625 | 0.6792 | 32 |
-| fearful | 0.9412 | 0.5000 | 0.6531 | 32 |
-| happy | 0.5500 | 0.6875 | 0.6111 | 32 |
-| sad | 0.7317 | 0.9375 | 0.8219 | 32 |
-| surprised | 0.7931 | 0.7188 | 0.7541 | 32 |
+| angry | 0.6579 | 0.7812 | 0.7143 | 32 |
+| disgust | 1.0000 | 0.3750 | 0.5455 | 32 |
+| fearful | 0.8824 | 0.4688 | 0.6122 | 32 |
+| happy | 0.5250 | 0.6562 | 0.5833 | 32 |
+| sad | 0.7143 | 0.9375 | 0.8108 | 32 |
+| surprised | 0.6512 | 0.8750 | 0.7467 | 32 |
 
-## Training time: 100.3 s
+## Training time: 273.5 s
 
 ## Output
-- Weights: `C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2`
-- Confusion matrix: `C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_confusion_matrix.png`
-- Classification report: `C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_classification_report.csv`
+- Weights: `C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2`
+- Confusion matrix: `C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_confusion_matrix.png`
+- Classification report: `C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_classification_report.csv`

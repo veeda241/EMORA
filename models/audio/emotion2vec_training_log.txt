@@ -1,0 +1,210 @@
+2026-10-07 22:58:27,695 | INFO | ============================================================
+2026-10-07 22:58:27,695 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-07 22:58:27,696 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 22:58:27,696 | INFO | args: Namespace(model='all', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 22:58:27,696 | INFO | ============================================================
+2026-10-07 22:58:27,708 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 22:58:27,857 | INFO | Dataset validation passed.
+2026-10-07 22:58:27,858 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 22:58:27,858 | INFO | Loading checkpoint: emotion2vec_base_finetuned
+2026-10-07 22:58:27,859 | ERROR | Skipping emotion2vec — missing dependency: emotion2vec requires the modelscope package.
+Install it with:  pip install modelscope funasr
+Then re-run with --model emotion2vec.
+2026-10-07 23:04:51,432 | INFO | ============================================================
+2026-10-07 23:04:51,433 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-07 23:04:51,433 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 23:04:51,433 | INFO | args: Namespace(model='emotion2vec', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 23:04:51,433 | INFO | ============================================================
+2026-10-07 23:04:51,554 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 23:04:51,609 | INFO | Dataset validation passed.
+2026-10-07 23:04:51,617 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 23:04:51,617 | INFO | Loading checkpoint: emotion2vec_base_finetuned
+2026-10-07 23:04:51,618 | ERROR | Skipping emotion2vec — missing dependency: emotion2vec requires the modelscope package.
+Install it with:  pip install modelscope funasr
+Then re-run with --model emotion2vec.
+2026-10-07 23:06:51,998 | INFO | ============================================================
+2026-10-07 23:06:51,999 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-07 23:06:52,000 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 23:06:52,000 | INFO | args: Namespace(model='emotion2vec', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 23:06:52,000 | INFO | ============================================================
+2026-10-07 23:06:52,037 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 23:06:52,111 | INFO | Dataset validation passed.
+2026-10-07 23:06:52,121 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 23:06:52,122 | INFO | Loading checkpoint: emotion2vec_base_finetuned
+2026-10-07 23:06:56,750 | ERROR | Training failed for model: emotion2vec
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\modelscope\pipelines\util.py", line 35, in is_official_hub_impl
+    _ = HubApi().get_model(path, revision=revision)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\modelscope_hub\compat\hub_api.py", line 167, in get_model
+    info = self._api.get_repo(model_id, RepoType.MODEL, revision=revision)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\modelscope_hub\api.py", line 1008, in get_repo
+    owner, name = self._parse_repo_id(repo_id)
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\modelscope_hub\api.py", line 277, in _parse_repo_id
+    raise InvalidParameter(f"repo_id {repo_id!r} should be in format of 'owner/name'.")
+modelscope_hub.errors.InvalidParameter: [E3021] repo_id 'emotion2vec_base_finetuned' should be in format of 'owner/name'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 904, in main
+    result = train(args, logger, audio_root, model_key)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 801, in train
+    return run_training(
+        args, logger, audio_root, model_key,
+    ...<2 lines>...
+        emotion_key, resolver, output_dir,
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 490, in run_training
+    processor, model, target_sr = _MODEL_LOADERS[model_key](
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        checkpoint, num_labels, label2id, id2label
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 435, in _load_emotion2vec
+    pipe = pipeline(
+        task=Tasks.emotion_recognition,
+        model=checkpoint,
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\modelscope\pipelines\builder.py", line 138, in pipeline
+    if is_official_hub_path(model, revision=model_revision):
+       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\modelscope\pipelines\util.py", line 41, in is_official_hub_path
+    return is_official_hub_impl(path)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\.venv\Lib\site-packages\modelscope\pipelines\util.py", line 38, in is_official_hub_impl
+    raise ValueError(f'invalid model repo path {e}')
+ValueError: invalid model repo path [E3021] repo_id 'emotion2vec_base_finetuned' should be in format of 'owner/name'.
+2026-10-07 23:12:13,548 | INFO | ============================================================
+2026-10-07 23:12:13,549 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-07 23:12:13,549 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 23:12:13,549 | INFO | args: Namespace(model='emotion2vec', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 23:12:13,549 | INFO | ============================================================
+2026-10-07 23:12:13,608 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 23:12:13,708 | INFO | Dataset validation passed.
+2026-10-07 23:12:13,717 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 23:12:13,718 | INFO | Loading checkpoint: iic/emotion2vec_base_finetuned
+2026-10-07 23:21:48,272 | INFO | ============================================================
+2026-10-07 23:21:48,272 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-07 23:21:48,272 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-07 23:21:48,273 | INFO | args: Namespace(model='emotion2vec', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-07 23:21:48,273 | INFO | ============================================================
+2026-10-07 23:21:48,304 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-07 23:21:48,379 | INFO | Dataset validation passed.
+2026-10-07 23:21:48,381 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-07 23:21:48,382 | INFO | Loading checkpoint: iic/emotion2vec_base_finetuned
+2026-10-07 23:54:12,686 | ERROR | Training failed for model: emotion2vec
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 910, in main
+    result = train(args, logger, audio_root, model_key)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 807, in train
+    return run_training(
+        args, logger, audio_root, model_key,
+    ...<2 lines>...
+        emotion_key, resolver, output_dir,
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 496, in run_training
+    processor, model, target_sr = _MODEL_LOADERS[model_key](
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        checkpoint, num_labels, label2id, id2label
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 442, in _load_emotion2vec
+    _emb   = _probe[0].get("feats") or _probe[0].get("embedding")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2026-10-08 04:06:55,480 | INFO | ============================================================
+2026-10-08 04:06:55,480 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-08 04:06:55,481 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-08 04:06:55,481 | INFO | args: Namespace(model='emotion2vec', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-08 04:06:55,481 | INFO | ============================================================
+2026-10-08 04:06:55,581 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-08 04:06:55,651 | INFO | Dataset validation passed.
+2026-10-08 04:06:55,657 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-08 04:06:55,657 | INFO | Loading checkpoint: iic/emotion2vec_base_finetuned
+2026-10-08 04:07:30,701 | ERROR | Training failed for model: emotion2vec
+Traceback (most recent call last):
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 910, in main
+    result = train(args, logger, audio_root, model_key)
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 807, in train
+    return run_training(
+        args, logger, audio_root, model_key,
+    ...<2 lines>...
+        emotion_key, resolver, output_dir,
+    )
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 496, in run_training
+    processor, model, target_sr = _MODEL_LOADERS[model_key](
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        checkpoint, num_labels, label2id, id2label
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\train_all_audio_models.py", line 442, in _load_emotion2vec
+    _emb   = _probe[0].get("feats") or _probe[0].get("embedding")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2026-10-08 04:15:14,737 | INFO | ============================================================
+2026-10-08 04:15:14,737 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-08 04:15:14,737 | INFO | audio_root: C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-08 04:15:14,737 | INFO | args: Namespace(model='emotion2vec', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\hackathon\\Gemini_CLI\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-08 04:15:14,737 | INFO | ============================================================
+2026-10-08 04:15:14,762 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-08 04:15:14,802 | INFO | Dataset validation passed.
+2026-10-08 04:15:14,805 | INFO | Device: cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+2026-10-08 04:15:14,805 | INFO | Loading checkpoint: iic/emotion2vec_base_finetuned
+2026-10-08 04:15:36,036 | INFO | epoch=1 step=20/96 loss=1.2365 lr=2.00e-05
+2026-10-08 04:15:41,338 | INFO | epoch=1 step=40/96 loss=1.1634 lr=2.00e-05
+2026-10-08 04:15:46,569 | INFO | epoch=1 step=60/96 loss=0.7394 lr=2.00e-05
+2026-10-08 04:15:51,707 | INFO | epoch=1 step=80/96 loss=0.7229 lr=2.00e-05
+2026-10-08 04:16:02,373 | INFO | epoch=1 train_loss=1.0373 dev_loss=0.6778 acc=0.8438 macro_f1=0.8454
+2026-10-08 04:16:06,007 | INFO | epoch=2 step=20/96 loss=0.2900 lr=2.00e-05
+2026-10-08 04:16:09,747 | INFO | epoch=2 step=40/96 loss=0.3503 lr=2.00e-05
+2026-10-08 04:16:13,411 | INFO | epoch=2 step=60/96 loss=0.3635 lr=2.00e-05
+2026-10-08 04:16:17,032 | INFO | epoch=2 step=80/96 loss=0.8010 lr=2.00e-05
+2026-10-08 04:16:24,323 | INFO | epoch=2 train_loss=0.3477 dev_loss=0.5393 acc=0.8490 macro_f1=0.8496
+2026-10-08 04:16:28,004 | INFO | epoch=3 step=20/96 loss=0.6539 lr=2.00e-05
+2026-10-08 04:16:31,628 | INFO | epoch=3 step=40/96 loss=0.1614 lr=2.00e-05
+2026-10-08 04:16:35,308 | INFO | epoch=3 step=60/96 loss=0.0556 lr=2.00e-05
+2026-10-08 04:16:38,968 | INFO | epoch=3 step=80/96 loss=0.0696 lr=2.00e-05
+2026-10-08 04:16:46,232 | INFO | epoch=3 train_loss=0.2283 dev_loss=0.5617 acc=0.8385 macro_f1=0.8393
+2026-10-08 04:16:49,945 | INFO | epoch=4 step=20/96 loss=0.0565 lr=2.00e-05
+2026-10-08 04:16:53,608 | INFO | epoch=4 step=40/96 loss=0.0969 lr=2.00e-05
+2026-10-08 04:16:57,313 | INFO | epoch=4 step=60/96 loss=0.3750 lr=2.00e-05
+2026-10-08 04:17:00,910 | INFO | epoch=4 step=80/96 loss=1.0282 lr=2.00e-05
+2026-10-08 04:17:08,325 | INFO | epoch=4 train_loss=0.1954 dev_loss=0.5860 acc=0.8333 macro_f1=0.8341
+2026-10-08 04:17:11,991 | INFO | epoch=5 step=20/96 loss=0.2267 lr=2.00e-05
+2026-10-08 04:17:15,653 | INFO | epoch=5 step=40/96 loss=0.1419 lr=2.00e-05
+2026-10-08 04:17:19,350 | INFO | epoch=5 step=60/96 loss=0.3328 lr=2.00e-05
+2026-10-08 04:17:22,947 | INFO | epoch=5 step=80/96 loss=0.2948 lr=2.00e-05
+2026-10-08 04:17:30,351 | INFO | epoch=5 train_loss=0.1864 dev_loss=0.6077 acc=0.8385 macro_f1=0.8391
+2026-10-08 04:17:33,972 | INFO | epoch=6 step=20/96 loss=0.4683 lr=2.00e-05
+2026-10-08 04:17:37,617 | INFO | epoch=6 step=40/96 loss=0.0259 lr=2.00e-05
+2026-10-08 04:17:41,289 | INFO | epoch=6 step=60/96 loss=0.3268 lr=2.00e-05
+2026-10-08 04:17:44,938 | INFO | epoch=6 step=80/96 loss=0.1582 lr=2.00e-05
+2026-10-08 04:17:52,391 | INFO | epoch=6 train_loss=0.1739 dev_loss=0.6242 acc=0.8333 macro_f1=0.8342
+2026-10-08 04:17:56,094 | INFO | epoch=7 step=20/96 loss=0.0496 lr=2.00e-05
+2026-10-08 04:17:59,791 | INFO | epoch=7 step=40/96 loss=0.0289 lr=2.00e-05
+2026-10-08 04:18:03,426 | INFO | epoch=7 step=60/96 loss=0.1921 lr=2.00e-05
+2026-10-08 04:18:07,221 | INFO | epoch=7 step=80/96 loss=0.0819 lr=2.00e-05
+2026-10-08 04:18:14,648 | INFO | epoch=7 train_loss=0.1650 dev_loss=0.6373 acc=0.8281 macro_f1=0.8297
+2026-10-08 04:18:18,367 | INFO | epoch=8 step=20/96 loss=0.0408 lr=2.00e-05
+2026-10-08 04:18:22,112 | INFO | epoch=8 step=40/96 loss=0.1993 lr=2.00e-05
+2026-10-08 04:18:25,897 | INFO | epoch=8 step=60/96 loss=0.0470 lr=2.00e-05
+2026-10-08 04:18:29,674 | INFO | epoch=8 step=80/96 loss=0.0333 lr=2.00e-05
+2026-10-08 04:18:37,089 | INFO | epoch=8 train_loss=0.1558 dev_loss=0.6436 acc=0.8333 macro_f1=0.8348
+2026-10-08 04:18:40,724 | INFO | epoch=9 step=20/96 loss=0.0234 lr=2.00e-05
+2026-10-08 04:18:44,453 | INFO | epoch=9 step=40/96 loss=0.0232 lr=2.00e-05
+2026-10-08 04:18:48,085 | INFO | epoch=9 step=60/96 loss=0.0305 lr=2.00e-05
+2026-10-08 04:18:51,791 | INFO | epoch=9 step=80/96 loss=0.2208 lr=2.00e-05
+2026-10-08 04:18:59,237 | INFO | epoch=9 train_loss=0.1664 dev_loss=0.6564 acc=0.8385 macro_f1=0.8404
+2026-10-08 04:19:02,911 | INFO | epoch=10 step=20/96 loss=0.0182 lr=2.00e-05
+2026-10-08 04:19:06,619 | INFO | epoch=10 step=40/96 loss=0.3146 lr=2.00e-05
+2026-10-08 04:19:10,494 | INFO | epoch=10 step=60/96 loss=0.0120 lr=2.00e-05
+2026-10-08 04:19:14,144 | INFO | epoch=10 step=80/96 loss=0.0251 lr=2.00e-05
+2026-10-08 04:19:21,583 | INFO | epoch=10 train_loss=0.1613 dev_loss=0.6747 acc=0.8281 macro_f1=0.8306
+2026-10-08 04:19:34,077 | INFO | Saved model to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_emotion2vec
+2026-10-08 04:19:35,537 | INFO | Saved confusion matrix to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\emotion2vec_confusion_matrix.png
+2026-10-08 04:19:35,538 | INFO | Saved classification report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\emotion2vec_classification_report.csv
+2026-10-08 04:19:35,539 | INFO | Saved report to C:\hackathon\Gemini_CLI\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\emotion2vec_training_report.md
+2026-10-08 04:19:35,561 | INFO | DONE emotion2vec — test_accuracy=0.9271 macro_f1=0.9271

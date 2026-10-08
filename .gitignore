@@ -11,7 +11,12 @@ env/
 # Gigabyte-scale raw media and archive downloads (>100MB)
 data/raw/cmu_mosei/
 data/raw/ravdess/Actor_*/
+data/raw/video_fer/
 *.zip
+
+# Large processed data files (binary, regeneratable)
+data/processed/video_fer/cmu_mosei/features.npy
+data/processed/video_fer/cmu_mosei/labels.npy
 
 # Optimizer states, training caches, and intermediate checkpoints (>500MB)
 models/**/optimizer.pt
@@ -23,11 +28,19 @@ models/runs_*/checkpoint-8712/optimizer.pt
 models/runs_*/checkpoint-8712/model.safetensors
 
 # Large trained model weights (>100 MB — exceeds GitHub file limit)
-# Load from HuggingFace Hub or retrain locally using train_all_audio_models.py
+# Load from HuggingFace Hub or retrain locally
 models/audio/runs_wav2vec2/model.safetensors
 models/audio/runs_wavlm/model.safetensors
 models/audio/runs_emotion2vec/model.safetensors
 models/audio/runs_emotion2vec/model_state_dict.pt
+
+# Video model weights and checkpoints (>100 MB)
+models/video/checkpoints/**/*.pth
+models/video/checkpoints/**/*.pt
+models/video/results/**/*.pt
+
+# MAE-DFER cloned repo internal cache (Python bytecode)
+models/video/MAE-DFER/__pycache__/
 
 # OS / editor / agent cache
 .DS_Store
@@ -39,4 +52,3 @@ install.cmd
 
 # Environment
 .env
-

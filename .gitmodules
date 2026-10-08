@@ -1,0 +1,3 @@
+[submodule "models/video/MAE-DFER"]
+	path = models/video/MAE-DFER
+	url = https://github.com/sunlicai/MAE-DFER.git

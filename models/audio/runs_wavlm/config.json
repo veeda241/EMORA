@@ -129,7 +129,7 @@
     1
   ],
   "tokenizer_class": "Wav2Vec2CTCTokenizer",
-  "transformers_version": "5.14.1",
+  "transformers_version": "5.18.0",
   "use_weighted_layer_sum": false,
   "vocab_size": 32,
   "xvector_output_dim": 512
