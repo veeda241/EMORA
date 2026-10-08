@@ -1,5 +1,11 @@
 # Video Models Training & Comparison Report
 
+> **SUPERSEDED — results below are invalid.** These numbers come from the
+> fabricated video dataset (`archive/deprecated_data/fabricated_video_fer`)
+> whose features leaked the labels, making ~99.9% accuracy meaningless.
+> Valid results on the real FACET 4.2 dataset (CMU-MOSEI) are in
+> `models/video/runs_*/training_report.md` and `evaluation/comparison.py`.
+
 **Target Modality:** Video / Facial Emotion Recognition (FER)
 **Classes:** 6 (`angry`, `disgust`, `fearful`, `happy`, `sad`, `surprised`)
 **Embedding Output:** 512-dim multimodal projection vector
