@@ -24,3 +24,34 @@
 2026-10-08 10:24:31,148 | INFO | Epoch  3/10 | Train Loss: 1.2958 | Val Loss: 0.7169 | Val Acc: 0.8781 | Val Macro F1: 0.6944
 2026-10-08 10:24:35,535 | INFO | Epoch  4/10 | Train Loss: 0.7161 | Val Loss: 0.6489 | Val Acc: 0.9081 | Val Macro F1: 0.7210
 2026-10-08 10:24:39,859 | INFO | Epoch  5/10 | Train Loss: 0.4436 | Val Loss: 0.3632 | Val Acc: 0.9626 | Val Macro F1: 0.8633
+2026-10-08 10:24:44,173 | INFO | Epoch  6/10 | Train Loss: 0.3068 | Val Loss: 0.2224 | Val Acc: 0.9669 | Val Macro F1: 0.9037
+2026-10-08 10:24:48,738 | INFO | Epoch  7/10 | Train Loss: 0.2777 | Val Loss: 0.2568 | Val Acc: 0.9653 | Val Macro F1: 0.9021
+2026-10-08 10:24:54,209 | INFO | Epoch  8/10 | Train Loss: 0.2719 | Val Loss: 0.3138 | Val Acc: 0.9273 | Val Macro F1: 0.8826
+2026-10-08 10:25:00,899 | INFO | Epoch  9/10 | Train Loss: 0.2479 | Val Loss: 0.2131 | Val Acc: 0.9685 | Val Macro F1: 0.9342
+2026-10-08 10:25:07,879 | INFO | Epoch 10/10 | Train Loss: 0.2226 | Val Loss: 0.2461 | Val Acc: 0.9765 | Val Macro F1: 0.9436
+2026-10-08 10:25:07,897 | INFO | Training completed in 49.93 seconds. Best Val Macro F1: 0.9436
+2026-10-08 10:25:08,176 | INFO | === Test Evaluation Results for mae-dfer ===
+2026-10-08 10:25:08,177 | INFO | Test Accuracy:     0.9685
+2026-10-08 10:25:08,177 | INFO | Test Macro F1:    0.9412
+2026-10-08 10:25:08,177 | INFO | Test Weighted F1: 0.9689
+2026-10-08 10:25:08,177 | INFO | Test Precision:   0.9318
+2026-10-08 10:25:08,177 | INFO | Test Recall:      0.9523
+2026-10-08 10:25:08,906 | INFO | === Starting Training for Video Model: mae-dfer ===
+2026-10-08 10:25:08,966 | INFO | Dataset loaded — Train: 16327, Val: 1871, Test: 4662
+2026-10-08 10:25:15,688 | INFO | Epoch  1/10 | Train Loss: 0.6548 | Val Loss: 0.3759 | Val Acc: 0.9824 | Val Macro F1: 0.9067
+2026-10-08 10:25:21,026 | INFO | Epoch  2/10 | Train Loss: 0.4766 | Val Loss: 0.1307 | Val Acc: 0.9829 | Val Macro F1: 0.9727
+2026-10-08 10:25:26,060 | INFO | Epoch  3/10 | Train Loss: 0.3632 | Val Loss: 0.3160 | Val Acc: 0.9546 | Val Macro F1: 0.9007
+2026-10-08 10:25:31,176 | INFO | Epoch  4/10 | Train Loss: 0.4423 | Val Loss: 0.3278 | Val Acc: 0.9695 | Val Macro F1: 0.9032
+2026-10-08 10:25:36,229 | INFO | Epoch  5/10 | Train Loss: 0.1738 | Val Loss: 0.0095 | Val Acc: 0.9973 | Val Macro F1: 0.9987
+2026-10-08 10:25:41,265 | INFO | Epoch  6/10 | Train Loss: 0.0933 | Val Loss: 0.0289 | Val Acc: 0.9941 | Val Macro F1: 0.9673
+2026-10-08 10:25:46,414 | INFO | Epoch  7/10 | Train Loss: 0.0403 | Val Loss: 0.0064 | Val Acc: 0.9984 | Val Macro F1: 0.9930
+2026-10-08 10:25:51,451 | INFO | Epoch  8/10 | Train Loss: 0.0064 | Val Loss: 0.0028 | Val Acc: 0.9979 | Val Macro F1: 0.9903
+2026-10-08 10:25:56,454 | INFO | Epoch  9/10 | Train Loss: 0.0090 | Val Loss: 0.0007 | Val Acc: 0.9995 | Val Macro F1: 0.9997
+2026-10-08 10:26:01,706 | INFO | Epoch 10/10 | Train Loss: 0.0005 | Val Loss: 0.0006 | Val Acc: 0.9995 | Val Macro F1: 0.9997
+2026-10-08 10:26:01,706 | INFO | Training completed in 51.66 seconds. Best Val Macro F1: 0.9997
+2026-10-08 10:26:02,006 | INFO | === Test Evaluation Results for mae-dfer ===
+2026-10-08 10:26:02,006 | INFO | Test Accuracy:     0.9996
+2026-10-08 10:26:02,006 | INFO | Test Macro F1:    0.9985
+2026-10-08 10:26:02,006 | INFO | Test Weighted F1: 0.9996
+2026-10-08 10:26:02,006 | INFO | Test Precision:   0.9994
+2026-10-08 10:26:02,006 | INFO | Test Recall:      0.9976

@@ -17,3 +17,41 @@
 2026-10-08 10:14:55,025 | INFO | Test Weighted F1: 0.9998
 2026-10-08 10:14:55,025 | INFO | Test Precision:   0.9999
 2026-10-08 10:14:55,025 | INFO | Test Recall:      0.9997
+2026-10-08 10:25:08,382 | INFO | === Starting Training for Video Model: est ===
+2026-10-08 10:25:08,450 | INFO | Dataset loaded — Train: 16327, Val: 1871, Test: 4662
+2026-10-08 10:25:13,168 | INFO | Epoch  1/10 | Train Loss: 0.3846 | Val Loss: 0.5695 | Val Acc: 0.9588 | Val Macro F1: 0.8872
+2026-10-08 10:25:17,753 | INFO | Epoch  2/10 | Train Loss: 0.1934 | Val Loss: 0.1564 | Val Acc: 0.9642 | Val Macro F1: 0.9679
+2026-10-08 10:25:22,141 | INFO | Epoch  3/10 | Train Loss: 0.2077 | Val Loss: 0.2807 | Val Acc: 0.9770 | Val Macro F1: 0.9499
+2026-10-08 10:25:26,250 | INFO | Epoch  4/10 | Train Loss: 0.1333 | Val Loss: 0.4104 | Val Acc: 0.9872 | Val Macro F1: 0.9429
+2026-10-08 10:25:30,463 | INFO | Epoch  5/10 | Train Loss: 0.0484 | Val Loss: 0.1328 | Val Acc: 0.9840 | Val Macro F1: 0.9730
+2026-10-08 10:25:34,597 | INFO | Epoch  6/10 | Train Loss: 0.0369 | Val Loss: 0.0301 | Val Acc: 0.9984 | Val Macro F1: 0.9917
+2026-10-08 10:25:38,776 | INFO | Epoch  7/10 | Train Loss: 0.0036 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:25:42,927 | INFO | Epoch  8/10 | Train Loss: 0.0007 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:25:47,088 | INFO | Epoch  9/10 | Train Loss: 0.0001 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:25:51,273 | INFO | Epoch 10/10 | Train Loss: 0.0001 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:25:51,273 | INFO | Training completed in 42.81 seconds. Best Val Macro F1: 1.0000
+2026-10-08 10:25:51,591 | INFO | === Test Evaluation Results for est ===
+2026-10-08 10:25:51,591 | INFO | Test Accuracy:     0.9998
+2026-10-08 10:25:51,591 | INFO | Test Macro F1:    0.9999
+2026-10-08 10:25:51,591 | INFO | Test Weighted F1: 0.9998
+2026-10-08 10:25:51,591 | INFO | Test Precision:   0.9999
+2026-10-08 10:25:51,591 | INFO | Test Recall:      0.9999
+2026-10-08 10:26:02,151 | INFO | === Starting Training for Video Model: est ===
+2026-10-08 10:26:02,214 | INFO | Dataset loaded — Train: 16327, Val: 1871, Test: 4662
+2026-10-08 10:26:06,315 | INFO | Epoch  1/10 | Train Loss: 0.3930 | Val Loss: 0.7317 | Val Acc: 0.9663 | Val Macro F1: 0.8702
+2026-10-08 10:26:10,437 | INFO | Epoch  2/10 | Train Loss: 0.2293 | Val Loss: 0.1217 | Val Acc: 0.9738 | Val Macro F1: 0.9177
+2026-10-08 10:26:14,647 | INFO | Epoch  3/10 | Train Loss: 0.1028 | Val Loss: 0.0574 | Val Acc: 0.9909 | Val Macro F1: 0.9788
+2026-10-08 10:26:18,764 | INFO | Epoch  4/10 | Train Loss: 0.1267 | Val Loss: 0.0986 | Val Acc: 0.9711 | Val Macro F1: 0.9606
+2026-10-08 10:26:22,863 | INFO | Epoch  5/10 | Train Loss: 0.0732 | Val Loss: 0.0035 | Val Acc: 0.9989 | Val Macro F1: 0.9990
+2026-10-08 10:26:27,019 | INFO | Epoch  6/10 | Train Loss: 0.0432 | Val Loss: 0.1061 | Val Acc: 0.9931 | Val Macro F1: 0.9802
+2026-10-08 10:26:31,181 | INFO | Epoch  7/10 | Train Loss: 0.0162 | Val Loss: 0.0002 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:26:35,265 | INFO | Epoch  8/10 | Train Loss: 0.0036 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:26:39,040 | INFO | Epoch  9/10 | Train Loss: 0.0001 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:26:42,835 | INFO | Epoch 10/10 | Train Loss: 0.0001 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:26:42,835 | INFO | Training completed in 40.61 seconds. Best Val Macro F1: 1.0000
+2026-10-08 10:26:43,073 | INFO | === Test Evaluation Results for est ===
+2026-10-08 10:26:43,073 | INFO | Test Accuracy:     0.9994
+2026-10-08 10:26:43,073 | INFO | Test Macro F1:    0.9994
+2026-10-08 10:26:43,073 | INFO | Test Weighted F1: 0.9994
+2026-10-08 10:26:43,073 | INFO | Test Precision:   0.9997
+2026-10-08 10:26:43,073 | INFO | Test Recall:      0.9991
