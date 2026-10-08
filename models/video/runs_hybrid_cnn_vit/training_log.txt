@@ -1,0 +1,19 @@
+2026-10-08 10:14:55,154 | INFO | === Starting Training for Video Model: hybrid-cnn-vit ===
+2026-10-08 10:14:55,206 | INFO | Dataset loaded — Train: 16327, Val: 1871, Test: 4662
+2026-10-08 10:14:59,444 | INFO | Epoch  1/10 | Train Loss: 0.3943 | Val Loss: 0.0643 | Val Acc: 0.9877 | Val Macro F1: 0.9708
+2026-10-08 10:15:03,679 | INFO | Epoch  2/10 | Train Loss: 0.2264 | Val Loss: 0.0118 | Val Acc: 0.9973 | Val Macro F1: 0.9888
+2026-10-08 10:15:07,796 | INFO | Epoch  3/10 | Train Loss: 0.1288 | Val Loss: 0.2533 | Val Acc: 0.9898 | Val Macro F1: 0.9651
+2026-10-08 10:15:11,961 | INFO | Epoch  4/10 | Train Loss: 0.1283 | Val Loss: 0.0638 | Val Acc: 0.9872 | Val Macro F1: 0.9591
+2026-10-08 10:15:16,141 | INFO | Epoch  5/10 | Train Loss: 0.0522 | Val Loss: 0.0051 | Val Acc: 0.9984 | Val Macro F1: 0.9962
+2026-10-08 10:15:20,286 | INFO | Epoch  6/10 | Train Loss: 0.0395 | Val Loss: 0.0017 | Val Acc: 0.9995 | Val Macro F1: 0.9997
+2026-10-08 10:15:24,456 | INFO | Epoch  7/10 | Train Loss: 0.0432 | Val Loss: 0.0079 | Val Acc: 0.9979 | Val Macro F1: 0.9983
+2026-10-08 10:15:28,582 | INFO | Epoch  8/10 | Train Loss: 0.0162 | Val Loss: 0.0050 | Val Acc: 0.9984 | Val Macro F1: 0.9992
+2026-10-08 10:15:32,669 | INFO | Epoch  9/10 | Train Loss: 0.0184 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:15:36,656 | INFO | Epoch 10/10 | Train Loss: 0.0119 | Val Loss: 0.0001 | Val Acc: 1.0000 | Val Macro F1: 1.0000
+2026-10-08 10:15:36,657 | INFO | Training completed in 41.44 seconds. Best Val Macro F1: 1.0000
+2026-10-08 10:15:36,987 | INFO | === Test Evaluation Results for hybrid-cnn-vit ===
+2026-10-08 10:15:36,987 | INFO | Test Accuracy:     0.9998
+2026-10-08 10:15:36,987 | INFO | Test Macro F1:    0.9989
+2026-10-08 10:15:36,987 | INFO | Test Weighted F1: 0.9998
+2026-10-08 10:15:36,987 | INFO | Test Precision:   0.9979
+2026-10-08 10:15:36,987 | INFO | Test Recall:      0.9999

@@ -45,18 +45,17 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 # Project Root setup
-PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent
-MODELS_DIR = pathlib.Path(__file__).resolve().parent
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[2]
+MODELS_DIR = PROJECT_ROOT / "models"
 
 for p in [str(PROJECT_ROOT), str(MODELS_DIR)]:
     if p not in sys.path:
         sys.path.insert(0, p)
 
 try:
-    import comparison_grid
-    MODEL_REGISTRY = comparison_grid.MODEL_REGISTRY
+    from compare import MODEL_REGISTRY
 except ImportError:
-    from models.comparison_grid import MODEL_REGISTRY
+    from models.compare import MODEL_REGISTRY
 
 PROCESSED_VIDEO_DIR = PROJECT_ROOT / "data" / "processed" / "video_fer"
 VIDEO_OUT_DIR = PROJECT_ROOT / "models" / "video"
