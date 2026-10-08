@@ -12,16 +12,16 @@ if str(ROOT) not in sys.path:
 
 from src.pipeline.audio_pipeline import AudioPipeline  # noqa: E402
 
-CKPT = ROOT / "models" / "audio" / "runs_wav2vec2" / "model.safetensors"
+CKPT = ROOT / "models" / "audio" / "runs_emotion2vec" / "model_state_dict.pt"
 
 pytestmark = pytest.mark.skipif(
-    not CKPT.exists(), reason="fine-tuned wav2vec2 checkpoint not available"
+    not CKPT.exists(), reason="trained emotion2vec head not available"
 )
 
 
 @pytest.fixture(scope="module")
 def pipeline():
-    return AudioPipeline("wav2vec2")
+    return AudioPipeline("emotion2vec")
 
 
 def test_labels_match_shared_vocabulary(pipeline):

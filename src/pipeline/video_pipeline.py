@@ -1,9 +1,10 @@
 """Video modality pipeline: FACET feature extraction and emotion inference.
 
-Wraps the three trained video FER models (mae-dfer / est / hybrid-cnn-vit).
-Input is a (T, 35) FACET 4.2 frame sequence; it is pooled to the fixed
-16-frame length the models expect, normalized with the dataset's train
-statistics, and classified.
+Wraps the winning video FER model (hybrid-cnn-vit — best of the three in
+models/video/VIDEO_MODELS_TRAINING_REPORT.md; mae-dfer and est are archived
+under archive/old_models/video/). Input is a (T, 35) FACET 4.2 frame sequence;
+it is pooled to the fixed 16-frame length the model expects, normalized with
+the dataset's train statistics, and classified.
 """
 
 from __future__ import annotations
@@ -54,7 +55,7 @@ def pool_frames(frames: np.ndarray, seq_len: int = SEQ_LEN) -> np.ndarray:
 class VideoPipeline:
     """Feature-level video emotion pipeline for one trained model."""
 
-    MODEL_KEYS = ("mae-dfer", "est", "hybrid-cnn-vit")
+    MODEL_KEYS = ("hybrid-cnn-vit",)
 
     def __init__(self, model_key: str = "hybrid-cnn-vit", device: str | None = None):
         if model_key not in self.MODEL_KEYS:

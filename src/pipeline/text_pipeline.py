@@ -1,9 +1,11 @@
-"""Text modality pipeline: GoEmotions DeBERTa inference collapsed to 6 classes.
+"""Text modality pipeline: GoEmotions RoBERTa inference collapsed to 6 classes.
 
 Primary path loads the fine-tuned checkpoint from
-models/text/checkpoints/runs_deberta-v3-base/checkpoint-*/ — the GoEmotions
+models/text/checkpoints/runs_roberta-base/checkpoint-*/ — the GoEmotions
 28-class probabilities are collapsed onto the shared 6-class space using the
-official GoEmotions->Ekman taxonomy (models/common/label_mapping.py).
+official GoEmotions->Ekman taxonomy (models/common/label_mapping.py). RoBERTa
+tied BERT on the 28-class macro-F1 leaderboard (models/text_model_analysis.md);
+BERT and the crashed DeBERTa run are archived under archive/old_models/text/.
 
 If the checkpoint directory has no model weights (only config/tokenizer, as is
 currently the case), the pipeline falls back to a transparent lexicon scorer so
@@ -27,7 +29,7 @@ from models.common.label_mapping import (  # noqa: E402
     collapse_goemotions_probs,
 )
 
-TEXTCHECKPOINT_DIR = ROOT / "models" / "text" / "checkpoints" / "runs_deberta-v3-base"
+TEXTCHECKPOINT_DIR = ROOT / "models" / "text" / "checkpoints" / "runs_roberta-base"
 
 # Lexicon fallback (used only when no fine-tuned weights are available).
 LEXICON = {
@@ -83,7 +85,7 @@ class TextPipeline:
             logits = self.model(**inputs).logits
         probs = torch.sigmoid(logits)[0].cpu().numpy()  # GoEmotions is multi-label
         shared = np.asarray(collapse_goemotions_probs(self.goemotions_labels, probs))
-        return self._package(shared, "goemotions-deberta")
+        return self._package(shared, "goemotions-roberta")
 
     def _predict_lexicon(self, text: str) -> dict:
         tokens = set(t.strip(".,!?;:'\"()").lower() for t in text.split())
@@ -114,4 +116,4 @@ class TextPipeline:
         return self._predict_lexicon(text)
 
     def backend_name(self) -> str:
-        return "goemotions-deberta" if self.backend == "transformers" else "lexicon-fallback"
+        return "goemotions-roberta" if self.backend == "transformers" else "lexicon-fallback"

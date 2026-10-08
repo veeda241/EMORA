@@ -55,7 +55,7 @@ def evaluate_mfn(device: str = "cuda") -> dict:
 
 
 def evaluate_video_models(device: str = "cuda") -> list[dict]:
-    """Evaluate each trained video model on the video-only test split."""
+    """Evaluate the winning video model on the video-only test split."""
     import torch
 
     from models.video.train import build_model
@@ -68,11 +68,9 @@ def evaluate_video_models(device: str = "cuda") -> list[dict]:
     data = np.load(video_dir / "test_data.npz")
     x, y = data["features"], data["labels"]
 
-    registry = {
-        "mae-dfer": "mae_dfer",
-        "est": "est",
-        "hybrid-cnn-vit": "hybrid_cnn_vit",
-    }
+    # mae-dfer and est are archived under archive/old_models/video/; the
+    # hybrid-cnn-vit is the production video model.
+    registry = {"hybrid-cnn-vit": "hybrid_cnn_vit"}
     for key, subdir in registry.items():
         ckpt = ROOT / "models" / "video" / f"runs_{subdir}" / "best_model.pt"
         if not ckpt.exists():
