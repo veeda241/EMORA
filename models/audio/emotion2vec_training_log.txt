@@ -1,0 +1,76 @@
+2026-10-08 12:45:53,307 | INFO | ============================================================
+2026-10-08 12:45:53,307 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-08 12:45:53,307 | INFO | audio_root: C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-08 12:45:53,308 | INFO | args: Namespace(model='all', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-08 12:45:53,308 | INFO | ============================================================
+2026-10-08 12:45:53,310 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-08 12:45:53,324 | INFO | Dataset validation passed.
+2026-10-08 12:45:53,324 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-08 12:45:53,324 | INFO | Loading checkpoint: iic/emotion2vec_base_finetuned
+2026-10-08 12:45:53,324 | ERROR | Skipping emotion2vec — missing dependency: emotion2vec requires the funasr package.
+Install it with:  pip install modelscope funasr addict
+Then re-run with --model emotion2vec.
+2026-10-08 14:01:45,099 | INFO | ============================================================
+2026-10-08 14:01:45,099 | INFO | Training model: emotion2vec  dataset: ravdess
+2026-10-08 14:01:45,099 | INFO | audio_root: C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-08 14:01:45,099 | INFO | args: Namespace(model='emotion2vec', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-08 14:01:45,100 | INFO | ============================================================
+2026-10-08 14:01:48,683 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-08 14:01:48,696 | INFO | Dataset validation passed.
+2026-10-08 14:01:48,697 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-08 14:01:48,697 | INFO | Loading checkpoint: iic/emotion2vec_base_finetuned
+2026-10-08 14:02:03,541 | INFO | epoch=1 step=20/96 loss=1.2368 lr=2.00e-05
+2026-10-08 14:02:06,479 | INFO | epoch=1 step=40/96 loss=1.1635 lr=2.00e-05
+2026-10-08 14:02:09,403 | INFO | epoch=1 step=60/96 loss=0.7392 lr=2.00e-05
+2026-10-08 14:02:12,251 | INFO | epoch=1 step=80/96 loss=0.7229 lr=2.00e-05
+2026-10-08 14:02:18,357 | INFO | epoch=1 train_loss=1.0373 dev_loss=0.6778 acc=0.8438 macro_f1=0.8454
+2026-10-08 14:02:20,915 | INFO | epoch=2 step=20/96 loss=0.2899 lr=2.00e-05
+2026-10-08 14:02:23,523 | INFO | epoch=2 step=40/96 loss=0.3504 lr=2.00e-05
+2026-10-08 14:02:26,144 | INFO | epoch=2 step=60/96 loss=0.3636 lr=2.00e-05
+2026-10-08 14:02:28,731 | INFO | epoch=2 step=80/96 loss=0.8009 lr=2.00e-05
+2026-10-08 14:02:33,942 | INFO | epoch=2 train_loss=0.3477 dev_loss=0.5394 acc=0.8490 macro_f1=0.8496
+2026-10-08 14:02:36,597 | INFO | epoch=3 step=20/96 loss=0.6535 lr=2.00e-05
+2026-10-08 14:02:39,240 | INFO | epoch=3 step=40/96 loss=0.1612 lr=2.00e-05
+2026-10-08 14:02:41,858 | INFO | epoch=3 step=60/96 loss=0.0556 lr=2.00e-05
+2026-10-08 14:02:44,441 | INFO | epoch=3 step=80/96 loss=0.0696 lr=2.00e-05
+2026-10-08 14:02:49,425 | INFO | epoch=3 train_loss=0.2283 dev_loss=0.5618 acc=0.8385 macro_f1=0.8393
+2026-10-08 14:02:51,976 | INFO | epoch=4 step=20/96 loss=0.0564 lr=2.00e-05
+2026-10-08 14:02:54,518 | INFO | epoch=4 step=40/96 loss=0.0969 lr=2.00e-05
+2026-10-08 14:02:57,102 | INFO | epoch=4 step=60/96 loss=0.3753 lr=2.00e-05
+2026-10-08 14:02:59,671 | INFO | epoch=4 step=80/96 loss=1.0276 lr=2.00e-05
+2026-10-08 14:03:04,708 | INFO | epoch=4 train_loss=0.1954 dev_loss=0.5861 acc=0.8333 macro_f1=0.8341
+2026-10-08 14:03:07,195 | INFO | epoch=5 step=20/96 loss=0.2269 lr=2.00e-05
+2026-10-08 14:03:09,805 | INFO | epoch=5 step=40/96 loss=0.1420 lr=2.00e-05
+2026-10-08 14:03:12,376 | INFO | epoch=5 step=60/96 loss=0.3328 lr=2.00e-05
+2026-10-08 14:03:14,892 | INFO | epoch=5 step=80/96 loss=0.2948 lr=2.00e-05
+2026-10-08 14:03:20,035 | INFO | epoch=5 train_loss=0.1863 dev_loss=0.6078 acc=0.8385 macro_f1=0.8391
+2026-10-08 14:03:22,540 | INFO | epoch=6 step=20/96 loss=0.4683 lr=2.00e-05
+2026-10-08 14:03:25,103 | INFO | epoch=6 step=40/96 loss=0.0258 lr=2.00e-05
+2026-10-08 14:03:27,681 | INFO | epoch=6 step=60/96 loss=0.3271 lr=2.00e-05
+2026-10-08 14:03:30,223 | INFO | epoch=6 step=80/96 loss=0.1582 lr=2.00e-05
+2026-10-08 14:03:35,569 | INFO | epoch=6 train_loss=0.1739 dev_loss=0.6243 acc=0.8333 macro_f1=0.8342
+2026-10-08 14:03:38,045 | INFO | epoch=7 step=20/96 loss=0.0495 lr=2.00e-05
+2026-10-08 14:03:40,735 | INFO | epoch=7 step=40/96 loss=0.0289 lr=2.00e-05
+2026-10-08 14:03:43,347 | INFO | epoch=7 step=60/96 loss=0.1925 lr=2.00e-05
+2026-10-08 14:03:45,935 | INFO | epoch=7 step=80/96 loss=0.0819 lr=2.00e-05
+2026-10-08 14:03:51,083 | INFO | epoch=7 train_loss=0.1650 dev_loss=0.6373 acc=0.8281 macro_f1=0.8297
+2026-10-08 14:03:53,627 | INFO | epoch=8 step=20/96 loss=0.0408 lr=2.00e-05
+2026-10-08 14:03:56,328 | INFO | epoch=8 step=40/96 loss=0.1991 lr=2.00e-05
+2026-10-08 14:03:58,972 | INFO | epoch=8 step=60/96 loss=0.0470 lr=2.00e-05
+2026-10-08 14:04:01,531 | INFO | epoch=8 step=80/96 loss=0.0332 lr=2.00e-05
+2026-10-08 14:04:06,808 | INFO | epoch=8 train_loss=0.1558 dev_loss=0.6436 acc=0.8333 macro_f1=0.8348
+2026-10-08 14:04:09,413 | INFO | epoch=9 step=20/96 loss=0.0234 lr=2.00e-05
+2026-10-08 14:04:11,991 | INFO | epoch=9 step=40/96 loss=0.0232 lr=2.00e-05
+2026-10-08 14:04:14,505 | INFO | epoch=9 step=60/96 loss=0.0305 lr=2.00e-05
+2026-10-08 14:04:17,003 | INFO | epoch=9 step=80/96 loss=0.2203 lr=2.00e-05
+2026-10-08 14:04:22,152 | INFO | epoch=9 train_loss=0.1664 dev_loss=0.6565 acc=0.8385 macro_f1=0.8404
+2026-10-08 14:04:24,650 | INFO | epoch=10 step=20/96 loss=0.0182 lr=2.00e-05
+2026-10-08 14:04:27,275 | INFO | epoch=10 step=40/96 loss=0.3144 lr=2.00e-05
+2026-10-08 14:04:29,883 | INFO | epoch=10 step=60/96 loss=0.0120 lr=2.00e-05
+2026-10-08 14:04:32,478 | INFO | epoch=10 step=80/96 loss=0.0252 lr=2.00e-05
+2026-10-08 14:04:37,639 | INFO | epoch=10 train_loss=0.1614 dev_loss=0.6747 acc=0.8281 macro_f1=0.8306
+2026-10-08 14:04:43,864 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_emotion2vec
+2026-10-08 14:04:44,050 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\emotion2vec_confusion_matrix.png
+2026-10-08 14:04:44,051 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\emotion2vec_classification_report.csv
+2026-10-08 14:04:44,051 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\emotion2vec_training_report.md
+2026-10-08 14:04:44,079 | INFO | DONE emotion2vec — test_accuracy=0.9271 macro_f1=0.9271

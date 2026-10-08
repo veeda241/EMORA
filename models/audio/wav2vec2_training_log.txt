@@ -1,0 +1,76 @@
+2026-10-08 12:41:41,134 | INFO | ============================================================
+2026-10-08 12:41:41,135 | INFO | Training model: wav2vec2  dataset: ravdess
+2026-10-08 12:41:41,135 | INFO | audio_root: C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-08 12:41:41,135 | INFO | args: Namespace(model='all', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-08 12:41:41,135 | INFO | ============================================================
+2026-10-08 12:41:44,897 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-08 12:41:44,911 | INFO | Dataset validation passed.
+2026-10-08 12:41:44,913 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-08 12:41:44,913 | INFO | Loading checkpoint: facebook/wav2vec2-base
+2026-10-08 12:41:58,668 | INFO | epoch=1 step=20/96 loss=1.8054 lr=2.00e-05
+2026-10-08 12:42:01,113 | INFO | epoch=1 step=40/96 loss=1.7092 lr=2.00e-05
+2026-10-08 12:42:03,448 | INFO | epoch=1 step=60/96 loss=1.7091 lr=2.00e-05
+2026-10-08 12:42:05,813 | INFO | epoch=1 step=80/96 loss=1.5671 lr=2.00e-05
+2026-10-08 12:42:08,826 | INFO | epoch=1 train_loss=1.6968 dev_loss=1.5764 acc=0.3802 macro_f1=0.3227
+2026-10-08 12:42:10,799 | INFO | epoch=2 step=20/96 loss=1.4835 lr=2.00e-05
+2026-10-08 12:42:12,680 | INFO | epoch=2 step=40/96 loss=1.1591 lr=2.00e-05
+2026-10-08 12:42:14,547 | INFO | epoch=2 step=60/96 loss=1.2138 lr=2.00e-05
+2026-10-08 12:42:16,417 | INFO | epoch=2 step=80/96 loss=1.2211 lr=2.00e-05
+2026-10-08 12:42:18,511 | INFO | epoch=2 train_loss=1.3533 dev_loss=1.4157 acc=0.4375 macro_f1=0.4179
+2026-10-08 12:42:20,543 | INFO | epoch=3 step=20/96 loss=0.9509 lr=2.00e-05
+2026-10-08 12:42:22,463 | INFO | epoch=3 step=40/96 loss=0.7660 lr=2.00e-05
+2026-10-08 12:42:24,709 | INFO | epoch=3 step=60/96 loss=0.9257 lr=2.00e-05
+2026-10-08 12:42:26,827 | INFO | epoch=3 step=80/96 loss=0.6971 lr=2.00e-05
+2026-10-08 12:42:29,031 | INFO | epoch=3 train_loss=0.9075 dev_loss=1.1026 acc=0.6406 macro_f1=0.6388
+2026-10-08 12:42:31,135 | INFO | epoch=4 step=20/96 loss=0.5784 lr=2.00e-05
+2026-10-08 12:42:33,096 | INFO | epoch=4 step=40/96 loss=0.4064 lr=2.00e-05
+2026-10-08 12:42:35,063 | INFO | epoch=4 step=60/96 loss=0.7116 lr=2.00e-05
+2026-10-08 12:42:37,049 | INFO | epoch=4 step=80/96 loss=0.2719 lr=2.00e-05
+2026-10-08 12:42:39,259 | INFO | epoch=4 train_loss=0.5804 dev_loss=1.0734 acc=0.6458 macro_f1=0.6428
+2026-10-08 12:42:41,314 | INFO | epoch=5 step=20/96 loss=0.4813 lr=2.00e-05
+2026-10-08 12:42:43,277 | INFO | epoch=5 step=40/96 loss=0.2207 lr=2.00e-05
+2026-10-08 12:42:45,233 | INFO | epoch=5 step=60/96 loss=0.2073 lr=2.00e-05
+2026-10-08 12:42:47,203 | INFO | epoch=5 step=80/96 loss=0.3360 lr=2.00e-05
+2026-10-08 12:42:49,430 | INFO | epoch=5 train_loss=0.3719 dev_loss=1.0195 acc=0.7188 macro_f1=0.7107
+2026-10-08 12:42:51,464 | INFO | epoch=6 step=20/96 loss=0.1056 lr=2.00e-05
+2026-10-08 12:42:53,412 | INFO | epoch=6 step=40/96 loss=0.6399 lr=2.00e-05
+2026-10-08 12:42:55,362 | INFO | epoch=6 step=60/96 loss=0.0709 lr=2.00e-05
+2026-10-08 12:42:57,354 | INFO | epoch=6 step=80/96 loss=0.4635 lr=2.00e-05
+2026-10-08 12:42:59,561 | INFO | epoch=6 train_loss=0.1964 dev_loss=1.0363 acc=0.7396 macro_f1=0.7375
+2026-10-08 12:43:01,535 | INFO | epoch=7 step=20/96 loss=0.0464 lr=2.00e-05
+2026-10-08 12:43:03,530 | INFO | epoch=7 step=40/96 loss=0.0522 lr=2.00e-05
+2026-10-08 12:43:05,472 | INFO | epoch=7 step=60/96 loss=0.3190 lr=2.00e-05
+2026-10-08 12:43:07,397 | INFO | epoch=7 step=80/96 loss=0.0379 lr=2.00e-05
+2026-10-08 12:43:09,642 | INFO | epoch=7 train_loss=0.1223 dev_loss=0.9670 acc=0.8021 macro_f1=0.8030
+2026-10-08 12:43:11,731 | INFO | epoch=8 step=20/96 loss=0.0283 lr=2.00e-05
+2026-10-08 12:43:13,673 | INFO | epoch=8 step=40/96 loss=0.0241 lr=2.00e-05
+2026-10-08 12:43:15,669 | INFO | epoch=8 step=60/96 loss=0.6590 lr=2.00e-05
+2026-10-08 12:43:17,617 | INFO | epoch=8 step=80/96 loss=0.0213 lr=2.00e-05
+2026-10-08 12:43:19,856 | INFO | epoch=8 train_loss=0.0627 dev_loss=1.1782 acc=0.7708 macro_f1=0.7787
+2026-10-08 12:43:21,804 | INFO | epoch=9 step=20/96 loss=0.0165 lr=2.00e-05
+2026-10-08 12:43:23,774 | INFO | epoch=9 step=40/96 loss=0.0161 lr=2.00e-05
+2026-10-08 12:43:25,760 | INFO | epoch=9 step=60/96 loss=0.0135 lr=2.00e-05
+2026-10-08 12:43:27,730 | INFO | epoch=9 step=80/96 loss=0.0147 lr=2.00e-05
+2026-10-08 12:43:29,944 | INFO | epoch=9 train_loss=0.0573 dev_loss=1.5480 acc=0.7188 macro_f1=0.7127
+2026-10-08 12:43:31,883 | INFO | epoch=10 step=20/96 loss=0.0119 lr=2.00e-05
+2026-10-08 12:43:33,849 | INFO | epoch=10 step=40/96 loss=0.0103 lr=2.00e-05
+2026-10-08 12:43:35,805 | INFO | epoch=10 step=60/96 loss=0.0114 lr=2.00e-05
+2026-10-08 12:43:37,736 | INFO | epoch=10 step=80/96 loss=0.0112 lr=2.00e-05
+2026-10-08 12:43:40,095 | INFO | epoch=10 train_loss=0.0956 dev_loss=1.7710 acc=0.6927 macro_f1=0.6924
+2026-10-08 12:43:43,160 | INFO | Saved model to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\runs_wav2vec2
+2026-10-08 12:43:43,498 | INFO | Saved confusion matrix to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_confusion_matrix.png
+2026-10-08 12:43:43,499 | INFO | Saved classification report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_classification_report.csv
+2026-10-08 12:43:43,499 | INFO | Saved report to C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\models\audio\wav2vec2_training_report.md
+2026-10-08 12:43:43,542 | INFO | DONE wav2vec2 — test_accuracy=0.7240 macro_f1=0.7182
+2026-10-08 14:04:47,332 | INFO | ============================================================
+2026-10-08 14:04:47,333 | INFO | Training model: wav2vec2  dataset: ravdess
+2026-10-08 14:04:47,333 | INFO | audio_root: C:\Users\ADMIN\Downloads\spiderboy projects\LLM-based-conversational-agents-for-behaviour-change-support\data\raw\ravdess
+2026-10-08 14:04:47,333 | INFO | args: Namespace(model='all', dataset='ravdess', epochs=10, batch_size=8, learning_rate=2e-05, seed=42, log_interval=20, audio_root='C:\\Users\\ADMIN\\Downloads\\spiderboy projects\\LLM-based-conversational-agents-for-behaviour-change-support\\data\\raw\\ravdess', max_train_samples=None, skip_audio_check=False)
+2026-10-08 14:04:47,333 | INFO | ============================================================
+2026-10-08 14:04:48,137 | INFO | RAVDESS rows — train=768 dev=192 test=192 | labels=['angry', 'disgust', 'fearful', 'happy', 'sad', 'surprised']
+2026-10-08 14:04:48,151 | INFO | Dataset validation passed.
+2026-10-08 14:04:48,153 | INFO | Device: cuda (NVIDIA GeForce RTX 5060 Ti)
+2026-10-08 14:04:48,153 | INFO | Loading checkpoint: facebook/wav2vec2-base
+2026-10-08 14:04:59,467 | INFO | epoch=1 step=20/96 loss=1.8054 lr=2.00e-05
+2026-10-08 14:05:01,730 | INFO | epoch=1 step=40/96 loss=1.7092 lr=2.00e-05
+2026-10-08 14:05:03,883 | INFO | epoch=1 step=60/96 loss=1.7091 lr=2.00e-05
