@@ -38,6 +38,10 @@ models/audio/runs_emotion2vec/model_state_dict.pt
 models/video/checkpoints/**/*.pth
 models/video/checkpoints/**/*.pt
 models/video/results/**/*.pt
+models/video/runs_*/best_model.pt
+
+# Large preprocessed numpy archives (regeneratable)
+data/processed/video_fer/*.npz
 
 # MAE-DFER cloned repo internal cache (Python bytecode)
 models/video/MAE-DFER/__pycache__/
