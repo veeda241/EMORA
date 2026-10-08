@@ -4,17 +4,21 @@ Orchestrates the full loop:
     user input (text / audio / video features)
       -> per-modality emotion estimate (or MFN feature fusion)
       -> ConversationMemory update
-      -> ResponseGenerator reply conditioned on the emotion trajectory
+      -> composite EmotionalState (current + recent history + behavioural trend)
+      -> ResponseStrategy selection
+      -> ResponseGenerator reply following that strategy
 """
 
 from __future__ import annotations
 
+from dataclasses import asdict
 from typing import Any
 
 import numpy as np
 import torch
 
 from src.config import CONFIG
+from src.conversation.emotional_state import assess_emotional_state, select_strategy
 from src.conversation.memory import ConversationMemory
 from src.conversation.response_generator import ResponseGenerator
 from src.fusion.emotion_fusion import EmotionFusion
@@ -31,8 +35,9 @@ class BehaviourChangeAgent:
         llm_config: dict[str, Any] | None = None,
         fusion_weights: dict[str, float] | None = None,
         device: str | None = None,
+        memory_path: str | None = None,
     ):
-        self.memory = ConversationMemory(user_id=user_id, goal=goal)
+        self.memory = ConversationMemory(user_id=user_id, goal=goal, storage_path=memory_path)
         self.fusion = EmotionFusion(fusion_weights)
         self.generator = ResponseGenerator(llm_config)
         self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
@@ -89,19 +94,31 @@ class BehaviourChangeAgent:
         modality_predictions: dict[str, np.ndarray] | None = None,
         aligned_sequences: tuple[np.ndarray, np.ndarray, np.ndarray] | None = None,
     ) -> dict:
-        """Process one user turn and return the agent's reply."""
+        """Process one user turn and return the agent's reply.
+
+        The returned dict exposes every pipeline block so the chain is
+        inspectable end to end: raw emotion estimate, composite emotional
+        state, selected response strategy, and the memory summary.
+        """
         emotion = self.estimate_emotion(modality_predictions, aligned_sequences)
         self.memory.add_user_turn(
             user_text,
             emotion=emotion["label"] if emotion else None,
             confidence=emotion["confidence"] if emotion else None,
         )
-        reply = self.generator.generate(self.memory, emotion["label"] if emotion else None,
-                                        emotion["confidence"] if emotion else None)
+        state = assess_emotional_state(
+            self.memory,
+            emotion["label"] if emotion else None,
+            emotion["confidence"] if emotion else None,
+        )
+        strategy = select_strategy(state)
+        reply = self.generator.generate(self.memory, state, strategy)
         self.memory.add_agent_turn(reply)
         return {
             "reply": reply,
             "emotion": emotion,
+            "emotional_state": asdict(state),
+            "strategy": asdict(strategy),
             "memory": self.memory.summary(),
         }
 
@@ -128,7 +145,9 @@ def demo() -> None:
         out = agent.respond(user_text)
         emo = out["emotion"]
         tag = f" ({emo['label']}, {emo['confidence']:.2f})" if emo else ""
-        print(f"Agent{tag}: {out['reply']}\n")
+        strat = out["strategy"]["name"]
+        trend = out["emotional_state"]["trend"]
+        print(f"Agent{tag} [strategy={strat}, trend={trend}]: {out['reply']}\n")
 
 
 if __name__ == "__main__":

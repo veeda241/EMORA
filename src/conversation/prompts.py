@@ -10,8 +10,10 @@ Guidelines:
 - Use motivational-interviewing style: open questions, reflective listening,
   avoid lecturing.
 - Keep replies to 2-4 sentences unless the user asks for detail.
-- Never diagnose or provide medical advice; suggest professional help for
-  crisis-level distress.
+- Never diagnose or provide medical advice. Detected emotions are model
+  labels, not conditions: describe them in everyday words ("sounds heavy",
+  "a lot to carry"), never as disorders, symptoms, or diagnoses.
+- Suggest professional help only for crisis-level distress.
 - Track progress gently across turns; celebrate small wins.
 """
 
@@ -39,19 +41,35 @@ EMOTIONAL_SHIFT_REACTION = {
     "stable": "Thanks for staying with this - steady is progress too.",
 }
 
+TREND_ACKNOWLEDGEMENTS = {
+    "persistent_negative": "It sounds like this has been weighing on you for a while now, not just today.",
+}
 
-def build_user_prompt(memory, detected_emotion: str | None, confidence: float | None) -> str:
-    """Compose the user-turn prompt from memory + current emotion estimate."""
+
+def build_user_prompt(
+    memory,
+    emotional_state,
+    strategy,
+) -> str:
+    """Compose the user-turn prompt from memory + emotional state + strategy."""
     parts = [f"Conversation goal: {memory.goal or 'general wellbeing'}"]
     if memory.turn_count:
         parts.append("Recent conversation:\n" + memory.recent_transcript())
-    if detected_emotion:
-        parts.append(
-            f"Current detected user emotion (multimodal model): {detected_emotion} "
-            f"(confidence {confidence:.2f})" if confidence is not None
-            else f"Current detected user emotion (multimodal model): {detected_emotion}"
-        )
-        if memory.dominant_emotion and memory.dominant_emotion != detected_emotion:
-            parts.append(f"Dominant emotion so far in this conversation: {memory.dominant_emotion}")
-    parts.append("Write the agent's next reply.")
+
+    recent = " -> ".join(emotional_state.recent) if emotional_state.recent else "none yet"
+    current = emotional_state.current or "none detected"
+    state_line = (
+        f"Emotional state: {emotional_state.description}; "
+        f"current emotion: {current}"
+    )
+    if emotional_state.confidence is not None:
+        state_line += f" (confidence {emotional_state.confidence:.2f})"
+    state_line += f"; recent trajectory: {recent}"
+    parts.append(state_line)
+
+    parts.append(
+        f"Response strategy: {strategy.name} ({strategy.tone}). "
+        + " ".join(f"- {g}." for g in strategy.guidelines)
+    )
+    parts.append("Write the agent's next reply following that strategy.")
     return "\n\n".join(parts)
