@@ -1,11 +1,35 @@
-"""Text model inference entry point."""
+"""Text model inference entry point.
+
+The fine-tuned RoBERTa checkpoint is preferred.  A lexicon fallback is not
+silently substituted here: callers receive a clear error when the checkpoint
+has not been trained yet.
+"""
 from __future__ import annotations
-import pathlib
+from pathlib import Path
+from typing import Any
 
-CHECKPOINT_DIR = pathlib.Path(__file__).resolve().parent / "checkpoints"
+from src.pipeline.text_pipeline import TextPipeline
+
+CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
 
 
-def predict(text: str, model: str = "deberta-v3-base") -> dict:
+def _checkpoint_for(model: str) -> Path:
+    checkpoint_dir = CHECKPOINT_DIR / f"runs_{model}"
+    candidates = sorted(
+        checkpoint_dir.glob("checkpoint-*"),
+        key=lambda path: int(path.name.split("-")[-1]),
+        reverse=True,
+    )
+    for candidate in candidates:
+        if any((candidate / name).exists() for name in ("model.safetensors", "pytorch_model.bin")):
+            return candidate
+    raise FileNotFoundError(
+        f"No trained weights found for {model!r} under {checkpoint_dir}. "
+        "Run `python models/text/train.py --model roberta-base` first."
+    )
+
+
+def predict(text: str, model: str = "roberta-base") -> dict[str, Any]:
     """Return emotion probabilities for a text utterance.
 
     Args:
@@ -15,4 +39,5 @@ def predict(text: str, model: str = "deberta-v3-base") -> dict:
     Returns:
         Dict mapping emotion label to probability.
     """
-    raise NotImplementedError("Text inference not yet implemented.")
+    checkpoint = _checkpoint_for(model)
+    return TextPipeline(checkpoint=checkpoint).predict(text)

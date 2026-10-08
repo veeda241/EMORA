@@ -14,6 +14,7 @@ from models.common.label_mapping import (  # noqa: E402
     collapse_goemotions_probs,
 )
 from src.pipeline.text_pipeline import TextPipeline  # noqa: E402
+from models.text.inference import _checkpoint_for  # noqa: E402
 
 
 def test_goemotions_collapse_sums_to_one():
@@ -52,3 +53,12 @@ def test_text_pipeline_empty_input_is_valid():
     tp = TextPipeline()
     result = tp.predict("")
     assert abs(sum(result["probs_array"]) - 1.0) < 1e-6
+
+
+def test_missing_text_checkpoint_is_explicit():
+    try:
+        _checkpoint_for("model-that-does-not-exist")
+    except FileNotFoundError as exc:
+        assert "Run" in str(exc)
+    else:
+        raise AssertionError("missing text weights must not silently fall back")

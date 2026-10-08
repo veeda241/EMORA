@@ -3,14 +3,11 @@
 Primary path loads the fine-tuned checkpoint from
 models/text/checkpoints/runs_roberta-base/checkpoint-*/ — the GoEmotions
 28-class probabilities are collapsed onto the shared 6-class space using the
-official GoEmotions->Ekman taxonomy (models/common/label_mapping.py). RoBERTa
-tied BERT on the 28-class macro-F1 leaderboard (models/text_model_analysis.md);
-BERT and the crashed DeBERTa run are archived under archive/old_models/text/.
+official GoEmotions->Ekman taxonomy (models/common/label_mapping.py).
 
-If the checkpoint directory has no model weights (only config/tokenizer, as is
-currently the case), the pipeline falls back to a transparent lexicon scorer so
-the conversational agent still runs end-to-end. The fallback is clearly flagged
-in its output.
+If the checkpoint directory has no model weights (only config/tokenizer), the
+pipeline falls back to a transparent lexicon scorer so the conversational agent
+still runs end-to-end. The fallback is clearly flagged in its output.
 """
 
 from __future__ import annotations
@@ -75,6 +72,7 @@ class TextPipeline:
         self.model.eval()
         id2label = {int(k): v for k, v in self.model.config.id2label.items()}
         self.goemotions_labels = [id2label[i] for i in range(len(id2label))]
+        self.model_name = f"goemotions-{model_dir.parent.name.removeprefix('runs_')}"
 
     def _predict_transformers(self, text: str) -> dict:
         import torch
@@ -85,7 +83,7 @@ class TextPipeline:
             logits = self.model(**inputs).logits
         probs = torch.sigmoid(logits)[0].cpu().numpy()  # GoEmotions is multi-label
         shared = np.asarray(collapse_goemotions_probs(self.goemotions_labels, probs))
-        return self._package(shared, "goemotions-roberta")
+        return self._package(shared, self.model_name)
 
     def _predict_lexicon(self, text: str) -> dict:
         tokens = set(t.strip(".,!?;:'\"()").lower() for t in text.split())
@@ -116,4 +114,4 @@ class TextPipeline:
         return self._predict_lexicon(text)
 
     def backend_name(self) -> str:
-        return "goemotions-roberta" if self.backend == "transformers" else "lexicon-fallback"
+        return self.model_name if self.backend == "transformers" else "lexicon-fallback"

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import argparse
 import sys
 import time
 from pathlib import Path
@@ -27,6 +28,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from models.common.compare import MODEL_REGISTRY
 
 DATA_DIR = PROJECT_ROOT / "data" / "processed" / "text" / "goemotions"
+OUTPUT_DIR = PROJECT_ROOT / "models" / "text" / "checkpoints"
 OUTPUT_MD = PROJECT_ROOT / "models" / "text_model_analysis.md"
 NUM_EPOCHS = 3
 PER_DEVICE_TRAIN_BATCH = 8
@@ -123,6 +125,9 @@ def train_one_model(
     data: DatasetDict,
     label_names: list[str],
     dry_run: bool = False,
+    output_dir: Path | None = None,
+    max_train_samples: int | None = None,
+    num_epochs: int = NUM_EPOCHS,
 ) -> dict:
     print(f"\n{'=' * 60}\nTraining: {model_key} ({model_cfg['name']})\n{'=' * 60}")
     start = time.time()
@@ -141,9 +146,11 @@ def train_one_model(
         label2id={label: index for index, label in enumerate(label_names)},
     )
     dataset = prepare_datasets(data, tokenizer, label_names)
+    if max_train_samples:
+        dataset["train"] = dataset["train"].select(range(min(max_train_samples, len(dataset["train"]))))
     args = TrainingArguments(
-        output_dir=str(PROJECT_ROOT / "models" / f"runs_{model_key}"),
-        num_train_epochs=NUM_EPOCHS,
+        output_dir=str(output_dir or OUTPUT_DIR / f"runs_{model_key}"),
+        num_train_epochs=num_epochs,
         per_device_train_batch_size=PER_DEVICE_TRAIN_BATCH,
         per_device_eval_batch_size=PER_DEVICE_EVAL_BATCH,
         gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
@@ -162,7 +169,10 @@ def train_one_model(
         # observed with this Windows/PyTorch/Transformers combination.
         fp16=False,
         use_cpu=False,
-        save_total_limit=2,
+        # Each checkpoint is ~1.5 GB (model + AdamW optimizer state); one
+        # checkpoint (the best, via load_best_model_at_end) is all the app
+        # needs.
+        save_total_limit=1,
         disable_tqdm=False,
     )
     trainer = Trainer(
@@ -193,7 +203,8 @@ def train_one_model(
         }
 
     train_result = trainer.train()
-    eval_results = trainer.evaluate()
+    eval_results = trainer.evaluate(dataset["validation"], metric_key_prefix="validation")
+    test_results = trainer.evaluate(dataset["test"], metric_key_prefix="test")
     elapsed = time.time() - start
     result = {
         "model_key": model_key,
@@ -204,6 +215,8 @@ def train_one_model(
         "best_eval_loss": float(eval_results.get("eval_loss", float("inf"))),
         "best_eval_macro_f1": float(eval_results.get("eval_macro_f1", 0.0)),
         "best_eval_micro_f1": float(eval_results.get("eval_micro_f1", 0.0)),
+        "test_macro_f1": float(test_results.get("test_macro_f1", 0.0)),
+        "test_micro_f1": float(test_results.get("test_micro_f1", 0.0)),
         "elapsed_minutes": elapsed / 60.0,
         "failed": False,
     }
@@ -240,12 +253,13 @@ def generate_report(results: list[dict], path: Path, label_names: list[str]) -> 
                 "",
                 "## Comparison",
                 "",
-                "| Model | Eval loss | Macro F1 | Micro F1 | Time (min) |",
-                "|---|---:|---:|---:|---:|",
+                "| Model | Validation loss | Validation macro F1 | Test macro F1 | Test micro F1 | Time (min) |",
+                "|---|---:|---:|---:|---:|---:|",
             ]
             + [
                 f"| {r['model_key']} ({r['name']}) | {r['best_eval_loss']:.4f} | "
-                f"{r['best_eval_macro_f1']:.4f} | {r['best_eval_micro_f1']:.4f} | "
+                f"{r['best_eval_macro_f1']:.4f} | {r.get('test_macro_f1', 0.0):.4f} | "
+                f"{r.get('test_micro_f1', 0.0):.4f} | "
                 f"{r['elapsed_minutes']:.1f} |"
                 for r in results
             ]
@@ -254,7 +268,12 @@ def generate_report(results: list[dict], path: Path, label_names: list[str]) -> 
     )
 
 
-def main(dry_run: bool = False) -> None:
+def main(
+    dry_run: bool = False,
+    model_keys: list[str] | None = None,
+    max_train_samples: int | None = None,
+    num_epochs: int = NUM_EPOCHS,
+) -> None:
     label_names = load_label_names(DATA_DIR)
     data = load_emotion_data(DATA_DIR)
     print(f"GoEmotions data: {len(data['train']):,} train / {len(data['validation']):,} validation")
@@ -268,7 +287,12 @@ def main(dry_run: bool = False) -> None:
         f"CUDA: {torch.version.cuda}"
     )
     results = []
-    for model_key, config in MODEL_REGISTRY["text"].items():
+    selected = model_keys or list(MODEL_REGISTRY["text"])
+    unknown = sorted(set(selected) - set(MODEL_REGISTRY["text"]))
+    if unknown:
+        raise ValueError(f"Unknown text model(s): {', '.join(unknown)}")
+    for model_key in selected:
+        config = MODEL_REGISTRY["text"][model_key]
         try:
             results.append(
                 train_one_model(
@@ -278,6 +302,8 @@ def main(dry_run: bool = False) -> None:
                     data,
                     label_names,
                     dry_run=dry_run,
+                    max_train_samples=max_train_samples,
+                    num_epochs=num_epochs,
                 )
             )
         except Exception as exc:
@@ -299,4 +325,12 @@ def main(dry_run: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--model", action="append", dest="models",
+                        help="Model key to train; repeat to train multiple models.")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Load the model and evaluate without training.")
+    parser.add_argument("--max-train-samples", type=int, default=None)
+    parser.add_argument("--epochs", type=int, default=NUM_EPOCHS)
+    args = parser.parse_args()
+    main(args.dry_run, args.models, args.max_train_samples, args.epochs)
