@@ -1,77 +1,92 @@
-"""Demo runner: shows what the Cross-Modal Attention Transformer pipeline looks
-like end-to-end for the MELD-based stress/burnout tracker."""
+"""Master multimodal emotion pipeline: encoders -> MFN fusion -> prediction.
+
+Architecture (per project design):
+    TEXT  (300-d GloVe tokens)  -> Linear/LayerNorm -> 256-D
+    AUDIO (74-d COVAREP frames) -> Linear/LayerNorm -> 128-D
+    VIDEO (35-d FACET frames)   -> Linear/LayerNorm -> 128-D
+        -> Memory Fusion Network (System of LSTMs + DMAN + Gated Memory)
+        -> classifier -> 6-class emotion logits
+
+All inputs are time-aligned to CONFIG["seq_len"] timesteps upstream (see
+models/preprocessing/build_cmumosei_multimodal_dataset.py).
+"""
 
 from __future__ import annotations
 
 import torch
-from models.common.compare import MODEL_REGISTRY, MODALITY_ORDER
+import torch.nn as nn
+import torch.nn.functional as F
 
-PROJECT_DIM = 512  # shared embedding dimension fed into the Cross-Modal Transformer
-
-
-def sample_shape(modality: str, model_key: str) -> torch.Tensor:
-    """Return a fake batch that each stream would emit (before the projection)."""
-    cfg = MODEL_REGISTRY[modality][model_key]
-    in_dim = {"text": 768, "face": 512, "voice": 768}[modality]
-    return torch.randn(2, in_dim)  # batch of 2
+from src.config import CONFIG
+from src.fusion.feature_fusion import MemoryFusionNetwork
 
 
-def embedding_shapes() -> str:
-    out = ["# Modality embedding shapes (what the Cross-Modal Transformer consumes)",
-           "",
-           "Each encoder is trained independently, then a Linear + LayerNorm +",
-           "GELU projection maps it to a uniform `PROJECT_DIM` vector before the",
-           "cross-attention fusion.",
-           "",
-           "| Modality | Encoder | Pre-projection dim | Projected dim | Transformer input dim |",
-           "|---|---|---|---|---|"]
-    for mod in MODALITY_ORDER:
-        for key, cfg in MODEL_REGISTRY[mod].items():
-            pre = {"text": 768, "face": 512, "voice": 768}[mod]
-            out += [f"| {mod.capitalize()} | {cfg['name']} | {pre} | {PROJECT_DIM} | {PROJECT_DIM} |"]
-    out += [
-        "",
-        "## End-to-end flow",
-        "",
-        "```text",
-        "MELD utterances                        MELD frames                    MELD audio",
-        "  |  text transcripts                  |  video frames (MediaPipe     |  .wav ->",
-        "  v                                    v                            v",
-        " BERT/RoBERTa/DeBERTa                 MAE-DFER / EST / CNN+ViT       emotion2vec / WavLM / Wav2Vec2",
-        "  |  [CLS]/mean pool                 |  GAP pool                   |  time-pooled block",
-        "  v                                    v                            v",
-        " 768-dim vector                     512-dim vector                 768-dim vector",
-        "  |  Linear(768 -> 512)              |  Linear(512 -> 512)          |  Linear(768 -> 512)",
-        "  v                                    v                            v",
-        " 512-dim projected                  512-dim projected                512-dim projected",
-        "  |  concat -> layer-norm            |                              |",
-        "  v                                    v                            v",
-        "  [v_face | v_text | v_voice] ------> Multi-head Cross-Attention ----> Stress score",
-        "```",
-        "",
-        "## Sample tensor shapes",
-        "",
-    ]
-    for mod in MODALITY_ORDER:
-        for key in MODEL_REGISTRY[mod]:
-            out += [
-                f"### {mod.capitalize()} - {MODEL_REGISTRY[mod][key]['name']}",
-                f"```python",
-                f"model = {mod}_model  # e.g. Wav2Vec2Model",
-                f"x = sample_{mod}(model, batch)           # (2, {768 if mod != 'face' else 512})",
-                f"proj = nn.Sequential(",
-                f"    nn.Linear({768 if mod != 'face' else 512}, {PROJECT_DIM}),",
-                f"    nn.LayerNorm({PROJECT_DIM}),",
-                f"    nn.GELU(),",
-                f"    nn.Dropout(0.1),",
-                f"    nn.Linear({PROJECT_DIM}, {PROJECT_DIM}),",
-                f")",
-                f"v = proj(x)                             # (2, {PROJECT_DIM})",
-                f"print(v.shape)                          # torch.Size([2, {PROJECT_DIM}])",
-                f"```",
-            ]
-    return "\n".join(out)
+class ModalityEncoder(nn.Module):
+    """Project one modality's raw per-timestep features to its target dim."""
+
+    def __init__(self, raw_dim: int, proj_dim: int):
+        super().__init__()
+        self.proj = nn.Sequential(
+            nn.Linear(raw_dim, proj_dim),
+            nn.LayerNorm(proj_dim),
+            nn.GELU(),
+            nn.Dropout(0.1),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # x: (B, T, raw_dim) -> (B, T, proj_dim)
+        return self.proj(x)
 
 
-if __name__ == "__main__":
-    print(embedding_shapes())
+class MultimodalEmotionPipeline(nn.Module):
+    """Full model: three encoders + MFN core + emotion classifier."""
+
+    def __init__(self, cfg: dict | None = None):
+        super().__init__()
+        self.cfg = cfg or CONFIG
+
+        self.text_encoder = ModalityEncoder(self.cfg["raw_text_dim"], self.cfg["proj_text_dim"])
+        self.audio_encoder = ModalityEncoder(self.cfg["raw_audio_dim"], self.cfg["proj_audio_dim"])
+        self.video_encoder = ModalityEncoder(self.cfg["raw_video_dim"], self.cfg["proj_video_dim"])
+
+        self.mfn = MemoryFusionNetwork(self.cfg)
+
+        self.classifier = nn.Sequential(
+            nn.Linear(self.cfg["fused_dim"], 128),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(128, self.cfg["num_classes"]),
+        )
+
+    def forward(
+        self,
+        text_raw: torch.Tensor,
+        audio_raw: torch.Tensor,
+        video_raw: torch.Tensor,
+    ) -> torch.Tensor:
+        """Args: (B, T, raw_dim) per modality. Returns (B, num_classes) logits."""
+        t = self.text_encoder(text_raw)
+        a = self.audio_encoder(audio_raw)
+        v = self.video_encoder(video_raw)
+        fused = self.mfn(t, a, v)
+        return self.classifier(fused)
+
+    @torch.no_grad()
+    def predict_emotion(
+        self,
+        text_raw: torch.Tensor,
+        audio_raw: torch.Tensor,
+        video_raw: torch.Tensor,
+    ) -> dict:
+        """Inference helper returning logits, softmax probs, and label name."""
+        logits = self.forward(text_raw, audio_raw, video_raw)
+        probs = F.softmax(logits, dim=-1)
+        conf, idx = probs.max(dim=-1)
+        names = self.cfg["label_names"]
+        return {
+            "logits": logits,
+            "probs": probs,
+            "label_index": idx,
+            "label": [names[i] for i in idx.tolist()],
+            "confidence": conf,
+        }
