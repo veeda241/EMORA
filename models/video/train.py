@@ -242,17 +242,20 @@ class HybridCNNViTModel(nn.Module):
         
         self.classifier = nn.Linear(project_dim, num_classes)
 
-    def forward(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
-        # x shape: (B, T, F)
+    def extract_temporal(self, x: torch.Tensor) -> torch.Tensor:
+        # x shape: (B, T, F) -> (B, T, embed_dim): pre-pooling ViT tokens
         b, t, f = x.shape
         x_flat = x.view(b * t, f)
         cnn_feat = self.cnn_backbone(x_flat) # (B*T, embed_dim)
         cnn_seq = cnn_feat.view(b, t, -1)     # (B, T, embed_dim)
-        
+
         h = cnn_seq + self.pos_embed[:, :t, :]
-        vit_out = self.vit_encoder(h)
+        return self.vit_encoder(h)
+
+    def forward(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        vit_out = self.extract_temporal(x) # (B, T, embed_dim)
         pooled = vit_out.mean(dim=1)
-        
+
         emb = self.embedding_proj(pooled)
         logits = self.classifier(emb)
         return logits, emb
