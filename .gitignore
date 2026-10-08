@@ -52,3 +52,9 @@ install.cmd
 
 # Environment
 .env
+
+# Archived training caches + duplicate weight copies (kept locally, not committed)
+archive/old_models/**/optimizer.pt
+archive/old_models/**/scheduler.pt
+archive/old_models/text/runs_*/**/model.safetensors
+archive/old_models/audio/runs_*/model.safetensors
