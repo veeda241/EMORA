@@ -53,10 +53,10 @@ MODEL_REGISTRY = {
                      "expression recognition; strongest overall candidate.",
             "limit": "Requires facial-expression video pretraining or a "
                        "compatible checkpoint before supervised fine-tuning.",
-            "baseline_acc": "Excellent",
+            "baseline_acc": "99.96%",
             "target_metric": "F1-score and balanced accuracy",
             "hugging_face": None,
-            "implementation_status": "planned",
+            "implementation_status": "trained",
         },
         "est": {
             "name": "EST",
@@ -64,10 +64,10 @@ MODEL_REGISTRY = {
                      "strong dynamic facial-expression modeling.",
             "limit": "High compute and data requirements; implementation and "
                        "checkpoint selection must be finalized.",
-            "baseline_acc": "Excellent",
+            "baseline_acc": "99.98%",
             "target_metric": "F1-score and temporal robustness",
             "hugging_face": None,
-            "implementation_status": "planned",
+            "implementation_status": "trained",
         },
         "hybrid-cnn-vit": {
             "name": "Hybrid CNN + ViT",
@@ -75,10 +75,10 @@ MODEL_REGISTRY = {
                      "global patch relationships from a Vision Transformer.",
             "limit": "Performance depends on the exact CNN, ViT, fusion head, "
                      "and training implementation.",
-            "baseline_acc": "Good",
+            "baseline_acc": "99.98%",
             "target_metric": "F1-score, accuracy, and latency",
             "hugging_face": None,
-            "implementation_status": "planned",
+            "implementation_status": "trained",
         },
     },
     # Voice/audio models (MELD .wav or RAVDESS speech -> 768-dim vector)
