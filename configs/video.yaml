@@ -1,0 +1,15 @@
+# Video model training configuration
+# ---------------------------------------------------------
+# modality: video
+# data.processed:  path to processed video FER data
+# training.*:      hyperparameters for fine-tuning
+# output_dir:      where checkpoints are saved
+# ---------------------------------------------------------
+modality: video
+data:
+  processed: data/processed/video/video_fer
+training:
+  learning_rate: 1.0e-4
+  batch_size: 32
+  epochs: 10
+output_dir: models/video/checkpoints

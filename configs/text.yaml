@@ -1,0 +1,29 @@
+# Text model training configuration
+# ---------------------------------------------------------
+# modality: text
+# data.processed:                  path to processed text features
+# training.learning_rate:          AdamW learning rate
+# training.per_device_train_batch: batch size per device (train)
+# training.per_device_eval_batch:  batch size per device (eval)
+# training.gradient_accumulation_steps: gradient accumulation
+# training.epochs:                 number of training epochs
+# training.warmup_steps:           LR scheduler warmup steps
+# training.weight_decay:           L2 regularisation
+# training.max_length:             maximum token sequence length
+# training.early_stopping_patience: patience for early stopping
+# output_dir:                      where checkpoints are saved
+# ---------------------------------------------------------
+modality: text
+data:
+  processed: data/processed/text/goemotions
+training:
+  learning_rate: 2.0e-5
+  per_device_train_batch: 8
+  per_device_eval_batch: 8
+  gradient_accumulation_steps: 2
+  epochs: 3
+  warmup_steps: 0
+  weight_decay: 0.01
+  max_length: 128
+  early_stopping_patience: 2
+output_dir: models/text/checkpoints

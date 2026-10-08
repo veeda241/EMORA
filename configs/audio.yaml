@@ -1,0 +1,20 @@
+# Audio model training configuration
+# ---------------------------------------------------------
+# modality: audio
+# data.raw_meld:    path to raw MELD audio data
+# data.raw_ravdess: path to raw RAVDESS audio data
+# data.processed:   path to processed audio features
+# training.*:       hyperparameters for fine-tuning
+# output_dir:       where checkpoints are saved
+# ---------------------------------------------------------
+modality: audio
+data:
+  raw_meld: data/raw/meld
+  raw_ravdess: data/raw/ravdess
+  processed: data/processed/audio
+training:
+  learning_rate: 2.0e-5
+  batch_size: 8
+  epochs: 10
+  warmup_steps: 0
+output_dir: models/audio/checkpoints
