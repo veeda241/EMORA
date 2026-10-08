@@ -17,3 +17,10 @@
 2026-10-08 10:14:14,156 | INFO | Test Weighted F1: 0.9996
 2026-10-08 10:14:14,156 | INFO | Test Precision:   0.9998
 2026-10-08 10:14:14,156 | INFO | Test Recall:      0.9994
+2026-10-08 10:24:17,038 | INFO | === Starting Training for Video Model: mae-dfer ===
+2026-10-08 10:24:17,100 | INFO | Dataset loaded — Train: 16327, Val: 1871, Test: 4662
+2026-10-08 10:24:22,509 | INFO | Epoch  1/10 | Train Loss: 1.2269 | Val Loss: 1.1767 | Val Acc: 0.8381 | Val Macro F1: 0.4490
+2026-10-08 10:24:26,818 | INFO | Epoch  2/10 | Train Loss: 1.1799 | Val Loss: 1.4172 | Val Acc: 0.7408 | Val Macro F1: 0.3719
+2026-10-08 10:24:31,148 | INFO | Epoch  3/10 | Train Loss: 1.2958 | Val Loss: 0.7169 | Val Acc: 0.8781 | Val Macro F1: 0.6944
+2026-10-08 10:24:35,535 | INFO | Epoch  4/10 | Train Loss: 0.7161 | Val Loss: 0.6489 | Val Acc: 0.9081 | Val Macro F1: 0.7210
+2026-10-08 10:24:39,859 | INFO | Epoch  5/10 | Train Loss: 0.4436 | Val Loss: 0.3632 | Val Acc: 0.9626 | Val Macro F1: 0.8633
