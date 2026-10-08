@@ -4,7 +4,7 @@ like end-to-end for the MELD-based stress/burnout tracker."""
 from __future__ import annotations
 
 import torch
-from models.compare import MODEL_REGISTRY, MODALITY_ORDER
+from models.common.compare import MODEL_REGISTRY, MODALITY_ORDER
 
 PROJECT_DIM = 512  # shared embedding dimension fed into the Cross-Modal Transformer
 
