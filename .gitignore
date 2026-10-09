@@ -32,7 +32,6 @@ models/runs_*/checkpoint-8712/model.safetensors
 models/audio/runs_wav2vec2/model.safetensors
 models/audio/runs_wavlm/model.safetensors
 models/audio/runs_emotion2vec/model.safetensors
-models/audio/runs_emotion2vec/model_state_dict.pt
 
 # Video model weights and checkpoints (>100 MB)
 models/video/checkpoints/**/*.pth
