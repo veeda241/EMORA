@@ -10,6 +10,10 @@ peft==0.10.0
 torchaudio==2.1.0
 soundfile==0.12.1
 librosa==0.10.1
+# emotion2vec backbone (src/pipeline/audio_pipeline.py)
+funasr==1.4.16
+modelscope==1.40.1
+addict==2.4.0
 
 # Vision
 torchvision==0.16.0
