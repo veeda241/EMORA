@@ -24,6 +24,7 @@
 7. [Known Issues and Recommendations](#7-known-issues-and-recommendations)
 8. [Role in the Multimodal Pipeline](#8-role-in-the-multimodal-pipeline)
 9. [Output Artifacts](#9-output-artifacts)
+10. [RoBERTa-Base Re-run (2026-10-09, RTX 5060 Ti)](#10-roberta-base-re-run-2026-10-09-rtx-5060-ti)
 
 ---
 
@@ -309,6 +310,7 @@ TrainingArguments(
 | 🥇 1 | **RoBERTa-Base** | `roberta-base` | ✅ Valid | **0.1942** | **0.4374** | **0.5569** | 0.6245 | 0.3641 | 59.7 min |
 | 🥈 2 | **BERT-Base-Uncased** | `bert-base-uncased` | ✅ Valid | 0.1966 | 0.4221 | 0.5500 | **0.6438** | 0.3511 | 61.1 min |
 | ❌ — | **DeBERTa-v3-Base** | `deberta-v3-base` | ❌ Invalid | NaN | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 41.1 min |
+| 🥇 1 (re-run) | **RoBERTa-Base** | `roberta-base` (2026-10-09, RTX 5060 Ti) | ✅ Valid | **0.1941** | **0.4430** | **0.5571** | n/a | n/a | 20.4 min |
 
 ### Metric delta: RoBERTa vs BERT
 
@@ -436,3 +438,28 @@ The text stream captures:
 ---
 
 *Report generated: 2026-10-08 | Training script: `models/train_all_text_models.py`*
+
+---
+
+## 10. RoBERTa-Base Re-run (2026-10-09, RTX 5060 Ti)
+
+Full 3-epoch re-run of `models/text/train.py --model roberta-base` on the second
+machine (RTX 5060 Ti 16 GB, CUDA 12.8, PyTorch 2.11) with identical hyperparameters
+(3 epochs, LR 2e-5, effective batch 16, warmup 0, early stopping patience 2 on
+eval macro F1). Completed at step 8,712 in 20.4 minutes.
+
+| Metric | Initial / baseline | Final checkpoint (step 8,712) |
+|---|---:|---:|
+| Training loss | 0.9238 (step 50) | 0.3710 |
+| Validation loss | 0.6898 | 0.1941 |
+| Validation macro F1 | 0.0614 | 0.4430 |
+| Validation micro F1 | 0.2020 | 0.5571 |
+| Test macro F1 | 0.0000 | 0.4401 |
+| Test micro F1 | 0.0000 | 0.5545 |
+
+The re-run edges out the original 2026-10-08 RoBERTa run on validation
+(macro F1 0.4430 vs 0.4374, eval loss 0.1941 vs 0.1942) and is the checkpoint
+adopted as the production text model. Weights live at
+`models/text/checkpoints/runs_roberta-base/checkpoint-8712/model.safetensors`
+on each deployment machine and are intentionally not stored in git; without
+them the pipeline reports the lexicon fallback transparently.
