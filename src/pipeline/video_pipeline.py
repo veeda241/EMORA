@@ -68,8 +68,10 @@ class VideoPipeline:
         self.model = build_model(model_key, in_dim=FACET_DIM, seq_len=SEQ_LEN).to(self.device)
         run_dir = CHECKPOINT_DIR / f"runs_{model_key.replace('-', '_')}"
         ckpt = run_dir / "best_model.pt"
-        state = torch.load(ckpt, map_location=self.device)
-        self.model.load_state_dict(state["model_state_dict"] if "model_state_dict" in state else state)
+        raw = torch.load(ckpt, map_location=self.device)
+        # Checkpoint may be a plain state_dict or wrapped in {"model_state_dict": ...}
+        state = raw.get("model_state_dict", raw) if isinstance(raw, dict) else raw
+        self.model.load_state_dict(state)
         self.model.eval()
 
         self.norm_mean, self.norm_std = _load_normalization()
