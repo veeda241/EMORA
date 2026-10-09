@@ -500,9 +500,12 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
 
 
 if __name__ == "__main__":
+    # pwa=True serves /manifest.json (Gradio's index.html links it unconditionally;
+    # without this the browser console shows a harmless 404 on every load).
     demo.launch(
         server_name="0.0.0.0",
         server_port=7860,
         show_error=True,
         share=False,
+        pwa=True,
     )
