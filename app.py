@@ -22,7 +22,7 @@ from src.conversation.agent import MODEL_PATH, BehaviourChangeAgent
 from src.pipeline.audio_pipeline import AudioPipeline
 from src.pipeline.multimodal_pipeline import MultimodalEmotionPipeline
 from src.pipeline.text_pipeline import TEXTCHECKPOINT_DIR, TextPipeline
-from src.pipeline.video_pipeline import VideoPipeline
+from src.pipeline.video_pipeline import VideoPipeline, SEQ_LEN
 
 # ── constants ───────────────────────────────────────────────────────────────
 EMOTIONS     = CONFIG["label_names"]
@@ -201,7 +201,7 @@ def pipeline_status() -> str:
 # ── core respond function ───────────────────────────────────────────────────
 
 def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
-            goal, audio, live_video_chk, video_idx):
+            goal, audio, webcam_frame):
     if not message or not message.strip():
         return history, agent, gr.update(), gr.update(), ""
 
@@ -256,17 +256,31 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         else:
             warnings.append("ℹ️ No audio provided — record or upload a clip in the Audio panel.")
 
-        # Video — uses a precomputed FACET segment when enabled
-        if live_video_chk:
+        # Video — live webcam frame processed through MediaPipe + model
+        if webcam_frame is not None:
             try:
+                import cv2
                 vp = get_video_pipe()
                 if vp is not None:
-                    d = get_test_data()
-                    seg_idx = max(0, min(int(video_idx), len(d["labels"]) - 1))
-                    seg = d["video"][seg_idx]          # (16, 35) FACET sequence
-                    result = vp.predict(seg)
-                    preds["video"] = result["probs"]
-                    src_parts.append(f"video:hybrid-cnn-vit(segment#{seg_idx} → {result['label']} {result['confidence']:.2f})")
+                    # Gradio Image gives RGB numpy array
+                    frame_rgb = np.asarray(webcam_frame)
+                    if frame_rgb.dtype != np.uint8:
+                        frame_rgb = (frame_rgb * 255).clip(0, 255).astype(np.uint8)
+                    result = vp.predict_webcam(frame_rgb)
+                    if result is not None and result.get("buffer_ready"):
+                        preds["video"] = result["probs"]
+                        buf = result["buffer_frames"]
+                        src_parts.append(
+                            f"video:live(AU+pose {result['label']} "
+                            f"{result['confidence']:.2f} buf={buf}/{SEQ_LEN})"
+                        )
+                    elif result is not None:
+                        buf = result.get("buffer_frames", 0)
+                        warnings.append(
+                            f"ℹ️ Video buffer filling ({buf}/{SEQ_LEN} frames) — keep face visible."
+                        )
+                    else:
+                        warnings.append("ℹ️ No face detected in webcam frame.")
                 else:
                     warnings.append(f"⚠️ {_VIDEO_ERROR}")
             except Exception as exc:
@@ -333,6 +347,9 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
 
 
 def reset_conversation(goal, _history, _agent):
+    vp = get_video_pipe()
+    if vp is not None:
+        vp.clear_buffer()
     agent = BehaviourChangeAgent(
         goal=goal.strip() or "general wellbeing",
         device="cpu",
@@ -423,19 +440,17 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
                     )
 
                 # ── Video ──
-                with gr.Accordion("📹 Video (precomputed FACET segment)", open=False):
-                    live_video_chk = gr.Checkbox(
-                        value=False,
-                        label="Include video emotion from precomputed CMU-MOSEI FACET segment",
+                with gr.Accordion("📹 Video (live webcam)", open=False):
+                    webcam_in = gr.Image(
+                        sources=["webcam"],
+                        type="numpy",
+                        label="Webcam feed — point your face at the camera",
+                        streaming=True,
                     )
-                    video_idx = gr.Slider(
-                        0, _n_test - 1, value=0, step=1, precision=0,
-                        label="FACET segment index",
-                        info="Selects which CMU-MOSEI test utterance provides the video stream.",
-                    )
-                    gr.Markdown(
-                        "_No live webcam FACET extractor is available. "
-                        "The slider picks a precomputed (T=16, 35-dim) segment._"
+                    video_status = gr.Markdown(
+                        "_Enable the webcam above. Emotion is predicted from "
+                        f"the last {SEQ_LEN} frames captured while you speak. "
+                        "MediaPipe FaceMesh extracts Action Units + head pose in real-time._"
                     )
 
             goal_box = gr.Textbox(
@@ -451,7 +466,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
     # ── Wire up events ────────────────────────────────────────────────────
     inputs = [
         msg, chatbot, agent_state, mode, sample_idx, sim_label, sim_conf,
-        goal_box, audio_in, live_video_chk, video_idx,
+        goal_box, audio_in, webcam_in,
     ]
     outputs = [chatbot, agent_state, trace_json, memory_json, msg]
 
