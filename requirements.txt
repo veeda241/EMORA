@@ -1,13 +1,19 @@
 # Core ML / deep learning
-torch==2.1.0
-transformers==4.40.2
+# torch 2.6.0 (CPU build): the fine-tuned GoEmotions checkpoint was saved with
+# transformers 5.19.0, which needs torch.accelerator (added in torch 2.6).
+# torch 2.5.1 lacks it and transformers refuses to load PyTorch.
+torch==2.6.0+cpu
+# torchaudio is NOT pinned: transformers 5.19 imports it unconditionally in
+# audio_utils, but the prebuilt torchaudio wheel for torch 2.6 is broken on
+# this machine (OSError: procedure not found). transformers falls back to a
+# no-op torchaudio shim when the real package is absent, so we omit it.
+transformers>=5,<6
 datasets==2.19.1
-tokenizers==0.19.1
+tokenizers==0.23.3
 accelerate==0.29.3
 peft==0.10.0
 
 # Audio
-torchaudio==2.1.0
 soundfile==0.12.1
 librosa==0.10.1
 # emotion2vec backbone (src/pipeline/audio_pipeline.py)
@@ -16,10 +22,11 @@ modelscope==1.40.1
 addict==2.4.0
 
 # Vision
-torchvision==0.16.0
+torchvision==0.21.0
 Pillow==10.3.0
 opencv-python==4.9.0.80
 timm==0.9.16
+mediapipe==0.10.33  # FaceLandmarker for live webcam FACS (src/pipeline/facet_live.py)
 
 # Data science
 numpy==1.26.4
@@ -38,5 +45,14 @@ pyyaml==6.0.1
 tqdm==4.66.2
 python-dotenv==1.0.1
 
+# Live webcam FACS features (src/pipeline/facet_live.py)
+# py-feat==2.1.5 REMOVED: nothing in the codebase imports `feat` (facet_live.py
+# uses MediaPipe FaceLandmarker), and py-feat 2.1.5 pulls torchcodec (binary
+# incompatible with torch 2.1.0 on Windows) plus timm>=1.0.11 which conflicts
+# with the pinned timm==0.9.16. Installing it makes the venv unresolvable.
+
 # Test UI
-gradio==6.29.1
+# gradio==6.29.1  REMOVED — 6.x requires huggingface-hub>=1.16 which conflicts
+# with the pinned transformers==4.40.2 (needs huggingface-hub<1.0). Use the
+# latest 5.x instead (installed: 5.20.0).
+gradio>=5,<6

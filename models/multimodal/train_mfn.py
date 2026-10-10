@@ -33,30 +33,39 @@ for p in [str(PROJECT_ROOT)]:
     if p not in sys.path:
         sys.path.insert(0, p)
 
-from src.config import CONFIG
+from src.config import get_config
 from src.pipeline.multimodal_pipeline import MultimodalEmotionPipeline
 
-DATA_DIR = pathlib.Path(CONFIG["data_dir"])
-OUT_DIR = pathlib.Path(CONFIG["model_dir"]) / "runs_mfn"
-LABEL_NAMES = CONFIG["label_names"]
-NUM_CLASSES = CONFIG["num_classes"]
+LABEL_NAMES = get_config()["label_names"]
+NUM_CLASSES = get_config()["num_classes"]
 
 
-def setup_logging() -> logging.Logger:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+def setup_logging(out_dir: pathlib.Path) -> logging.Logger:
+    out_dir.mkdir(parents=True, exist_ok=True)
     logger = logging.getLogger("train_mfn")
     logger.setLevel(logging.INFO)
     if logger.handlers:
         logger.handlers.clear()
     fmt = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
-    for h in [logging.FileHandler(OUT_DIR / "training_log.txt", encoding="utf-8"), logging.StreamHandler(sys.stdout)]:
+    for h in [logging.FileHandler(out_dir / "training_log.txt", encoding="utf-8"), logging.StreamHandler(sys.stdout)]:
         h.setFormatter(fmt)
         logger.addHandler(h)
     return logger
 
 
-def load_split(split: str) -> TensorDataset:
-    d = np.load(DATA_DIR / f"{split}_data.npz")
+def load_split(split: str, data_dir: pathlib.Path, cfg: dict) -> TensorDataset:
+    d = np.load(data_dir / f"{split}_data.npz")
+    expected = {
+        "text": cfg["raw_text_dim"],
+        "audio": cfg["raw_audio_dim"],
+        "video": cfg["raw_video_dim"],
+    }
+    for name, width in expected.items():
+        if d[name].ndim != 3 or d[name].shape[-1] != width:
+            raise ValueError(
+                f"{split} {name} features have shape {d[name].shape}; "
+                f"profile expects (*, {cfg['seq_len']}, {width})"
+            )
     return TensorDataset(
         torch.tensor(d["text"], dtype=torch.float32),
         torch.tensor(d["audio"], dtype=torch.float32),
@@ -115,31 +124,38 @@ def plot_cm(gts: np.ndarray, preds: np.ndarray, path: pathlib.Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--epochs", type=int, default=CONFIG["epochs"])
-    parser.add_argument("--batch-size", type=int, default=CONFIG["batch_size"])
-    parser.add_argument("--lr", type=float, default=CONFIG["lr"])
+    parser.add_argument("--profile", choices=("baseline", "new_experiment"), default="baseline")
+    parser.add_argument("--epochs", type=int)
+    parser.add_argument("--batch-size", type=int)
+    parser.add_argument("--lr", type=float)
     parser.add_argument("--max-train-samples", type=int, default=None)
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     args = parser.parse_args()
-    lr = args.lr
+    cfg = get_config(args.profile)
+    data_dir = pathlib.Path(cfg["data_dir"])
+    out_dir = pathlib.Path(cfg["model_dir"]) / f"runs_mfn_{args.profile}"
+    epochs = args.epochs if args.epochs is not None else cfg["epochs"]
+    batch_size = args.batch_size if args.batch_size is not None else cfg["batch_size"]
+    lr = args.lr if args.lr is not None else cfg["lr"]
 
-    logger = setup_logging()
+    logger = setup_logging(out_dir)
     device = torch.device(args.device)
-    logger.info("device=%s lr=%g epochs=%d batch=%d", device, lr, args.epochs, args.batch_size)
+    logger.info("profile=%s device=%s lr=%g epochs=%d batch=%d",
+                args.profile, device, lr, epochs, batch_size)
 
-    train_ds = load_split("train")
+    train_ds = load_split("train", data_dir, cfg)
     if args.max_train_samples:
         sub = torch.randperm(len(train_ds))[: args.max_train_samples].tolist()
         train_ds = TensorDataset(*[t[sub] for t in train_ds.tensors])
-    val_ds = load_split("validation")
-    test_ds = load_split("test")
+    val_ds = load_split("validation", data_dir, cfg)
+    test_ds = load_split("test", data_dir, cfg)
     logger.info("train=%d val=%d test=%d", len(train_ds), len(val_ds), len(test_ds))
 
-    train_loader = make_loader(train_ds, args.batch_size, weighted=True)
-    val_loader = make_loader(val_ds, args.batch_size, shuffle=False)
-    test_loader = make_loader(test_ds, args.batch_size, shuffle=False)
+    train_loader = make_loader(train_ds, batch_size, weighted=True)
+    val_loader = make_loader(val_ds, batch_size, shuffle=False)
+    test_loader = make_loader(test_ds, batch_size, shuffle=False)
 
-    model = MultimodalEmotionPipeline(CONFIG).to(device)
+    model = MultimodalEmotionPipeline(cfg).to(device)
     n_params = sum(p.numel() for p in model.parameters())
     logger.info("model params: %d", n_params)
 
@@ -150,7 +166,7 @@ def main() -> None:
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="max", factor=0.5, patience=3)
 
     best_val_acc, history = 0.0, []
-    for epoch in range(1, args.epochs + 1):
+    for epoch in range(1, epochs + 1):
         model.train()
         total_loss, correct, n = 0.0, 0, 0
         for t, a, v, y in train_loader:
@@ -169,24 +185,30 @@ def main() -> None:
         history.append({"epoch": epoch, "train_loss": total_loss / n, "train_acc": correct / n,
                         "val_loss": val_loss, "val_acc": val_acc, "val_macro_f1": val_f1})
         logger.info("Epoch %2d/%d | Train Loss: %.4f Acc: %.4f | Val Loss: %.4f Acc: %.4f Macro F1: %.4f",
-                    epoch, args.epochs, total_loss / n, correct / n, val_loss, val_acc, val_f1)
+                    epoch, epochs, total_loss / n, correct / n, val_loss, val_acc, val_f1)
         if val_acc > best_val_acc:
             best_val_acc = val_acc
-            torch.save(model.state_dict(), OUT_DIR / "best_model.pt")
+            torch.save(model.state_dict(), out_dir / "best_model.pt")
             logger.info("  saved best model (val acc %.4f)", val_acc)
 
     # final test eval with best weights
-    model.load_state_dict(torch.load(OUT_DIR / "best_model.pt", map_location=device))
+    model.load_state_dict(torch.load(out_dir / "best_model.pt", map_location=device))
     test_loss, test_acc, test_f1, gts, preds = evaluate(model, test_loader, device, criterion)
     logger.info("TEST — loss %.4f acc %.4f macro F1 %.4f", test_loss, test_acc, test_f1)
 
     report = classification_report(gts, preds, target_names=LABEL_NAMES, zero_division=0)
-    (OUT_DIR / "classification_report.csv").write_text(report, encoding="utf-8")
-    plot_cm(gts, preds, OUT_DIR / "confusion_matrix.png")
+    (out_dir / "classification_report.csv").write_text(report, encoding="utf-8")
+    plot_cm(gts, preds, out_dir / "confusion_matrix.png")
 
     majority = max(class_counts.tolist()) / sum(class_counts.tolist())
     md = {
-        "model": "MemoryFusionNetwork (text 256-D + audio 128-D + video 128-D)",
+        "profile": args.profile,
+        "input_dimensions": {
+            "text": cfg["raw_text_dim"],
+            "audio": cfg["raw_audio_dim"],
+            "video": cfg["raw_video_dim"],
+        },
+        "model": "MemoryFusionNetwork with profile-specific modality projections",
         "params": int(n_params),
         "best_val_acc": float(best_val_acc),
         "test_acc": float(test_acc),
@@ -194,12 +216,12 @@ def main() -> None:
         "majority_baseline": float(majority),
         "history": history,
     }
-    (OUT_DIR / "training_report.md").write_text(
+    (out_dir / "training_report.md").write_text(
         "# MFN Multimodal Training Report\n\n```json\n" + json.dumps(md, indent=2) + "\n```\n\n"
         "## Classification report\n\n```\n" + report + "\n```\n",
         encoding="utf-8",
     )
-    logger.info("WROTE %s", OUT_DIR)
+    logger.info("WROTE %s", out_dir)
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.config import CONFIG  # noqa: E402
+from src.config import CONFIG, get_config  # noqa: E402
 from src.fusion.emotion_fusion import EmotionFusion  # noqa: E402
 from src.fusion.feature_fusion import MemoryFusionNetwork  # noqa: E402
 from src.pipeline.multimodal_pipeline import MultimodalEmotionPipeline  # noqa: E402
@@ -23,6 +23,16 @@ def test_config_consistency():
     )
     assert CONFIG["fused_dim"] == CONFIG["total_lstm_hidden"] + CONFIG["mem_dim"]
     assert len(CONFIG["label_names"]) == CONFIG["num_classes"]
+
+
+def test_new_experiment_modality_dimensions():
+    cfg = get_config("new_experiment")
+    assert (cfg["raw_text_dim"], cfg["raw_audio_dim"], cfg["raw_video_dim"]) == (
+        768,
+        768,
+        512,
+    )
+    assert cfg["fused_dim"] == cfg["total_lstm_hidden"] + cfg["mem_dim"]
 
 
 def test_mfn_forward_shapes():

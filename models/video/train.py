@@ -360,10 +360,21 @@ def train_single_model(
 
     logger.info("Dataset loaded — Train: %d, Val: %d, Test: %d", len(train_x), len(val_x), len(test_x))
 
-    # Compute class weights for loss function
+    # Class-balanced loss weights.
+    #
+    # NOTE: raw inverse-frequency weights (N / (C * count_c)) are far too
+    # aggressive for this dataset — the rarest class (surprised, ~1.5%) gets a
+    # weight ~30x the most common (happy), pushing the weighted loss sum to
+    # ~20x the unweighted baseline.  The optimiser then diverges and the model
+    # collapses to predicting a single class (train loss stuck at ln(6) ≈ 1.79,
+    # the random baseline).  Empirically, no weighting gives the best accuracy
+    # on this data; sqrt inverse-frequency is a gentler balance that still
+    # helps rare classes without destabilising training.
     class_counts = torch.bincount(train_y, minlength=NUM_CLASSES).float()
     class_counts = torch.clamp(class_counts, min=1.0)
-    weights = len(train_y) / (NUM_CLASSES * class_counts)
+    inv_freq = len(train_y) / (NUM_CLASSES * class_counts)
+    weights = torch.sqrt(inv_freq)
+    weights = weights / weights.mean()  # keep mean ~1 so lr stays comparable
     weights = weights.to(device)
 
     train_ds = TensorDataset(train_x, train_y)

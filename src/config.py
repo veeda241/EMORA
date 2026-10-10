@@ -4,15 +4,19 @@ Single source of truth for every dimension in the system. The DMAN and
 Multi-view Gated Memory layers derive their sizes from `total_lstm_hidden`,
 so changing a projection or hidden size here propagates everywhere.
 
-Raw input dims match the CMU-MOSEI processed features:
+The default profile uses the current CMU-MOSEI baseline:
 - text:  300-dim GloVe word vectors per token (TimestampedWordVectors.csd)
 - audio: 74-dim COVAREP acoustic frames (CMU_MOSEI_COVAREP.csd)
 - video: 35-dim FACET 4.2 facial frames (CMU_MOSEI_VisualFacet42.csd)
+
+``MODEL_CONFIGS["new_experiment"]`` describes the replacement feature space:
+BERT embeddings, emotion2vec embeddings, and temporal ViT features. The
+corresponding extracted feature files must be generated before training.
 """
 
 from __future__ import annotations
 
-CONFIG = {
+_COMMON_CONFIG = {
     # 1. Raw input dimensions (from CMU-MOSEI computational sequences)
     "raw_text_dim": 300,
     "raw_audio_dim": 74,
@@ -45,18 +49,45 @@ CONFIG = {
     "epochs": 30,
 }
 
-CONFIG["total_lstm_hidden"] = (
-    CONFIG["lstm_hidden_text"]
-    + CONFIG["lstm_hidden_audio"]
-    + CONFIG["lstm_hidden_video"]
-)
-
-# Fused representation: last unimodal hidden states + central memory
-CONFIG["fused_dim"] = CONFIG["total_lstm_hidden"] + CONFIG["mem_dim"]
-
-# Paths (relative to repo root)
 import pathlib
 
 PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[1]
-CONFIG["data_dir"] = str(PROJECT_ROOT / "data" / "processed" / "multimodal")
-CONFIG["model_dir"] = str(PROJECT_ROOT / "models" / "multimodal")
+
+
+def _with_derived_values(config: dict) -> dict:
+    """Add dimensions derived by the MFN and resolve project-relative paths."""
+    config = dict(config)
+    config["total_lstm_hidden"] = (
+        config["lstm_hidden_text"]
+        + config["lstm_hidden_audio"]
+        + config["lstm_hidden_video"]
+    )
+    config["fused_dim"] = config["total_lstm_hidden"] + config["mem_dim"]
+    config["data_dir"] = str(PROJECT_ROOT / "data" / "processed" / "multimodal")
+    config["model_dir"] = str(PROJECT_ROOT / "models" / "multimodal")
+    return config
+
+
+MODEL_CONFIGS = {
+    "baseline": _with_derived_values(_COMMON_CONFIG),
+    "new_experiment": _with_derived_values(
+        {
+            **_COMMON_CONFIG,
+            "raw_text_dim": 768,   # BERT embedding
+            "raw_audio_dim": 768,  # emotion2vec embedding
+            "raw_video_dim": 512,  # temporal ViT feature
+        }
+    ),
+}
+
+# Existing datasets/checkpoints use the baseline profile.
+CONFIG = MODEL_CONFIGS["baseline"]
+
+
+def get_config(profile: str = "baseline") -> dict:
+    """Return a copy of a named modality/fusion configuration profile."""
+    try:
+        return dict(MODEL_CONFIGS[profile])
+    except KeyError as exc:
+        valid = ", ".join(sorted(MODEL_CONFIGS))
+        raise ValueError(f"Unknown model profile {profile!r}; choose {valid}") from exc

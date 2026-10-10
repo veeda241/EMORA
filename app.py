@@ -24,6 +24,62 @@ from src.pipeline.multimodal_pipeline import MultimodalEmotionPipeline
 from src.pipeline.text_pipeline import TEXTCHECKPOINT_DIR, TextPipeline
 from src.pipeline.video_pipeline import VideoPipeline, SEQ_LEN
 
+# ── gradio_client compatibility shim ─────────────────────────────────────────
+# gradio's `gr.Image` / `gr.Audio` produce a FileData JSON schema whose
+# `additionalProperties` is a plain bool (`true`). gradio_client's
+# `_json_schema_to_python_type` does `"additionalProperties" in schema` and then
+# iterates it, raising `TypeError: argument of type 'bool' is not iterable` when
+# the API-info page is generated at launch. Coerce bools to dicts before the
+# call so the schema renders and the server starts.
+try:
+    import gradio_client.utils as _gc_utils
+
+    _orig_json_schema = _gc_utils._json_schema_to_python_type
+
+    def _patched_json_schema(schema, defs=None):
+        if isinstance(schema, dict):
+            ap = schema.get("additionalProperties")
+            if isinstance(ap, bool):
+                schema = dict(schema)
+                schema["additionalProperties"] = {} if ap else False
+        return _orig_json_schema(schema, defs)
+
+    _gc_utils._json_schema_to_python_type = _patched_json_schema
+except Exception:  # pragma: no cover - best-effort shim, never fatal
+    pass
+
+# ── torch.accelerator CPU shim ───────────────────────────────────────────────
+# transformers 5.19 calls `torch.accelerator.current_accelerator()` unconditionally
+# at import time (masking_utils.is_torch_flex_attn_available). On a CPU-only
+# torch build that raises `RuntimeError: Cannot access accelerator device when
+# none is available`, which makes `AutoModelForSequenceClassification` /
+# `GenerationMixin` unimportable. Make it return None on CPU so transformers
+# imports cleanly without a GPU.
+try:
+    import torch as _torch
+
+    def _has_accelerator() -> bool:
+        if _torch.cuda.is_available():
+            return True
+        for name in ("xpu", "hpu", "mtia", "npu", "mlu"):
+            try:
+                if getattr(_torch, name).is_available():
+                    return True
+            except Exception:
+                continue
+        return False
+
+    if not _has_accelerator():
+        _orig_cur_acc = getattr(_torch.accelerator, "current_accelerator", None)
+
+        def _cpu_current_accelerator():
+            return None
+
+        if _orig_cur_acc is not None:
+            _torch.accelerator.current_accelerator = _cpu_current_accelerator
+except Exception:  # pragma: no cover - best-effort shim, never fatal
+    pass
+
 # ── constants ───────────────────────────────────────────────────────────────
 EMOTIONS     = CONFIG["label_names"]
 NO_EMOTION   = "none (text only)"
@@ -198,12 +254,43 @@ def pipeline_status() -> str:
     return "\n".join(lines)
 
 
+def live_analysis_markdown(trace: dict | None = None) -> str:
+    """Render the active inference chain without hiding unavailable stages."""
+    lines = [
+        "### Live agent analysis",
+        "1. **Text** → GoEmotions fine-tuned RoBERTa → shared six-emotion probabilities",
+        "2. **Audio** → emotion2vec trained head (optional; currently unavailable)",
+        "3. **Video** → MediaPipe FaceLandmarker FACS Action Units + head pose → trained Hybrid CNN+ViT",
+        "4. **Fusion** → decision-level probability fusion across available modalities",
+        "5. **Agent** → emotional state → response strategy → generated reply",
+    ]
+    if trace:
+        detection = trace.get("1_emotion_detection") or {}
+        lines.extend(
+            [
+                "",
+                f"**Last turn:** `{detection.get('source', 'no modality prediction')}`",
+                f"**Emotion:** `{detection.get('label', 'none')}` "
+                f"(confidence {detection.get('confidence', 0.0):.2f})",
+                f"**Modalities:** {detection.get('modalities', 'none')}",
+                f"**State:** `{trace.get('2_emotional_state', {}).get('label', 'n/a')}`",
+                f"**Strategy:** `{trace.get('3_response_strategy', {}).get('name', 'n/a')}`",
+            ]
+        )
+        warnings = detection.get("warnings", [])
+        if warnings:
+            lines.append("**Notes:** " + " · ".join(warnings))
+    else:
+        lines.append("\n_Send a message to inspect the live inference chain._")
+    return "\n".join(lines)
+
+
 # ── core respond function ───────────────────────────────────────────────────
 
 def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
             goal, audio, webcam_frame):
     if not message or not message.strip():
-        return history, agent, gr.update(), gr.update(), ""
+        return history, agent, gr.update(), gr.update(), "", live_analysis_markdown()
 
     agent = ensure_agent(agent, goal)
     preds   = None
@@ -256,7 +343,7 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         else:
             warnings.append("ℹ️ No audio provided — record or upload a clip in the Audio panel.")
 
-        # Video — live webcam frame processed through MediaPipe + model
+        # Video — live webcam frame processed through py-feat + model
         if webcam_frame is not None:
             try:
                 import cv2
@@ -310,7 +397,7 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
             history + [
                 [message.strip(), f"⚠️ Agent error: {exc}\n\n{tb}"],
             ],
-            agent, None, None, "",
+            agent, None, None, "", live_analysis_markdown(),
         )
 
     # ── Build trace ──
@@ -343,7 +430,7 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
     new_history = history + [
         [message.strip(), out["reply"]],
     ]
-    return new_history, agent, trace, agent.memory.summary(), ""
+    return new_history, agent, trace, agent.memory.summary(), "", live_analysis_markdown(trace)
 
 
 def reset_conversation(goal, _history, _agent):
@@ -355,7 +442,42 @@ def reset_conversation(goal, _history, _agent):
         device="cpu",
         llm_config=LLM_CONFIG,
     )
-    return [], agent, None, agent.memory.summary()
+    return [], agent, None, agent.memory.summary(), live_analysis_markdown()
+
+
+def update_video_stream(frame):
+    """Feed webcam frames to the rolling video model and show its result."""
+    if frame is None:
+        return "_Start the webcam to capture facial features._"
+    try:
+        vp = get_video_pipe()
+        if vp is None:
+            return f"⚠️ {_VIDEO_ERROR or 'Video pipeline unavailable.'}"
+        frame_rgb = np.asarray(frame)
+        if frame_rgb.dtype != np.uint8:
+            frame_rgb = (frame_rgb * 255).clip(0, 255).astype(np.uint8)
+        result = vp.predict_webcam(frame_rgb)
+        if result is None:
+            return "_No face detected — keep your face visible to the camera._"
+        buf = result.get("buffer_frames", 0)
+        if not result.get("buffer_ready"):
+            return f"⏳ Video model loading frames: **{buf}/{SEQ_LEN}**"
+        probabilities = np.asarray(result["probs"], dtype=np.float32)
+        all_classes = " · ".join(
+            f"**{EMOTIONS[i]}** {float(probabilities[i]):.1%}"
+            for i in range(len(EMOTIONS))
+        )
+        return (
+            f"✅ **Video emotion: {result['label']}** "
+            f"(confidence {result['confidence']:.2f})  \n"
+            f"Model probabilities (all six classes): {all_classes}  \n"
+            f"Model: `{result['model']}` · frames: {buf}/{SEQ_LEN}  \n"
+"⚠️ Live webcam features come from MediaPipe FaceLandmarker (open-source FACS AU "
+                    "estimates), not the commercial FACET 4.2 SDK used in training — "
+                    "treat this as an estimate."
+        )
+    except Exception as exc:
+        return f"⚠️ Video processing error: {exc}"
 
 
 def toggle_mode(mode):
@@ -381,7 +503,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
     with gr.Row():
         # ── Left column: chat ─────────────────────────────────────────────
         with gr.Column(scale=3):
-            chatbot = gr.Chatbot(label="Conversation", height=420)
+            chatbot = gr.Chatbot(label="Conversation", height=420, type="tuples")
             msg = gr.Textbox(
                 label="Your message",
                 placeholder="Type your message and press Enter or click Send...",
@@ -405,7 +527,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
             # Real MFN panel
             with gr.Group(visible=False) as real_group:
                 sample_idx = gr.Slider(
-                    0, _n_test - 1, value=0, step=1, precision=0,
+                    0, _n_test - 1, value=0, step=1,
                     label="CMU-MOSEI test utterance index",
                 )
                 random_btn     = gr.Button("🎲 Random sample")
@@ -440,7 +562,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
                     )
 
                 # ── Video ──
-                with gr.Accordion("📹 Video (live webcam)", open=False):
+                with gr.Accordion("📹 Video (live webcam)", open=True):
                     webcam_in = gr.Image(
                         sources=["webcam"],
                         type="numpy",
@@ -450,7 +572,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
                     video_status = gr.Markdown(
                         "_Enable the webcam above. Emotion is predicted from "
                         f"the last {SEQ_LEN} frames captured while you speak. "
-                        "MediaPipe FaceMesh extracts Action Units + head pose in real-time._"
+                        "py-feat estimates FACS Action Units + head pose from each frame._"
                     )
 
             goal_box = gr.Textbox(
@@ -462,24 +584,31 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
             gr.Markdown("### 🔍 Pipeline trace (last turn)")
             trace_json  = gr.JSON(label="Emotion → State → Strategy → Reply")
             memory_json = gr.JSON(label="Conversation memory")
+            live_analysis = gr.Markdown(live_analysis_markdown())
 
     # ── Wire up events ────────────────────────────────────────────────────
     inputs = [
         msg, chatbot, agent_state, mode, sample_idx, sim_label, sim_conf,
         goal_box, audio_in, webcam_in,
     ]
-    outputs = [chatbot, agent_state, trace_json, memory_json, msg]
+    outputs = [chatbot, agent_state, trace_json, memory_json, msg, live_analysis]
 
     msg.submit(respond, inputs, outputs)
     send_btn.click(respond, inputs, outputs)
     reset_btn.click(
         reset_conversation,
         [goal_box, chatbot, agent_state],
-        [chatbot, agent_state, trace_json, memory_json],
+        [chatbot, agent_state, trace_json, memory_json, live_analysis],
     )
 
     # Mode toggle
     mode.change(toggle_mode, [mode], [real_group, sim_group, live_group])
+    webcam_in.stream(
+        update_video_stream,
+        inputs=[webcam_in],
+        outputs=[video_status],
+        queue=False,
+    )
 
     # Real MFN preview
     sample_idx.change(preview_sample, [sample_idx], [sample_preview])
