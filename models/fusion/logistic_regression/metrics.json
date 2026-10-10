@@ -1,0 +1,34 @@
+{
+  "fusion": {
+    "accuracy": 0.4774494556765163,
+    "macro_f1": 0.39269314024305935
+  },
+  "baselines": {
+    "standalone_text": {
+      "accuracy": 0.4665629860031104,
+      "macro_f1": 0.31424441365074235
+    },
+    "standalone_audio": {
+      "accuracy": 0.4230171073094868,
+      "macro_f1": 0.2942573716500481
+    },
+    "standalone_video": {
+      "accuracy": 0.2332814930015552,
+      "macro_f1": 0.10524772584243952
+    },
+    "fixed_weight_average": {
+      "accuracy": 0.49455676516329705,
+      "macro_f1": 0.3384857217710244
+    }
+  },
+  "n_train": 468,
+  "n_test": 643,
+  "class_counts_test": {
+    "angry": 164,
+    "disgust": 37,
+    "fearful": 26,
+    "happy": 161,
+    "sad": 115,
+    "surprised": 140
+  }
+}

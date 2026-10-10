@@ -11,6 +11,8 @@ Run:
 from __future__ import annotations
 
 import os
+import sys
+import time
 import traceback
 
 import numpy as np
@@ -23,62 +25,6 @@ from src.pipeline.audio_pipeline import AudioPipeline
 from src.pipeline.multimodal_pipeline import MultimodalEmotionPipeline
 from src.pipeline.text_pipeline import TEXTCHECKPOINT_DIR, TextPipeline
 from src.pipeline.video_pipeline import VideoPipeline, SEQ_LEN
-
-# ── gradio_client compatibility shim ─────────────────────────────────────────
-# gradio's `gr.Image` / `gr.Audio` produce a FileData JSON schema whose
-# `additionalProperties` is a plain bool (`true`). gradio_client's
-# `_json_schema_to_python_type` does `"additionalProperties" in schema` and then
-# iterates it, raising `TypeError: argument of type 'bool' is not iterable` when
-# the API-info page is generated at launch. Coerce bools to dicts before the
-# call so the schema renders and the server starts.
-try:
-    import gradio_client.utils as _gc_utils
-
-    _orig_json_schema = _gc_utils._json_schema_to_python_type
-
-    def _patched_json_schema(schema, defs=None):
-        if isinstance(schema, dict):
-            ap = schema.get("additionalProperties")
-            if isinstance(ap, bool):
-                schema = dict(schema)
-                schema["additionalProperties"] = {} if ap else False
-        return _orig_json_schema(schema, defs)
-
-    _gc_utils._json_schema_to_python_type = _patched_json_schema
-except Exception:  # pragma: no cover - best-effort shim, never fatal
-    pass
-
-# ── torch.accelerator CPU shim ───────────────────────────────────────────────
-# transformers 5.19 calls `torch.accelerator.current_accelerator()` unconditionally
-# at import time (masking_utils.is_torch_flex_attn_available). On a CPU-only
-# torch build that raises `RuntimeError: Cannot access accelerator device when
-# none is available`, which makes `AutoModelForSequenceClassification` /
-# `GenerationMixin` unimportable. Make it return None on CPU so transformers
-# imports cleanly without a GPU.
-try:
-    import torch as _torch
-
-    def _has_accelerator() -> bool:
-        if _torch.cuda.is_available():
-            return True
-        for name in ("xpu", "hpu", "mtia", "npu", "mlu"):
-            try:
-                if getattr(_torch, name).is_available():
-                    return True
-            except Exception:
-                continue
-        return False
-
-    if not _has_accelerator():
-        _orig_cur_acc = getattr(_torch.accelerator, "current_accelerator", None)
-
-        def _cpu_current_accelerator():
-            return None
-
-        if _orig_cur_acc is not None:
-            _torch.accelerator.current_accelerator = _cpu_current_accelerator
-except Exception:  # pragma: no cover - best-effort shim, never fatal
-    pass
 
 # ── constants ───────────────────────────────────────────────────────────────
 EMOTIONS     = CONFIG["label_names"]
@@ -230,7 +176,10 @@ def pipeline_status() -> str:
     # Text
     try:
         tp = get_text_pipe()
-        lines.append(f"- **Text**: ✅ {tp.backend_name()}")
+        lines.append(
+            f"- **Text**: ✅ {tp.backend_name()} "
+            f"(`{sys.executable}`)"
+        )
     except Exception as e:
         lines.append(f"- **Text**: ❌ {e}")
     # Audio
@@ -254,43 +203,64 @@ def pipeline_status() -> str:
     return "\n".join(lines)
 
 
-def live_analysis_markdown(trace: dict | None = None) -> str:
-    """Render the active inference chain without hiding unavailable stages."""
-    lines = [
-        "### Live agent analysis",
-        "1. **Text** → GoEmotions fine-tuned RoBERTa → shared six-emotion probabilities",
-        "2. **Audio** → emotion2vec trained head (optional; currently unavailable)",
-        "3. **Video** → MediaPipe FaceLandmarker FACS Action Units + head pose → trained Hybrid CNN+ViT",
-        "4. **Fusion** → decision-level probability fusion across available modalities",
-        "5. **Agent** → emotional state → response strategy → generated reply",
-    ]
-    if trace:
-        detection = trace.get("1_emotion_detection") or {}
-        lines.extend(
-            [
-                "",
-                f"**Last turn:** `{detection.get('source', 'no modality prediction')}`",
-                f"**Emotion:** `{detection.get('label', 'none')}` "
-                f"(confidence {detection.get('confidence', 0.0):.2f})",
-                f"**Modalities:** {detection.get('modalities', 'none')}",
-                f"**State:** `{trace.get('2_emotional_state', {}).get('label', 'n/a')}`",
-                f"**Strategy:** `{trace.get('3_response_strategy', {}).get('name', 'n/a')}`",
-            ]
-        )
-        warnings = detection.get("warnings", [])
-        if warnings:
-            lines.append("**Notes:** " + " · ".join(warnings))
-    else:
-        lines.append("\n_Send a message to inspect the live inference chain._")
-    return "\n".join(lines)
-
-
 # ── core respond function ───────────────────────────────────────────────────
 
+# Throttle for the continuous webcam stream (~5 fps) so per-frame MediaPipe +
+# model inference does not flood the Gradio queue on CPU.
+_LAST_FRAME_TS = 0.0
+
+
+def on_webcam_frame(frame, prev_result):
+    """Consume one streamed webcam frame: fill the rolling buffer, report status.
+
+    Runs continuously while the webcam is enabled (gr.Image streaming=True).
+    Returns the latest video prediction (kept in a gr.State) plus a status line.
+    The prediction is consumed by ``respond`` when the user clicks Send.
+    """
+    global _LAST_FRAME_TS
+    vp = get_video_pipe()
+    if vp is None:
+        return prev_result, f"⚠️ {_VIDEO_ERROR or 'video pipeline unavailable'}"
+
+    now = time.time()
+    if now - _LAST_FRAME_TS < 0.2:
+        return prev_result, gr.skip()
+    _LAST_FRAME_TS = now
+
+    if frame is None:
+        return prev_result, "_Webcam off — enable it to capture frames._"
+
+    try:
+        frame_rgb = np.asarray(frame)
+        if frame_rgb.dtype != np.uint8:
+            frame_rgb = (frame_rgb * 255).clip(0, 255).astype(np.uint8)
+        result = vp.predict_webcam(frame_rgb)
+    except Exception as exc:
+        return prev_result, f"⚠️ Video error: {exc}"
+
+    if result is None:
+        return prev_result, "ℹ️ No face detected — point your face at the camera."
+
+    buf = result.get("buffer_frames", 0)
+    if result.get("buffer_ready"):
+        md = (
+            f"✅ Video ready — **{result['label']}** "
+            f"({result['confidence']:.2f}) | buffer {buf}/{SEQ_LEN}"
+        )
+    else:
+        md = f"⏳ Filling buffer {buf}/{SEQ_LEN} — keep your face visible."
+    return result, md
+
+
 def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
-            goal, audio, webcam_frame):
-    if not message or not message.strip():
-        return history, agent, gr.update(), gr.update(), "", live_analysis_markdown()
+            goal, audio, video_result):
+    raw_text = (message or "").strip()
+    # Audio-only turn: no typed text but a recorded clip — the clip still
+    # carries the user's emotion, so it is a valid turn.
+    audio_only = (not raw_text) and audio is not None and mode == LIVE_MODE
+    if not raw_text and not audio_only:
+        return history, agent, gr.update(), gr.update(), ""
+    user_turn = raw_text or "🎤 (recorded audio clip)"
 
     agent = ensure_agent(agent, goal)
     preds   = None
@@ -303,7 +273,7 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         mfn = get_mfn()
         if mfn is None:
             warnings.append(f"⚠️ {_MFN_ERROR} — falling back to text-only.")
-            preds = {"text": np.asarray(get_text_pipe().predict(message.strip())["probs_array"])}
+            preds = {"text": np.asarray(get_text_pipe().predict(raw_text)["probs_array"])}
             source = "text-only fallback (MFN unavailable)"
         else:
             aligned = sample_features(sample_idx)
@@ -314,10 +284,13 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         preds = {}
         src_parts = []
 
-        # Text — always runs
-        tp = get_text_pipe()
-        preds["text"] = np.asarray(tp.predict(message.strip())["probs_array"])
-        src_parts.append(f"text:{tp.backend_name()}")
+        # Text — runs whenever there is typed text
+        if raw_text:
+            tp = get_text_pipe()
+            preds["text"] = np.asarray(tp.predict(raw_text)["probs_array"])
+            src_parts.append(f"text:{tp.backend_name()}")
+        else:
+            warnings.append("ℹ️ Audio-only turn — text model skipped.")
 
         # Audio — runs when the user has recorded/uploaded audio
         if audio is not None:
@@ -343,35 +316,23 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         else:
             warnings.append("ℹ️ No audio provided — record or upload a clip in the Audio panel.")
 
-        # Video — live webcam frame processed through py-feat + model
-        if webcam_frame is not None:
-            try:
-                import cv2
-                vp = get_video_pipe()
-                if vp is not None:
-                    # Gradio Image gives RGB numpy array
-                    frame_rgb = np.asarray(webcam_frame)
-                    if frame_rgb.dtype != np.uint8:
-                        frame_rgb = (frame_rgb * 255).clip(0, 255).astype(np.uint8)
-                    result = vp.predict_webcam(frame_rgb)
-                    if result is not None and result.get("buffer_ready"):
-                        preds["video"] = result["probs"]
-                        buf = result["buffer_frames"]
-                        src_parts.append(
-                            f"video:live(AU+pose {result['label']} "
-                            f"{result['confidence']:.2f} buf={buf}/{SEQ_LEN})"
-                        )
-                    elif result is not None:
-                        buf = result.get("buffer_frames", 0)
-                        warnings.append(
-                            f"ℹ️ Video buffer filling ({buf}/{SEQ_LEN} frames) — keep face visible."
-                        )
-                    else:
-                        warnings.append("ℹ️ No face detected in webcam frame.")
-                else:
-                    warnings.append(f"⚠️ {_VIDEO_ERROR}")
-            except Exception as exc:
-                warnings.append(f"⚠️ Video processing error: {exc}")
+        # Video — use the latest prediction from the continuous webcam stream
+        if video_result is not None and video_result.get("buffer_ready"):
+            preds["video"] = video_result["probs"]
+            buf = video_result["buffer_frames"]
+            src_parts.append(
+                f"video:live(AU+pose {video_result['label']} "
+                f"{video_result['confidence']:.2f} buf={buf}/{SEQ_LEN})"
+            )
+        elif video_result is not None:
+            buf = video_result.get("buffer_frames", 0)
+            warnings.append(
+                f"ℹ️ Video buffer filling ({buf}/{SEQ_LEN} frames) — keep face visible."
+            )
+        else:
+            warnings.append(
+                "ℹ️ No video yet — enable the webcam and let the buffer fill before sending."
+            )
 
         source = "live — " + "; ".join(src_parts) if src_parts else "live — text only"
 
@@ -387,7 +348,7 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
     # ── Run agent ──
     try:
         out = agent.respond(
-            message.strip(),
+            user_turn,
             modality_predictions=preds,
             aligned_sequences=aligned,
         )
@@ -395,9 +356,10 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         tb = traceback.format_exc()
         return (
             history + [
-                [message.strip(), f"⚠️ Agent error: {exc}\n\n{tb}"],
+                {"role": "user", "content": user_turn},
+                {"role": "assistant", "content": f"⚠️ Agent error: {exc}\n\n{tb}"},
             ],
-            agent, None, None, "", live_analysis_markdown(),
+            agent, None, None, "",
         )
 
     # ── Build trace ──
@@ -428,9 +390,10 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
     }
 
     new_history = history + [
-        [message.strip(), out["reply"]],
+        {"role": "user", "content": user_turn},
+        {"role": "assistant", "content": out["reply"]},
     ]
-    return new_history, agent, trace, agent.memory.summary(), "", live_analysis_markdown(trace)
+    return new_history, agent, trace, agent.memory.summary(), ""
 
 
 def reset_conversation(goal, _history, _agent):
@@ -442,42 +405,7 @@ def reset_conversation(goal, _history, _agent):
         device="cpu",
         llm_config=LLM_CONFIG,
     )
-    return [], agent, None, agent.memory.summary(), live_analysis_markdown()
-
-
-def update_video_stream(frame):
-    """Feed webcam frames to the rolling video model and show its result."""
-    if frame is None:
-        return "_Start the webcam to capture facial features._"
-    try:
-        vp = get_video_pipe()
-        if vp is None:
-            return f"⚠️ {_VIDEO_ERROR or 'Video pipeline unavailable.'}"
-        frame_rgb = np.asarray(frame)
-        if frame_rgb.dtype != np.uint8:
-            frame_rgb = (frame_rgb * 255).clip(0, 255).astype(np.uint8)
-        result = vp.predict_webcam(frame_rgb)
-        if result is None:
-            return "_No face detected — keep your face visible to the camera._"
-        buf = result.get("buffer_frames", 0)
-        if not result.get("buffer_ready"):
-            return f"⏳ Video model loading frames: **{buf}/{SEQ_LEN}**"
-        probabilities = np.asarray(result["probs"], dtype=np.float32)
-        all_classes = " · ".join(
-            f"**{EMOTIONS[i]}** {float(probabilities[i]):.1%}"
-            for i in range(len(EMOTIONS))
-        )
-        return (
-            f"✅ **Video emotion: {result['label']}** "
-            f"(confidence {result['confidence']:.2f})  \n"
-            f"Model probabilities (all six classes): {all_classes}  \n"
-            f"Model: `{result['model']}` · frames: {buf}/{SEQ_LEN}  \n"
-"⚠️ Live webcam features come from MediaPipe FaceLandmarker (open-source FACS AU "
-                    "estimates), not the commercial FACET 4.2 SDK used in training — "
-                    "treat this as an estimate."
-        )
-    except Exception as exc:
-        return f"⚠️ Video processing error: {exc}"
+    return [], agent, None, agent.memory.summary(), None, "_Buffer cleared — enable the webcam to refill._"
 
 
 def toggle_mode(mode):
@@ -499,11 +427,12 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
         f"Emotion detection → emotional state → memory → strategy → reply  |  LLM: {LLM_LABEL}"
     )
     agent_state = gr.State(None)
+    video_state = gr.State(None)   # latest webcam video prediction (from the stream)
 
     with gr.Row():
         # ── Left column: chat ─────────────────────────────────────────────
         with gr.Column(scale=3):
-            chatbot = gr.Chatbot(label="Conversation", height=420, type="tuples")
+            chatbot = gr.Chatbot(label="Conversation", height=420, type="messages")
             msg = gr.Textbox(
                 label="Your message",
                 placeholder="Type your message and press Enter or click Send...",
@@ -544,8 +473,9 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
             with gr.Group(visible=True) as live_group:
                 gr.Markdown(
                     "**Text** is always processed. "
-                    "**Record or upload audio** to activate the audio emotion model. "
-                    "**Enable video** to add a precomputed FACET segment."
+                    "**Record or upload audio** to activate the audio emotion model "
+                    "(emotion2vec). "
+                    "**Enable the webcam** for live video emotion (py-feat FACS)."
                 )
 
                 # ── Audio ──
@@ -557,12 +487,13 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
                         format="wav",
                     )
                     gr.Markdown(
-                        "_Record: click the mic icon → speak → click Stop. "
-                        "The clip is sent automatically when you click **Send**._"
+                        "_Record: click the mic icon → speak → click Stop, then press "
+                        "**Send**. Type a message too, or leave it empty to submit "
+                        "the clip alone._"
                     )
 
                 # ── Video ──
-                with gr.Accordion("📹 Video (live webcam)", open=True):
+                with gr.Accordion("📹 Video (live webcam)", open=False):
                     webcam_in = gr.Image(
                         sources=["webcam"],
                         type="numpy",
@@ -572,7 +503,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
                     video_status = gr.Markdown(
                         "_Enable the webcam above. Emotion is predicted from "
                         f"the last {SEQ_LEN} frames captured while you speak. "
-                        "py-feat estimates FACS Action Units + head pose from each frame._"
+                        "MediaPipe FaceMesh extracts Action Units + head pose in real-time._"
                     )
 
             goal_box = gr.Textbox(
@@ -584,35 +515,42 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
             gr.Markdown("### 🔍 Pipeline trace (last turn)")
             trace_json  = gr.JSON(label="Emotion → State → Strategy → Reply")
             memory_json = gr.JSON(label="Conversation memory")
-            live_analysis = gr.Markdown(live_analysis_markdown())
 
     # ── Wire up events ────────────────────────────────────────────────────
     inputs = [
         msg, chatbot, agent_state, mode, sample_idx, sim_label, sim_conf,
-        goal_box, audio_in, webcam_in,
+        goal_box, audio_in, video_state,
     ]
-    outputs = [chatbot, agent_state, trace_json, memory_json, msg, live_analysis]
+    outputs = [chatbot, agent_state, trace_json, memory_json, msg]
 
-    msg.submit(respond, inputs, outputs)
-    send_btn.click(respond, inputs, outputs)
+    msg.submit(respond, inputs, outputs, api_name=False)
+    send_btn.click(respond, inputs, outputs, api_name=False)
     reset_btn.click(
         reset_conversation,
         [goal_box, chatbot, agent_state],
-        [chatbot, agent_state, trace_json, memory_json, live_analysis],
+        [chatbot, agent_state, trace_json, memory_json, video_state, video_status],
+        api_name=False,
+    )
+
+    # Continuous webcam stream — fills the 16-frame buffer and reports live status
+    webcam_in.stream(
+        on_webcam_frame,
+        [webcam_in, video_state],
+        [video_state, video_status],
+        api_name=False,
     )
 
     # Mode toggle
-    mode.change(toggle_mode, [mode], [real_group, sim_group, live_group])
-    webcam_in.stream(
-        update_video_stream,
-        inputs=[webcam_in],
-        outputs=[video_status],
-        queue=False,
+    mode.change(
+        toggle_mode,
+        [mode],
+        [real_group, sim_group, live_group],
+        api_name=False,
     )
 
     # Real MFN preview
-    sample_idx.change(preview_sample, [sample_idx], [sample_preview])
-    random_btn.click(random_index, outputs=[sample_idx])
+    sample_idx.change(preview_sample, [sample_idx], [sample_preview], api_name=False)
+    random_btn.click(random_index, outputs=[sample_idx], api_name=False)
 
     # Init memory display on load
     demo.load(
@@ -625,13 +563,18 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
             ).memory.summary(),
         ),
         outputs=[trace_json, memory_json],
+        api_name=False,
     )
 
 
 if __name__ == "__main__":
+    # pwa=True serves /manifest.json (Gradio's index.html links it unconditionally;
+    # without this the browser console shows a harmless 404 on every load).
     demo.launch(
-        server_name="0.0.0.0",
+        server_name="127.0.0.1",
         server_port=7860,
         show_error=True,
         share=False,
+        show_api=False,
+        pwa=True,
     )

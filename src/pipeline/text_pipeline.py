@@ -62,6 +62,18 @@ class TextPipeline:
 
     def _load_transformers(self, model_dir: Path) -> None:
         import torch
+
+        # Transformers 5.19 probes ``torch.accelerator.current_accelerator()``
+        # while importing AutoModel. CPU-only PyTorch 2.6 can expose that API
+        # but raise instead of returning ``None`` when no accelerator exists.
+        # Make the CPU state explicit before importing Transformers.
+        if not torch.cuda.is_available() and hasattr(torch, "accelerator"):
+            accelerator = torch.accelerator
+            try:
+                accelerator.current_accelerator()
+            except RuntimeError:
+                accelerator.current_accelerator = lambda: None
+
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
         self.backend = "transformers"

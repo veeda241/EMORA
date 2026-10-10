@@ -6,16 +6,16 @@ expects:
 
   Index  Name         Source
   -----  ----         ------
-  0      Anger        zero  (requires commercial Facet SDK)
-  1      Contempt     zero
-  2      Disgust      zero
-  3      Joy          zero
-  4      Fear         zero
-  5      Baseline     zero
-  6      Sadness      zero
-  7      Surprise     zero
-  8      Confusion    zero
-  9      Frustration  zero
+  0      Anger        mean  (requires commercial Facet SDK)
+  1      Contempt     mean
+  2      Disgust      mean
+  3      Joy          mean
+  4      Fear         mean
+  5      Baseline     mean
+  6      Sadness      mean
+  7      Surprise     mean
+  8      Confusion    mean
+  9      Frustration  mean
   10     AU1          inner brow raise   (landmark geometry)
   11     AU2          outer brow raise
   12     AU4          brow lowerer
@@ -36,15 +36,16 @@ expects:
   27     AU26         jaw drop
   28     AU28         lip suck        (approx)
   29     AU43         eyes closed     (blink)
-  30     Has_Glasses  zero (not detectable from landmarks)
-  31     Is_Male      zero
+  30     Has_Glasses  mean (not detectable from landmarks)
+  31     Is_Male      mean
   32     Pitch        head pitch (radians from solvePnP)
   33     Yaw          head yaw
   34     Roll         head roll
 
 The Facet SDK emotion channels (cols 0–9) and binary metadata (30–31) cannot
-be replicated without the commercial SDK, so they remain zero and the model
-relies on the AU and head-pose columns (10–34).
+be replicated without the commercial SDK, so they are imputed at the
+training-split mean (normalising to 0) and the model relies on the AU and
+head-pose columns (10–34).
 
 The normalisation from the TRAINING split is applied here so the model
 receives the same distribution it was trained on.
@@ -76,6 +77,14 @@ FACET42_DIMS = [
     "Has_Glasses","Is_Male","Pitch","Yaw","Roll",
 ]
 assert len(FACET42_DIMS) == 35
+
+# Columns the landmark pipeline cannot produce: the 10 commercial FACET
+# emotion channels (0-9) and the binary flags (30-31). They are imputed at
+# the training-split mean so they normalise to 0 — raw zeros would normalise
+# to ~+0.3..+1.2 (the emotion-channel training means are ~-1..-2), telling
+# the model every emotion is elevated and biasing it towards the majority
+# class (happy).
+_UNAVAILABLE_IDX = tuple(range(0, 10)) + (30, 31)
 
 # MediaPipe landmark indices for AU approximation.
 # References:
@@ -407,6 +416,8 @@ class FacetLiveExtractor:
             feat[34] = float(roll)
 
         if self._norm_mean is not None:
+            for idx in _UNAVAILABLE_IDX:
+                feat[idx] = self._norm_mean[idx]
             feat = (feat - self._norm_mean) / self._norm_std
             feat = np.nan_to_num(feat, nan=0.0, posinf=0.0, neginf=0.0)
 
