@@ -1,0 +1,41 @@
+{
+  "model": "LogisticRegression(solver=lbfgs, class_weight=balanced)",
+  "classes": [
+    "angry",
+    "disgust",
+    "fearful",
+    "happy",
+    "sad",
+    "surprised"
+  ],
+  "feature_cols": [
+    "text_p_angry",
+    "text_p_disgust",
+    "text_p_fearful",
+    "text_p_happy",
+    "text_p_sad",
+    "text_p_surprised",
+    "audio_p_angry",
+    "audio_p_disgust",
+    "audio_p_fearful",
+    "audio_p_happy",
+    "audio_p_sad",
+    "audio_p_surprised",
+    "video_p_angry",
+    "video_p_disgust",
+    "video_p_fearful",
+    "video_p_happy",
+    "video_p_sad",
+    "video_p_surprised"
+  ],
+  "modalities": [
+    "text",
+    "audio",
+    "video"
+  ],
+  "C": 1.0,
+  "n_train": 468,
+  "n_test": 643,
+  "train_split": "train",
+  "test_split": "test"
+}
