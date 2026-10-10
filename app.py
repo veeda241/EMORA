@@ -201,7 +201,7 @@ def pipeline_status() -> str:
 
 # ── core respond function ───────────────────────────────────────────────────
 
-# Throttle for the continuous webcam stream (~5 fps) so per-frame MediaPipe +
+# Throttle for the continuous webcam stream (~5 fps) so per-frame py-feat +
 # model inference does not flood the Gradio queue on CPU.
 _LAST_FRAME_TS = 0.0
 
@@ -489,7 +489,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
                     video_status = gr.Markdown(
                         "_Enable the webcam above. Emotion is predicted from "
                         f"the last {SEQ_LEN} frames captured while you speak. "
-                        "MediaPipe FaceMesh extracts Action Units + head pose in real-time._"
+                        "py-feat estimates FACS Action Units + head pose from each frame._"
                     )
 
             goal_box = gr.Textbox(

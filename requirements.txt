@@ -38,5 +38,11 @@ pyyaml==6.0.1
 tqdm==4.66.2
 python-dotenv==1.0.1
 
+# Live webcam FACS features (src/pipeline/facet_live.py)
+# py-feat pulls in torchcodec (binary incompatible with torch 2.5.1 on
+# Windows) and upgrades timm to >=1.0 — facet_live.py stubs torchcodec at
+# runtime, and timm 1.0.30 still loads the hybrid-cnn-vit checkpoint.
+py-feat==2.1.5
+
 # Test UI
 gradio==6.29.1
