@@ -444,7 +444,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
             # Real MFN panel
             with gr.Group(visible=False) as real_group:
                 sample_idx = gr.Slider(
-                    0, _n_test - 1, value=0, step=1, precision=0,
+                    0, _n_test - 1, value=0, step=1,
                     label="CMU-MOSEI test utterance index",
                 )
                 random_btn     = gr.Button("🎲 Random sample")
