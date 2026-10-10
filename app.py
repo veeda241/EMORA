@@ -461,8 +461,9 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
             with gr.Group(visible=True) as live_group:
                 gr.Markdown(
                     "**Text** is always processed. "
-                    "**Record or upload audio** to activate the audio emotion model. "
-                    "**Enable video** to add a precomputed FACET segment."
+                    "**Record or upload audio** to activate the audio emotion model "
+                    "(emotion2vec). "
+                    "**Enable the webcam** for live video emotion (py-feat FACS)."
                 )
 
                 # ── Audio ──
