@@ -420,7 +420,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
     with gr.Row():
         # ── Left column: chat ─────────────────────────────────────────────
         with gr.Column(scale=3):
-            chatbot = gr.Chatbot(label="Conversation", height=420)
+            chatbot = gr.Chatbot(label="Conversation", height=420, type="messages")
             msg = gr.Textbox(
                 label="Your message",
                 placeholder="Type your message and press Enter or click Send...",
