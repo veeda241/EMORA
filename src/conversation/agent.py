@@ -22,6 +22,7 @@ from src.conversation.emotional_state import assess_emotional_state, select_stra
 from src.conversation.memory import ConversationMemory
 from src.conversation.response_generator import ResponseGenerator
 from src.fusion.emotion_fusion import EmotionFusion
+from src.fusion.trained_fusion import TrainedFusion
 from src.pipeline.multimodal_pipeline import MultimodalEmotionPipeline
 
 MODEL_PATH = f"{CONFIG['model_dir']}/runs_mfn/best_model.pt"
@@ -38,7 +39,12 @@ class BehaviourChangeAgent:
         memory_path: str | None = None,
     ):
         self.memory = ConversationMemory(user_id=user_id, goal=goal, storage_path=memory_path)
-        self.fusion = EmotionFusion(fusion_weights)
+        # Prefer learned decision-level fusion when a trained model exists;
+        # otherwise fall back to fixed-weight averaging. Both expose .fuse().
+        if TrainedFusion.available():
+            self.fusion = TrainedFusion()
+        else:
+            self.fusion = EmotionFusion(fusion_weights)
         self.generator = ResponseGenerator(llm_config)
         self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
 
@@ -126,6 +132,7 @@ class BehaviourChangeAgent:
         return {
             **self.memory.summary(),
             "mfn_loaded": self.uses_mfn,
+            "fusion_mode": "trained" if isinstance(self.fusion, TrainedFusion) else "fixed-weight",
             "llm_mode": self.generator.uses_llm,
         }
 

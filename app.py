@@ -11,6 +11,7 @@ Run:
 from __future__ import annotations
 
 import os
+import time
 import traceback
 
 import numpy as np
@@ -200,8 +201,55 @@ def pipeline_status() -> str:
 
 # ── core respond function ───────────────────────────────────────────────────
 
+# Throttle for the continuous webcam stream (~5 fps) so per-frame MediaPipe +
+# model inference does not flood the Gradio queue on CPU.
+_LAST_FRAME_TS = 0.0
+
+
+def on_webcam_frame(frame, prev_result):
+    """Consume one streamed webcam frame: fill the rolling buffer, report status.
+
+    Runs continuously while the webcam is enabled (gr.Image streaming=True).
+    Returns the latest video prediction (kept in a gr.State) plus a status line.
+    The prediction is consumed by ``respond`` when the user clicks Send.
+    """
+    global _LAST_FRAME_TS
+    vp = get_video_pipe()
+    if vp is None:
+        return prev_result, f"⚠️ {_VIDEO_ERROR or 'video pipeline unavailable'}"
+
+    now = time.time()
+    if now - _LAST_FRAME_TS < 0.2:
+        return prev_result, gr.skip()
+    _LAST_FRAME_TS = now
+
+    if frame is None:
+        return prev_result, "_Webcam off — enable it to capture frames._"
+
+    try:
+        frame_rgb = np.asarray(frame)
+        if frame_rgb.dtype != np.uint8:
+            frame_rgb = (frame_rgb * 255).clip(0, 255).astype(np.uint8)
+        result = vp.predict_webcam(frame_rgb)
+    except Exception as exc:
+        return prev_result, f"⚠️ Video error: {exc}"
+
+    if result is None:
+        return prev_result, "ℹ️ No face detected — point your face at the camera."
+
+    buf = result.get("buffer_frames", 0)
+    if result.get("buffer_ready"):
+        md = (
+            f"✅ Video ready — **{result['label']}** "
+            f"({result['confidence']:.2f}) | buffer {buf}/{SEQ_LEN}"
+        )
+    else:
+        md = f"⏳ Filling buffer {buf}/{SEQ_LEN} — keep your face visible."
+    return result, md
+
+
 def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
-            goal, audio, webcam_frame):
+            goal, audio, video_result):
     if not message or not message.strip():
         return history, agent, gr.update(), gr.update(), ""
 
@@ -256,35 +304,23 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         else:
             warnings.append("ℹ️ No audio provided — record or upload a clip in the Audio panel.")
 
-        # Video — live webcam frame processed through MediaPipe + model
-        if webcam_frame is not None:
-            try:
-                import cv2
-                vp = get_video_pipe()
-                if vp is not None:
-                    # Gradio Image gives RGB numpy array
-                    frame_rgb = np.asarray(webcam_frame)
-                    if frame_rgb.dtype != np.uint8:
-                        frame_rgb = (frame_rgb * 255).clip(0, 255).astype(np.uint8)
-                    result = vp.predict_webcam(frame_rgb)
-                    if result is not None and result.get("buffer_ready"):
-                        preds["video"] = result["probs"]
-                        buf = result["buffer_frames"]
-                        src_parts.append(
-                            f"video:live(AU+pose {result['label']} "
-                            f"{result['confidence']:.2f} buf={buf}/{SEQ_LEN})"
-                        )
-                    elif result is not None:
-                        buf = result.get("buffer_frames", 0)
-                        warnings.append(
-                            f"ℹ️ Video buffer filling ({buf}/{SEQ_LEN} frames) — keep face visible."
-                        )
-                    else:
-                        warnings.append("ℹ️ No face detected in webcam frame.")
-                else:
-                    warnings.append(f"⚠️ {_VIDEO_ERROR}")
-            except Exception as exc:
-                warnings.append(f"⚠️ Video processing error: {exc}")
+        # Video — use the latest prediction from the continuous webcam stream
+        if video_result is not None and video_result.get("buffer_ready"):
+            preds["video"] = video_result["probs"]
+            buf = video_result["buffer_frames"]
+            src_parts.append(
+                f"video:live(AU+pose {video_result['label']} "
+                f"{video_result['confidence']:.2f} buf={buf}/{SEQ_LEN})"
+            )
+        elif video_result is not None:
+            buf = video_result.get("buffer_frames", 0)
+            warnings.append(
+                f"ℹ️ Video buffer filling ({buf}/{SEQ_LEN} frames) — keep face visible."
+            )
+        else:
+            warnings.append(
+                "ℹ️ No video yet — enable the webcam and let the buffer fill before sending."
+            )
 
         source = "live — " + "; ".join(src_parts) if src_parts else "live — text only"
 
@@ -308,7 +344,8 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
         tb = traceback.format_exc()
         return (
             history + [
-                [message.strip(), f"⚠️ Agent error: {exc}\n\n{tb}"],
+                {"role": "user", "content": message.strip()},
+                {"role": "assistant", "content": f"⚠️ Agent error: {exc}\n\n{tb}"},
             ],
             agent, None, None, "",
         )
@@ -341,7 +378,8 @@ def respond(message, history, agent, mode, sample_idx, sim_label, sim_conf,
     }
 
     new_history = history + [
-        [message.strip(), out["reply"]],
+        {"role": "user", "content": message.strip()},
+        {"role": "assistant", "content": out["reply"]},
     ]
     return new_history, agent, trace, agent.memory.summary(), ""
 
@@ -355,7 +393,7 @@ def reset_conversation(goal, _history, _agent):
         device="cpu",
         llm_config=LLM_CONFIG,
     )
-    return [], agent, None, agent.memory.summary()
+    return [], agent, None, agent.memory.summary(), None, "_Buffer cleared — enable the webcam to refill._"
 
 
 def toggle_mode(mode):
@@ -377,6 +415,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
         f"Emotion detection → emotional state → memory → strategy → reply  |  LLM: {LLM_LABEL}"
     )
     agent_state = gr.State(None)
+    video_state = gr.State(None)   # latest webcam video prediction (from the stream)
 
     with gr.Row():
         # ── Left column: chat ─────────────────────────────────────────────
@@ -466,7 +505,7 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
     # ── Wire up events ────────────────────────────────────────────────────
     inputs = [
         msg, chatbot, agent_state, mode, sample_idx, sim_label, sim_conf,
-        goal_box, audio_in, webcam_in,
+        goal_box, audio_in, video_state,
     ]
     outputs = [chatbot, agent_state, trace_json, memory_json, msg]
 
@@ -475,7 +514,14 @@ with gr.Blocks(title="Behaviour-Change Coach") as demo:
     reset_btn.click(
         reset_conversation,
         [goal_box, chatbot, agent_state],
-        [chatbot, agent_state, trace_json, memory_json],
+        [chatbot, agent_state, trace_json, memory_json, video_state, video_status],
+    )
+
+    # Continuous webcam stream — fills the 16-frame buffer and reports live status
+    webcam_in.stream(
+        on_webcam_frame,
+        [webcam_in, video_state],
+        [video_state, video_status],
     )
 
     # Mode toggle
